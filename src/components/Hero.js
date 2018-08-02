@@ -1,15 +1,17 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-const Content = ({ lan, data: { hero } }) => console.log(hero)||(
+import { addLang } from './layout'
+
+const Content = ({ dataYaml: { hero }, language }) => (
   <div style={{ display: "flex" }}>
     <div>
-      <h3>{hero[lan].title}</h3>
-      <h1>{hero[lan].subTitle}</h1>
-      <p>{hero[lan].body}</p>
+      <h3>{hero[language].title}</h3>
+      <h1>{hero[language].subTitle}</h1>
+      <p>{hero[language].body}</p>
     </div>
     <div>
-      <img src={require(`../assets/${hero[lan].img}`)} alt="Logo" />
+      <img src={require(`../assets/${hero[language].img}`)} alt="Logo" />
     </div>
   </div>
 )
@@ -36,7 +38,7 @@ const Hero = () => (
         }
       }
     `}
-    render={({ dataYaml }) => <Content lan='en' data={dataYaml} />}
+    render={({ dataYaml }) => addLang(Content, { dataYaml })}
   />
 )
 
