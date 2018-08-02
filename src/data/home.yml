@@ -3,9 +3,60 @@ hero:
     title: 'Take control over your assets.'
     subTitle: 'Be Your Bank.'
     body: 'We are uniting traditional banking with the advantages of distributed ledger systems.'
-    img: 'hero_Illustration.gif'
+    img: 'assets/images/hero_Illustration.gif'
   zh:
     title: '一手掌控你的资产。'
     subTitle: 你就是自己的银行。'
     body: '将传统银行业务和投资与分布式账本系统优势结合。'
-    img: 'hero_Illustration.gif'
+    img: 'assets/images/hero_Illustration.gif'
+
+imagine:
+  en:
+    title: 'Imagine a bank which is independent and distributed.'
+    subTitle: 'Where transactions take seconds and plenty of services can be flexibly chosen at any time. Where assets are being held by you only, well protected by the consensus of the blockchain.'
+  zh:
+    title: '想象一家独立分布式的银行。'
+    subTitle: '几秒之间完成转账、随时随地办理业务、除了你自己没有其他机构可以掌握你的资产、使用区块链共识进行完美的资产保护。'
+
+crypto:
+  en:
+    title: 'Crypto banking made simple.'
+    subTitle: 'We strongly believe, mass adoption comes with customer satisfaction. Say good bye to messy wallets and complicated procedures. Mintfort will become a convenient banking solution connecting your virtual currencies with the real world and lets you integrate third-party business services.'
+    img: 'assets/images/banking_made_simple.png'
+  zh:
+    title: '简化加密货币在银行业务中的使用。'
+    subTitle: '我们坚信大规模采用来自于客户满意。与凌乱的钱包和复杂的程序说再见。Mintfort将成为一种方便的银行解决方案，将你的虚拟货币与现实世界连接起来，并为你整合第三方业务服务。'
+    img: 'assets/images/banking_made_simple.png'
+
+cards:
+  pay:
+    en:
+      title: 'Pay at your local store with virtual currencies.'
+      img: 'assets/images/shop_high.gif'
+    zh:
+      title: '在商店使用虚拟货币支付。'
+      img: 'assets/images/shop_high.gif'
+
+  control:
+    en:
+      title: 'Control all your assets where ever you want.'
+      img: 'assets/images/payment_high.gif'
+    zh:
+      title: '<chinese translation here>'
+      img: 'assets/images/payment_high.gif'
+
+  receive:
+    en:
+      title: 'Receive your payroll in Bitcoin and more.'
+      img: 'assets/images/payroll_high.gif'
+    zh:
+      title: '以比特币等方式收到你的工资。'
+      img: 'assets/images/payroll_high.gif'
+
+access:
+  en:
+    title: 'Access to a whole finance ecosystem.'
+    subTitle: 'Our vision is a bank, where customers retain full control over their assets. Therefore, we are building a finance platform empowered by the blockchain, providing access to both banking and investment services.'
+  zh:
+    title: '进入整个金融生态系统。'
+    subTitle: '我们的愿景是创建一家客户可以完全控制其资产的“银行”。因此，我们正在建立一个由区块链授权的金融平台，提供银行和投资服务。'
