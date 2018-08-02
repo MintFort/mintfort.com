@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
+// Context creator
+const { Provider, Consumer } = createContext()
+
 import Header from './header'
 
-const Layout = ({ children, data }) => (
+class Context extends Component {
+  state = {
+    language: 'en'
+  }
+  handleLanguage(){
+    this.setState(state => ({
+      language: state.language === 'en' ? 'zh' : 'en'
+    }))
+  }
+
+  render(){
+    return (
+      <Provider value ={{
+        language: this.state.language,
+        onChangeLanguage: language => this.handleLanguage(language)
+      }}>{this.props.children}</Provider>
+    )
+  }
+}
+
+export const addLang = (Component, props) => (
+  <Consumer>{value => <Component {...props} {...value}/>}</Consumer>
+)
+
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
