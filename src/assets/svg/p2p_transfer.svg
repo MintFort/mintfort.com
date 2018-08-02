@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64" style="display: block;">
+  <g fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="10">
+    <path d="m0 32h63" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
+    <path stroke-linejoin="bevel" d="m54 41l9-9-9-9" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
+  </g>
+</svg>

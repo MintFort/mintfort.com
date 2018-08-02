@@ -11,7 +11,7 @@ const Content = ({ dataYaml: { hero }, language }) => (
       <p>{hero[language].body}</p>
     </div>
     <div>
-      <img src={require(`../assets/${hero[language].img}`)} alt="Logo" />
+      <img src={require('../' + hero[language].img)} alt="Logo" />
     </div>
   </div>
 )
