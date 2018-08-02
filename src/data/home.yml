@@ -1,0 +1,11 @@
+hero:
+  en:
+    title: 'Take control over your assets.'
+    subTitle: 'Be Your Bank.'
+    body: 'We are uniting traditional banking with the advantages of distributed ledger systems.'
+    img: 'hero_Illustration.gif'
+  cn:
+    title: '一手掌控你的资产。'
+    subTitle: 你就是自己的银行。'
+    body: '将传统银行业务和投资与分布式账本系统优势结合。'
+    img: 'hero_Illustration.gif'
