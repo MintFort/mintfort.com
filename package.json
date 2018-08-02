@@ -9,6 +9,7 @@
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-styled-components": "^3.0.0-beta.3",
     "gatsby-plugin-typography": "^1.7.19",
+    "gatsby-source-filesystem": "^2.0.1-beta.10",
     "gatsby-transformer-yaml": "^2.1.1-beta.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -19,7 +20,8 @@
   },
   "devDependencies": {
     "eslint": "^5.2.0",
-    "eslint-plugin-react": "^7.10.0"
+    "eslint-plugin-react": "^7.10.0",
+    "serve": "^9.4.0"
   },
   "keywords": [
     "gatsby"
@@ -28,7 +30,6 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "serve public"
   }
 }
