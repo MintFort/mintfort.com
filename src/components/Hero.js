@@ -26,7 +26,7 @@ const Hero = () => (
               body
               img
             }
-            cn {
+            zh {
               title
               subTitle
               body
