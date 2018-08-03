@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 
 import data from '../../siteConfig'
 
-const formatPath = str => str[1].toUpperCase() + str.slice(2)
+const formatPath = str => {
+  str = str.replace(/\//g, '')
+  return str[0].toUpperCase() + str.slice(1)
+}
 
 const SEO = props => (
   <Helmet
