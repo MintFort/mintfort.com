@@ -9,10 +9,10 @@ const formatPath = str => {
   return str[0].toUpperCase() + str.slice(1)
 }
 
-const SEO = props => (
+const SEO = ({ language, path }) => (
   <Helmet
-    htmlAttributes={{ lang: props.lang || "en-US" }}
-    title={`${data.title}${props.path.length > 1 ? ` | ${formatPath(props.path)}` : ''}`}
+    htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
+    title={`${data.title}${path.length > 1 ? ` | ${formatPath(path)}` : ''}`}
   >
     <link rel="shortcut icon" href={data.siteUrl + data.favicon}/>
     <link rel="icon" href={data.siteUrl + data.favicon}/>
@@ -20,11 +20,11 @@ const SEO = props => (
     <meta name="description" content={data.description} />
     <meta name="image" content={data.siteUrl + data.image} />
 
-    <meta property="og:locale" content={props.lang || "en-US"} />
+    <meta property="og:locale" content={language === 'en' ? "en-US" : 'zh' } />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={data.title} />
     <meta property="og:title" content={data.title} />
-    <meta property="og:url" content={data.siteUrl + props.path} />
+    <meta property="og:url" content={data.siteUrl + path} />
     <meta property="og:description" content={data.description} />
     <meta property="og:image" content={data.siteUrl + data.image} />
     <meta property="og:image:type" content="image/jpeg" />
@@ -35,15 +35,15 @@ const SEO = props => (
     <meta name="twitter:creator" content={data.userTwitter} />
     <meta name="twitter:site" content={data.userTwitter} />
     <meta name="twitter:title" content={data.title} />
-    <meta name="twitter:url" content={data.siteUrl + props.path} />
+    <meta name="twitter:url" content={data.siteUrl + path} />
     <meta name="twitter:description" content={data.description} />
     <meta name="twitter:image" content={data.siteUrl + data.image} />
   </Helmet>
 )
 
 SEO.propTypes = {
-  path: PropTypes.string,
-  lang: PropTypes.string
+  path: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired
 }
 
 
