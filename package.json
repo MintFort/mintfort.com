@@ -7,6 +7,7 @@
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "next",
     "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sitemap": "^2.0.0-beta.3",
     "gatsby-plugin-styled-components": "^3.0.0-beta.3",
     "gatsby-plugin-typography": "^1.7.19",
     "gatsby-source-filesystem": "^2.0.1-beta.10",

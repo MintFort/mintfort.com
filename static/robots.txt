@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://mintfort.com/sitemap.xml
