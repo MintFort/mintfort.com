@@ -1,11 +1,13 @@
+const config = require('./siteConfig')
+
 module.exports = {
   siteMetadata: {
-    title: 'Mintfort',
-    description: 'Be Yout Bank'
+    ...config
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
