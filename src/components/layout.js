@@ -1,12 +1,13 @@
 import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 // Context creator
 const { Provider, Consumer } = createContext()
 
 import Header from './header'
+
+import SEO from './SEO'
 
 class Context extends Component {
   state = {
@@ -32,7 +33,7 @@ export const addLang = (Component, props) => (
   <Consumer>{value => <Component {...props} {...value}/>}</Consumer>
 )
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -45,14 +46,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Helmet
-          htmlAttributes={{ lang: "en-US" }} //zh
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        />
+      <SEO path={location.pathname}/>
         <Context>
           {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
           <div
