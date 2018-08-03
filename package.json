@@ -31,6 +31,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "serve": "serve public"
+    "serve": "serve public",
+    "deploy": "npm run build && node deploy"
   }
 }
