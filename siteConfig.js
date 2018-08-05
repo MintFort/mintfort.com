@@ -7,5 +7,6 @@ module.exports = {
   userTwitter: 'mintfort',
   github: '#',
   themeColor: '#19DBB6',
-  backgroundColor: '#fff'
+  backgroundColor: '#fff',
+  languages: ['en', 'zh']
 }
