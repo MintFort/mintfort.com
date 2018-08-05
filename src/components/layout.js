@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, push } from 'gatsby'
 
 // Context creator
 const { Provider, Consumer } = createContext()
@@ -36,7 +36,10 @@ class Context extends Component {
 
     this.setState(state => ({
       language: state.language === 'en' ? 'zh' : 'en'
-    }), () => localStorage.setItem('lang', this.state.language))
+    }), () => {
+      localStorage.setItem('lang', this.state.language)
+      push(`/${this.state.language}`)
+    })
   }
 
   render(){

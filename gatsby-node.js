@@ -4,6 +4,9 @@ const { languages } = require('./siteConfig')
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
+      alias: {
+        siteConfig: path.resolve(__dirname, "siteConfig")
+      },
       modules: [path.resolve(__dirname, "src"), "node_modules"]
     }
   })
@@ -17,12 +20,12 @@ exports.onCreatePage = ({ page, actions }) => {
   }
 
   return new Promise(resolve => {
-    const redirect = path.resolve('src/utils/redirect.js')
+    const component = path.resolve('src/utils/redirect.js')
 
     deletePage(page)
     createPage({
       ...page,
-      component: redirect,
+      component,
       context: {
         languages,
         locale: '',
