@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { phone } from './utils'
 import { rem } from 'polished'
 
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
   flex-direction: ${({ col }) => col ? "column" : "row"};
 
@@ -41,7 +41,7 @@ export const Title = styled.h1`
   display: block;
   text-align: left;
   width: 100%;
-  font-size: ${rem(42)};
+  font-size: ${({ size }) => size ? rem(size) : rem(42)};
   font-weight: bold;
 `
 
@@ -61,4 +61,5 @@ export const Img = styled.img`
   width: 100%;
   display: block;
   height: ${({ height }) => height || "auto"};
+  margin: 0;
 `
