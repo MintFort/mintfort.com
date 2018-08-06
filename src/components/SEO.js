@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 
 import data from '../../siteConfig'
 
-const formatPath = str => {
-  str = str.replace(/\//g, '')
-  return str[0].toUpperCase() + str.slice(1)
-}
+// const formatPath = str => {
+//   str = str.replace(/\//g, '')
+//   return str[2].toUpperCase() + str.slice(3)
+// }
 
 const SEO = ({ language, path }) => (
   <Helmet
     htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
-    title={`${data.title}${path.length > 1 ? ` | ${formatPath(path)}` : ''}`}
+    title={data.title + ' | Be Your Bank'}
   >
     <link rel="shortcut icon" href={data.siteUrl + data.favicon}/>
     <link rel="icon" href={data.siteUrl + data.favicon}/>
