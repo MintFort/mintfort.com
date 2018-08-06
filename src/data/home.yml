@@ -41,7 +41,7 @@ cards:
       title: 'Control all your assets where ever you want.'
       img: 'assets/images/payment_high.gif'
     zh:
-      title: '<chinese translation here>'
+      title: '随时随地掌控你的资产'
       img: 'assets/images/payment_high.gif'
   receive:
     en:
