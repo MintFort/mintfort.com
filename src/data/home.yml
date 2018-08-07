@@ -14,19 +14,23 @@ imagine:
   en:
     title: 'Imagine a bank which is independent and distributed.'
     subTitle: 'Where transactions take seconds and plenty of services can be flexibly chosen at any time. Where assets are being held by you only, well protected by the consensus of the blockchain.'
+    background: 'assets/svg/dotted_side_blue_background.svg'
   zh:
     title: '想象一家独立分布式的银行。'
     subTitle: '几秒之间完成转账、随时随地办理业务、除了你自己没有其他机构可以掌握你的资产、使用区块链共识进行完美的资产保护。'
+    background: 'assets/svg/dotted_side_blue_background.svg'
 
 crypto:
   en:
     title: 'Crypto banking made simple.'
     subTitle: 'We strongly believe, mass adoption comes with customer satisfaction. Say good bye to messy wallets and complicated procedures. Mintfort will become a convenient banking solution connecting your virtual currencies with the real world and lets you integrate third-party business services.'
     img: 'assets/images/banking_made_simple.png'
+    background: 'assets/svg/dotted_white_background-01.svg'
   zh:
     title: '简化加密货币在银行业务中的使用。'
     subTitle: '我们坚信大规模采用来自于客户满意。与凌乱的钱包和复杂的程序说再见。Mintfort将成为一种方便的银行解决方案，将你的虚拟货币与现实世界连接起来，并为你整合第三方业务服务。'
     img: 'assets/images/banking_made_simple.png'
+    background: 'assets/svg/dotted_white_background-01.svg'
 
 cards:
   pay:
