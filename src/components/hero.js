@@ -7,9 +7,10 @@ import { Container, Title, SubHeader, Img } from 'library/index'
 import { hover, rem, transitions, navHeight } from 'library/utils'
 
 import dividerSVG from 'assets/svg/divider.svg'
+import heroBackground from 'assets/images/hero_background.jpg'
 
 const Background = styled.section`
-  background: #eaedf1 url(${require('../assets/images/hero_background.jpg')});
+  background: #eaedf1 url(${heroBackground});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
