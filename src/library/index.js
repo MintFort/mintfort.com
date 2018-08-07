@@ -43,11 +43,19 @@ export const Title = styled.h1`
   width: 100%;
   font-size: ${({ size }) => size ? rem(size) : rem(42)};
   font-weight: bold;
+
+  ${({ color }) => color && css`
+    color: ${color};
+  `}
 `
 
 export const Header = styled.h2`
   font-size: ${rem(32)};
   font-weight: 500;
+
+  ${({ color }) => color && css`
+    color: ${color};
+  `}
 `
 
 export const SubHeader = styled.h3`
@@ -55,11 +63,25 @@ export const SubHeader = styled.h3`
   margin: ${rem(35)} 0 ${rem(22)} 0;
   font-size: ${rem(24)};
   font-weight: 500;
+
+  ${({ color }) => color && css`
+    color: ${color};
+
+  `}
+`
+export const Paragraph = styled.p`
+  display: block;
+  margin: 0;
+
+  ${({ color }) => color && css`
+    color: ${color};
+  `}
 `
 
 export const Img = styled.img`
-  width: 100%;
   display: block;
-  height: ${({ height }) => height || "auto"};
   margin: 0;
+
+  height: ${({ height }) => height || "auto"};
+  width: ${({ width }) => width || "100%"};
 `
