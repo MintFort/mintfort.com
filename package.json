@@ -8,6 +8,8 @@
     "browser-lang": "0.0.1",
     "gatsby": "next",
     "gatsby-plugin-manifest": "^2.0.2-beta.3",
+    "gatsby-plugin-netlify": "^2.0.0-beta.5",
+    "gatsby-plugin-nprogress": "^2.0.0-beta.4",
     "gatsby-plugin-offline": "^2.0.0-beta.6",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sitemap": "^2.0.0-beta.3",

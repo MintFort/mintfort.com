@@ -8,6 +8,8 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,7 +34,13 @@ module.exports = {
         ]
       }
     },
-    "gatsby-plugin-offline",
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        navigateFallback: null,
+        navigateFallbackWhitelist: []
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,6 +51,13 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: config.themeColor,
+        showSpinner: false
       }
     }
   ]
