@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-transformer-yaml',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-manifest`,
