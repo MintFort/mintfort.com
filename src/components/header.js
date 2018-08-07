@@ -13,7 +13,7 @@ const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
 
   padding: 0 ${rem(20)};
-  height: ${navHeight}
+  height: ${navHeight};
 
   width: 100%;
   box-shadow: ${theme.shadow};
@@ -23,7 +23,7 @@ const Wrapper = styled.header`
 const Button = styled.button`
   background: transparent;
   border: none;
-  padding: ${rem(4)} ${rem(12)}
+  padding: ${rem(4)} ${rem(12)};
 
   cursor: pointer;
   color: ${theme.mint};

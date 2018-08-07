@@ -4,12 +4,12 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Montserrat',
-      styles: [ '800', '700', '500', '400' ],
+      styles: ['800', '700', '500', '400']
     },
     {
       name: 'Lato',
-      styles: ['400','500','700'],
-    },
+      styles: ['400', '500', '700']
+    }
   ],
   baseFontSize: "18px",
   baseLineHeight: 1.6,

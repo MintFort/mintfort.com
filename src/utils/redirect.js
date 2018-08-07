@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import browserLang from 'browser-lang'
+import PropTypes from 'prop-types'
 
 import { languages } from 'siteConfig'
 
-export default class Redirect extends PureComponent {
+export default class Redirect extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -17,4 +18,8 @@ export default class Redirect extends PureComponent {
     }
   }
   render = () => <></>
+}
+
+Redirect.propTypes = {
+  location: PropTypes.object.isRequired
 }
