@@ -68,7 +68,11 @@ Text.propTypes = {
 
 const Image = ({ img }) => (
   <div style={{ flex: 1 }}>
-    <Img src={require('../' + img)} alt="<>" />
+    <Img
+      src={require('../' + img)}
+      alt="Hero image"
+      draggable='false'
+    />
   </div>
 )
 
@@ -87,7 +91,7 @@ const Hero = ({ title, subTitle, body, img }) => (
       <Image img={img} />
     </Content>
     <Divider size={{ h: rem(80) }}>
-      <Img src={dividerSVG} height='%' alt="<>"/>
+      <Img src={dividerSVG} alt="Divider"/>
       <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
         <Icon />
       </IconWrapper>

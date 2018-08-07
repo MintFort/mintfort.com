@@ -36,7 +36,12 @@ const Button = styled.button`
 const Header = props => (
   <Wrapper>
     <Link to="/" >
-      <Img src={logo} alt='logo' height='auto' style={{ width: 200 }}/>
+      <Img
+        src={logo}
+        alt='logo'
+        height='auto'
+        style={{ width: 200 }}
+      />
     </Link>
     <Button onClick={() => props.onChangeLanguage()}>{props.language}</Button>
   </Wrapper>
