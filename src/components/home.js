@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 
 import { addLang } from 'components/context'
 import Hero from 'components/hero'
+import Block from 'components/block'
 
-import { hero } from 'data/home.yml'
+import { hero, imagine, crypto } from 'data/home.yml'
 
 class Home extends Component {
   state = {
@@ -15,12 +16,33 @@ class Home extends Component {
     const { language } = this.props
 
     return (
+      <>
       <Hero
         title={hero[language].title}
         subTitle={hero[language].subTitle}
         body={hero[language].body}
         img={hero[language].img}
       />
+      <Block
+        title={imagine[language].title}
+        subTitle={imagine[language].subTitle}
+        background= {imagine[language].background}
+        color={{
+          header: '#fff',
+          paragraph: '#788cc7'
+        }}
+      />
+      <Block
+        title={crypto[language].title}
+        subTitle={crypto[language].subTitle}
+        background= {crypto[language].background}
+        img= {crypto[language].img}
+        color={{
+          header: '#1f1f1f',
+          paragraph: '#7b828a'
+        }}
+      />
+      </>
     )
   }
 }
