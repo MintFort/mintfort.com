@@ -9,5 +9,4 @@ yarn-error.log
 
 # Enviroment
 .env.*
-.eslintrc
 deploy.js
