@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { addLang } from 'components/Context'
-import Hero from 'components/Hero'
+import { addLang } from 'components/context'
+import Hero from 'components/hero'
 
 import { hero } from 'data/home.yml'
 

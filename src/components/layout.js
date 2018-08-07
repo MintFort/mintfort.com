@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Headroom from 'react-headroom'
 
-import Header from 'components/Header'
-import SEO from 'components/SEO'
-import { Context, addLang } from 'components/Context'
+import Header from 'components/header'
+import SEO from 'components/seo'
+import { Context, addLang } from 'components/context'
 
 const Layout = ({ children, location }) => (
   <StaticQuery

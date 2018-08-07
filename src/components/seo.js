@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 
-import data from '../../siteConfig'
+import data from 'siteConfig'
 
 // const formatPath = str => {
 //   str = str.replace(/\//g, '')
