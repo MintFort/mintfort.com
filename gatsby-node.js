@@ -1,4 +1,6 @@
 const path = require('path')
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 const { languages } = require('./siteConfig')
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -11,6 +13,47 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     }
   })
 }
+
+
+exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode, basePath: "pages" })
+    createNodeField({
+      node,
+      value,
+      name: "slug"
+    })
+  }
+}
+
+exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(resolve => {
+  graphql(`
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  ).then(({ data }) => {
+    data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
+      createPage({
+        path: fields.slug,
+        component: path.resolve(`./src/components/markdown-template.js`),
+        context: {
+          slug: fields.slug
+        }
+      })
+    })
+    resolve()
+  })
+})
+
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
