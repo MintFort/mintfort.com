@@ -1,4 +1,6 @@
-# Impressum
+---
+title: "Impressum"
+---
 
 ## Angaben gemäß § 5 TMG:
 Petzka, Weber, Schuster GbR  
@@ -22,7 +24,7 @@ Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
 in Gründung
 
 ## Hinweis auf EU-Streitschlichtung
-Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:   http://ec.europa.eu/consumers/odr  
+Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
 Unsere E-Mail-Adresse finden sie oben im Impressum.
 
 ## Haftungsausschluss (Disclaimer)
