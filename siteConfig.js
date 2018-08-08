@@ -8,5 +8,12 @@ module.exports = {
   github: '#',
   themeColor: '#19DBB6',
   backgroundColor: '#fff',
-  languages: ['en', 'zh']
+  languages: ['en', 'zh'],
+  social: [
+    { name: "Github", url: 'https://github.com/MintFort' },
+    { name: "Facebook", url: 'https://www.facebook.com/mintfortbank' },
+    { name: "Linkedin", url: 'https://www.linkedin.com/company/mintfort/' },
+    { name: "Twitter", url: 'https://twitter.com/mintfort' },
+    { name: "Medium", url: 'https://medium.com/mintfort' }
+  ]
 }
