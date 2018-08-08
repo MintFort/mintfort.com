@@ -40,19 +40,15 @@ export const hover = inner => css`
   }
 `
 
-const shared = {
-  mint: '#19DBB6',
-  red: '#F44336',
-  lightFont: "#A2A3AB"
-}
 
 export const theme = {
-  ...shared,
-  name: 'light',
+  mint: '#19DBB6',
+  blue: '#1b243f',
+  red: '#F44336',
+  lightFont: "#A2A3AB",
   main: '#fff',
   background: '#f4f5fA',
   backgroundCard: '#eaecf5',
-  color: 'rgba(0, 0, 0, 0.65)',
   border: '1px solid #f4f5fA',
   shadow: '0 1px 6px 0 #e2e4ed'
 }
