@@ -1,11 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import Headroom from 'react-headroom'
+import { injectGlobal } from "styled-components"
+import { css } from 'styled-components'
 
 import Header from 'components/header'
+import Footer from 'components/footer'
 import SEO from 'components/seo'
 import { Context, addLang } from 'components/context'
+
+import { theme, hover, transitions } from 'library/utils'
+
+injectGlobal`
+  a {
+    text-decoration: none;
+
+    ${hover(css`
+      color: ${theme.mint};
+    `)}
+
+    ${transitions('color 0.1s ease')};
+  }
+`
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -22,12 +38,11 @@ const Layout = ({ children, location }) => (
       <>
       <Context>
         {addLang(SEO, { path: location.pathname })}
-        <Headroom>
-          {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
-        </Headroom>
+        {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
         <div>
           {children}
         </div>
+        <Footer />
       </Context>
       </>
     )}
