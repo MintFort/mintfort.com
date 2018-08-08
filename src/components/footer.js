@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link as GatsbLink } from 'gatsby'
 
 import styled, { css } from 'styled-components'
 import { social } from 'siteConfig'
@@ -21,15 +21,21 @@ const Wrapper = styled.footer`
   `)}
 `
 
-const icon = name => {
-  const Component = require("react-icons/fa")['Fa' + name]
-  return <Component />
-}
-
-const StyledLink = styled(Link)`
+const linkStyles = css`
   color: ${theme.lightFont};
   padding: ${rem(4)};
-  font-size: ${({ icon }) => icon ? rem(16) : rem(12)};
+`
+
+const Link = styled(GatsbLink)`
+  ${linkStyles}
+  font-size: ${rem(12)};
+`
+
+const ExternalLink = styled.a.attrs({
+  href: ({ to }) => to
+})`
+  ${linkStyles}
+  font-size: ${rem(16)};
 `
 
 const Section = Container.extend`
@@ -39,35 +45,32 @@ const Section = Container.extend`
   `)}
 `
 
+const icon = name => {
+  const Component = require("react-icons/fa")['Fa' + name]
+  return <Component />
+}
+
 const Footer = () => (
   <Wrapper>
     <Section
       size={{ w: '100%', h: '100%' }}
       position={{ x: 'flex-start', y: 'center' }}
     >
-      <StyledLink
-        to="/impressum"
-        activeStyle={{ color: '#fff' }}
-      >
+      <Link to="/impressum" activeStyle={{ color: '#fff' }}>
         Impressum
-      </StyledLink>
-      <StyledLink
-        to="/policy"
-        activeStyle={{ color: '#fff' }}
-      >
+      </Link>
+      <Link to="/policy" activeStyle={{ color: '#fff' }}>
         Privacy Policy
-      </StyledLink>
+      </Link>
     </Section>
     <Section
       size={{ w: '100%', h: '100%' }}
       position={{ x: 'flex-end', y: 'center' }}
     >
       {social.map(s => (
-        <StyledLink
-          icon
-          key={s.name}
-          to={s.url}>{icon(s.name)}
-        </StyledLink>
+        <ExternalLink key={s.name} to={s.url}>
+          {icon(s.name)}
+        </ExternalLink>
       ))}
     </Section>
   </Wrapper>
