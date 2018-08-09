@@ -23,7 +23,6 @@ const HeroImage = ({ backImage }) => (
     imgStyle={{ height: '100vh' }}
     alt='Mintfort hero banner'
     title='Mintfort hero banner'
-    backgroundColor={'#fff'}
     fluid={backImage.childImageSharp.fluid}
   />
 )
@@ -107,8 +106,8 @@ const Hero = ({ title, subTitle, body, img }) => (
       query {
         backImage: file(relativePath: { eq: "images/hero_background.png"}) {
           childImageSharp {
-            fluid(maxWidth: 2000, maxHeight: 1021 ) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 2000) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
