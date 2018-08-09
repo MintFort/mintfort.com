@@ -3,16 +3,19 @@ title: "Impressum"
 ---
 
 ## Angaben gemäß § 5 TMG:
+
 Petzka, Weber, Schuster GbR  
 Wühlischstrasse 56  
-10245 Berlin  
+10245 Berlin
 
 ## Vertreten durch:
+
 Philipp Petzka  
 Oliver Weber  
-Moritz Schuster  
+Moritz Schuster
 
 ## Kontakt:
+
 **Telefon:**  
 +49 17651951336
 
@@ -20,13 +23,16 @@ Moritz Schuster
 info@mintfort.com
 
 ## Umsatzsteuer-ID:
-Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:  DE317290071
+
+Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE317290071
 
 ## Hinweis auf EU-Streitschlichtung
+
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
 Unsere E-Mail-Adresse finden sie oben im Impressum.
 
 ## Haftungsausschluss (Disclaimer)
+
 ### Haftung für Inhalte
 
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
