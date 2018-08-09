@@ -54,7 +54,7 @@ Image.propTypes = {
   src: PropTypes.string.isRequired
 }
 
-const Block = ({ title, subTitle, background, img, color }) => (
+const Section = ({ title, subTitle, background, img, color }) => (
   <Background src={background}>
     <Text
       title={title}
@@ -65,7 +65,7 @@ const Block = ({ title, subTitle, background, img, color }) => (
   </Background>
 )
 
-Block.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   background: PropTypes.string,
@@ -74,4 +74,4 @@ Block.propTypes = {
 }
 
 
-export default Block
+export default Section
