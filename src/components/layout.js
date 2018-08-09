@@ -39,9 +39,9 @@ const Layout = ({ children, location }) => (
       <Context>
         {addLang(SEO, { path: location.pathname })}
         {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
-        <div>
+        <main>
           {children}
-        </div>
+        </main>
         <Footer />
       </Context>
       </>
