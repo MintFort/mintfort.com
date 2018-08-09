@@ -7,7 +7,7 @@ import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import { SectionBoxes, Box } from 'components/box'
 
-import { hero, imagine, crypto, access, cards, boxes } from 'data/home.yml'
+import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
 const Home = ({ language }) => (
   <>
@@ -65,6 +65,15 @@ const Home = ({ language }) => (
         />
       ))}
     </SectionBoxes>
+    <Section
+      title={control[language].title}
+      subTitle={control[language].subTitle}
+      color={{
+        background: '#1b243f',
+        header: '#fff',
+        paragraph: '#788cc7'
+      }}
+    />
   </>
 )
 

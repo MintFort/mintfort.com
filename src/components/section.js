@@ -6,6 +6,10 @@ import { Container, Header, Paragraph, Img } from 'library/index'
 import { rem } from 'library/utils'
 
 const Background = styled.section`
+  ${({ color }) => css`
+    background: ${color};
+  `}
+
   ${({ src }) => src && css`
     background: url(${require('../' + src)});
     background-position: center;
@@ -13,7 +17,7 @@ const Background = styled.section`
     background-size: cover;
   `}
 
-  padding: 10vh 0;
+  padding: 14vh 0;
   display: flex;
   flex-direction: column;
 `
@@ -55,7 +59,7 @@ Image.propTypes = {
 }
 
 const Section = ({ title, subTitle, background, img, color }) => (
-  <Background src={background}>
+  <Background src={background} color={color && color.background}>
     <Text
       title={title}
       subTitle={subTitle}
