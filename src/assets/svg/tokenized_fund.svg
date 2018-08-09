@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64" style="display: block;">
-  <g fill="none" stroke="#000" stroke-linejoin="bevel" stroke-width="2" stroke-miterlimit="10">
+  <g fill="none" stroke="#fff" stroke-linejoin="bevel" stroke-width="2" stroke-miterlimit="10">
     <path d="m59 56c0 3.866-11.641 7-26 7s-26-3.134-26-7" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
     <path d="m59 40c0 3.866-11.641 7-26 7s-26-3.134-26-7" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
     <path d="m59 24c0 3.866-11.641 7-26 7s-26-3.134-26-7" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>

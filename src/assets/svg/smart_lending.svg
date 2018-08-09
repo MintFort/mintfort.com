@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64" style="display: block;">
-  <g fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="10">
+  <g fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10">
     <path d="M32,1C14.879,1,1,14.879,1,32s13.879,31,31,31" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
     <path d="m32 1c17.12 0 31 13.879 31 31 0 6.713-2.134 12.926-5.759 18l-5.62 5.621" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
     <path stroke-linejoin="bevel" d="m51 45v11h11" style="stroke-dashoffset: 2e-05; stroke-dasharray: none;"></path>
