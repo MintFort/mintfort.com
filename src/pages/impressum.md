@@ -20,8 +20,7 @@ Moritz Schuster
 info@mintfort.com
 
 ## Umsatzsteuer-ID:
-Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:  
-in Gründung
+Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:  DE317290071
 
 ## Hinweis auf EU-Streitschlichtung
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
