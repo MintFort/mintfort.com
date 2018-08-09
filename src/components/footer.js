@@ -14,7 +14,7 @@ const Wrapper = styled.footer`
   height: calc(${navHeight} * 2);
 
   width: 100%;
-  background: ${theme.blue};
+  background: #fff;
 
   ${phone(css`
     flex-direction: column;
