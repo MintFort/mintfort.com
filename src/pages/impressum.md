@@ -89,7 +89,7 @@ Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies i
 
 ### Server-Log-Files
 
-DerProvider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
 
 - Browsertyp/ Browserversion
 - verwendetes Betriebssystem
