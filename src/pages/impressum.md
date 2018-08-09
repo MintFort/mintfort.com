@@ -61,7 +61,11 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Komm
 
 ### Datenschutzerklärung für die Nutzung von Google Analytics
 
-Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway Mountain View, CA 94043, USA.
+Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die:
+
+Google LLC,
+1600 Amphitheatre Parkway,
+Mountain View, CA 94043
 
 Google Analytics verwendet sog. “Cookies”. Das sind Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
 
