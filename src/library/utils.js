@@ -29,8 +29,8 @@ export const centrate = css`
 
 export const flex = inner => css`
   display: flex;
-  justify-content: ${inner.x};
-  align-items: ${inner.y};
+  justify-content: ${inner.x || "center"};
+  align-items: ${inner.y || "center"};
 `
 
 export const hover = inner => css`
