@@ -56,10 +56,10 @@ const Footer = () => (
       size={{ w: '100%', h: '100%' }}
       position={{ x: 'flex-start', y: 'center' }}
     >
-      <Link to="/impressum/" activeStyle={{ color: '#fff' }}>
+      <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
         Impressum
       </Link>
-      <Link to="/policy/" activeStyle={{ color: '#fff' }}>
+      <Link to="/policy/" activeStyle={{ color: theme.blue }}>
         Privacy Policy
       </Link>
     </Section>
