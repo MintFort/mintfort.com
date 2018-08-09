@@ -48,19 +48,8 @@ We do not sell, trade, or otherwise transfer to outside parties your Personally 
 #### Third-party links
 We do not include or offer third-party products or services on our website.
 
-#### Google
-Google’s advertising requirements can be summed up by Google’s Advertising Principles. They are put in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en
-
-#### We use Google AdSense Advertising on our website.
-Google, as a third-party vendor, uses cookies to serve ads on our site. Google’s use of the DART cookie enables it to serve ads to our users based on previous visits to our site and other sites on the Internet. Users may opt-out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.
-
-#### We have implemented the following:
-- Remarketing with Google AdSense
-- Google Display Network Impression Reporting
-- Demographics and Interests Reporting
-- DoubleClick Platform Integration
-
-We, along with third-party vendors such as Google use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) or other third-party identifiers together to compile data regarding user interactions with ad impressions and other ad service functions as they relate to our website.
+### Google Analytics
+...WIP...
 
 #### Opting out:
 Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt out by visiting the Network Advertising Initiative Opt Out page or by using the Google Analytics Opt Out Browser add on.
