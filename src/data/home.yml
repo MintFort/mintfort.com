@@ -33,25 +33,28 @@ crypto:
     background: 'assets/svg/dotted_white_background-01.svg'
 
 cards:
-  pay:
-    en:
+  - en:
+      id: 1
       title: 'Pay at your local store with virtual currencies.'
       img: 'assets/images/shop_high.gif'
     zh:
+      id: 1
       title: '在商店使用虚拟货币支付。'
       img: 'assets/images/shop_high.gif'
-  control:
-    en:
+  - en:
+      id: 2
       title: 'Control all your assets where ever you want.'
-      img: 'assets/images/payment_high.gif'
+      img: 'assets/images/payment_high.jpg'
     zh:
+      id: 2
       title: '随时随地掌控你的资产'
-      img: 'assets/images/payment_high.gif'
-  receive:
-    en:
+      img: 'assets/images/payment_high.jpg'
+  - en:
+      id: 3
       title: 'Receive your payroll in Bitcoin and more.'
       img: 'assets/images/payroll_high.gif'
     zh:
+      id: 3
       title: '以比特币等方式收到你的工资。'
       img: 'assets/images/payroll_high.gif'
 
