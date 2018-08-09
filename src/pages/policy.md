@@ -40,7 +40,7 @@ Yes. Cookies are small files that a site or its service provider transfers to yo
 
 You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser’s Help Menu to learn the correct way to modify your cookies.
 
-If you turn cookies off, It won’t affect the user’s experience .
+If you turn cookies off, It won’t affect the user’s experience.
 
 #### Third-party disclosure
 We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information.
