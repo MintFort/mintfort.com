@@ -16,6 +16,7 @@ const Background = styled.section`
   background-size: cover;
 
   min-height: calc(100vh - ${navHeight});
+  padding-top: ${navHeight};
 
   display: flex;
   flex-direction: column;
