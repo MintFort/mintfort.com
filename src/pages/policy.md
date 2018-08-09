@@ -23,8 +23,6 @@ We may use the information we collect from you when you register, make a purchas
 ### How do we protect your information?
 We do not use vulnerability scanning and/or scanning to PCI standards.
 
-We only provide articles and information. We never ask for credit card numbers.
-
 We use regular Malware Scanning.
 
 Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.
