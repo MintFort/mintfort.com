@@ -40,8 +40,7 @@ export const Card = ({ img, title, id }) => (
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  darkFont: PropTypes.bool
+  id: PropTypes.number.isRequired
 }
 
 export const SectionCards = styled.section`
