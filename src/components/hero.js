@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import GatsbyImg from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
+
 import styled, { css } from 'styled-components'
 import { FaChevronDown } from 'react-icons/fa'
 
@@ -7,16 +10,33 @@ import { Container, Title, SubHeader, Img } from 'library/index'
 import { hover, rem, transitions, navHeight } from 'library/utils'
 
 import dividerSVG from 'assets/svg/divider.svg'
-import heroBackground from 'assets/images/hero_background.jpg'
 
-const Background = styled.section`
-  background: #eaedf1 url(${heroBackground});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+const HeroImage = ({ backImage }) => (
+  <GatsbyImg
+    style={{
+      width: '100%',
+      height: '100vh',
+      top: 0,
+      zIndex: -1,
+      position: 'absolute'
+    }}
+    imgStyle={{ height: '100vh' }}
+    alt='Mintfort hero banner'
+    title='Mintfort hero banner'
+    backgroundColor={'#fff'}
+    fluid={backImage.childImageSharp.fluid}
+  />
+)
 
+HeroImage.propTypes = {
+  backImage: PropTypes.object.isRequired
+}
+
+const Wrapper = styled.section`
   min-height: calc(100vh - ${navHeight});
   padding-top: ${navHeight};
+  position: relative;
+  background: transparent;
 
   display: flex;
   flex-direction: column;
@@ -82,22 +102,38 @@ Image.propTypes = {
 }
 
 const Hero = ({ title, subTitle, body, img }) => (
-  <Background col>
-    <Content>
-      <Text
-        title={title}
-        subTitle={subTitle}
-        body={body}
-      />
-      <Image img={img} />
-    </Content>
-    <Divider size={{ h: rem(80) }}>
-      <Img src={dividerSVG} alt="Divider"/>
-      <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-        <Icon />
-      </IconWrapper>
-    </Divider>
-  </Background>
+  <StaticQuery
+    query={graphql`
+      query {
+        backImage: file(relativePath: { eq: "images/hero_background.png"}) {
+          childImageSharp {
+            fluid(maxWidth: 2000, maxHeight: 1021 ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={({ backImage }) => (
+      <Wrapper col >
+        <HeroImage backImage={backImage}/>
+        <Content>
+          <Text
+            title={title}
+            subTitle={subTitle}
+            body={body}
+          />
+          <Image img={img} />
+        </Content>
+        <Divider size={{ h: rem(80) }}>
+          <Img src={dividerSVG} alt="Divider"/>
+          <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
+            <Icon />
+          </IconWrapper>
+        </Divider>
+      </Wrapper>
+    )}
+  />
 )
 
 Hero.propTypes = {
