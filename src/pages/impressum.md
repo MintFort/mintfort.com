@@ -3,16 +3,19 @@ title: "Impressum"
 ---
 
 ## Angaben gemäß § 5 TMG:
+
 Petzka, Weber, Schuster GbR  
 Wühlischstrasse 56  
-10245 Berlin  
+10245 Berlin
 
 ## Vertreten durch:
+
 Philipp Petzka  
 Oliver Weber  
-Moritz Schuster  
+Moritz Schuster
 
 ## Kontakt:
+
 **Telefon:**  
 +49 17651951336
 
@@ -20,14 +23,16 @@ Moritz Schuster
 info@mintfort.com
 
 ## Umsatzsteuer-ID:
-Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:  
-in Gründung
+
+Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE317290071
 
 ## Hinweis auf EU-Streitschlichtung
+
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
 Unsere E-Mail-Adresse finden sie oben im Impressum.
 
 ## Haftungsausschluss (Disclaimer)
+
 ### Haftung für Inhalte
 
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
@@ -54,17 +59,13 @@ Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Date
 
 Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
 
-### Datenschutzerklärung für die Nutzung von etracker
-
-Unsere Webseite nutzt den Analysedienst etracker. Anbieter ist die etracker GmbH, Erste Brunnenstraße 1, 20459 Hamburg Germany. Aus den Daten können unter einem Pseudonym Nutzungsprofile erstellt werden. Dazu können Cookies eingesetzt werden. Bei Cookies handelt es sich um kleine Textdateien, die lokal im Zwischenspeicher Ihres Internet-Browsers gespeichert werden. Die Cookies ermöglichen es, Ihren Browser wieder zu erkennen. Die mit den etracker-Technologien erhobenen Daten werden ohne die gesondert erteilte Zustimmung des Betroffenen nicht genutzt, Besucher unserer Website persönlich zu identifizieren und werden nicht mit personenbezogenen Daten über den Träger des Pseudonyms zusammengeführt.
-
-Der Datenerhebung und -speicherung können Sie jederzeit mit Wirkung für die Zukunft widersprechen. Um einer Datenerhebung und -speicherung Ihrer Besucherdaten für die Zukunft zu widersprechen, können Sie unter nachfolgendem Link ein Opt-Out- Cookie von etracker beziehen, dieser bewirkt, dass zukünftig keine Besucherdaten Ihres Browsers bei etracker erhoben und gespeichert werden: http://www.etracker.de/privacy?et=V23Jbb
-
-Dadurch wird ein Opt-Out-Cookie mit dem Namen “cntcookie” von etracker gesetzt. Bitte löschen Sie diesen Cookie nicht, solange Sie Ihren Widerspruch aufrecht erhalten möchten. Weitere Informationen finden Sie in den Datenschutzbestimmungen von etracker: http://www.etracker.com/de/datenschutz.html
-
 ### Datenschutzerklärung für die Nutzung von Google Analytics
 
-Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway Mountain View, CA 94043, USA.
+Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die:
+
+Google LLC,
+1600 Amphitheatre Parkway,
+Mountain View, CA 94043
 
 Google Analytics verwendet sog. “Cookies”. Das sind Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
 
@@ -88,7 +89,7 @@ Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies i
 
 ### Server-Log-Files
 
-DerProvider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns übermittelt. Dies sind:
 
 - Browsertyp/ Browserversion
 - verwendetes Betriebssystem
