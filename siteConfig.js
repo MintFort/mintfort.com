@@ -5,10 +5,10 @@ module.exports = {
   favicon: '/icons/mintfort_icon-32x32.png',
   image: '/images/mintfort_product_002.jpg',
   userTwitter: 'mintfort',
-  github: '#',
   themeColor: '#19DBB6',
   backgroundColor: '#fff',
   languages: ['en', 'zh'],
+  whitepaper: '/files/Whitepaper_1.2.0.pdf',
   social: [
     { name: "Github", url: 'https://github.com/MintFort' },
     { name: "Facebook", url: 'https://www.facebook.com/mintfortbank' },
