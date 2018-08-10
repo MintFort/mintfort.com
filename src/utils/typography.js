@@ -8,7 +8,7 @@ const typography = new Typography({
     },
     {
       name: 'Lato',
-      styles: ['400', '500', '700']
+      styles: ['200', '400', '500', '700']
     }
   ],
   baseFontSize: "18px",

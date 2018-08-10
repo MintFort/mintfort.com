@@ -16,6 +16,7 @@ import backImage from 'assets/svg/global_background-01.svg'
 injectGlobal`
   a {
     text-decoration: none;
+    color: #1f1f1f;
 
     ${hover(css`
       color: ${theme.mint};
@@ -45,7 +46,7 @@ const Layout = ({ children, location }) => (
       <>
       <Context>
         {addLang(SEO, { path: location.pathname })}
-        {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
+        {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
         <Main>
           {children}
         </Main>
