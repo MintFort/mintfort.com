@@ -1,41 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
-
-import styled, { css } from 'styled-components'
+// import GatsbyImg from 'gatsby-image'
+// import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 
-import { Container, Title, SubHeader, Img } from 'library/index'
+import styled, { css } from 'styled-components'
 import { hover, rem, transitions, navHeight, theme } from 'library/utils'
+
+import { Container, Title, SubHeader, Img } from 'library/index'
+import heroBackground from 'assets/images/hero_background.png'
 
 import Divider from 'library/divider'
 
-const HeroImage = ({ backImage }) => (
-  <GatsbyImg
-    style={{
-      width: '100%',
-      height: '100vh',
-      top: 0,
-      zIndex: -1,
-      position: 'absolute'
-    }}
-    imgStyle={{ height: '100vh' }}
-    alt='Mintfort hero banner'
-    title='Mintfort hero banner'
-    fluid={backImage.childImageSharp.fluid}
-  />
-)
+const Background = styled.section`
+  background: #eaedf1 url(${heroBackground});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-HeroImage.propTypes = {
-  backImage: PropTypes.object.isRequired
-}
-
-const Wrapper = styled.section`
   min-height: calc(100vh - ${navHeight});
   padding-top: ${navHeight};
-  position: relative;
-  background: transparent;
 
   display: flex;
   flex-direction: column;
@@ -95,37 +79,21 @@ Image.propTypes = {
 }
 
 const Hero = ({ title, subTitle, body, img }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        backImage: file(relativePath: { eq: "images/hero_background.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2000) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={({ backImage }) => (
-      <Wrapper col >
-        <HeroImage backImage={backImage}/>
-        <Content>
-          <Text
-            title={title}
-            subTitle={subTitle}
-            body={body}
-          />
-          <Image img={img} />
-        </Content>
-        <Divider fill={theme.blue}>
-          <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-            <Icon />
-          </IconWrapper>
-        </Divider>
-      </Wrapper>
-    )}
-  />
+  <Background col>
+    <Content>
+      <Text
+        title={title}
+        subTitle={subTitle}
+        body={body}
+      />
+      <Image img={img} />
+    </Content>
+    <Divider fill={theme.blue}>
+      <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
+        <Icon />
+      </IconWrapper>
+    </Divider>
+  </Background>
 )
 
 Hero.propTypes = {
@@ -135,5 +103,60 @@ Hero.propTypes = {
   img: PropTypes.string.isRequired
 }
 
-
 export default Hero
+
+// const HeroImage = ({ backImage }) => (
+//   <GatsbyImg
+//     style={{
+//       width: '100%',
+//       height: '100vh',
+//       top: 0,
+//       position: 'absolute'
+//     }}
+//     alt='Mintfort hero banner'
+//     title='Mintfort hero banner'
+//     fluid={backImage.childImageSharp.fluid}
+//   />
+// )
+//
+// HeroImage.propTypes = {
+//   backImage: PropTypes.object.isRequired
+// }
+
+
+
+// const Hero = ({ title, subTitle, body, img }) => (
+//   <StaticQuery
+//     query={graphql`
+//       query {
+//         backImage: file(relativePath: { eq: "images/hero_background.png"}) {
+//           childImageSharp {
+//             fluid(maxWidth: 2000) {
+//               ...GatsbyImageSharpFluid_tracedSVG
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={({ backImage }) => (
+//       <Wrapper col>
+//         <HeroImage backImage={backImage}/>
+//         <Inner>
+//           <Content>
+//             <Text
+//               title={title}
+//               subTitle={subTitle}
+//               body={body}
+//             />
+//             <Image img={img} />
+//           </Content>
+//           <Divider fill={theme.blue}>
+//             <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
+//               <Icon />
+//             </IconWrapper>
+//           </Divider>
+//         </Inner>
+//       </Wrapper>
+//     )}
+//   />
+// )
