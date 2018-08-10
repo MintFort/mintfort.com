@@ -7,9 +7,9 @@ import styled, { css } from 'styled-components'
 import { FaChevronDown } from 'react-icons/fa'
 
 import { Container, Title, SubHeader, Img } from 'library/index'
-import { hover, rem, transitions, navHeight } from 'library/utils'
+import { hover, rem, transitions, navHeight, theme } from 'library/utils'
 
-import dividerSVG from 'assets/svg/divider.svg'
+import Divider from 'library/divider'
 
 const HeroImage = ({ backImage }) => (
   <GatsbyImg
@@ -47,21 +47,15 @@ const Content = Container.extend`
   flex: 1;
 `
 
-const Divider = Container.extend`
-  height: ${rem(80)};
-  position: relative;
-`
-
 const IconWrapper = Container.extend`
   position: absolute;
-  bottom: 0
+  bottom: 0;
 `
 
 const Icon = styled(FaChevronDown)`
   width: ${rem(40)};
   height: ${rem(40)};
   padding: ${rem(8)};
-
   color: #fff;
   cursor: pointer;
 
@@ -124,8 +118,7 @@ const Hero = ({ title, subTitle, body, img }) => (
           />
           <Image img={img} />
         </Content>
-        <Divider size={{ h: rem(80) }}>
-          <Img src={dividerSVG} alt="Divider"/>
+        <Divider fill={theme.blue}>
           <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
             <Icon />
           </IconWrapper>
