@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { injectGlobal } from "styled-components"
+import styled, { injectGlobal } from "styled-components"
 import { css } from 'styled-components'
 
 import Header from 'components/header'
@@ -10,6 +10,8 @@ import SEO from 'components/seo'
 import { Context, addLang } from 'components/context'
 
 import { theme, hover, transitions } from 'library/utils'
+
+import backImage from 'assets/svg/global_background-01.svg'
 
 injectGlobal`
   a {
@@ -21,6 +23,11 @@ injectGlobal`
 
     ${transitions('color 0.1s ease')};
   }
+`
+
+const Main = styled.main`
+  background-image: url(${backImage});
+  background-repeat: repeat-y;
 `
 
 const Layout = ({ children, location }) => (
@@ -39,9 +46,9 @@ const Layout = ({ children, location }) => (
       <Context>
         {addLang(SEO, { path: location.pathname })}
         {addLang(Header, { siteTitle: data.site.siteMetadata.title })}
-        <main>
+        <Main>
           {children}
-        </main>
+        </Main>
         <Footer />
       </Context>
       </>
