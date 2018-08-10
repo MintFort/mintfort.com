@@ -11,8 +11,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -25,13 +23,6 @@ module.exports = {
         theme_color: config.themeColor,
         display: "minimal-ui",
         icon: `src/assets/mintfort_icon-512x512.png`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        navigateFallback: null,
-        navigateFallbackWhitelist: []
       }
     },
     {
@@ -67,6 +58,15 @@ module.exports = {
         color: config.themeColor,
         showSpinner: false
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        navigateFallback: null,
+        navigateFallbackWhitelist: []
+      }
+    },
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify-cache'
   ]
 }
