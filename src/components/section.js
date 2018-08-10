@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { Container, Header, Paragraph, Img } from 'library/index'
-import { rem } from 'library/utils'
+import { rem, theme } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
@@ -11,7 +11,7 @@ const Background = styled.section`
   `}
 
   ${({ src }) => src && css`
-    background: url(${require('../' + src)});
+    background: ${src.includes('blue') && theme.blue} url(${require('../' + src)});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -59,7 +59,10 @@ Image.propTypes = {
 }
 
 const Section = ({ title, subTitle, background, img, color }) => (
-  <Background src={background} color={color && color.background}>
+  <Background
+    src={background}
+    color={color && color.background}
+  >
     <Text
       title={title}
       subTitle={subTitle}
