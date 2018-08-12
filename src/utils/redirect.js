@@ -1,7 +1,6 @@
 import React from 'react'
 import browserLang from 'browser-lang'
 import PropTypes from 'prop-types'
-import { navigate } from 'gatsby'
 
 import { languages } from 'siteConfig'
 
@@ -15,7 +14,7 @@ export default class Redirect extends React.PureComponent {
       const lang = localStorage.getItem('lang') || browserLang({ languages, fallback: languages[0] })
 
       localStorage.setItem('lang', lang)
-      navigate(`/${lang}${pathname}`)
+      location.replace(`/${lang}${pathname}`)
     }
   }
   render = () => <></>

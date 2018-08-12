@@ -9,7 +9,7 @@ import data from 'siteConfig'
 //   return str[2].toUpperCase() + str.slice(3)
 // }
 
-const SEO = ({ language, path }) => (
+const SEO = ({ language }) => (
   <Helmet
     htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
     title={data.title + ' | Be Your Bank'}
@@ -24,7 +24,7 @@ const SEO = ({ language, path }) => (
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={data.title} />
     <meta property="og:title" content={data.title} />
-    <meta property="og:url" content={data.siteUrl + path} />
+    <meta property="og:url" content={data.siteUrl} />
     <meta property="og:description" content={data.description} />
     <meta property="og:image" content={data.siteUrl + data.image} />
     <meta property="og:image:type" content="image/jpeg" />
@@ -35,7 +35,7 @@ const SEO = ({ language, path }) => (
     <meta name="twitter:creator" content={data.userTwitter} />
     <meta name="twitter:site" content={data.userTwitter} />
     <meta name="twitter:title" content={data.title} />
-    <meta name="twitter:url" content={data.siteUrl + path} />
+    <meta name="twitter:url" content={data.siteUrl} />
     <meta name="twitter:description" content={data.description} />
     <meta name="twitter:image" content={data.siteUrl + data.image} />
   </Helmet>
