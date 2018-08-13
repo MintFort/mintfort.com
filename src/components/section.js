@@ -31,14 +31,24 @@ const Text = ({ title, subTitle, color }) => (
   <Container centrate>
     <Wrapper col>
       <Header color={color.header}>{title}</Header>
-      <Paragraph color={color.paragraph}>{subTitle}</Paragraph>
+      {
+        typeof subTitle === 'string' ?
+          <Paragraph
+            color={color.paragraph}>
+            {subTitle}
+          </Paragraph> :
+          subTitle
+      }
     </Wrapper>
   </Container>
 )
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired,
   color: PropTypes.object.isRequired
 }
 
@@ -74,7 +84,10 @@ const Section = ({ title, subTitle, background, img, color }) => (
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired,
   background: PropTypes.string,
   img: PropTypes.string,
   color: PropTypes.object
