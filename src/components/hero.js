@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { FaChevronDown } from 'react-icons/fa'
 
 import styled, { css } from 'styled-components'
-import { hover, rem, transitions, navHeight, theme } from 'library/utils'
+import { hover, rem, transitions, navHeight, theme, flex } from 'library/utils'
 
 import { Container, Title, SubHeader, Img } from 'library/index'
 import heroBackground from 'assets/images/hero_background.png'
@@ -64,21 +64,31 @@ Text.propTypes = {
   body: PropTypes.string.isRequired
 }
 
-const Image = ({ img }) => (
-  <div style={{ flex: 1 }}>
+const ImageWrapper = styled.div`
+  flex: 1;
+  ${flex({ x: "center", y: 'flex-start' })}
+`
+
+const Image = ({ img, imgSize }) => (
+  <ImageWrapper>
     <Img
+      width={imgSize}
       src={require('../' + img)}
       alt="Hero image"
       draggable='false'
     />
-  </div>
+  </ImageWrapper>
 )
 
 Image.propTypes = {
-  img: PropTypes.string.isRequired
+  img: PropTypes.string.isRequired,
+  imgSize: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
 }
 
-const Hero = ({ title, subTitle, body, img }) => (
+const Hero = ({ title, subTitle, body, img, imgSize }) => (
   <Background col>
     <Content>
       <Text
@@ -86,7 +96,7 @@ const Hero = ({ title, subTitle, body, img }) => (
         subTitle={subTitle}
         body={body}
       />
-      <Image img={img} />
+      <Image img={img} imgSize={imgSize}/>
     </Content>
     <Divider fill={theme.blue}>
       <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
@@ -100,7 +110,11 @@ Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
+  img: PropTypes.string.isRequired,
+  imgSize: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
 }
 
 export default Hero

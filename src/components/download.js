@@ -15,6 +15,7 @@ const Download = ({ language }) => (
       subTitle={hero[language].subTitle}
       body={hero[language].body}
       img={hero[language].img}
+      imgSize={300}
     />
     <Section
       title={download[language].title}
