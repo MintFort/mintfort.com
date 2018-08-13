@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { addLang } from 'components/context'
 import Hero from 'components/hero'
+import Icons from 'components/downloadIcons'
 import Section from 'components/section'
 
 import { hero, download } from 'data/download.yml'
@@ -17,6 +18,7 @@ const Download = ({ language }) => (
     />
     <Section
       title={download[language].title}
+      subTitle={<Icons />}
       background= {download[language].background}
       color={{
         header: '#fff',
