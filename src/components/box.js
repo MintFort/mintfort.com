@@ -32,7 +32,11 @@ const Wrapper = styled.div`
 export const Box = ({ img, title, id }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
-      <Img src={require('../' + img)} width={rem(60)}/>
+      <Img
+        src={require('../' + img)}
+        width={rem(60)}
+        alt={title}
+      />
     </Container>
     <Container style={{ flex: 1 }} centrate>
       <Paragraph color='#fff'>

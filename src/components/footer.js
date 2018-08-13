@@ -68,7 +68,10 @@ const Footer = () => (
       position={{ x: 'flex-end', y: 'center' }}
     >
       {social.map(s => (
-        <ExternalLink key={s.name} to={s.url}>
+        <ExternalLink
+          key={s.name}
+          title={s.name}
+          to={s.url}>
           {icon(s.name)}
         </ExternalLink>
       ))}

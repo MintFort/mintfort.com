@@ -12,7 +12,7 @@ const back = {
 }
 
 const Wrapper = styled.div`
-  background: ${({ id }) => id && back[id]};
+  background: ${({ card }) => card && back[card]};
   margin: ${rem(10)};
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
 `
@@ -23,24 +23,26 @@ const Text = styled.div`
   ${flex}
 `
 
-export const Card = ({ img, title, id }) => (
-  <Wrapper id={id}>
+export const Card = ({ img, title, card }) => (
+  <Wrapper card={card}>
     <Text>
       <SubHeader
         style={{ margin: 0, padding: '0 20px' }}
-        color={id === 2 ? '#1b2441' : '#fff'}
+        color={card === 2 ? '#1b2441' : '#fff'}
       >
         {title}
       </SubHeader>
     </Text>
-    <Img src={require('../' + img)} />
+    <Img
+      alt={title}
+      src={require('../' + img)} />
   </Wrapper>
 )
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  card: PropTypes.number.isRequired
 }
 
 export const SectionCards = styled.section`

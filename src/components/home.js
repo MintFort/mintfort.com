@@ -42,7 +42,7 @@ const Home = ({ language }) => (
           key={card[language].id}
           title={card[language].title}
           img={card[language].img}
-          id={card[language].id}
+          card={card[language].id}
         />
       ))}
     </SectionCards>

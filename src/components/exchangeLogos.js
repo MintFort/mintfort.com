@@ -29,10 +29,10 @@ const ExchangesLogos = ({ logos }) => (
       <Logo
         key={logo.name}
         href={logo.site}
-        alt={logo.name}
         title={logo.name}
       >
         <Img
+          alt={logo.name}
           src={require('../' + logo.path)}
         />
       </Logo>
