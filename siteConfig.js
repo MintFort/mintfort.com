@@ -15,5 +15,9 @@ module.exports = {
     { name: "Linkedin", url: 'https://www.linkedin.com/company/mintfort/' },
     { name: "Twitter", url: 'https://twitter.com/mintfort' },
     { name: "Medium", url: 'https://medium.com/mintfort' }
-  ]
+  ],
+  portfolio: {
+    mac: 'https://download.mintfort.com/Mintfort-0.5.2.dmg',
+    win: 'https://download.mintfort.com/Mintfort-0.5.2.exe'
+  }
 }
