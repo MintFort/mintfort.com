@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { SubHeader, Img } from 'library/index'
 import { rem, flex, phone } from 'library/utils'
@@ -26,16 +27,21 @@ const Text = styled.div`
 export const Card = ({ img, title, card }) => (
   <Wrapper card={card}>
     <Text>
-      <SubHeader
-        style={{ margin: 0, padding: '0 20px' }}
-        color={card === 2 ? '#1b2441' : '#fff'}
-      >
-        {title}
-      </SubHeader>
+      <Fade>
+        <SubHeader
+          style={{ margin: 0, padding: '0 20px' }}
+          color={card === 2 ? '#1b2441' : '#fff'}
+        >
+          {title}
+        </SubHeader>
+      </Fade>
     </Text>
-    <Img
-      alt={title}
-      src={require('../' + img)} />
+    <Fade delay={200}>
+      <Img
+        alt={title}
+        src={require('../' + img)}
+      />
+    </Fade>
   </Wrapper>
 )
 

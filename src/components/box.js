@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { Paragraph, Img, Container } from 'library/index'
 import { rem, phone } from 'library/utils'
@@ -32,16 +33,20 @@ const Wrapper = styled.div`
 export const Box = ({ img, title, id }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
-      <Img
-        src={require('../' + img)}
-        width={rem(60)}
-        alt={title}
-      />
+      <Fade>
+        <Img
+          src={require('../' + img)}
+          width={rem(60)}
+          alt={title}
+        />
+      </Fade>
     </Container>
     <Container style={{ flex: 1 }} centrate>
-      <Paragraph color='#fff'>
-        {title}
-      </Paragraph>
+      <Fade delay={300}>
+        <Paragraph color='#fff'>
+          {title}
+        </Paragraph>
+      </Fade>
     </Container>
   </Wrapper>
 )

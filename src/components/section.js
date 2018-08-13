@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { Container, Header, Paragraph, Img } from 'library/index'
 import { rem, theme } from 'library/utils'
@@ -30,15 +31,19 @@ const Wrapper = Container.extend`
 const Text = ({ title, content, color }) => (
   <Container centrate>
     <Wrapper col>
-      <Header color={color.header}>{title}</Header>
-      {
-        typeof content === 'string' ?
-          <Paragraph
-            color={color.paragraph}>
-            {content}
-          </Paragraph> :
-          content
-      }
+      <Fade>
+        <Header color={color.header}>{title}</Header>
+        <Fade delay={100}>
+          {
+            typeof content === 'string' ?
+              <Paragraph
+                color={color.paragraph}>
+                {content}
+              </Paragraph> :
+              content
+          }
+        </Fade>
+      </Fade>
     </Wrapper>
   </Container>
 )
@@ -55,11 +60,13 @@ Text.propTypes = {
 const Image = ({ src }) => (
   <Container centrate style={{ marginTop: rem(40) }}>
     <Wrapper col>
-      <Img
-        src={require('../' + src)}
-        alt="Hero image"
-        draggable='false'
-      />
+      <Fade delay={200}>
+        <Img
+          src={require('../' + src)}
+          alt="Hero image"
+          draggable='false'
+        />
+      </Fade>
     </Wrapper>
   </Container>
 )

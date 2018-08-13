@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
+import Fade from 'react-reveal/Fade'
 
 import styled, { css } from 'styled-components'
 import { hover, rem, transitions, navHeight, theme, flex } from 'library/utils'
@@ -53,9 +54,13 @@ const Icon = styled(FaChevronDown)`
 
 const Text = ({ title, subTitle, body }) => (
   <div style={{ flex: 1 }}>
-    <SubHeader>{title}</SubHeader>
-    <Title size={70}>{subTitle}</Title>
-    <p>{body}</p>
+    <Fade>
+      <SubHeader>{title}</SubHeader>
+      <Title size={70}>{subTitle}</Title>
+    </Fade>
+    <Fade delay={200}>
+      <p>{body}</p>
+    </Fade>
   </div>
 )
 
@@ -92,11 +97,13 @@ Image.propTypes = {
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
   <Background col>
     <Content>
+      {/* <Fade> */}
       <Text
         title={title}
         subTitle={subTitle}
         body={body}
       />
+      {/* </Fade> */}
       <Image img={img} imgSize={imgSize}/>
     </Content>
     <Divider fill={theme.blue}>
