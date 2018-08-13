@@ -18,7 +18,7 @@ const Background = styled.section`
     background-size: cover;
   `}
 
-  padding: 14vh 0;
+  padding: ${({ padding }) => padding || '14vh 0'};
   display: flex;
   flex-direction: column;
 `
@@ -75,8 +75,9 @@ Image.propTypes = {
   src: PropTypes.string.isRequired
 }
 
-const Section = ({ title, content, background, img, color }) => (
+const Section = ({ title, content, background, img, color, padding }) => (
   <Background
+    padding={padding}
     src={background}
     color={color && color.background}
   >
@@ -97,7 +98,8 @@ Section.propTypes = {
   ]).isRequired,
   background: PropTypes.string,
   img: PropTypes.string,
-  color: PropTypes.object
+  color: PropTypes.object,
+  padding: PropTypes.string
 }
 
 

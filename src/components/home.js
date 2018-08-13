@@ -41,6 +41,7 @@ const Home = ({ language }) => (
         header: '#1f1f1f',
         paragraph: '#7b828a'
       }}
+      padding={'8vh 0 4vh'}
     />
     <SectionCards>
       {cards.map(card => (

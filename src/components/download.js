@@ -26,6 +26,7 @@ const Download = ({ language }) => (
           title={download[language].title}
           content={<Icons />}
           background= {download[language].background}
+          padding='6vh 0 8vh'
           color={{
             header: '#fff',
             paragraph: '#788cc7'
@@ -45,10 +46,11 @@ const Download = ({ language }) => (
     />
     <Section
       title={exchanges[language].title}
-      background={exchanges[language].background}
+      background={download[language].background}
       content={<Logos logos={exchanges[language].logos}/>}
+      padding='10vh 0'
       color={{
-        header: '#1f1f1f',
+        header: '#fff',
         paragraph: '#788cc7'
       }}
     />
