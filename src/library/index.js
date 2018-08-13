@@ -52,6 +52,7 @@ export const Title = styled.h1`
 export const Header = styled.h2`
   font-size: ${rem(32)};
   font-weight: 500;
+  word-wrap: normal;
 
   ${({ color }) => color && css`
     color: ${color};
