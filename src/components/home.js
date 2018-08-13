@@ -19,7 +19,7 @@ const Home = ({ language }) => (
     />
     <Section
       title={imagine[language].title}
-      subTitle={imagine[language].subTitle}
+      content={imagine[language].subTitle}
       background= {imagine[language].background}
       color={{
         header: '#fff',
@@ -28,7 +28,7 @@ const Home = ({ language }) => (
     />
     <Section
       title={crypto[language].title}
-      subTitle={crypto[language].subTitle}
+      content={crypto[language].subTitle}
       background= {crypto[language].background}
       img= {crypto[language].img}
       color={{
@@ -48,7 +48,7 @@ const Home = ({ language }) => (
     </SectionCards>
     <Section
       title={access[language].title}
-      subTitle={access[language].subTitle}
+      content={access[language].subTitle}
       background= {access[language].background}
       color={{
         header: '#1f1f1f',
@@ -67,7 +67,7 @@ const Home = ({ language }) => (
     </SectionBoxes>
     <Section
       title={control[language].title}
-      subTitle={control[language].subTitle}
+      content={control[language].subTitle}
       color={{
         background: '#1b243f',
         header: '#fff',

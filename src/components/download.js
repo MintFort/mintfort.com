@@ -18,7 +18,7 @@ const Download = ({ language }) => (
     />
     <Section
       title={download[language].title}
-      subTitle={<Icons />}
+      content={<Icons />}
       background= {download[language].background}
       color={{
         header: '#fff',

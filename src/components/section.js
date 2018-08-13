@@ -27,17 +27,17 @@ const Wrapper = Container.extend`
   text-align: center;
 `
 
-const Text = ({ title, subTitle, color }) => (
+const Text = ({ title, content, color }) => (
   <Container centrate>
     <Wrapper col>
       <Header color={color.header}>{title}</Header>
       {
-        typeof subTitle === 'string' ?
+        typeof content === 'string' ?
           <Paragraph
             color={color.paragraph}>
-            {subTitle}
+            {content}
           </Paragraph> :
-          subTitle
+          content
       }
     </Wrapper>
   </Container>
@@ -45,7 +45,7 @@ const Text = ({ title, subTitle, color }) => (
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.oneOfType([
+  content: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
@@ -68,14 +68,14 @@ Image.propTypes = {
   src: PropTypes.string.isRequired
 }
 
-const Section = ({ title, subTitle, background, img, color }) => (
+const Section = ({ title, content, background, img, color }) => (
   <Background
     src={background}
     color={color && color.background}
   >
     <Text
       title={title}
-      subTitle={subTitle}
+      content={content}
       color={color}
     />
     {img && <Image src={img} />}
@@ -84,7 +84,7 @@ const Section = ({ title, subTitle, background, img, color }) => (
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.oneOfType([
+  content: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
