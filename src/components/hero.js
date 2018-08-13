@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 // import GatsbyImg from 'gatsby-image'
 // import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
+import { goToAnchor } from 'react-scrollable-anchor'
 
 import styled, { css } from 'styled-components'
 import { hover, rem, transitions, navHeight, theme, flex } from 'library/utils'
@@ -88,7 +89,7 @@ Image.propTypes = {
   ])
 }
 
-const Hero = ({ title, subTitle, body, img, imgSize }) => (
+const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
   <Background col>
     <Content>
       <Text
@@ -100,7 +101,7 @@ const Hero = ({ title, subTitle, body, img, imgSize }) => (
     </Content>
     <Divider fill={theme.blue}>
       <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-        <Icon />
+        <Icon onClick={() => goToAnchor(scrollId)}/>
       </IconWrapper>
     </Divider>
   </Background>
@@ -111,6 +112,7 @@ Hero.propTypes = {
   subTitle: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
+  scrollId: PropTypes.string,
   imgSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import { addLang } from 'components/context'
 import Hero from 'components/hero'
@@ -16,16 +17,21 @@ const Home = ({ language }) => (
       subTitle={hero[language].subTitle}
       body={hero[language].body}
       img={hero[language].img}
+      scrollId='imagine'
     />
-    <Section
-      title={imagine[language].title}
-      content={imagine[language].subTitle}
-      background= {imagine[language].background}
-      color={{
-        header: '#fff',
-        paragraph: '#788cc7'
-      }}
-    />
+    <ScrollableAnchor id='imagine'>
+      <div> {/* <- https://github.com/gabergg/react-scrollable-anchor/issues/45 */}
+        <Section
+          title={imagine[language].title}
+          content={imagine[language].subTitle}
+          background= {imagine[language].background}
+          color={{
+            header: '#fff',
+            paragraph: '#788cc7'
+          }}
+        />
+      </div>
+    </ScrollableAnchor>
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}

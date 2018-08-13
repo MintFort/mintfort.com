@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { injectGlobal } from "styled-components"
 import { css } from 'styled-components'
+import { configureAnchors } from 'react-scrollable-anchor'
 
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -12,6 +13,11 @@ import { Context, addLang } from 'components/context'
 import { theme, hover, transitions } from 'library/utils'
 
 import backImage from 'assets/svg/global_background-01.svg'
+
+configureAnchors({
+  offset: -60,
+  scrollDuration: 800
+})
 
 injectGlobal`
   a {
