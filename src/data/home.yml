@@ -70,67 +70,67 @@ boxes:
   - en:
       id: 1
       title: 'Smart Lending'
-      img: 'assets/svg/smart_lending.svg'
+      component: 'SmartLending'
     zh:
       id: 1
       title: '智能借贷'
-      img: 'assets/svg/smart_lending.svg'
+      component: 'SmartLending'
   - en:
       id: 2
       title: 'P2P Transfer'
-      img: 'assets/svg/p2p_transfer.svg'
+      component: 'P2P'
     zh:
       id: 2
       title: 'P2P转账'
-      img: 'assets/svg/p2p_transfer.svg'
+      component: 'P2P'
   - en:
       id: 3
       title: 'Payment Solution'
-      img: 'assets/svg/payment_solution.svg'
+      component: 'PaymentSolution'
     zh:
       id: 3
       title: '支付方式'
-      img: 'assets/svg/payment_solution.svg'
+      component: 'PaymentSolution'
   - en:
       id: 4
       title: 'Smart Exchange'
-      img: 'assets/svg/smart_exchange.svg'
+      component: 'SmartExchange'
     zh:
       id: 4
       title: '智能换汇'
-      img: 'assets/svg/smart_exchange.svg'
+      component: 'SmartExchange'
   - en:
       id: 5
       title: 'Tokenized Fund'
-      img: 'assets/svg/tokenized_fund.svg'
+      component: 'Tokenized'
     zh:
       id: 5
       title: '自主式加密货币基金'
-      img: 'assets/svg/tokenized_fund.svg'
+      component: 'Tokenized'
   - en:
       id: 6
       title: 'Portfolio Management'
-      img: 'assets/svg/portfolio_management.svg'
+      component: 'Portfolio'
     zh:
       id: 6
       title: '投资组合管理'
-      img: 'assets/svg/portfolio_management.svg'
+      component: 'Portfolio'
   - en:
       id: 7
       title: 'AI Trading Bot'
-      img: 'assets/svg/ai_trading_bot.svg'
+      component: 'AI'
     zh:
       id: 7
       title: 'AI 交易机器人'
-      img: 'assets/svg/ai_trading_bot.svg'
+      component: 'AI'
   - en:
       id: 8
       title: 'Wallet'
-      img: 'assets/svg/wallet.svg'
+      component: 'Wallet'
     zh:
       id: 8
       title: '钱包'
-      img: 'assets/svg/wallet.svg'
+      component: 'Wallet'
 
 control:
   en:
