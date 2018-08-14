@@ -116,7 +116,7 @@ class SectionBoxes extends React.Component {
 }
 
 SectionBoxes.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
   language: PropTypes.string.isRequired
 }
 
