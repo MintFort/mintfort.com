@@ -49,11 +49,15 @@ export class Context extends Component {
 }
 
 Context.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  })
 }
 
 Context.defaultProps = {
-  location: '/'
+  location: {
+    pathname: '/'
+  }
 }
 
 export const addLang = (Component, props) => (
