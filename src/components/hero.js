@@ -10,7 +10,7 @@ import styled, { css } from 'styled-components'
 import { hover, rem, transitions, navHeight, theme, flex } from 'library/utils'
 
 import { Container, Title, SubHeader, Img } from 'library/index'
-import heroBackground from 'assets/images/hero_background.png'
+import heroBackground from 'assets/svg/hero_background.svg'
 
 import Divider from 'library/divider'
 

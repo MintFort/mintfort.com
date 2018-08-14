@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-
 import styled, { css } from 'styled-components'
 
+import { flex, rem, navHeight, theme, hover, phone } from 'library/utils'
+
 import { whitepaper } from 'siteConfig'
-
-import { Img } from 'library/index'
-import { flex, rem, navHeight, theme, hover, transitions } from 'library/utils'
-
-import logo from 'assets/images/logo_w_name.png'
+import logo from 'assets/svg/logo_name.svg'
+import logoMobile from 'assets/svg/logo.svg'
 
 const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
@@ -24,11 +22,11 @@ const Wrapper = styled.header`
   background: transparent;
 
   ${({ transparent }) => !transparent && css`
-    box-shadow: ${theme.shadow};
+    box-shadow: 0 2px 20px rgba(0,0,0,0.17);
     background: #fff;
   `}
 
-  ${transitions('all 0.4s ease')};
+  transition: all .4s ease;
 `
 
 const Button = styled.button`
@@ -64,7 +62,31 @@ const Nav = styled.nav`
     :not(:last-child) {
       margin: 0.5rem 1rem;
     }
+
   }
+`
+
+const Logo = styled.div`
+  background: url(${({ desktop }) => desktop});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 210px;
+  height: 40px;
+
+  ${phone(css`
+    background: url(${({ mobile }) => mobile});
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 40px;
+    height: 40px;
+
+  `)}
+
+  transition: all .2s ease-in;
 `
 
 class Header extends Component {
@@ -89,11 +111,9 @@ class Header extends Component {
     return (
       <Wrapper transparent={transparent}>
         <Link to={"/"}>
-          <Img
-            src={logo}
-            alt='logo'
-            height='auto'
-            style={{ width: 200 }}
+          <Logo
+            desktop={logo}
+            mobile={logoMobile}
           />
         </Link>
         <Nav>
