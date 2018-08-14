@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import Waypoint from 'react-waypoint'
+import MtSvgLines from 'react-mt-svg-lines'
 
-import { Paragraph, Img, Container } from 'library/index'
+import { Paragraph, Container } from 'library/index'
 import { rem, phone } from 'library/utils'
 
 const back = {
@@ -20,7 +22,7 @@ const back = {
 const Wrapper = styled.div`
   background: ${({ id }) => id && back[id]};
   width: 25%;
-  min-height: ${rem(260)};
+  min-height: ${rem(240)};
 
   ${phone(css`
     width: 100%;
@@ -30,16 +32,22 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-export const Box = ({ img, title, id }) => (
+const Icon = ({ component }) => {
+  const Component = require('components/SVG/icons')[component]
+  return <Component />
+}
+
+Icon.propTypes = {
+  component: PropTypes.string.isRequired
+}
+
+const Box = ({ component, title, id, animate }) => (
   <Wrapper id={id}>
+    <Waypoint />
     <Container style={{ flex: 3 }} centrate>
-      <Fade>
-        <Img
-          src={require('../' + img)}
-          width={rem(60)}
-          alt={title}
-        />
-      </Fade>
+      <MtSvgLines animate={ animate } duration={ 3000 }>
+        <Icon component={component}/>
+      </MtSvgLines>
     </Container>
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
@@ -53,11 +61,26 @@ export const Box = ({ img, title, id }) => (
 
 Box.propTypes = {
   title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  component: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  animate: PropTypes.bool.isRequired
 }
 
-export const SectionBoxes = styled.section`
+const Boxes = ({ animate, data, language }) => (
+  <>
+  {data.map(box => (
+    <Box
+      animate={animate}
+      key={box[language].id}
+      title={box[language].title}
+      component={box[language].component}
+      id={box[language].id}
+    />
+  ))}
+  </>
+)
+
+const Section = styled.section`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -67,3 +90,34 @@ export const SectionBoxes = styled.section`
     flex-direction: column;
   `)}
 `
+
+class SectionBoxes extends React.Component {
+  state = {
+    animate: false
+  }
+  toogleShow = animate => {
+    this.setState({ animate })
+  }
+
+  render(){
+    return (
+      <Section>
+        <Waypoint
+          onEnter={() => this.toogleShow(true)}
+        />
+        <Boxes
+          animate={this.state.animate}
+          data={this.props.data}
+          language={this.props.language}
+        />
+      </Section>
+    )
+  }
+}
+
+SectionBoxes.propTypes = {
+  data: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired
+}
+
+export default SectionBoxes

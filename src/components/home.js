@@ -6,7 +6,7 @@ import { addLang } from 'components/context'
 import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
-import { SectionBoxes, Box } from 'components/box'
+import SectionBoxes from 'components/box'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
@@ -62,16 +62,10 @@ const Home = ({ language }) => (
         paragraph: '#7b828a'
       }}
     />
-    <SectionBoxes guide >
-      {boxes.map(box => (
-        <Box
-          key={box[language].id}
-          title={box[language].title}
-          img={box[language].img}
-          id={box[language].id}
-        />
-      ))}
-    </SectionBoxes>
+    <SectionBoxes
+      data={boxes}
+      language={language}
+    />
     <Section
       title={control[language].title}
       content={control[language].subTitle}
