@@ -115,7 +115,7 @@ class Header extends Component {
   }
   render(){
     const { transparent } = this.state
-    const { language, onChangeLanguage } = this.props
+    const { language, onChangeLanguage, location } = this.props
 
     return (
       <Wrapper transparent={transparent}>
@@ -129,7 +129,7 @@ class Header extends Component {
           <Link to={`/download/`}>Download</Link>
           <a href={whitepaper}>Whitepaper</a>
           {
-            typeof window !== 'undefined' && !location.pathname.match(/(impressum|policy)/) &&
+            !location.pathname.match(/(impressum|policy)/) &&
             <Button onClick={() => onChangeLanguage()}>
               {language === "en" ? "中文" : "English"}
             </Button>
