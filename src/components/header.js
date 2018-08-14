@@ -125,9 +125,12 @@ class Header extends Component {
         <Nav>
           <Link to={`/download/`}>Download</Link>
           <a href={whitepaper}>Whitepaper</a>
-          <Button onClick={() => onChangeLanguage()}>
-            {language === "en" ? "中文" : "English"}
-          </Button>
+          {
+            !location.pathname.match(/(impressum|policy)/) &&
+            <Button onClick={() => onChangeLanguage()}>
+              {language === "en" ? "中文" : "English"}
+            </Button>
+          }
         </Nav>
       </Wrapper>
     )
