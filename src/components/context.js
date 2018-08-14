@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
-import { navigate } from 'gatsby'
+import { push } from 'gatsby'
 
 const { Provider, Consumer } = createContext()
 
@@ -34,7 +34,7 @@ export class Context extends Component {
     }), () => {
       localStorage.setItem('lang', this.state.language)
       // TODO: this should be dynamic (It's ok atm.)
-      navigate(`/${this.state.language}${this.props.location.pathname.match(/download/) ? '/download' : ''}`)
+      push(`/${this.state.language}${this.props.location.pathname.match(/download/) ? '/download' : ''}`)
     })
   }
 
@@ -49,11 +49,15 @@ export class Context extends Component {
 }
 
 Context.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  })
 }
 
 Context.defaultProps = {
-  location: '/'
+  location: {
+    pathname: '/'
+  }
 }
 
 export const addLang = (Component, props) => (
