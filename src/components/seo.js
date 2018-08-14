@@ -46,5 +46,9 @@ SEO.propTypes = {
   language: PropTypes.string.isRequired
 }
 
+SEO.defaultProps = {
+  language: 'en'
+}
+
 
 export default SEO

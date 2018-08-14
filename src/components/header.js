@@ -110,6 +110,9 @@ class Header extends Component {
     }
     this.setState({ transparent: true })
   }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll)
+  }
   render(){
     const { transparent } = this.state
     const { language, onChangeLanguage } = this.props

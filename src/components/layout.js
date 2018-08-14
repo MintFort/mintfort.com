@@ -50,7 +50,7 @@ const Layout = ({ children, location }) => (
     `}
     render={data => (
       <>
-      <Context>
+      <Context location={location}>
         {addLang(SEO, { path: location.pathname })}
         {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
         <Main>

@@ -1,4 +1,5 @@
 import React, { Component, createContext } from 'react'
+import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 
 const { Provider, Consumer } = createContext()
@@ -32,8 +33,8 @@ export class Context extends Component {
       language: state.language === 'en' ? 'zh' : 'en'
     }), () => {
       localStorage.setItem('lang', this.state.language)
-      // TODO: this should be dynamic (It's ok atm.) 
-      navigate(`/${this.state.language}${location.pathname.match(/download/) ? '/download' : ''}`)
+      // TODO: this should be dynamic (It's ok atm.)
+      navigate(`/${this.state.language}${this.props.location.pathname.match(/download/) ? '/download' : ''}`)
     })
   }
 
@@ -45,6 +46,14 @@ export class Context extends Component {
       }}>{this.props.children}</Provider>
     )
   }
+}
+
+Context.propTypes = {
+  location: PropTypes.object
+}
+
+Context.defaultProps = {
+  location: '/'
 }
 
 export const addLang = (Component, props) => (
