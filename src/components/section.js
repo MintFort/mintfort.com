@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { Container, Header, Paragraph, Img } from 'library/index'
-import { rem, theme } from 'library/utils'
+import { rem, theme, phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
@@ -26,6 +26,10 @@ const Background = styled.section`
 const Wrapper = Container.extend`
   width: 60%;
   text-align: center;
+
+  ${phone(css`
+    width: 85%;
+  `)}
 `
 
 const Text = ({ title, content, color }) => (

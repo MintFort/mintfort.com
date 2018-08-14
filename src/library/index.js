@@ -47,6 +47,11 @@ export const Title = styled.h1`
   ${({ color }) => color && css`
     color: ${color};
   `}
+
+  ${phone(css`
+    font-size: ${rem(36)};
+    text-align: center;
+  `)}
 `
 
 export const Header = styled.h2`
@@ -57,6 +62,10 @@ export const Header = styled.h2`
   ${({ color }) => color && css`
     color: ${color};
   `}
+
+  ${phone(css`
+    font-size: ${rem(24)};
+  `)}
 `
 
 export const SubHeader = styled.h3`
@@ -67,8 +76,11 @@ export const SubHeader = styled.h3`
 
   ${({ color }) => color && css`
     color: ${color};
-
   `}
+
+  ${phone(css`
+    font-size: ${rem(18)};
+  `)}
 `
 export const Paragraph = styled.p`
   display: block;

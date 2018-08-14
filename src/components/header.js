@@ -43,6 +43,7 @@ const Button = styled.button`
 `
 
 const Nav = styled.nav`
+  ${flex}
   a {
     font-weight: 200;
     font-size: ${rem(13)};
@@ -62,6 +63,11 @@ const Nav = styled.nav`
     :not(:last-child) {
       margin: 0.5rem 1rem;
     }
+
+    ${phone(css`
+      font-size: ${rem(12)};
+      padding: 0.25rem 0.5rem;
+    `)}
 
   }
 `

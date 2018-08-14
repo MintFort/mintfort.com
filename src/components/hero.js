@@ -7,7 +7,7 @@ import { goToAnchor } from 'react-scrollable-anchor'
 import Fade from 'react-reveal/Fade'
 
 import styled, { css } from 'styled-components'
-import { hover, rem, transitions, navHeight, theme, flex } from 'library/utils'
+import { hover, rem, transitions, navHeight, theme, flex, phone } from 'library/utils'
 
 import { Container, Title, SubHeader, Img } from 'library/index'
 import heroBackground from 'assets/svg/hero_background.svg'
@@ -31,6 +31,11 @@ const Content = Container.extend`
   padding: ${rem(80)} ${rem(60)} 0 ${rem(60)};
   display: flex;
   flex: 1;
+
+  ${phone(css`
+    padding: ${rem(30)} ${rem(16)};
+    text-align: center;
+  `)}
 `
 
 const IconWrapper = Container.extend`
@@ -97,13 +102,11 @@ Image.propTypes = {
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
   <Background col>
     <Content>
-      {/* <Fade> */}
       <Text
         title={title}
         subTitle={subTitle}
         body={body}
       />
-      {/* </Fade> */}
       <Image img={img} imgSize={imgSize}/>
     </Content>
     <Divider fill={theme.blue}>

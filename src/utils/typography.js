@@ -16,7 +16,7 @@ const typography = new Typography({
   scaleRatio: 2,
   headerFontFamily: ['Montserrat', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
   bodyFontFamily: ['Lato', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
-  headerColor: '#1f1f1f',
+  headerColor: '#1b243f',
   bodyColor: '#7b828a',
   bodyWeight: '400'
 })
