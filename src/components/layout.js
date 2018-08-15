@@ -30,6 +30,12 @@ injectGlobal`
 
     ${transitions('color 0.1s ease')};
   }
+
+  button {
+    &:focus {
+      outline: 0;
+    }
+  }
 `
 
 const Main = styled.main`
