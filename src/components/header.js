@@ -36,10 +36,6 @@ const Button = styled.button`
   font-size: ${rem(13)};
   cursor: pointer;
   color: ${theme.black};
-
-  &:focus {
-    outline: 0;
-  }
 `
 
 const Nav = styled.nav`

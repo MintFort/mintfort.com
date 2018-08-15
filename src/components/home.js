@@ -7,6 +7,7 @@ import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
+import Subscribe from 'components/form'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
@@ -20,18 +21,17 @@ const Home = ({ language }) => (
       scrollId='imagine'
     />
     <ScrollableAnchor id='imagine'>
-      <div> {/* <- https://github.com/gabergg/react-scrollable-anchor/issues/45 */}
-        <Section
-          title={imagine[language].title}
-          content={imagine[language].subTitle}
-          background= {imagine[language].background}
-          color={{
-            header: '#fff',
-            paragraph: '#788cc7'
-          }}
-        />
-      </div>
+      <Subscribe />
     </ScrollableAnchor>
+    <Section
+      title={imagine[language].title}
+      content={imagine[language].subTitle}
+      background= {imagine[language].background}
+      color={{
+        header: '#fff',
+        paragraph: '#788cc7'
+      }}
+    />
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
