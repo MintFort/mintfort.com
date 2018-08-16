@@ -1,14 +1,14 @@
 hero:
   en:
-    title: 'Take control over your assets.'
+    title: 'Take control over your values.'
     subTitle: 'Be Your Bank.'
-    body: 'We are uniting traditional banking with the advantages of distributed ledger systems.'
-    img: 'assets/images/hero_Illustration.gif'
+    body: 'The first crypto-friendly bank account. Store and manage assets on the blockchain.'
+    img: 'assets/images/hero_phone.png'
   zh:
-    title: '一手掌控你的资产。'
+    title: '-missing-'
     subTitle: 你就是自己的银行。'
-    body: '将传统银行业务和投资与分布式账本系统优势结合。'
-    img: 'assets/images/hero_Illustration.gif'
+    body: '-missing-'
+    img: 'assets/images/hero_phone.png'
 
 imagine:
   en:
