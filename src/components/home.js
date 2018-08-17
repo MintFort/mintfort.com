@@ -18,20 +18,22 @@ const Home = ({ language }) => (
       subTitle={hero[language].subTitle}
       body={hero[language].body}
       img={hero[language].img}
+      imgSize={320}
       scrollId='imagine'
     />
     <ScrollableAnchor id='imagine'>
-      <Subscribe />
+      <div>
+        <Section
+          title={imagine[language].title}
+          content={imagine[language].subTitle}
+          color={{
+            header: '#1f1f1f',
+            paragraph: '#7b828a',
+            background: 'transparent'
+          }}
+        />
+      </div>
     </ScrollableAnchor>
-    <Section
-      title={imagine[language].title}
-      content={imagine[language].subTitle}
-      background= {imagine[language].background}
-      color={{
-        header: '#fff',
-        paragraph: '#788cc7'
-      }}
-    />
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
@@ -75,6 +77,9 @@ const Home = ({ language }) => (
         paragraph: '#788cc7'
       }}
     />
+    <ScrollableAnchor id='subscribe'>
+      <Subscribe />
+    </ScrollableAnchor>
   </>
 )
 
