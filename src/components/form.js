@@ -36,7 +36,7 @@ const Input = styled.input`
   margin: ${rem(10)} 0;
 `
 
-const Button = styled.button`
+export const Button = styled.button`
   background: ${theme.mint};
   color: ${theme.blue};
   font-weight: 700;
