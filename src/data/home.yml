@@ -2,22 +2,26 @@ hero:
   en:
     title: 'Take control over your values.'
     subTitle: 'Be Your Bank.'
-    body: 'The first crypto-friendly bank account. Store and manage assets on the blockchain.'
+    body:
+      first: The first crypto-friendly bank account.
+      second: Store and manage assets on the blockchain.
     img: 'assets/images/hero_phone.png'
   zh:
     title: '-missing-'
     subTitle: 你就是自己的银行。'
-    body: '-missing-'
+    body:
+      first: 第一个加密友好的银行账户。
+      second: 在区块链上存储和管理资产。
     img: 'assets/images/hero_phone.png'
 
 imagine:
   en:
-    title: 'Imagine a bank which is independent and distributed.'
-    subTitle: 'Where transactions take seconds and plenty of services can be flexibly chosen at any time. Where assets are being held by you only, well protected by the consensus of the blockchain.'
+    title: 'Imagine a bank which is independent and currency agnostic.'
+    subTitle: 'Where transactions take seconds and assets are being held well protected by the consensus of the blockchain. Mintfort offers the first bank account that handles crypto assets the same way as traditional currencies. Say good bye to messy wallets and complicated procedures.'
     background: 'assets/svg/dotted_side_blue_background.svg'
   zh:
-    title: '想象一家独立分布式的银行。'
-    subTitle: '几秒之间完成转账、随时随地办理业务、除了你自己没有其他机构可以掌握你的资产、使用区块链共识进行完美的资产保护。'
+    title: '想象一家独立且与货币种类无关的银行。'
+    subTitle: '交易需要几秒钟，资产受到区块链共识的良好保护。 Mintfort提供第一个以与传统货币相同方式来处理加密资产的银行账户。与乱糟糟的钱包和复杂的程序说再见。'
     background: 'assets/svg/dotted_side_blue_background.svg'
 
 crypto:

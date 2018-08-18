@@ -103,45 +103,46 @@ const Register = Button.extend`
 `
 
 
-const Text = ({ title, subTitle, body }) => {
-  const bodyText = body.split(".")
-  return (
-    <TextWrapper>
-      <Header
-        style={{ margin: `0 0 ${rem(20)}` }}
-        color={theme.lightFont}
-        size={18}
-      >
-        {title}
-      </Header>
-      <Title
-        style={{ margin: `0 0 ${rem(20)}` }}
-        size={72}
-        color="#fff"
-      >
-        {subTitle}
-      </Title>
-      <SubHeader
-        color={theme.lightFont}
-        style={{ margin: `0 0 ${rem(20)}` }}
-        size={20}
-      >
-        {bodyText[0]}. <br/>
-        {bodyText[1]}.
-      </SubHeader>
-      <Register
-        onClick={() => goToAnchor("subscribe")}
-      >
+const Text = ({ title, subTitle, body }) => (
+  <TextWrapper>
+    <Header
+      style={{ margin: `0 0 ${rem(20)}` }}
+      color={theme.lightFont}
+      size={18}
+    >
+      {title}
+    </Header>
+    <Title
+      style={{ margin: `0 0 ${rem(20)}` }}
+      size={72}
+      color="#fff"
+    >
+      {subTitle}
+    </Title>
+    <SubHeader
+      color={theme.lightFont}
+      style={{ margin: `0 0 ${rem(20)}` }}
+      size={20}
+    >
+      {body.first} <br />
+      {body.second} <br />
+    </SubHeader>
+    <Register
+      onClick={() => goToAnchor("subscribe")}
+    >
         Pre-Register
-      </Register>
-    </TextWrapper>
-  )
-}
+    </Register>
+  </TextWrapper>
+)
+
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  body: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired
 }
 
 const Image = ({ img, imgSize }) => (
@@ -217,7 +218,10 @@ const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired,
   img: PropTypes.string.isRequired,
   scrollId: PropTypes.string,
   imgSize: PropTypes.oneOfType([
