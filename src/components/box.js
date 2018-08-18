@@ -6,30 +6,50 @@ import Waypoint from 'react-waypoint'
 import MtSvgLines from 'react-mt-svg-lines'
 
 import { Paragraph, Container } from 'library/index'
-import { rem, phone } from 'library/utils'
+import { rem, phone, theme, flex, mobile } from 'library/utils'
 
-const back = {
-  1: "#384774",
-  2: "#4397d1",
-  3: "#95c1e2",
-  4: "#357cac",
-  5: "#61a8d9",
-  6: "#3b6ba1",
-  7: "#192a5d",
-  8: "#95c1e2"
-}
+const Section = styled.section`
+  padding: ${rem(30)};
 
-const Wrapper = styled.div`
-  background: ${({ id }) => id && back[id]};
-  width: 25%;
-  min-height: ${rem(240)};
+  ${flex({ x: 'flex-start' })}
+  flex-wrap: wrap;
 
   ${phone(css`
-    width: 100%;
+    flex-direction: column;
   `)}
+`
 
+const border = '1px solid #EDEDED'
+
+const Wrapper = styled.div`
+  width: 25%;
+  min-height: ${rem(240)};
   display: flex;
   flex-direction: column;
+
+  ${({ id }) => id && css`
+    border-bottom: ${id.toString().match(/(1|2|3|4)/) && border};
+    border-right: ${id.toString().match(/(1|2|3|5|6|7)/) && border};
+  `}
+
+  ${mobile(css`
+    width: 50%;
+    border: none;
+
+    ${({ id }) => id && css`
+      border-bottom: ${id.toString().match(/(1|2|5|6)/) && border};
+      border-right: ${id.toString().match(/(1|3|5|7)/) && border};
+    `}
+  `)}
+
+  ${phone(css`
+    border: none;
+    width: 100%;
+
+    ${({ id }) => id && css`
+      border-bottom: ${id.toString().match(/(1|2|3|4|5|6|7)/) && border};
+    `}
+  `)}
 `
 
 const Icon = ({ component }) => {
@@ -51,7 +71,7 @@ const Box = ({ component, title, id, animate }) => (
     </Container>
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
-        <Paragraph color='#fff'>
+        <Paragraph color={theme.blue}>
           {title}
         </Paragraph>
       </Fade>
@@ -79,17 +99,6 @@ const Boxes = ({ animate, data, language }) => (
   ))}
   </>
 )
-
-const Section = styled.section`
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-
-
-  ${phone(css`
-    flex-direction: column;
-  `)}
-`
 
 class SectionBoxes extends React.Component {
   state = {
