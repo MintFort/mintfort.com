@@ -8,7 +8,8 @@ import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
 import Subscribe from 'components/form'
-import SectionWatch from 'components/SectionWatch'
+import SectionWatch from 'components/sectionWatch'
+import SectionPhone from 'components/sectionPhone'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
@@ -39,14 +40,14 @@ const Home = ({ language }) => (
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
-      background= {crypto[language].background}
-      img= {crypto[language].img}
       color={{
         header: '#1f1f1f',
-        paragraph: '#7b828a'
+        paragraph: '#7b828a',
+        background: '#F2F2F2'
       }}
       padding={'8vh 0 4vh'}
     />
+    <SectionPhone />
     <SectionCards>
       {cards.map(card => (
         <Card

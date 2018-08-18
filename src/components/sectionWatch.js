@@ -29,8 +29,7 @@ const Background = () => (
           height: 'auto',
           zIndex: "-1"
         }}
-        alt='Mintfort hero banner'
-        title='Mintfort hero banner'
+        alt='Background watch'
         fluid={image.childImageSharp.fluid}
       />
     )}
