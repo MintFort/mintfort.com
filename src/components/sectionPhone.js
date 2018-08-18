@@ -11,9 +11,12 @@ const Wrapper = styled.div`
   background: #F2F2F2;
   overflow: hidden;
   width: 100%;
+  overflow-x: hidden;:
+
+  padding-bottom: ${rem(20)};
 
   ${phone(css`
-    padding: ${rem(20)}
+    padding: ${rem(60)}
   `)}
 `
 
@@ -32,12 +35,15 @@ const PhoneWrapper = styled.div`
 
 const Background = ({ image }) => (
   <GatsbyImg
+    imgStyle={{
+      objectPosition: 'top'
+    }}
     style={{
       position: 'absolute',
       bottom: 0,
-      left: 0,
-      width: '100%',
-      height: 'auto',
+      left: -1,
+      width: '101%',
+      height: '100%',
       zIndex: 0
     }}
     alt='Background phone'

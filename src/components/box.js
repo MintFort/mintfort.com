@@ -10,6 +10,7 @@ import { rem, phone, theme, flex, mobile } from 'library/utils'
 
 const Section = styled.section`
   padding: ${rem(30)};
+  width: 100%;
 
   ${flex({ x: 'flex-start' })}
   flex-wrap: wrap;
@@ -63,9 +64,8 @@ Icon.propTypes = {
 
 const Box = ({ component, title, id, animate }) => (
   <Wrapper id={id}>
-    <Waypoint />
     <Container style={{ flex: 3 }} centrate>
-      <MtSvgLines animate={ animate } duration={ 3000 }>
+      <MtSvgLines animate={ animate } duration={ 2000 }>
         <Icon component={component}/>
       </MtSvgLines>
     </Container>
@@ -86,40 +86,35 @@ Box.propTypes = {
   animate: PropTypes.bool.isRequired
 }
 
-const Boxes = ({ animate, data, language }) => (
-  <>
-  {data.map(box => (
-    <Box
-      animate={animate}
-      key={box[language].id}
-      title={box[language].title}
-      component={box[language].component}
-      id={box[language].id}
-    />
-  ))}
-  </>
-)
-
 class SectionBoxes extends React.Component {
   state = {
     animate: false
   }
   toogleShow = animate => {
+    console.log('hola')
     this.setState({ animate })
   }
 
   render(){
+    const { data, language } = this.props
+    const { animate } = this.state
     return (
-      <Section>
+      <>
         <Waypoint
           onEnter={() => this.toogleShow(true)}
         />
-        <Boxes
-          animate={this.state.animate}
-          data={this.props.data}
-          language={this.props.language}
-        />
-      </Section>
+        <Section>
+          {data.map(box => (
+            <Box
+              animate={animate}
+              key={box[language].id}
+              title={box[language].title}
+              component={box[language].component}
+              id={box[language].id}
+            />
+          ))}
+        </Section>
+      </>
     )
   }
 }

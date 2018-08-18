@@ -22,6 +22,7 @@ const Home = ({ language }) => (
       img={hero[language].img}
       imgSize={320}
       scrollId='imagine'
+      button
     />
     <ScrollableAnchor id='imagine'>
       <div>
@@ -40,7 +41,7 @@ const Home = ({ language }) => (
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
-      padding={'8vh 0 4vh'}
+      padding={'4vh 0'}
       color={{
         header: '#1f1f1f',
         paragraph: '#7b828a',

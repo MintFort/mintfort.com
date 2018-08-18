@@ -102,7 +102,7 @@ const Register = Button.extend`
 `
 
 
-const Text = ({ title, subTitle, body }) => (
+const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
@@ -120,17 +120,20 @@ const Text = ({ title, subTitle, body }) => (
     </Title>
     <SubHeader
       color={theme.lightFont}
-      style={{ margin: `0 0 ${rem(20)}` }}
+      style={{ margin: `0 0 ${rem(8)}` }}
       size={20}
     >
       {body.first} <br />
-      {body.second} <br />
+      {body.second}
     </SubHeader>
-    <Register
-      onClick={() => goToAnchor("subscribe")}
-    >
-        Pre-Register
-    </Register>
+    {
+      button &&
+      <Register
+        onClick={() => goToAnchor("subscribe")}
+      >
+          Pre-Register
+      </Register>
+    }
   </TextWrapper>
 )
 
@@ -138,6 +141,7 @@ const Text = ({ title, subTitle, body }) => (
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
+  button: PropTypes.bool,
   body: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
@@ -170,7 +174,7 @@ const HeroImage = () => (
         image: file(relativePath: { eq: "images/hero-background.png"}) {
           childImageSharp {
             fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
@@ -178,11 +182,14 @@ const HeroImage = () => (
     `}
     render={({ image }) => (
       <GatsbyImg
+        imgStyle={{
+          objectPosition: 'bottom'
+        }}
         style={{
           position: 'absolute',
           top: 0,
-          left: 0,
-          width: '100%',
+          left: -1,
+          width: '101%',
           height: '100%',
           zIndex: "-1"
         }}
@@ -194,7 +201,7 @@ const HeroImage = () => (
   />
 )
 
-const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
+const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
   <Wrapper col>
     <HeroImage />
     <Content>
@@ -203,6 +210,7 @@ const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
         imgSize={imgSize}
       />
       <Text
+        button={button}
         title={title}
         subTitle={subTitle}
         body={body}
@@ -221,12 +229,13 @@ Hero.propTypes = {
     PropTypes.object,
     PropTypes.string
   ]).isRequired,
-  img: PropTypes.string.isRequired,
-  scrollId: PropTypes.string,
   imgSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ])
+  ]),
+  img: PropTypes.string.isRequired,
+  scrollId: PropTypes.string,
+  button: PropTypes.bool
 }
 
 export default Hero

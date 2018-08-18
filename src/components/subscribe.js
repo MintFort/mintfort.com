@@ -8,14 +8,15 @@ import { graphql, StaticQuery } from 'gatsby'
 import ScrollableAnchor from 'react-scrollable-anchor'
 
 import { Header } from 'library/index'
-import { flex, rem, theme, hover } from 'library/utils'
+import { flex, rem, theme, hover, phone } from 'library/utils'
 
 const Wrapper = styled.section`
   height: 900px;
   padding: 0 0 ${rem(120)};
+  position: relative;
+
   ${flex({ x: 'flex-end' })}
   flex-direction: column;
-  position: relative;
 `
 
 const Form = styled.form`
@@ -24,6 +25,10 @@ const Form = styled.form`
   width: 400px;
   ${flex}
   flex-direction: column;
+
+  ${phone(css`
+    padding: ${rem(30)};
+  `)}
 `
 
 const Input = styled.input`
@@ -89,7 +94,7 @@ const Background = () => (
         image: file(relativePath: { eq: "images/sign-up.png"}) {
           childImageSharp {
             fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
@@ -98,7 +103,6 @@ const Background = () => (
     render={({ image }) => (
       <GatsbyImg
         imgStyle={{
-          objectFit: 'cover',
           objectPosition: 'top'
         }}
         style={{
@@ -170,7 +174,12 @@ class Register extends Component {
     return (
       <Wrapper>
         <Background />
-        <Header color={'#fff'}>Sign up for the waiting list</Header>
+        <Header
+          color='#fff'
+          style={{ textShadow: `1px 1px 10px ${theme.blue}` }}
+        >
+          Sign up for the waiting list
+        </Header>
         <ScrollableAnchor id='subscribe'>
           <Form onSubmit={this.handleSubmit}>
             <Input
@@ -186,9 +195,8 @@ class Register extends Component {
               name="email"
               value={email}
               onChange={this.handleChange} />
-            <Button
-              disabled={loading}>
-            Pre-Register
+            <Button disabled={loading}>
+              Pre-Register
             </Button>
             {
               result && <DisplayMessage data={result} />
