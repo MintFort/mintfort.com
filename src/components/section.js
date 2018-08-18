@@ -36,7 +36,12 @@ const Text = ({ title, content, color }) => (
   <Container centrate>
     <Wrapper col>
       <Fade>
-        <Header color={color.header}>{title}</Header>
+        <Header
+          color={color.blue}
+          style={{ fontWeight: 'bold' }}
+        >
+          {title}
+        </Header>
         <Fade delay={100}>
           {
             typeof content === 'string' ?

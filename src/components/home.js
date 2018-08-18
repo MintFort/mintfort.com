@@ -8,6 +8,7 @@ import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
 import Subscribe from 'components/form'
+import SectionWatch from 'components/SectionWatch'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
@@ -34,6 +35,7 @@ const Home = ({ language }) => (
         />
       </div>
     </ScrollableAnchor>
+    <SectionWatch />
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
