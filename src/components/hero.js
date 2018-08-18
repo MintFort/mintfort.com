@@ -1,22 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import GatsbyImg from 'gatsby-image'
-// import { graphql, StaticQuery } from 'gatsby'
+import GatsbyImg from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import { Button } from 'components/form'
 import styled, { css } from 'styled-components'
+
 import { hover, rem, transitions, navHeight, theme, flex, phone } from 'library/utils'
-
 import { Container, Title, SubHeader, Img, Paragraph } from 'library/index'
-import heroBackground from 'assets/svg/hero-background.jpg'
 
-const Background = styled.section`
-  background: url(${heroBackground});
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-
+const Wrapper = styled.section`
   height: 100vh;
   padding-top: ${navHeight};
   position: relative;
@@ -100,8 +94,40 @@ Image.propTypes = {
   ])
 }
 
+const HeroImage = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        image: file(relativePath: { eq: "images/hero-background.png"}) {
+          childImageSharp {
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={({ image }) => (
+      <GatsbyImg
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: "-1"
+        }}
+        alt='Mintfort hero banner'
+        title='Mintfort hero banner'
+        fluid={image.childImageSharp.fluid}
+      />
+    )}
+  />
+)
+
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
-  <Background col>
+  <Wrapper col>
+    <HeroImage />
     <Content>
       <Image
         img={img}
@@ -116,7 +142,7 @@ const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
     <IconWrapper>
       <Icon onClick={() => goToAnchor(scrollId)}/>
     </IconWrapper>
-  </Background>
+  </Wrapper>
 )
 
 Hero.propTypes = {
@@ -132,59 +158,3 @@ Hero.propTypes = {
 }
 
 export default Hero
-
-// const HeroImage = ({ backImage }) => (
-//   <GatsbyImg
-//     style={{
-//       width: '100%',
-//       height: '100vh',
-//       top: 0,
-//       position: 'absolute'
-//     }}
-//     alt='Mintfort hero banner'
-//     title='Mintfort hero banner'
-//     fluid={backImage.childImageSharp.fluid}
-//   />
-// )
-//
-// HeroImage.propTypes = {
-//   backImage: PropTypes.object.isRequired
-// }
-
-
-
-// const Hero = ({ title, subTitle, body, img }) => (
-//   <StaticQuery
-//     query={graphql`
-//       query {
-//         backImage: file(relativePath: { eq: "images/hero_background.png"}) {
-//           childImageSharp {
-//             fluid(maxWidth: 2000) {
-//               ...GatsbyImageSharpFluid_tracedSVG
-//             }
-//           }
-//         }
-//       }
-//     `}
-//     render={({ backImage }) => (
-//       <Wrapper col>
-//         <HeroImage backImage={backImage}/>
-//         <Inner>
-//           <Content>
-//             <Text
-//               title={title}
-//               subTitle={subTitle}
-//               body={body}
-//             />
-//             <Image img={img} />
-//           </Content>
-//           <Divider fill={theme.blue}>
-//             <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-//               <Icon />
-//             </IconWrapper>
-//           </Divider>
-//         </Inner>
-//       </Wrapper>
-//     )}
-//   />
-// )
