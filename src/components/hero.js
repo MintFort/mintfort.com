@@ -4,11 +4,11 @@ import GatsbyImg from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
-import { Button } from 'components/form'
 import styled, { css } from 'styled-components'
 
-import { hover, rem, transitions, navHeight, theme, flex, phone } from 'library/utils'
-import { Container, Title, SubHeader, Img, Paragraph } from 'library/index'
+import { Button } from 'components/form'
+import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
+import { Container, Title, Header, SubHeader, Img } from 'library/index'
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -17,6 +17,11 @@ const Wrapper = styled.section`
 
   display: flex;
   flex-direction: column;
+
+  ${phone(css`
+    display: block;
+    height: auto;
+  `)}
 `
 
 const Content = Container.extend`
@@ -48,26 +53,90 @@ const IconWrapper = styled.div`
   bottom: 30px;
   width: 100%;
   ${flex}
+
+  ${phone(css`
+    display: none;
+  `)}
 `
 
 const TextWrapper = styled.div`
   flex: 7;
+  padding: ${rem(30)} 0;
+
+  ${mobile(css`
+    h1 {
+      font-size: ${rem(60)};
+    }
+
+    h3 {
+      font-size: ${rem(18)};
+    }
+  `)}
+
+  ${phone(css`
+    order: 1;
+
+    h2, h3 {
+      font-size: ${rem(16)};
+    }
+  `)}
+
 `
 
 const ImageWrapper = styled.div`
   flex: 5;
   padding-right: ${rem(40)};
   ${flex({ x: "flex-end", y: 'flex-start' })}
+
+  ${phone(css`
+    order: 2;
+    transform: translate(32px, -20px);
+
+    ${flex({ x: "center", y: 'flex-start' })};
+  `)}
 `
 
-const Text = ({ title, subTitle, body }) => (
-  <TextWrapper>
-    <SubHeader color={theme.lightFont}>{title}</SubHeader>
-    <Title size={70} color="#fff">{subTitle}</Title>
-    <Paragraph style={{ color: '#fff' }}>{body}</Paragraph>
-    <Button onClick={() => goToAnchor("subscribe")}>Pre-Register</Button>
-  </TextWrapper>
-)
+const Register = Button.extend`
+  ${phone(css`
+    margin-bottom: ${rem(40)};
+  `)}
+`
+
+
+const Text = ({ title, subTitle, body }) => {
+  const bodyText = body.split(".")
+  return (
+    <TextWrapper>
+      <Header
+        style={{ margin: `0 0 ${rem(20)}` }}
+        color={theme.lightFont}
+        size={18}
+      >
+        {title}
+      </Header>
+      <Title
+        style={{ margin: `0 0 ${rem(20)}` }}
+        size={72}
+        color="#fff"
+      >
+        {subTitle}
+      </Title>
+      <SubHeader
+        color={theme.lightFont}
+        style={{ margin: `0 0 ${rem(20)}` }}
+        size={20}
+      >
+        {bodyText[0]}. <br/>
+        {bodyText[1]}.
+      </SubHeader>
+      <Register
+        onClick={() => goToAnchor("subscribe")}
+      >
+        Pre-Register
+      </Register>
+    </TextWrapper>
+  )
+}
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
