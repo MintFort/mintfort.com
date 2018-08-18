@@ -86,7 +86,7 @@ const SectionPhone = () => (
         }
       }
     `}
-    render={({ back, phone }) => console.log(phone)||(
+    render={({ back, phone }) => (
       <Wrapper>
         <Background image={back}/>
         <ImageWrapper>
