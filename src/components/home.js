@@ -7,7 +7,9 @@ import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
-import Subscribe from 'components/form'
+import Subscribe from 'components/subscribe'
+import SectionWatch from 'components/sectionWatch'
+import SectionPhone from 'components/sectionPhone'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
 
@@ -18,31 +20,35 @@ const Home = ({ language }) => (
       subTitle={hero[language].subTitle}
       body={hero[language].body}
       img={hero[language].img}
+      imgSize={320}
       scrollId='imagine'
+      button
     />
     <ScrollableAnchor id='imagine'>
-      <Subscribe />
+      <div>
+        <Section
+          title={imagine[language].title}
+          content={imagine[language].subTitle}
+          color={{
+            header: '#1f1f1f',
+            paragraph: '#7b828a',
+            background: 'transparent'
+          }}
+        />
+      </div>
     </ScrollableAnchor>
-    <Section
-      title={imagine[language].title}
-      content={imagine[language].subTitle}
-      background= {imagine[language].background}
-      color={{
-        header: '#fff',
-        paragraph: '#788cc7'
-      }}
-    />
+    <SectionWatch />
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
-      background= {crypto[language].background}
-      img= {crypto[language].img}
+      padding={'4vh 0'}
       color={{
         header: '#1f1f1f',
-        paragraph: '#7b828a'
+        paragraph: '#7b828a',
+        background: '#F2F2F2'
       }}
-      padding={'8vh 0 4vh'}
     />
+    <SectionPhone />
     <SectionCards>
       {cards.map(card => (
         <Card
@@ -69,12 +75,12 @@ const Home = ({ language }) => (
     <Section
       title={control[language].title}
       content={control[language].subTitle}
+      padding={'20vh 0 0'}
       color={{
-        background: '#1b243f',
-        header: '#fff',
-        paragraph: '#788cc7'
+        header: '#1f1f1f'
       }}
     />
+      <Subscribe />
   </>
 )
 

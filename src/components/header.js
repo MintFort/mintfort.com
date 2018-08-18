@@ -7,6 +7,7 @@ import { flex, rem, navHeight, theme, hover, phone } from 'library/utils'
 
 import { whitepaper } from 'siteConfig'
 import logo from 'assets/svg/logo_name.svg'
+import logoWhite from 'assets/svg/logo_name_white.svg'
 import logoMobile from 'assets/svg/logo.svg'
 
 const Wrapper = styled.header`
@@ -35,7 +36,7 @@ const Button = styled.button`
   padding: ${rem(4)} ${rem(12)};
   font-size: ${rem(13)};
   cursor: pointer;
-  color: ${theme.black};
+  color: ${({ transparent }) => transparent ? theme.lightFont : theme.black};
 `
 
 const Nav = styled.nav`
@@ -69,7 +70,9 @@ const Nav = styled.nav`
 `
 
 const Logo = styled.div`
-  background: url(${({ desktop }) => desktop});
+  background: url(${({ desktop, transparent }) => (
+    transparent ? desktop.white : desktop.black
+  )});
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -88,7 +91,7 @@ const Logo = styled.div`
 
   `)}
 
-  transition: all .2s ease-in;
+  transition: all .3s ease-in;
 `
 
 class Header extends Component {
@@ -114,10 +117,13 @@ class Header extends Component {
     const { language, onChangeLanguage, location } = this.props
 
     return (
-      <Wrapper transparent={transparent}>
+      <Wrapper
+        transparent={transparent}
+      >
         <Link to={"/"}>
           <Logo
-            desktop={logo}
+            transparent={transparent}
+            desktop={{ black: logo, white: logoWhite }}
             mobile={logoMobile}
           />
         </Link>
@@ -126,7 +132,10 @@ class Header extends Component {
           <a href={whitepaper}>Whitepaper</a>
           {
             !location.pathname.match(/(impressum|policy)/) &&
-            <Button onClick={() => onChangeLanguage()}>
+            <Button
+              transparent={transparent}
+              onClick={() => onChangeLanguage()}
+            >
               {language === "en" ? "中文" : "English"}
             </Button>
           }

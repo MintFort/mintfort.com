@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { SubHeader, Img } from 'library/index'
-import { rem, flex, phone } from 'library/utils'
+import { rem, flex, phone, mobile } from 'library/utils'
 
 const back = {
   1: "#1b243f",
@@ -14,14 +14,30 @@ const back = {
 
 const Wrapper = styled.div`
   background: ${({ card }) => card && back[card]};
-  margin: ${rem(10)};
+  margin: ${rem(30)};
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
+
+  ${mobile(css`
+    margin: ${rem(10)};
+  `)}
 `
 
 const Text = styled.div`
   text-align: center;
   min-height: ${rem(130)};
   ${flex}
+
+  ${mobile(css`
+    h3 {
+      font-size: ${rem(20)};
+    }
+  `)}
+
+  ${phone(css`
+    h3 {
+      font-size: ${rem(24)};
+    }
+  `)}
 `
 
 export const Card = ({ img, title, card }) => (
@@ -29,7 +45,7 @@ export const Card = ({ img, title, card }) => (
     <Text>
       <Fade>
         <SubHeader
-          style={{ margin: 0, padding: '0 20px' }}
+          style={{ margin: 0, padding: '0 30px' }}
           color={card === 2 ? '#1b2441' : '#fff'}
         >
           {title}

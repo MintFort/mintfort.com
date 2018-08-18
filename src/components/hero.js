@@ -1,34 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import GatsbyImg from 'gatsby-image'
-// import { graphql, StaticQuery } from 'gatsby'
+import GatsbyImg from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
-import Fade from 'react-reveal/Fade'
-
 import styled, { css } from 'styled-components'
-import { hover, rem, transitions, navHeight, theme, flex, phone } from 'library/utils'
 
-import { Container, Title, SubHeader, Img } from 'library/index'
-import heroBackground from 'assets/svg/hero_background.svg'
+import { Button } from 'components/subscribe'
+import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
+import { Container, Title, Header, SubHeader, Img } from 'library/index'
 
-import Divider from 'library/divider'
-
-const Background = styled.section`
-  background: #eaedf1 url(${heroBackground});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  min-height: calc(100vh - ${navHeight});
+const Wrapper = styled.section`
+  height: 100vh;
   padding-top: ${navHeight};
+  position: relative;
 
   display: flex;
   flex-direction: column;
+
+  ${phone(css`
+    display: block;
+    height: auto;
+  `)}
 `
 
 const Content = Container.extend`
-  padding: ${rem(80)} ${rem(60)} 0 ${rem(60)};
+  padding: ${rem(40)};
   display: flex;
   flex: 1;
 
@@ -38,16 +35,11 @@ const Content = Container.extend`
   `)}
 `
 
-const IconWrapper = Container.extend`
-  position: absolute;
-  bottom: 0;
-`
-
 const Icon = styled(FaChevronDown)`
-  width: ${rem(40)};
-  height: ${rem(40)};
+  width: ${rem(50)};
+  height: ${rem(50)};
   padding: ${rem(8)};
-  color: #fff;
+  color: ${theme.blue};
   cursor: pointer;
 
   ${hover(css`
@@ -56,29 +48,105 @@ const Icon = styled(FaChevronDown)`
 
   ${transitions('transform 0.2s ease-in')}
 `
+const IconWrapper = styled.div`
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  ${flex}
 
-const Text = ({ title, subTitle, body }) => (
-  <div style={{ flex: 1 }}>
-    <Fade>
-      <SubHeader>{title}</SubHeader>
-      <Title size={70}>{subTitle}</Title>
-    </Fade>
-    <Fade delay={200}>
-      <p>{body}</p>
-    </Fade>
-  </div>
+  ${phone(css`
+    display: none;
+  `)}
+`
+
+const TextWrapper = styled.div`
+  flex: 7;
+  padding: ${rem(30)} 0;
+
+  ${mobile(css`
+    h1 {
+      font-size: ${rem(60)};
+    }
+
+    h3 {
+      font-size: ${rem(18)};
+    }
+  `)}
+
+  ${phone(css`
+    order: 1;
+
+    h2, h3 {
+      font-size: ${rem(16)};
+    }
+  `)}
+`
+
+const ImageWrapper = styled.div`
+  flex: 5;
+  padding-right: ${rem(40)};
+  ${flex({ x: "flex-end", y: 'flex-start' })}
+
+  ${phone(css`
+    order: 2;
+    transform: translate(32px, -20px);
+
+    ${flex({ x: "center", y: 'flex-start' })};
+  `)}
+`
+
+const Register = Button.extend`
+  ${phone(css`
+    margin-bottom: ${rem(40)};
+  `)}
+`
+
+
+const Text = ({ title, subTitle, body, button }) => (
+  <TextWrapper>
+    <Header
+      style={{ margin: `0 0 ${rem(20)}` }}
+      color={theme.lightFont}
+      size={18}
+    >
+      {title}
+    </Header>
+    <Title
+      style={{ margin: `0 0 ${rem(20)}` }}
+      size={72}
+      color="#fff"
+    >
+      {subTitle}
+    </Title>
+    <SubHeader
+      color={theme.lightFont}
+      style={{ margin: `0 0 ${rem(8)}` }}
+      size={20}
+    >
+      {body.first} <br />
+      {body.second}
+    </SubHeader>
+    {
+      button &&
+      <Register
+        onClick={() => goToAnchor("subscribe")}
+      >
+          Pre-Register
+      </Register>
+    }
+  </TextWrapper>
 )
+
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  button: PropTypes.bool,
+  body: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired
 }
-
-const ImageWrapper = styled.div`
-  flex: 1;
-  ${flex({ x: "center", y: 'flex-start' })}
-`
 
 const Image = ({ img, imgSize }) => (
   <ImageWrapper>
@@ -99,90 +167,75 @@ Image.propTypes = {
   ])
 }
 
-const Hero = ({ title, subTitle, body, img, imgSize, scrollId }) => (
-  <Background col>
+const HeroImage = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        image: file(relativePath: { eq: "images/hero-background.png"}) {
+          childImageSharp {
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    `}
+    render={({ image }) => (
+      <GatsbyImg
+        imgStyle={{
+          objectPosition: 'bottom'
+        }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: -1,
+          width: '101%',
+          height: '100%',
+          zIndex: "-1"
+        }}
+        alt='Mintfort hero banner'
+        title='Mintfort hero banner'
+        fluid={image.childImageSharp.fluid}
+      />
+    )}
+  />
+)
+
+const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
+  <Wrapper col>
+    <HeroImage />
     <Content>
+      <Image
+        img={img}
+        imgSize={imgSize}
+      />
       <Text
+        button={button}
         title={title}
         subTitle={subTitle}
         body={body}
       />
-      <Image img={img} imgSize={imgSize}/>
     </Content>
-    <Divider fill={theme.blue}>
-      <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-        <Icon onClick={() => goToAnchor(scrollId)}/>
-      </IconWrapper>
-    </Divider>
-  </Background>
+    <IconWrapper>
+      <Icon onClick={() => goToAnchor(scrollId)}/>
+    </IconWrapper>
+  </Wrapper>
 )
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  scrollId: PropTypes.string,
+  body: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]).isRequired,
   imgSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ])
+  ]),
+  img: PropTypes.string.isRequired,
+  scrollId: PropTypes.string,
+  button: PropTypes.bool
 }
 
 export default Hero
-
-// const HeroImage = ({ backImage }) => (
-//   <GatsbyImg
-//     style={{
-//       width: '100%',
-//       height: '100vh',
-//       top: 0,
-//       position: 'absolute'
-//     }}
-//     alt='Mintfort hero banner'
-//     title='Mintfort hero banner'
-//     fluid={backImage.childImageSharp.fluid}
-//   />
-// )
-//
-// HeroImage.propTypes = {
-//   backImage: PropTypes.object.isRequired
-// }
-
-
-
-// const Hero = ({ title, subTitle, body, img }) => (
-//   <StaticQuery
-//     query={graphql`
-//       query {
-//         backImage: file(relativePath: { eq: "images/hero_background.png"}) {
-//           childImageSharp {
-//             fluid(maxWidth: 2000) {
-//               ...GatsbyImageSharpFluid_tracedSVG
-//             }
-//           }
-//         }
-//       }
-//     `}
-//     render={({ backImage }) => (
-//       <Wrapper col>
-//         <HeroImage backImage={backImage}/>
-//         <Inner>
-//           <Content>
-//             <Text
-//               title={title}
-//               subTitle={subTitle}
-//               body={body}
-//             />
-//             <Image img={img} />
-//           </Content>
-//           <Divider fill={theme.blue}>
-//             <IconWrapper centrate size={{ h: '100%', w: '100%' }}>
-//               <Icon />
-//             </IconWrapper>
-//           </Divider>
-//         </Inner>
-//       </Wrapper>
-//     )}
-//   />
-// )

@@ -41,9 +41,9 @@ export const Title = styled.h1`
   display: block;
   text-align: left;
   width: 100%;
-  font-size: ${({ size }) => size ? rem(size) : rem(42)};
   font-weight: bold;
 
+  font-size: ${({ size }) => size && rem(size) || rem(42)};
   ${({ color }) => color && css`
     color: ${color};
   `}
@@ -55,9 +55,10 @@ export const Title = styled.h1`
 `
 
 export const Header = styled.h2`
-  font-size: ${rem(32)};
   font-weight: 500;
   word-wrap: normal;
+
+  font-size: ${({ size }) => size && rem(size) || rem(32)};
 
   ${({ color }) => color && css`
     color: ${color};
@@ -71,8 +72,9 @@ export const Header = styled.h2`
 export const SubHeader = styled.h3`
   display: block;
   margin: ${rem(35)} 0 ${rem(22)} 0;
-  font-size: ${rem(24)};
   font-weight: 500;
+
+  font-size: ${({ size }) => size && rem(size) || rem(24)};
 
   ${({ color }) => color && css`
     color: ${color};
@@ -85,6 +87,10 @@ export const SubHeader = styled.h3`
 export const Paragraph = styled.p`
   display: block;
   margin: 0;
+
+  ${({ size }) => size && css`
+    font-size: ${rem(size)};
+  `}
 
   ${({ color }) => color && css`
     color: ${color};

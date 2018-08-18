@@ -11,7 +11,7 @@ const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}
   flex-direction: column;
 
-  padding: 0 ${rem(20)};
+  padding: 0 ${rem(20)} ${rem(10)};
   height: calc(${navHeight} * 2);
 
   width: 100%;
