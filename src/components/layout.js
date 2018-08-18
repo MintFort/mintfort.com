@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { injectGlobal } from "styled-components"
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { configureAnchors } from 'react-scrollable-anchor'
 
 import Header from 'components/header'
@@ -40,6 +40,13 @@ injectGlobal`
   }
 `
 
+const siteWidth = '2560px'
+
+const Site = styled.div`
+  margin: 0 auto;
+  max-width: ${siteWidth};
+`
+
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
@@ -52,16 +59,20 @@ const Layout = ({ children, location }) => (
       }
     `}
     render={data => (
-      <>
       <Context location={location}>
-        {addLang(SEO, { path: location.pathname })}
-        {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <Site>
+          {addLang(SEO, { path: location.pathname })}
+          {addLang(Header, {
+            siteTitle: data.site.siteMetadata.title,
+            location,
+            siteWidth
+          })}
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </Site>
       </Context>
-      </>
     )}
   />
 )

@@ -13,6 +13,7 @@ import logoMobile from 'assets/svg/logo.svg'
 const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
 
+  max-width: ${({ siteWidth }) => siteWidth};
   padding: 0 ${rem(20)};
   height: ${navHeight};
 
@@ -114,10 +115,11 @@ class Header extends Component {
   }
   render(){
     const { transparent } = this.state
-    const { language, onChangeLanguage, location } = this.props
+    const { language, onChangeLanguage, location, siteWidth } = this.props
 
     return (
       <Wrapper
+        siteWidth={siteWidth}
         transparent={transparent}
       >
         <Link to={"/"}>
@@ -148,6 +150,7 @@ class Header extends Component {
 Header.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,
   language: PropTypes.string.isRequired,
+  siteWidth: PropTypes.string.isRequired,
   location: PropTypes.object.isRequired
 }
 
