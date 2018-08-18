@@ -6,7 +6,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
 
-import { Button } from 'components/form'
+import { Button } from 'components/subscribe'
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Img } from 'library/index'
 
@@ -80,7 +80,6 @@ const TextWrapper = styled.div`
       font-size: ${rem(16)};
     }
   `)}
-
 `
 
 const ImageWrapper = styled.div`

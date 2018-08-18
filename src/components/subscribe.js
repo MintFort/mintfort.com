@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
-import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
+import GatsbyImg from 'gatsby-image'
+import { graphql, StaticQuery } from 'gatsby'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import { Header } from 'library/index'
 import { flex, rem, theme, hover } from 'library/utils'
 
-const Wrapper = styled.div`
-  background: ${theme.blue};
-  padding: ${rem(60)} 0;
-  ${flex}
+const Wrapper = styled.section`
+  height: 900px;
+  padding: 0 0 ${rem(120)};
+  ${flex({ x: 'flex-end' })}
   flex-direction: column;
+  position: relative;
 `
 
 const Form = styled.form`
@@ -54,7 +58,6 @@ export const Button = styled.button`
   `)}
 
   transition: all .2s ease;
-
 `
 
 const Message = styled.p`
@@ -78,6 +81,40 @@ const SpinWrapper = styled.div`
 
   ${flex}
 `
+
+const Background = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        image: file(relativePath: { eq: "images/sign-up.png"}) {
+          childImageSharp {
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={({ image }) => (
+      <GatsbyImg
+        imgStyle={{
+          objectFit: 'cover',
+          objectPosition: 'top'
+        }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: -1,
+          width: '101%',
+          height: '100%',
+          zIndex: "-1"
+        }}
+        alt='Subscribe background'
+        fluid={image.childImageSharp.fluid}
+      />
+    )}
+  />
+)
 
 const Spin = () => (
   <SpinWrapper>
@@ -131,31 +168,34 @@ class Register extends Component {
     const { result, loading, name, email } = this.state
 
     return (
-      <Wrapper background={theme}>
+      <Wrapper>
+        <Background />
         <Header color={'#fff'}>Sign up for the waiting list</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Input
-            placeholder='Your name (optional)'
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}/>
-          <Input
-            required
-            placeholder='Your E-mail address'
-            type="email"
-            name="email"
-            value={email}
-            onChange={this.handleChange} />
-          <Button
-            disabled={loading}>
+        <ScrollableAnchor id='subscribe'>
+          <Form onSubmit={this.handleSubmit}>
+            <Input
+              placeholder='Your name (optional)'
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}/>
+            <Input
+              required
+              placeholder='Your E-mail address'
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange} />
+            <Button
+              disabled={loading}>
             Pre-Register
-          </Button>
-          {
-            result && <DisplayMessage data={result} />
-          }
-          { loading && <Spin /> }
-        </Form>
+            </Button>
+            {
+              result && <DisplayMessage data={result} />
+            }
+            { loading && <Spin /> }
+          </Form>
+        </ScrollableAnchor>
       </Wrapper>
     )
   }

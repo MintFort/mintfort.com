@@ -7,7 +7,7 @@ import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
-import Subscribe from 'components/form'
+import Subscribe from 'components/subscribe'
 import SectionWatch from 'components/sectionWatch'
 import SectionPhone from 'components/sectionPhone'
 
@@ -40,12 +40,12 @@ const Home = ({ language }) => (
     <Section
       title={crypto[language].title}
       content={crypto[language].subTitle}
+      padding={'8vh 0 4vh'}
       color={{
         header: '#1f1f1f',
         paragraph: '#7b828a',
         background: '#F2F2F2'
       }}
-      padding={'8vh 0 4vh'}
     />
     <SectionPhone />
     <SectionCards>
@@ -74,15 +74,12 @@ const Home = ({ language }) => (
     <Section
       title={control[language].title}
       content={control[language].subTitle}
+      padding={'20vh 0 0'}
       color={{
-        background: '#1b243f',
-        header: '#fff',
-        paragraph: '#788cc7'
+        header: '#1f1f1f'
       }}
     />
-    <ScrollableAnchor id='subscribe'>
       <Subscribe />
-    </ScrollableAnchor>
   </>
 )
 
