@@ -29,6 +29,10 @@ injectGlobal`
     ${transitions('color 0.1s ease')};
   }
 
+  main {
+    overflow-x: hidden;
+  }
+
   button {
     &:focus {
       outline: 0;
