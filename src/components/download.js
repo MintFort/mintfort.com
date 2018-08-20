@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { addLang } from 'components/context'
 import ScrollableAnchor from 'react-scrollable-anchor'
 import { graphql, StaticQuery } from 'gatsby'
+
+import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
 import Section from 'components/section'

@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ScrollableAnchor from 'react-scrollable-anchor'
 
-import { addLang } from 'components/context'
+import { addLang } from 'utils/context'
+
 import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
-import Subscribe from 'components/subscribe'
+import Subscribe from 'components/formRegister'
 import SectionWatch from 'components/sectionWatch'
 import SectionPhone from 'components/sectionPhone'
 

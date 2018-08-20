@@ -7,8 +7,9 @@ import { configureAnchors } from 'react-scrollable-anchor'
 
 import Header from 'components/header'
 import Footer from 'components/footer'
-import SEO from 'components/seo'
-import { Context, addLang } from 'components/context'
+
+import SEO from 'utils/seo'
+import { Context, addLang } from 'utils/context'
 
 import { theme, hover, transitions } from 'library/utils'
 

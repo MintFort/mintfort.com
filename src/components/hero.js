@@ -5,7 +5,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
 
-import { Button } from 'components/subscribe'
+import { Button } from 'components/formRegister'
 import StartPageBackground from 'components/backgrounds/pageStart'
 
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'

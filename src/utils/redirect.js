@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 
 import { languages } from 'siteConfig'
 
-import { addLang } from 'components/context'
-import SEO from 'components/seo'
+import { addLang } from './context'
+import SEO from './seo'
 
 export default class Redirect extends React.PureComponent {
   constructor(props) {
