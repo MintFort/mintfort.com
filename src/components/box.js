@@ -91,7 +91,6 @@ class SectionBoxes extends React.Component {
     animate: false
   }
   toogleShow = animate => {
-    console.log('hola')
     this.setState({ animate })
   }
 
