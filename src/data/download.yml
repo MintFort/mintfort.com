@@ -3,12 +3,12 @@ hero:
     title: 'Download our Beta Version.'
     subTitle: 'Track Your Portfolio.'
     body: 'Starting with API-based management services we are providing a portfolio tracker for multiple exchanges.'
-    img: 'assets/images/icon_white.png'
+    img: 'assets/images/portfolio_tracking.png'
   zh:
     title: '下载我们的测试版本。'
     subTitle: '跟踪您的投资组合。'
     body: '从基于API的管理服务开始，我们为多个交易所提供投资组合跟踪器。'
-    img: 'assets/images/icon_white.png'
+    img: 'assets/images/portfolio_tracking.png'
 
 download:
   en:

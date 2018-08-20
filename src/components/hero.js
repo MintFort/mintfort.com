@@ -146,19 +146,41 @@ Text.propTypes = {
   ]).isRequired
 }
 
-const Image = ({ img, imgSize }) => (
+const StaticImage = styled.div`
+  flex-basis: 600px;
+  transform: translateX(-60px) translateY(50px) scale(1.5);
+
+  ${mobile(css`
+    transform: none;
+  `)}
+
+  transition: all .2s;
+`
+
+const Image = ({ img, imgSize }) => console.log(img)||(
   <ImageWrapper>
-    <Img
-      width={imgSize}
-      src={require('../' + img)}
-      alt="Hero image"
-      draggable='false'
-    />
+    {typeof img === 'object' ?
+      <StaticImage>
+        <GatsbyImg
+          fluid={img.childImageSharp.fluid}
+          alt="Portfolio tracker image"
+        />
+      </StaticImage> :
+      <Img
+        width={imgSize}
+        src={require('../' + img)}
+        alt="Hero image"
+        draggable='false'
+      />
+    }
   </ImageWrapper>
 )
 
 Image.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   imgSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
@@ -231,7 +253,10 @@ Hero.propTypes = {
     PropTypes.number,
     PropTypes.string
   ]),
-  img: PropTypes.string.isRequired,
+  img: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   scrollId: PropTypes.string,
   button: PropTypes.bool
 }
