@@ -12,9 +12,6 @@ const Wrapper = styled.div`
 `
 
 const IconWrapper = styled.div`
-  ${'' /* border: 1px solid #fff; */}
-  border-radius: 50%;
-
   width: ${rem(80)};
   height: ${rem(80)};
 
@@ -24,7 +21,7 @@ const IconWrapper = styled.div`
 `
 
 const Anchor = styled.a`
-  color: #fff;
+  color: ${theme.blue};
 
   ${hover(css`
     color: ${theme.mint};
@@ -38,7 +35,7 @@ const Download = ({ icon: Icon, name, url }) => (
     <IconWrapper>
       <Icon style={{ fontSize: 60 }}/>
     </IconWrapper>
-    <Paragraph color="#fff">{name}</Paragraph>
+    <Paragraph color={theme.blue}>{name}</Paragraph>
   </Anchor>
 )
 

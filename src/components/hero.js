@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
 
 import { Button } from 'components/subscribe'
+import StartPageBackground from 'components/backgrounds/pageStart'
+
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Img } from 'library/index'
 
@@ -121,10 +122,9 @@ const Text = ({ title, subTitle, body, button }) => (
     <SubHeader
       color={theme.lightFont}
       style={{ margin: `0 0 ${rem(8)}` }}
-      size={20}
+      size={18}
     >
-      {body.first} <br />
-      {body.second}
+      {body}
     </SubHeader>
     {
       button &&
@@ -137,7 +137,6 @@ const Text = ({ title, subTitle, body, button }) => (
   </TextWrapper>
 )
 
-
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
@@ -148,62 +147,51 @@ Text.propTypes = {
   ]).isRequired
 }
 
+const StaticImage = styled.div`
+  flex-basis: 600px;
+  transform: translateX(-60px) translateY(50px) scale(1.5);
+
+  ${mobile(css`
+    transform: none;
+  `)}
+
+  transition: all .2s;
+`
+
 const Image = ({ img, imgSize }) => (
   <ImageWrapper>
-    <Img
-      width={imgSize}
-      src={require('../' + img)}
-      alt="Hero image"
-      draggable='false'
-    />
+    {typeof img === 'object' ?
+      <StaticImage>
+        <GatsbyImg
+          fluid={img.childImageSharp.fluid}
+          alt="Portfolio tracker image"
+        />
+      </StaticImage> :
+      <Img
+        width={imgSize}
+        src={require('../' + img)}
+        alt="Hero image"
+        draggable='false'
+      />
+    }
   </ImageWrapper>
 )
 
 Image.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   imgSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
   ])
 }
 
-const HeroImage = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/hero-background.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        imgStyle={{
-          objectPosition: 'bottom'
-        }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: -1,
-          width: '101%',
-          height: '100%',
-          zIndex: "-1"
-        }}
-        alt='Mintfort hero banner'
-        title='Mintfort hero banner'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
-)
 
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
   <Wrapper col>
-    <HeroImage />
+    <StartPageBackground style={{ zIndex: "-1" }}/>
     <Content>
       <Image
         img={img}
@@ -233,7 +221,10 @@ Hero.propTypes = {
     PropTypes.number,
     PropTypes.string
   ]),
-  img: PropTypes.string.isRequired,
+  img: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   scrollId: PropTypes.string,
   button: PropTypes.bool
 }

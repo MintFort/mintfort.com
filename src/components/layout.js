@@ -58,7 +58,7 @@ const Layout = ({ children, location }) => (
         <main>
           {children}
         </main>
-        <Footer />
+        <Footer path={location.pathname}/>
       </Context>
     )}
   />

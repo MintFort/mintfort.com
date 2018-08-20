@@ -1,40 +1,10 @@
 import React from 'react'
-import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 import { flex, phone } from 'library/utils'
 import { Img } from 'library/index'
 
-const Background = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/watch_girl_section.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: 'auto',
-          zIndex: "-1"
-        }}
-        alt='Background watch'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
-)
+import DividerStart from 'components/backgrounds/start'
 
 const Wrapper = styled.div`
   position: relative;
@@ -64,7 +34,7 @@ const SectionWatch = () => (
         draggable='false'
       />
     </ImageWrapper>
-    <Background />
+    <DividerStart style={{ zIndex: '-1' }}/>
   </Wrapper>
 )
 
