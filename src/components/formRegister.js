@@ -29,6 +29,12 @@ const Form = styled.form`
   ${phone(css`
     padding: ${rem(30)};
   `)}
+
+  ${({ loading }) => loading && css`
+    filter: blur(2px);
+  `}
+
+  transition: all .3s ease;
 `
 
 const Input = styled.input`
@@ -90,8 +96,8 @@ const Message = styled.p`
 
 const SpinWrapper = styled.div`
   position: absolute;
-  background: ${theme.blue};
-  opacity: 0.7;
+  top: 0;
+  background: transparent;
 
   width: 100%;
   height: 100%;
@@ -144,7 +150,8 @@ class Register extends Component {
       loading: false,
       name: '',
       email: '',
-      result })
+      result
+    })
   }
 
   render() {
@@ -157,28 +164,31 @@ class Register extends Component {
           Sign up for the waiting list
         </Header>
         <ScrollableAnchor id='subscribe'>
-          <Form onSubmit={this.handleSubmit}>
-            <Input
-              placeholder='Your name (optional)'
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}/>
-            <Input
-              required
-              placeholder='Your E-mail address'
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange} />
-            <Button disabled={loading}>
-              Pre-Register
-            </Button>
-            {
-              result && <DisplayMessage data={result} />
-            }
+          <div style={{ position: 'relative' }}>
+            <Form onSubmit={this.handleSubmit} loading={loading}>
+              <Input
+                placeholder='Your name (optional)'
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+              />
+              <Input
+                required
+                placeholder='Your E-mail address'
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+              {result && <DisplayMessage data={result} /> }
+              <Button disabled={loading}>
+                Pre-Register
+              </Button>
+            </Form>
             { loading && <Spin /> }
-          </Form>
+          </div>
+
         </ScrollableAnchor>
       </Wrapper>
     )
