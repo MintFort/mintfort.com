@@ -3,16 +3,16 @@ hero:
     title: 'Take control over your assets.'
     subTitle: 'Be Your Bank.'
     body: The first crypto-friendly bank account. Store and manage assets on the blockchain.
-    img: 'assets/images/hero_phone.png'
+    img: 'assets/images/hero_home.png'
   zh:
     title: '一手掌控你的资产'
     subTitle: 你就是自己的银行。
     body: 第一个加密友好的银行账户。在区块链上存储和管理资产。
-    img: 'assets/images/hero_phone.png'
+    img: 'assets/images/hero_home.png'
 
 imagine:
   en:
-    title: 'Imagine a bank which is independent and currency agnostic.'
+    title: 'Imagine a bank which is independent and currency agnostic'
     subTitle: 'Where transactions take seconds and assets are being held well protected by the consensus of the blockchain. Mintfort offers the first bank account that handles crypto assets the same way as traditional currencies. Say good bye to messy wallets and complicated procedures.'
     background: 'assets/svg/dotted_side_blue_background.svg'
   zh:
@@ -22,7 +22,7 @@ imagine:
 
 crypto:
   en:
-    title: 'Crypto banking made simple.'
+    title: 'Crypto banking made simple'
     subTitle: 'We strongly believe, mass adoption comes with customer satisfaction. Say good bye to messy wallets and complicated procedures. Mintfort will become a convenient banking solution connecting your virtual currencies with the real world and lets you integrate third-party business services.'
     img: 'assets/images/banking_made_simple.png'
     background: 'assets/svg/dotted_white_background-01.svg'
@@ -60,7 +60,7 @@ cards:
 
 access:
   en:
-    title: 'Access to a whole finance ecosystem.'
+    title: 'Access to a whole finance ecosystem'
     subTitle: 'Our vision is a bank, where customers retain full control over their assets. Therefore, we are building a finance platform empowered by the blockchain, providing access to both banking and investment services.'
   zh:
     title: '进入整个金融生态系统。'
@@ -134,7 +134,7 @@ boxes:
 
 control:
   en:
-    title: 'Control all your assets where ever you want.'
+    title: 'Control all your assets where ever you want'
     subTitle: 'Manage your digital assets in a decent interface. Grow your wealth with plenty of investment products at a fraction of costs compared to traditional services. Benefit from cut-out middle men and access markets directly.'
   zh:
     title: '控制资产。增加财富。'
