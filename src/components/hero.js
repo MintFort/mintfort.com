@@ -121,10 +121,9 @@ const Text = ({ title, subTitle, body, button }) => (
     <SubHeader
       color={theme.lightFont}
       style={{ margin: `0 0 ${rem(8)}` }}
-      size={20}
+      size={18}
     >
-      {body.first} <br />
-      {body.second}
+      {body}
     </SubHeader>
     {
       button &&
@@ -136,7 +135,6 @@ const Text = ({ title, subTitle, body, button }) => (
     }
   </TextWrapper>
 )
-
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,

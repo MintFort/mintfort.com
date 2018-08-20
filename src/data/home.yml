@@ -1,17 +1,13 @@
 hero:
   en:
-    title: 'Take control over your values.'
+    title: 'Take control over your assets.'
     subTitle: 'Be Your Bank.'
-    body:
-      first: The first crypto-friendly bank account.
-      second: Store and manage assets on the blockchain.
+    body: The first crypto-friendly bank account. Store and manage assets on the blockchain.
     img: 'assets/images/hero_phone.png'
   zh:
-    title: '-missing-'
-    subTitle: 你就是自己的银行。'
-    body:
-      first: 第一个加密友好的银行账户。
-      second: 在区块链上存储和管理资产。
+    title: '一手掌控你的资产'
+    subTitle: 你就是自己的银行。
+    body: 第一个加密友好的银行账户。在区块链上存储和管理资产。
     img: 'assets/images/hero_phone.png'
 
 imagine:
