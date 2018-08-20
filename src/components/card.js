@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { SubHeader, Img } from 'library/index'
-import { rem, flex, phone, mobile } from 'library/utils'
+import { rem, flex, phone, mobile, theme } from 'library/utils'
 
 const back = {
   1: "#1b243f",
@@ -46,7 +46,7 @@ export const Card = ({ img, title, card }) => (
       <Fade>
         <SubHeader
           style={{ margin: 0, padding: '0 30px' }}
-          color={card === 2 ? '#1b2441' : '#fff'}
+          color={card === 2 ? theme.blue : '#fff'}
         >
           {title}
         </SubHeader>

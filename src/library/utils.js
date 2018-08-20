@@ -46,5 +46,7 @@ export const theme = {
   blue: '#1b243f',
   red: '#F44336',
   gray: "#F2F2F2",
-  lightFont: "#A2A3AB"
+  paragraph: '#788cc7',
+  lightFont: "#A2A3AB",
+  whiteFont: "#f0f0f0"
 }

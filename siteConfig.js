@@ -10,11 +10,11 @@ module.exports = {
   languages: ['en', 'zh'],
   whitepaper: '/files/Whitepaper_1.2.0.pdf',
   social: [
-    { name: "Github", url: 'https://github.com/MintFort' },
     { name: "Facebook", url: 'https://www.facebook.com/mintfortbank' },
-    { name: "Linkedin", url: 'https://www.linkedin.com/company/mintfort/' },
     { name: "Twitter", url: 'https://twitter.com/mintfort' },
-    { name: "Medium", url: 'https://medium.com/mintfort' }
+    { name: "Linkedin", url: 'https://www.linkedin.com/company/mintfort/' },
+    { name: "Medium", url: 'https://medium.com/mintfort' },
+    { name: "Github", url: 'https://github.com/MintFort' }
   ],
   portfolio: {
     mac: 'https://download.mintfort.com/Mintfort-0.5.2.dmg',

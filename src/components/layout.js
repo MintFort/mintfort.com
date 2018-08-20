@@ -33,7 +33,7 @@ injectGlobal`
     overflow: hidden;
   }
 
-  button {
+  button, input {
     &:focus {
       outline: 0;
     }

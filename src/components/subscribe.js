@@ -43,6 +43,18 @@ const Input = styled.input`
   width: 100%;
   padding: ${rem(16)};
   margin: ${rem(10)} 0;
+
+  &:focus {
+    border-bottom: 1px solid ${theme.mint};
+    box-shadow: inset 0 2px 20px rgba(0,0,0,0.17);
+
+    &::-webkit-input-placeholder {
+      color: ${theme.mint};
+      transition: all .3s ease;
+    }
+  }
+  transition: all .3s ease;
+
 `
 
 export const Button = styled.button`
@@ -141,10 +153,7 @@ class Register extends Component {
     return (
       <Wrapper>
         <EndPageBackground style={{ zIndex: "-1" }}/>
-        <Header
-          color='#fff'
-          style={{ textShadow: `1px 1px 10px ${theme.blue}` }}
-        >
+        <Header color={theme.whiteFont}>
           Sign up for the waiting list
         </Header>
         <ScrollableAnchor id='subscribe'>

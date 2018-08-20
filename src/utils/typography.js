@@ -19,7 +19,7 @@ const typography = new Typography({
   headerFontFamily: ['Montserrat', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
   bodyFontFamily: ['Lato', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
   headerColor: theme.blue,
-  bodyColor: theme.paragraph,
+  bodyColor: theme.lightFont,
   bodyWeight: '400'
 })
 
