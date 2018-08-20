@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link as GatsbLink } from 'gatsby'
+import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
 import { social } from 'siteConfig'
@@ -15,7 +16,7 @@ const Wrapper = styled.footer`
   height: calc(${navHeight} * 2);
 
   width: 100%;
-  background:transparent;
+  background: ${({ path }) => path && path.includes('download') && theme.blue || '#fff'};
 
   ${phone(css`
     flex-direction: column;
@@ -74,8 +75,8 @@ const icon = name => {
   return <Component />
 }
 
-const Footer = () => (
-  <Wrapper>
+const Footer = ({ path }) => (
+  <Wrapper path={path}>
     <Section
       size={{ w: '100%', h: '100%' }}
       position={{ x: 'space-between', y: 'center' }}
@@ -104,5 +105,9 @@ const Footer = () => (
     </Copyright>
   </Wrapper>
 )
+
+Footer.propTypes = {
+  path: PropTypes.string
+}
 
 export default Footer
