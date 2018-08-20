@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { flex, phone } from 'library/utils'
 import { Img } from 'library/index'
@@ -27,12 +28,14 @@ const ImageWrapper = styled.div`
 const SectionWatch = () => (
   <Wrapper>
     <ImageWrapper>
-      <Img
-        width={300}
-        src={require('../assets/images/watch_animation.gif')}
-        alt="Watch image"
-        draggable='false'
-      />
+      <Fade>
+        <Img
+          width={300}
+          src={require('../assets/images/watch_animation.gif')}
+          alt="Watch image"
+          draggable='false'
+        />
+      </Fade>
     </ImageWrapper>
     <DividerStart style={{ zIndex: '-1' }}/>
   </Wrapper>

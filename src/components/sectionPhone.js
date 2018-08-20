@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
 import { flex, phone, rem, theme } from 'library/utils'
@@ -67,7 +68,9 @@ const SectionPhone = () => (
       <Wrapper>
         <DividerEnd />
         <ImageWrapper>
-          <Phone image={phone}/>
+          <Fade>
+            <Phone image={phone}/>
+          </Fade>
         </ImageWrapper>
       </Wrapper>
     )}
