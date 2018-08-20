@@ -45,10 +45,6 @@ export const theme = {
   mint: '#19DBB6',
   blue: '#1b243f',
   red: '#F44336',
-  lightFont: "#A2A3AB",
-  main: '#fff',
-  background: '#f4f5fA',
-  backgroundCard: '#eaecf5',
-  border: '1px solid #f4f5fA',
-  shadow: '0 1px 6px 0 #e2e4ed'
+  gray: "#F2F2F2",
+  lightFont: "#A2A3AB"
 }

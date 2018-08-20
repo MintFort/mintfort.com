@@ -12,6 +12,8 @@ import SectionWatch from 'components/sectionWatch'
 import SectionPhone from 'components/sectionPhone'
 
 import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
+import { theme } from 'library/utils'
+
 
 const Home = ({ language }) => (
   <>
@@ -29,11 +31,6 @@ const Home = ({ language }) => (
         <Section
           title={imagine[language].title}
           content={imagine[language].subTitle}
-          color={{
-            header: '#1f1f1f',
-            paragraph: '#7b828a',
-            background: 'transparent'
-          }}
         />
       </div>
     </ScrollableAnchor>
@@ -43,9 +40,7 @@ const Home = ({ language }) => (
       content={crypto[language].subTitle}
       padding={'4vh 0'}
       color={{
-        header: '#1f1f1f',
-        paragraph: '#7b828a',
-        background: '#F2F2F2'
+        background: theme.gray
       }}
     />
     <SectionPhone />
@@ -63,10 +58,6 @@ const Home = ({ language }) => (
       title={access[language].title}
       content={access[language].subTitle}
       background= {access[language].background}
-      color={{
-        header: '#1f1f1f',
-        paragraph: '#7b828a'
-      }}
     />
     <SectionBoxes
       data={boxes}
@@ -76,9 +67,6 @@ const Home = ({ language }) => (
       title={control[language].title}
       content={control[language].subTitle}
       padding={'20vh 0 0'}
-      color={{
-        header: '#1f1f1f'
-      }}
     />
       <Subscribe />
   </>

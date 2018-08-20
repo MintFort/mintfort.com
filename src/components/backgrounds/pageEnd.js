@@ -18,14 +18,15 @@ const Background = ({ style }) => (
     `}
     render={({ image }) => (
       <GatsbyImg
+        backgroundColor={'#fff'}
         imgStyle={{
           objectPosition: 'top'
         }}
         style={{
           position: 'absolute',
           top: 0,
-          left: 0,
-          width: '100%',
+          left: -1,
+          width: '101%',
           height: '100%',
           ...style
         }}

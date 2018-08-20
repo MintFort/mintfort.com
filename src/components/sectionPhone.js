@@ -5,11 +5,11 @@ import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, rem } from 'library/utils'
+import { flex, phone, rem, theme } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
-  background: #F2F2F2;
+  background: ${theme.gray};
   overflow: hidden;
   width: 100%;
   overflow-x: hidden;:

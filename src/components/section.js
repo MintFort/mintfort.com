@@ -37,7 +37,6 @@ const Text = ({ title, content, color }) => (
     <Wrapper col>
       <Fade>
         <Header
-          color={color.blue}
           style={{ fontWeight: 'bold' }}
         >
           {title}
@@ -46,7 +45,7 @@ const Text = ({ title, content, color }) => (
           {
             typeof content === 'string' ?
               <Paragraph
-                color={color.paragraph}>
+                color={color && color.paragraph}>
                 {content}
               </Paragraph> :
               content
@@ -63,7 +62,7 @@ Text.propTypes = {
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
-  color: PropTypes.object.isRequired
+  color: PropTypes.object
 }
 
 const Image = ({ src }) => (
