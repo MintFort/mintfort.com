@@ -27,7 +27,7 @@ const Background = ({ style }) => (
           top: 0,
           left: -1,
           width: '101%',
-          height: '100%',
+          height: '115%',
           ...style
         }}
         alt='Background'
