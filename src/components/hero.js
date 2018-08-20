@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
 
 import { Button } from 'components/subscribe'
+import StartPageBackground from 'components/backgrounds/pageStart'
+
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Img } from 'library/index'
 
@@ -157,7 +158,7 @@ const StaticImage = styled.div`
   transition: all .2s;
 `
 
-const Image = ({ img, imgSize }) => console.log(img)||(
+const Image = ({ img, imgSize }) => (
   <ImageWrapper>
     {typeof img === 'object' ?
       <StaticImage>
@@ -187,43 +188,10 @@ Image.propTypes = {
   ])
 }
 
-const HeroImage = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/hero-background.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        imgStyle={{
-          objectPosition: 'bottom'
-        }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: -1,
-          width: '101%',
-          height: '100%',
-          zIndex: "-1"
-        }}
-        alt='Mintfort hero banner'
-        title='Mintfort hero banner'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
-)
 
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
   <Wrapper col>
-    <HeroImage />
+    <StartPageBackground style={{ zIndex: "-1" }}/>
     <Content>
       <Image
         img={img}

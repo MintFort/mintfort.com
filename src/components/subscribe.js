@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
-import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 import ScrollableAnchor from 'react-scrollable-anchor'
+
+import EndPageBackground from 'components/backgrounds/pageEnd'
 
 import { Header } from 'library/index'
 import { flex, rem, theme, hover, phone } from 'library/utils'
@@ -87,39 +87,6 @@ const SpinWrapper = styled.div`
   ${flex}
 `
 
-const Background = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/sign-up.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        imgStyle={{
-          objectPosition: 'top'
-        }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: -1,
-          width: '101%',
-          height: '100%',
-          zIndex: "-1"
-        }}
-        alt='Subscribe background'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
-)
-
 const Spin = () => (
   <SpinWrapper>
     <Spinner name="ball-triangle-path" color={theme.mint} />
@@ -173,7 +140,7 @@ class Register extends Component {
 
     return (
       <Wrapper>
-        <Background />
+        <EndPageBackground style={{ zIndex: "-1" }}/>
         <Header
           color='#fff'
           style={{ textShadow: `1px 1px 10px ${theme.blue}` }}
