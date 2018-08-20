@@ -36,7 +36,9 @@ const Download = ({ language }) => (
           scrollId='download'
         />
         <ScrollableAnchor id='download'>
-          <SectionDownload title={download[language].title}/>
+          <div> {/* <- https://github.com/gabergg/react-scrollable-anchor/issues/45 */}
+            <SectionDownload title={download[language].title}/>
+          </div>
         </ScrollableAnchor>
         <Section
           title={shop[language].title}
