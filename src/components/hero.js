@@ -50,7 +50,7 @@ const Icon = styled(FaChevronDown)`
 `
 const IconWrapper = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: ${rem(50)};
   width: 100%;
   ${flex}
 
