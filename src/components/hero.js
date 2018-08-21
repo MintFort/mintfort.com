@@ -245,7 +245,7 @@ Hero.propTypes = {
     PropTypes.object
   ]).isRequired,
   scrollId: PropTypes.string,
-  button: PropTypes.bool
+  button: PropTypes.string
 }
 
 export default Hero
