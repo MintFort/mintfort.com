@@ -14,7 +14,7 @@ import SectionDownload from 'components/sectionDownload'
 import { hero, download, shop, exchanges } from 'data/download.yml'
 import { theme } from 'library/utils'
 
-const Download = ({ language }) => (
+const Portfolio = ({ language }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -59,8 +59,8 @@ const Download = ({ language }) => (
   />
 )
 
-Download.propTypes = {
+Portfolio.propTypes = {
   language: PropTypes.string.isRequired
 }
 
-export default () => addLang(Download)
+export default () => addLang(Portfolio)

@@ -128,7 +128,7 @@ class Header extends Component {
           />
         </Link>
         <Nav>
-          <Link to={`/download/`}>Portfolio</Link>
+          <Link to={`/portfolio/`}>Portfolio</Link>
           <a href={whitepaper}>Whitepaper</a>
           {
             !location.pathname.match(/(impressum|policy)/) &&

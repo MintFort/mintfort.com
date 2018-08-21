@@ -16,7 +16,7 @@ const Wrapper = styled.footer`
   height: calc(${navHeight} * 2);
 
   width: 100%;
-  background: ${({ path }) => path && path.includes('download') && theme.blue || '#fff'};
+  background: ${({ path }) => path && path.includes('portfolio') && theme.blue || '#fff'};
 
   ${phone(css`
     flex-direction: column;

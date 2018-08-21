@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Layout from 'components/layout'
-import Download from 'components/download'
+import Portfolio from 'components/portfolio'
 
-const DownloadPage = ({ location }) => (
+const PortfolioPage = ({ location }) => (
   <Layout location={location}>
-    <Download />
+    <Portfolio />
   </Layout>
 )
 
-DownloadPage.propTypes = {
+PortfolioPage.propTypes = {
   location: PropTypes.object.isRequired
 }
 
-export default DownloadPage
+export default PortfolioPage

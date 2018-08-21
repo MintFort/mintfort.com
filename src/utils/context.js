@@ -34,7 +34,7 @@ export class Context extends Component {
     }), () => {
       localStorage.setItem('lang', this.state.language)
       // TODO: this should be dynamic (It's ok atm.)
-      push(`/${this.state.language}${this.props.location.pathname.match(/download/) ? '/download' : ''}`)
+      push(`/${this.state.language}${this.props.location.pathname.match(/portfolio/) ? '/portfolio' : ''}`)
     })
   }
 
