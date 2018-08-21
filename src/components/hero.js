@@ -5,11 +5,10 @@ import { FaChevronDown } from 'react-icons/fa'
 import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
 
-import { Button } from 'components/formRegister'
 import StartPageBackground from 'components/backgrounds/pageStart'
 
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
-import { Container, Title, Header, SubHeader, Img } from 'library/index'
+import { Container, Title, Header, SubHeader, Img, Button } from 'library/index'
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -127,11 +126,12 @@ const Text = ({ title, subTitle, body, button }) => (
       {body}
     </SubHeader>
     {
-      button &&
+      button && button.length &&
       <Register
+        primary
         onClick={() => goToAnchor("subscribe")}
       >
-          Pre-Register
+        {button}
       </Register>
     }
   </TextWrapper>
@@ -140,7 +140,7 @@ const Text = ({ title, subTitle, body, button }) => (
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
-  button: PropTypes.bool,
+  button: PropTypes.string,
   body: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string

@@ -7,8 +7,8 @@ import ScrollableAnchor from 'react-scrollable-anchor'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
 
-import { Header } from 'library/index'
-import { flex, rem, theme, hover, phone } from 'library/utils'
+import { Header, Button } from 'library/index'
+import { flex, rem, theme, phone } from 'library/utils'
 
 const Wrapper = styled.section`
   height: 900px;
@@ -60,28 +60,8 @@ const Input = styled.input`
     }
   }
   transition: all .3s ease;
-
 `
 
-export const Button = styled.button`
-  background: ${theme.mint};
-  color: ${theme.blue};
-  font-weight: 700;
-  cursor: pointer;
-
-  border-radius: ${rem(20)};
-  border: 1px solid ${theme.mint};
-
-  padding: ${rem(6)} ${rem(30)};
-  margin: ${rem(30)} 0 ${rem(10)};
-
-  ${hover(css`
-    background: ${theme.blue};
-    color: ${theme.mint};
-  `)}
-
-  transition: all .2s ease;
-`
 
 const Message = styled.p`
   margin: ${rem(6)} 0 0;
@@ -156,12 +136,13 @@ class Register extends Component {
 
   render() {
     const { result, loading, name, email } = this.state
+    const { title, button } = this.props
 
     return (
       <Wrapper>
         <EndPageBackground style={{ zIndex: "-1" }}/>
         <Header color={theme.whiteFont}>
-          Sign up for the waiting list
+          {title}
         </Header>
         <ScrollableAnchor id='subscribe'>
           <div style={{ position: 'relative' }}>
@@ -183,7 +164,7 @@ class Register extends Component {
               />
               {result && <DisplayMessage data={result} /> }
               <Button disabled={loading}>
-                Pre-Register
+                {button}
               </Button>
             </Form>
             { loading && <Spin /> }
@@ -193,6 +174,11 @@ class Register extends Component {
       </Wrapper>
     )
   }
+}
+
+Register.propTypes = {
+  title: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired
 }
 
 export default Register

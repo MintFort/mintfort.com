@@ -30,7 +30,7 @@ const Wrapper = styled.header`
   transition: all .4s ease;
 `
 
-const Button = styled.button`
+const LanguageSwitcher = styled.button`
   background: transparent;
   border: none;
   padding: ${rem(4)} ${rem(12)};
@@ -132,12 +132,12 @@ class Header extends Component {
           <a href={whitepaper}>Whitepaper</a>
           {
             !location.pathname.match(/(impressum|policy)/) &&
-            <Button
+            <LanguageSwitcher
               transparent={transparent}
               onClick={() => onChangeLanguage()}
             >
               {language === "en" ? "中文" : "English"}
-            </Button>
+            </LanguageSwitcher>
           }
         </Nav>
       </Wrapper>

@@ -12,9 +12,8 @@ import Subscribe from 'components/formRegister'
 import SectionWatch from 'components/sectionWatch'
 import SectionPhone from 'components/sectionPhone'
 
-import { hero, imagine, buy, access, cards, boxes, control } from 'data/home.yml'
+import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
 import { theme } from 'library/utils'
-
 
 const Home = ({ language }) => (
   <>
@@ -25,7 +24,7 @@ const Home = ({ language }) => (
       img={hero[language].img}
       imgSize={320}
       scrollId='imagine'
-      button
+      button={form[language].button}
     />
     <ScrollableAnchor id='imagine'>
       <div>
@@ -69,7 +68,10 @@ const Home = ({ language }) => (
       content={control[language].subTitle}
       padding={'20vh 0 0'}
     />
-      <Subscribe />
+      <Subscribe
+        title={form[language].title}
+        button={form[language].button}
+      />
   </>
 )
 
