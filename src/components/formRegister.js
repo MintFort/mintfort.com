@@ -163,7 +163,10 @@ class Register extends Component {
                 onChange={this.handleChange}
               />
               {result && <DisplayMessage data={result} /> }
-              <Button disabled={loading}>
+              <Button
+                primary
+                disabled={loading}
+              >
                 {button}
               </Button>
             </Form>
