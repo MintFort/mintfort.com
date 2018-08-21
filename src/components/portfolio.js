@@ -18,7 +18,7 @@ const Portfolio = ({ language }) => (
   <StaticQuery
     query={graphql`
       query {
-        img: file(relativePath: { eq: "images/hero_download.png"}) {
+        img: file(relativePath: { regex: "/hero_download/"}) {
           childImageSharp {
             fluid(maxWidth: 1350) {
               ...GatsbyImageSharpFluid_tracedSVG

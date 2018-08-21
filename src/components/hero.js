@@ -86,13 +86,36 @@ const ImageWrapper = styled.div`
   flex: 5;
   padding-right: ${rem(40)};
   ${flex({ x: "flex-end", y: 'flex-start' })}
+  min-width: 200px;
+
+  ${mobile(css`
+    padding: 0;
+    flex: 7;
+  `)}
 
   ${phone(css`
     order: 2;
+    padding-right: ${rem(40)};
     transform: translate(32px, -20px);
 
     ${flex({ x: "center", y: 'flex-start' })};
   `)}
+`
+
+const StaticImage = styled.div`
+  min-width: 600px;
+  transform: translateX(-60px) translateY(50px) scale(1.5);
+
+  ${mobile(css`
+    transform: translateX(-100px) translateY(50px) scale(1.5);
+  `)}
+
+  ${phone(css`
+    transform: none;
+    min-width: 320px;
+  `)}
+
+  transition: all .2s;
 `
 
 const Register = Button.extend`
@@ -101,6 +124,14 @@ const Register = Button.extend`
   `)}
 `
 
+const Sub = SubHeader.extend`
+  white-space: pre-line;
+  color: ${theme.lightFont};
+
+  ${mobile(css`
+    white-space: normal;
+  `)}
+`
 
 const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
@@ -118,13 +149,12 @@ const Text = ({ title, subTitle, body, button }) => (
     >
       {subTitle}
     </Title>
-    <SubHeader
-      color={theme.lightFont}
-      style={{ margin: `0 0 ${rem(8)}`, whiteSpace: 'pre' }}
+    <Sub
+      style={{ margin: `0 0 ${rem(8)}` }}
       size={18}
     >
       {body}
-    </SubHeader>
+    </Sub>
     {
       button && button.length &&
       <Register
@@ -146,17 +176,6 @@ Text.propTypes = {
     PropTypes.string
   ]).isRequired
 }
-
-const StaticImage = styled.div`
-  flex-basis: 600px;
-  transform: translateX(-60px) translateY(50px) scale(1.5);
-
-  ${mobile(css`
-    transform: none;
-  `)}
-
-  transition: all .2s;
-`
 
 const Image = ({ img, imgSize }) => (
   <ImageWrapper>
