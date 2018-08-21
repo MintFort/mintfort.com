@@ -7,7 +7,7 @@ const Background = ({ style }) => (
   <StaticQuery
     query={graphql`
       query {
-        image: file(relativePath: { eq: "images/page_background_start.png"}) {
+        image: file(relativePath: { regex: "/page_background_start/"}) {
           childImageSharp {
             fluid(maxWidth: 2560) {
               ...GatsbyImageSharpFluid_tracedSVG

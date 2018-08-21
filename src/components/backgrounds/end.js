@@ -7,7 +7,7 @@ const Divider = ({ style }) => (
   <StaticQuery
     query={graphql`
       query {
-        image: file(relativePath: { eq: "images/divider_end.png"}) {
+        image: file(relativePath: { regex: "/divider_end/"}) {
           childImageSharp {
             fluid(maxWidth: 2560) {
               ...GatsbyImageSharpFluid
