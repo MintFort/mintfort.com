@@ -50,7 +50,7 @@ const Icon = styled(FaChevronDown)`
 `
 const IconWrapper = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: ${rem(50)};
   width: 100%;
   ${flex}
 
@@ -191,7 +191,7 @@ Image.propTypes = {
 
 const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
   <Wrapper col>
-    <StartPageBackground style={{ zIndex: "-1" }}/>
+    <StartPageBackground />
     <Content>
       <Image
         img={img}

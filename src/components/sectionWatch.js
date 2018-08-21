@@ -37,7 +37,7 @@ const SectionWatch = () => (
         />
       </Fade>
     </ImageWrapper>
-    <DividerStart style={{ zIndex: '-1' }}/>
+    <DividerStart />
   </Wrapper>
 )
 

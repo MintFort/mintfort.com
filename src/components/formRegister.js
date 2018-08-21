@@ -140,7 +140,7 @@ class Register extends Component {
 
     return (
       <Wrapper>
-        <EndPageBackground style={{ zIndex: "-1" }}/>
+        <EndPageBackground/>
         <Header color={theme.whiteFont}>
           {title}
         </Header>
