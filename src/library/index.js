@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
-import { phone } from './utils'
-import { rem } from 'polished'
+import { rem, theme, hover, phone } from './utils'
 
 export const Container = styled.div`
   display: flex;
@@ -103,4 +102,24 @@ export const Img = styled.img`
 
   height: ${({ height }) => height || "auto"};
   width: ${({ width }) => width || "100%"};
+`
+
+export const Button = styled.button`
+  background: ${({ primary }) => primary ? theme.mint : '#fff'};
+  color: ${theme.blue};
+  font-weight: 700;
+  cursor: pointer;
+
+  border-radius: ${rem(20)};
+  border: ${({ primary }) => primary ? `1px solid ${theme.mint}` : "none"};
+
+  padding: ${rem(6)} ${rem(30)};
+  margin: ${rem(30)} 0 ${rem(10)};
+
+  ${hover(css`
+    background: ${({ primary }) => primary ? theme.blue : theme.mint};
+    color: ${({ primary }) => primary ? theme.mint : '#fff'};
+  `)}
+
+  transition: all .1s ease;
 `
