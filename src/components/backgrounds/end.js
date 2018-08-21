@@ -1,39 +1,29 @@
 import React from 'react'
-import GatsbyImg from 'gatsby-image'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+
+import dividerEnd from 'assets/svg/divider_end.svg'
 
 const Divider = ({ style }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/divider_end.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        imgStyle={{
-          objectPosition: 'top'
-        }}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: 'auto',
-          ...style
-        }}
-        alt='Background'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
+  <div style={{
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: 'auto',
+    ...style
+  }}>
+    <img
+      style={{
+        margin: 0,
+        display: "block",
+        width:'100%',
+        objectPosition: 'bottom',
+        objectFit: 'cover'
+      }}
+      alt='Divider'
+      src={dividerEnd}
+    />
+  </div>
 )
 
 Divider.propTypes = {

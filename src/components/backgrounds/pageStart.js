@@ -1,40 +1,29 @@
 import React from 'react'
-import GatsbyImg from 'gatsby-image'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+
+import startPageBackground from 'assets/svg/page_background_start.svg'
 
 const Background = ({ style }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        image: file(relativePath: { eq: "images/page_background_start.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
-    render={({ image }) => (
-      <GatsbyImg
-        backgroundColor={"#fff"}
-        imgStyle={{
-          objectPosition: 'bottom'
-        }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: -1,
-          width: '101%',
-          height: '115%',
-          ...style
-        }}
-        alt='Background'
-        fluid={image.childImageSharp.fluid}
-      />
-    )}
-  />
+  <div style={{
+    position: 'absolute',
+    top: 0,
+    left: -2,
+    width: '102%',
+    height: '115%',
+    zIndex: "-1",
+    ...style
+  }}>
+    <img
+      style={{
+        width:'100%',
+        height: '100%',
+        objectPosition: 'bottom',
+        objectFit: 'cover'
+      }}
+      alt='Start page background'
+      src={startPageBackground}
+    />
+  </div>
 )
 
 Background.propTypes = {
