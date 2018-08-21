@@ -15,6 +15,7 @@ const back = {
 const Wrapper = styled.div`
   background: ${({ card }) => card && back[card]};
   margin: ${rem(30)};
+  max-width: 600px;
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
 
   ${mobile(css`
