@@ -12,7 +12,7 @@ import Subscribe from 'components/formRegister'
 import SectionWatch from 'components/sectionWatch'
 import SectionPhone from 'components/sectionPhone'
 
-import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
+import { hero, imagine, buy, access, cards, boxes, control } from 'data/home.yml'
 import { theme } from 'library/utils'
 
 
@@ -37,8 +37,8 @@ const Home = ({ language }) => (
     </ScrollableAnchor>
     <SectionWatch />
     <Section
-      title={crypto[language].title}
-      content={crypto[language].subTitle}
+      title={buy[language].title}
+      content={buy[language].subTitle}
       padding={'4vh 0'}
       color={{
         background: theme.gray

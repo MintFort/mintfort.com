@@ -121,7 +121,7 @@ const Text = ({ title, subTitle, body, button }) => (
     </Title>
     <SubHeader
       color={theme.lightFont}
-      style={{ margin: `0 0 ${rem(8)}` }}
+      style={{ margin: `0 0 ${rem(8)}`, whiteSpace: 'pre' }}
       size={18}
     >
       {body}
