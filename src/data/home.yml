@@ -1,0 +1,149 @@
+hero:
+  en:
+    title: Take control over your assets.
+    subTitle: Be Your Bank.
+    body: "The first crypto-friendly bank account. \nStore and manage assets on the blockchain."
+    img: assets/images/hero_home.png
+  zh:
+    title: 一手掌控你的资产
+    subTitle: 你就是自己的银行。
+    body: "第一个加密友好的银行账户。\n在区块链上存储和管理资产。"
+    img: assets/images/hero_home.png
+
+imagine:
+  en:
+    title: Imagine a bank which is independent and currency agnostic
+    subTitle: Where transactions take seconds and assets are being held well protected by the consensus of the blockchain. Mintfort offers the first bank account that handles crypto assets the same way as traditional currencies. Say good bye to messy wallets and complicated procedures.
+    background: assets/svg/dotted_side_blue_background.svg
+  zh:
+    title: 想象一家独立且与货币种类无关的银行。
+    subTitle: 交易需要几秒钟，资产受到区块链共识的良好保护。 Mintfort提供第一个以与传统货币相同方式来处理加密资产的银行账户。与乱糟糟的钱包和复杂的程序说再见。
+    background: assets/svg/dotted_side_blue_background.svg
+
+buy:
+  en:
+    title: Buy, spend, manage your assets anytime, anywhere
+    subTitle: "If it is to pay your rent or to purchase a rubber duck on amazon: Using bitcoin has never been so easy. Benefit from the most advanced banking experience and spend virtual currencies globally. The Mintfort debit card is being accepted at millions of POS worldwide."
+    img: assets/images/banking_made_simple.png
+    background: assets/svg/dotted_white_background-01.svg
+  zh:
+    title: 随时随地购买，支出，管理您的资产
+    subTitle: 如果要支付租金或网购：使用比特币从未如此简单。受益于最先进的银行体验，并在全球范围内使用虚拟货币。 Mintfort借记卡正在全球数百万的POS上被接受
+    img: assets/images/banking_made_simple.png
+    background: assets/svg/dotted_white_background-01.svg
+
+cards:
+  - en:
+      id: 1
+      title: Pay at your local store with virtual currencies.
+      img: assets/images/shop_high.gif
+    zh:
+      id: 1
+      title: 在商店使用虚拟货币支付。
+      img: assets/images/shop_high.gif
+  - en:
+      id: 2
+      title: Control all your assets where ever you want.
+      img: assets/images/payment_high.jpg
+    zh:
+      id: 2
+      title: 随时随地掌控你的资产
+      img: assets/images/payment_high.jpg
+  - en:
+      id: 3
+      title: Receive your payroll in Bitcoin and more.
+      img: assets/images/payroll_high.gif
+    zh:
+      id: 3
+      title: 以比特币等方式收到你的工资。
+      img: assets/images/payroll_high.gif
+
+access:
+  en:
+    title: Access to a whole finance ecosystem
+    subTitle: Our vision is a bank, where customers retain full control over their assets. Therefore, we are building a finance platform empowered by the blockchain, providing access to both banking and investment services.
+  zh:
+    title: 进入整个金融生态系统。
+    subTitle: 我们的愿景是创建一家客户可以完全控制其资产的“银行”。因此，我们正在建立一个由区块链授权的金融平台，提供银行和投资服务。
+
+boxes:
+  - en:
+      id: 1
+      title: Smart Lending
+      component: SmartLending
+    zh:
+      id: 1
+      title: 智能借贷
+      component: SmartLending
+  - en:
+      id: 2
+      title: P2P Transfer
+      component: P2P
+    zh:
+      id: 2
+      title: P2P转账
+      component: P2P
+  - en:
+      id: 3
+      title: Payment Solution
+      component: PaymentSolution
+    zh:
+      id: 3
+      title: 支付方式
+      component: PaymentSolution
+  - en:
+      id: 4
+      title: Smart Exchange
+      component: SmartExchange
+    zh:
+      id: 4
+      title: 智能换汇
+      component: SmartExchange
+  - en:
+      id: 5
+      title: Tokenized Fund
+      component: Tokenized
+    zh:
+      id: 5
+      title: 自主式加密货币基金
+      component: Tokenized
+  - en:
+      id: 6
+      title: Portfolio Management
+      component: Portfolio
+    zh:
+      id: 6
+      title: 投资组合管理
+      component: Portfolio
+  - en:
+      id: 7
+      title: AI Trading Bot
+      component: AI
+    zh:
+      id: 7
+      title: AI 交易机器人
+      component: AI
+  - en:
+      id: 8
+      title: Wallet
+      component: Wallet
+    zh:
+      id: 8
+      title: 钱包
+      component: Wallet
+
+control:
+  en:
+    title: Take back control
+    subTitle: Grow your wealth with plenty of investment products at a fraction of costs compared to traditional services. Benefit from cut-out middlemen and access markets directly. Join the financial revolution right now!
+  zh:
+    title: 收回控制权。
+    subTitle: 与传统服务相比，通过大量投资产品增加财富，成本只是其中极小一部分。去除中间商直接进入市场获取收益。立即加入金融革命！
+
+form:
+  en:
+    title: Sign up for early access
+    button: Early Access
+  zh:
+    title: 报名注册尽早访问
+    button: 尽早访问

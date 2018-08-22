@@ -1,0 +1,74 @@
+hero:
+  en:
+    title: Download our Beta Version.
+    subTitle: Track Your Portfolio.
+    body: "Starting with API-based management services, \nwe are providing a portfolio tracker for multiple exchanges."
+  zh:
+    title: 下载我们的测试版本。
+    subTitle: 跟踪您的投资组合。
+    body: "从基于API的管理服务开始，\n我们为多个交易所提供投资组合跟踪器。"
+
+download:
+  en:
+    title: Choose your system
+    background: assets/svg/dotted_side_blue_background.svg
+  zh:
+    title: 选择操作系统。
+    background: assets/svg/dotted_side_blue_background.svg
+
+shop:
+  en:
+    title: One-stop shop to access multiple services
+    subTitle: We are currently building multiple solutions in regards to money management, payment and investment. As an open platform the Mintfort application will form the center of a new eco-system connecting clients and businesses.
+    img: assets/images/portfolio_tracking.gif
+  zh:
+    title: 一站式商店 一个多种服务
+    subTitle: 我们目前正在建立有关资金管理，支付和投资的多种解决方案。作为一个开放平台，Mintfort应用程序将成为连接客户和企业的新生态系统的中心。
+    img: assets/images/portfolio_tracking.gif
+
+exchanges:
+  en:
+    title: Implemented Exchanges
+    background: assets/svg/dotted_white_background-01.svg
+    logos:
+      - name: binance
+        path: assets/images/exchanges/binance.png
+        site: https://www.binance.com/
+      - name: kraken
+        path: assets/images/exchanges/kraken.png
+        site: https://www.kraken.com/
+      - name: bitfinex
+        path: assets/images/exchanges/bitfinex.png
+        site: https://www.bitfinex.com/
+      - name: bittrex
+        path: assets/images/exchanges/bittrex.png
+        site: https://bittrex.com/
+      - name: huobi
+        path: assets/images/exchanges/huobi.png
+        site: https://www.huobi.com/
+      - name: kucoin
+        path: assets/images/exchanges/kucoin.png
+        site: https://www.kucoin.com/
+
+  zh:
+    title: 已有的交易所。
+    background: assets/svg/dotted_white_background-01.svg
+    logos:
+      - name: binance
+        path: assets/images/exchanges/binance.png
+        site: https://www.binance.com/
+      - name: kraken
+        path: assets/images/exchanges/kraken.png
+        site: https://www.kraken.com/
+      - name: bitfinex
+        path: assets/images/exchanges/bitfinex.png
+        site: https://www.bitfinex.com/
+      - name: bittrex
+        path: assets/images/exchanges/bittrex.png
+        site: https://bittrex.com/
+      - name: huobi
+        path: assets/images/exchanges/huobi.png
+        site: https://www.huobi.com/
+      - name: kucoin
+        path: assets/images/exchanges/kucoin.png
+        site: https://www.kucoin.com/
