@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, rem, theme } from 'library/utils'
+import { flex, phone, mobile, rem, theme } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -29,10 +29,22 @@ const ImageWrapper = styled.div`
   padding: ${rem(20)} 0;
 
   ${flex}
+
+  ${phone(css`
+    padding: 0;
+  `)}
 `
 
 const PhoneWrapper = styled.div`
   width: ${rem(657)};
+
+  ${mobile(css`
+    max-width: ${rem(500)};
+  `)}
+
+  ${phone(css`
+    max-width: ${rem(300)};
+  `)}
 `
 
 const Phone = ({ image }) => (
