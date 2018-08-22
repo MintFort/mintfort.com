@@ -31,6 +31,19 @@ Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE31729007
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
 Unsere E-Mail-Adresse finden sie oben im Impressum.
 
+## Tracking Ausschalten
+
+Browser verfügen über eine Funktion, die unter dem Begriff "Do Not Track" bekannt ist. Diese Funktion teilt den Webseiten die Sie besuchen mit das Sie nicht getrackt werden wollen. Wir unterstützen die "Do Not Track"-Funktion und respektieren sie zu 100%.
+
+## Tracking und Drittparteien-Übersicht
+
+Drittanbieter, mit denen Ihre Information geteilt werden:
+
+- Google Analytics
+- MailChimp
+
+Mehr Informationen erhalten Sie in den jeweiligen Sektionen im Haftungsausschluss.
+
 ## Haftungsausschluss (Disclaimer)
 
 ### Haftung für Inhalte
@@ -63,17 +76,39 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Komm
 
 Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die:
 
-Google LLC,
-1600 Amphitheatre Parkway,
-Mountain View, CA 94043
+> Google LLC, </br>
+> 1600 Amphitheatre Parkway, <br>
+> Mountain View, CA 94043 <br>
+
+Wenn die "Do not Track" Funktion Ihres Browsers **nicht** eingeschaltet ist teilen wir die folgenden Daten mit Google um unsere Webseite und Services zu verbessern.
+
+- Besuchte Seiten
+- Benutzer Standort (Bereichs Ebene z. B. Berlin)
+- Zeiten
+  - Zeit und Dauer eines Seitenbesuches
+- Ereignisse (z. B. Kontakt Formular abgeschickt)
+
+Wie sammeln keine Informationen bezüglich:
+
+- IP Adresse
 
 Google Analytics verwendet sog. “Cookies”. Das sind Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
 
-Im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt.
+Durch Aktivierung der IP-Anonymisierung auf dieser Webseite wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt.
 
-Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: http://tools.google.com/dlpage/gaoptout?hl=de
+### Datenschutzerklärung für die Nutzung von MailChimp
 
-Sie können die Erfassung durch Google Analytics verhindern, indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt, das das Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website verhindert: [Google Analytics deaktivieren](#)
+> The Rocket Science Group, <br>
+> LLC675 Ponce de Leon Ave NESuite 5000, <br>
+> Atlanta, GA 30308 USA <br>
+
+Mit der Benutzung von Formularen auf unserer Webseite geben Sie Ihr Einverständnis darüber das Informationen aus den Formularfeldern an MailChimp übertragen werden.
+
+Zum Beispiel:
+
+- Nachrichten Inhalt
+- E-Mail-Adresse
+- Name
 
 ### Auskunft, Löschung, Sperrung
 
@@ -112,3 +147,7 @@ Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten z
 Wenn Sie den auf der Webseite angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind und mit dem Empfang des Newsletters einverstanden sind. Weitere Daten werden nicht erhoben. Diese Daten verwenden wir ausschließlich für den Versand der angeforderten Informationen und geben sie nicht an Dritte weiter.
 
 Die erteilte Einwilligung zur Speicherung der Daten, der E-Mail-Adresse sowie deren Nutzung zum Versand des Newsletters können Sie jederzeit widerrufen , etwa über den „Austragen“-Link im Newsletter.
+
+### Datenleck
+
+Im Falle eines Datenlecks in dem Kundendaten unbeabsichtigt dritten zur Verfügung Standen verpflichten wir uns betroffene Benutzer innerhalb von 7 Kalender tagen, nach dem wir von der Sicherheitslücke erfahren haben zu informieren. Als Ausnahme gilt wenn die Mitteilung der Benutzer, über ein Datenlack, unsere Benutzer ein noch größeres Risiko aussetzt. In dem Falle verpflichten wir uns betroffene Benutzer zu informieren, sobald weitere Risiken beseitigt sind.
