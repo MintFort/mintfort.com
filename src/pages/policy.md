@@ -58,7 +58,23 @@ We do not include or offer third-party products or services on our website.
 
 ### Google Analytics
 
-...WIP...
+Google Analytics is a service of:
+
+> Google LLC, </br>
+> 1600 Amphitheatre Parkway, <br>
+> Mountain View, CA 94043 <br>
+
+If "Do Not Track" is **not** enabled we share the following data with Google Analytics to provide better services.
+
+- Visited Pages
+- User Location (Area Level e.g. Berlin)
+- Timings
+  - Time and Duration
+- Events (e.g. Submitted Contact Form)
+
+We do not track
+
+- IP Addresses
 
 #### California Online Privacy Protection Act
 
