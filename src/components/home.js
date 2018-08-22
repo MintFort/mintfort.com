@@ -31,6 +31,7 @@ const Home = ({ language }) => (
         <Section
           title={imagine[language].title}
           content={imagine[language].subTitle}
+          padding={'14vh 0 8vh'}
         />
       </div>
     </ScrollableAnchor>
