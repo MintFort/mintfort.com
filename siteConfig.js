@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Mintfort',
   description: "The first crypto-friendly bank account. Store and manage assets on the blockchain.",
-  siteUrl: 'https://mintfort.netlify.com',
+  siteUrl: 'https://mintfort.com',
   favicon: '/icons/mintfort_icon-32x32.png',
   image: '/images/website_preview.jpg',
   userTwitter: 'mintfort',

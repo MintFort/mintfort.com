@@ -4,6 +4,19 @@ title: "Privacy Policy"
 
 This privacy policy has been compiled to better serve those who are concerned with how their ‘Personally Identifiable Information’ (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
 
+### Disable Tracking
+
+Browsers have a feature known as "Do Not Track". This feature tells the web pages you visit that you do not want to be tracked. We support the "Do Not Track" feature and respect it 100%.
+
+### Tracking and third-party overview
+
+Third-parties your Information may be shared with:
+
+- Google Analytics
+- MailChimp
+
+You can find more information on what is shared and under which conditions in the dedicated sections below.
+
 ### What personal information do we collect from the people that visit our blog, website or app?
 
 When ordering or registering on our site, as appropriate, you may be asked to enter your email address or other details to help you with your experience.
@@ -58,7 +71,37 @@ We do not include or offer third-party products or services on our website.
 
 ### Google Analytics
 
-...WIP...
+Google Analytics is a service of:
+
+> Google LLC, <br>
+> 1600 Amphitheatre Parkway, <br>
+> Mountain View, CA 94043 <br>
+
+If "Do Not Track" is **not** enabled we share the following data with Google Analytics to provide better services.
+
+- Visited Pages
+- User Location (Area Level e.g. Berlin)
+- Timings
+  - Time and Duration
+- Events (e.g. Submitted Contact Form)
+
+We do not track
+
+- IP Addresses
+
+### MailChimp
+
+> The Rocket Science Group, <br>
+> LLC675 Ponce de Leon Ave NESuite 5000, <br>
+> Atlanta, GA 30308 USA <br>
+
+With the usage of forms on our web pages, you agree to share form field content with MailChimp.
+
+For Example:
+
+- Message Content
+- E-Mail address
+- Name
 
 #### California Online Privacy Protection Act
 
@@ -66,7 +109,7 @@ CalOPPA is the first state law in the nation to require commercial websites and 
 
 #### According to CalOPPA, we agree to the following:
 
-Users can visit our site anonymously.
+Users can visit our site anonymously. (See "Disable Tracking" Section)
 
 Once this privacy policy is created, we will add a link to it on our home page or as a minimum, on the first significant page after entering our website.
 
@@ -80,10 +123,6 @@ Can change your personal information: By emailing us
 
 We honor Do Not Track signals and Do Not Track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place.
 
-Does our site allow third-party behavioral tracking?
-
-It’s also important to note that we allow third-party behavioral tracking
-
 ### COPPA (Children Online Privacy Protection Act)
 
 When it comes to the collection of personal information from children under the age of 13 years old, the Children’s Online Privacy Protection Act (COPPA) puts parents in control. The Federal Trade Commission, United States’ consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children’s privacy and safety online.
@@ -96,6 +135,6 @@ The Fair Information Practices Principles form the backbone of privacy law in th
 
 In order to be in line with Fair Information Practices we will take the following responsive action, should a data breach occur:
 
-#### We will notify you via email within 7 business days
+**We will notify you via email within 7 business days**
 
 We also agree to the Individual Redress Principle which requires that individuals have the right to legally pursue enforceable rights against data collectors and processors who fail to adhere to the law. This principle requires not only that individuals have enforceable rights against data users, but also that individuals have recourse to courts or government agencies to investigate and/or prosecute non-compliance by data processors.

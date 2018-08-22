@@ -65,6 +65,14 @@ module.exports = {
         endpoint: "https://mintfort.us12.list-manage.com/subscribe/post?u=52c52522e40057472766a9ee3&amp;id=304a96c331"
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA,
+        anonymize: true,
+        respectDNT: true
+      }
+    },
     'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-netlify`,

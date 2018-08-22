@@ -23,7 +23,7 @@ const Home = ({ language }) => (
         img: file(relativePath: { regex: "/hero_home/"}) {
           childImageSharp {
             fixed(width: 340) {
-              ...GatsbyImageSharpFixed_tracedSVG
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }
