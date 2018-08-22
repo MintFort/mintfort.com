@@ -31,6 +31,19 @@ Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE31729007
 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: http://ec.europa.eu/consumers/odr  
 Unsere E-Mail-Adresse finden sie oben im Impressum.
 
+## Tracking Ausschalten
+
+Browser verfügen über eine Funktion, die unter dem Begriff "Do Not Track" bekannt ist. Diese Funktion teilt den Webseiten die Sie besuchen mit das Sie nicht getrackt werden wollen. Wir unterstützen die "Do Not Track"-Funktion und respektieren sie zu 100%.
+
+## Tracking und Drittparteien-Übersicht
+
+Drittanbieter, mit denen Ihre Information geteilt werden:
+
+- Google Analytics
+- MailChimp
+
+Mehr Informationen erhalten Sie in den jeweiligen Sektionen im Haftungsausschluss.
+
 ## Haftungsausschluss (Disclaimer)
 
 ### Haftung für Inhalte

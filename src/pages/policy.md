@@ -4,6 +4,19 @@ title: "Privacy Policy"
 
 This privacy policy has been compiled to better serve those who are concerned with how their ‘Personally Identifiable Information’ (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
 
+### Disable Tracking
+
+Browsers have a feature known as "Do Not Track". This feature tells the web pages you visit that you do not want to be tracked. We support the "Do Not Track" feature and respect it 100%.
+
+### Tracking and third-party overview
+
+Third-parties your Information may be shared with:
+
+- Google Analytics
+- MailChimp
+
+You can find more information on what is shared and under which conditions in the dedicated sections below.
+
 ### What personal information do we collect from the people that visit our blog, website or app?
 
 When ordering or registering on our site, as appropriate, you may be asked to enter your email address or other details to help you with your experience.
