@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { SubHeader, Img } from 'library/index'
-import { rem, flex, phone } from 'library/utils'
+import { rem, flex, phone, mobile, theme } from 'library/utils'
 
 const back = {
   1: "#1b243f",
@@ -12,35 +13,59 @@ const back = {
 }
 
 const Wrapper = styled.div`
-  background: ${({ id }) => id && back[id]};
-  margin: ${rem(10)};
+  background: ${({ card }) => card && back[card]};
+  margin: ${rem(30)};
+  max-width: 600px;
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
+
+  ${mobile(css`
+    margin: ${rem(10)};
+  `)}
 `
 
 const Text = styled.div`
   text-align: center;
   min-height: ${rem(130)};
   ${flex}
+
+  ${mobile(css`
+    h3 {
+      font-size: ${rem(20)};
+    }
+  `)}
+
+  ${phone(css`
+    h3 {
+      font-size: ${rem(24)};
+    }
+  `)}
 `
 
-export const Card = ({ img, title, id }) => (
-  <Wrapper id={id}>
+export const Card = ({ img, title, card }) => (
+  <Wrapper card={card}>
     <Text>
-      <SubHeader
-        style={{ margin: 0, padding: '0 20px' }}
-        color={id === 2 ? '#1b2441' : '#fff'}
-      >
-        {title}
-      </SubHeader>
+      <Fade>
+        <SubHeader
+          style={{ margin: 0, padding: '0 30px' }}
+          color={card === 2 ? theme.blue : '#fff'}
+        >
+          {title}
+        </SubHeader>
+      </Fade>
     </Text>
-    <Img src={require('../' + img)} />
+    <Fade delay={200}>
+      <Img
+        alt={title}
+        src={require('../' + img)}
+      />
+    </Fade>
   </Wrapper>
 )
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  card: PropTypes.number.isRequired
 }
 
 export const SectionCards = styled.section`

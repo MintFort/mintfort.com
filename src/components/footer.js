@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link as GatsbLink } from 'gatsby'
+import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
 import { social } from 'siteConfig'
@@ -9,12 +10,13 @@ import { flex, rem, navHeight, theme, phone } from 'library/utils'
 
 const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}
+  flex-direction: column;
 
-  padding: 0 ${rem(20)};
+  padding: 0 ${rem(20)} ${rem(10)};
   height: calc(${navHeight} * 2);
 
   width: 100%;
-  background: #fff;
+  background: ${({ path }) => path && path.includes('portfolio') && theme.blue || '#fff'};
 
   ${phone(css`
     flex-direction: column;
@@ -40,8 +42,31 @@ const ExternalLink = styled.a.attrs({
 
 const Section = Container.extend`
   ${phone(css`
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+  `)}
+`
+
+const Copyright = styled.span`
+  text-align: center;
+  color: ${theme.lightFont};
+  font-size: ${rem(10)};
+  margin-bottom: ${rem(4)};
+`
+
+const SocialBlock = styled.div`
+  order: 2;
+
+  ${phone(css`
+    order: 1;
+  `)}
+`
+
+const LegalBlock = styled.div`
+  order: 1;
+
+  ${phone(css`
+    order: 12;
   `)}
 `
 
@@ -50,30 +75,39 @@ const icon = name => {
   return <Component />
 }
 
-const Footer = () => (
-  <Wrapper>
+const Footer = ({ path }) => (
+  <Wrapper path={path}>
     <Section
       size={{ w: '100%', h: '100%' }}
-      position={{ x: 'flex-start', y: 'center' }}
+      position={{ x: 'space-between', y: 'center' }}
     >
-      <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
+      <LegalBlock>
+        <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
         Impressum
-      </Link>
-      <Link to="/policy/" activeStyle={{ color: theme.blue }}>
+        </Link>
+        <Link to="/policy/" activeStyle={{ color: theme.blue }}>
         Privacy Policy
-      </Link>
+        </Link>
+      </LegalBlock>
+      <SocialBlock>
+        {social.map(s => (
+          <ExternalLink
+            key={s.name}
+            title={s.name}
+            to={s.url}>
+            {icon(s.name)}
+          </ExternalLink>
+        ))}
+      </SocialBlock>
     </Section>
-    <Section
-      size={{ w: '100%', h: '100%' }}
-      position={{ x: 'flex-end', y: 'center' }}
-    >
-      {social.map(s => (
-        <ExternalLink key={s.name} to={s.url}>
-          {icon(s.name)}
-        </ExternalLink>
-      ))}
-    </Section>
+    <Copyright>
+      © 2018 Mintfort. All rights reserved. Be Your Bank.
+    </Copyright>
   </Wrapper>
 )
+
+Footer.propTypes = {
+  path: PropTypes.string
+}
 
 export default Footer

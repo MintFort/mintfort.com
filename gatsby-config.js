@@ -11,8 +11,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-netlify-cache',
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -23,15 +21,8 @@ module.exports = {
         start_url: "/",
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: "minimal-ui",
+        display: "standalone",
         icon: `src/assets/mintfort_icon-512x512.png`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        navigateFallback: null,
-        navigateFallbackWhitelist: []
       }
     },
     {
@@ -58,7 +49,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`
+        pathToConfigModule: `src/library/typography.js`
       }
     },
     {
@@ -67,6 +58,24 @@ module.exports = {
         color: config.themeColor,
         showSpinner: false
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: "https://mintfort.us12.list-manage.com/subscribe/post?u=52c52522e40057472766a9ee3&amp;id=304a96c331"
+      }
+    },
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/sw.js": [
+            "Cache-Control: no-cache"
+          ]
+        }
+      }
+    },
+    'gatsby-plugin-netlify-cache'
   ]
 }

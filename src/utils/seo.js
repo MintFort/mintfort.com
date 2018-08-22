@@ -4,11 +4,6 @@ import PropTypes from 'prop-types'
 
 import data from 'siteConfig'
 
-// const formatPath = str => {
-//   str = str.replace(/\//g, '')
-//   return str[2].toUpperCase() + str.slice(3)
-// }
-
 const SEO = ({ language, path }) => (
   <Helmet
     htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
@@ -28,8 +23,8 @@ const SEO = ({ language, path }) => (
     <meta property="og:description" content={data.description} />
     <meta property="og:image" content={data.siteUrl + data.image} />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="870" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="770" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content={data.userTwitter} />
@@ -44,6 +39,10 @@ const SEO = ({ language, path }) => (
 SEO.propTypes = {
   path: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired
+}
+
+SEO.defaultProps = {
+  language: 'en'
 }
 
 

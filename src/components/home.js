@@ -1,80 +1,95 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ScrollableAnchor from 'react-scrollable-anchor'
+import { graphql, StaticQuery } from 'gatsby'
 
-import { addLang } from 'components/context'
+import { addLang } from 'utils/context'
+
 import Hero from 'components/hero'
 import Section from 'components/section'
 import { SectionCards, Card } from 'components/card'
-import { SectionBoxes, Box } from 'components/box'
+import SectionBoxes from 'components/box'
+import Subscribe from 'components/formRegister'
+import SectionWatch from 'components/sectionWatch'
+import SectionPhone from 'components/sectionPhone'
 
-import { hero, imagine, crypto, access, cards, boxes, control } from 'data/home.yml'
+import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
+import { theme } from 'library/utils'
 
 const Home = ({ language }) => (
-  <>
-    <Hero
-      title={hero[language].title}
-      subTitle={hero[language].subTitle}
-      body={hero[language].body}
-      img={hero[language].img}
-    />
-    <Section
-      title={imagine[language].title}
-      subTitle={imagine[language].subTitle}
-      background= {imagine[language].background}
-      color={{
-        header: '#fff',
-        paragraph: '#788cc7'
-      }}
-    />
-    <Section
-      title={crypto[language].title}
-      subTitle={crypto[language].subTitle}
-      background= {crypto[language].background}
-      img= {crypto[language].img}
-      color={{
-        header: '#1f1f1f',
-        paragraph: '#7b828a'
-      }}
-    />
-    <SectionCards>
-      {cards.map(card => (
-        <Card
-          key={card[language].id}
-          title={card[language].title}
-          img={card[language].img}
-          id={card[language].id}
+  <StaticQuery
+    query={graphql`
+      query {
+        img: file(relativePath: { regex: "/hero_home/"}) {
+          childImageSharp {
+            fixed(width: 340) {
+              ...GatsbyImageSharpFixed_tracedSVG
+            }
+          }
+        }
+      }
+    `}
+    render={({ img }) => (
+      <>
+        <Hero
+          id='home'
+          title={hero[language].title}
+          subTitle={hero[language].subTitle}
+          body={hero[language].body}
+          img={img}
+          button={form[language].button}
+          scrollId='imagine'
         />
-      ))}
-    </SectionCards>
-    <Section
-      title={access[language].title}
-      subTitle={access[language].subTitle}
-      background= {access[language].background}
-      color={{
-        header: '#1f1f1f',
-        paragraph: '#7b828a'
-      }}
-    />
-    <SectionBoxes guide >
-      {boxes.map(box => (
-        <Box
-          key={box[language].id}
-          title={box[language].title}
-          img={box[language].img}
-          id={box[language].id}
+        <ScrollableAnchor id='imagine'>
+          <div>
+            <Section
+              title={imagine[language].title}
+              content={imagine[language].subTitle}
+              padding={'14vh 0 8vh'}
+            />
+          </div>
+        </ScrollableAnchor>
+        <SectionWatch />
+        <Section
+          title={buy[language].title}
+          content={buy[language].subTitle}
+          padding={'4vh 0'}
+          color={{
+            background: theme.gray
+          }}
         />
-      ))}
-    </SectionBoxes>
-    <Section
-      title={control[language].title}
-      subTitle={control[language].subTitle}
-      color={{
-        background: '#1b243f',
-        header: '#fff',
-        paragraph: '#788cc7'
-      }}
-    />
-  </>
+        <SectionPhone />
+        <SectionCards>
+          {cards.map(card => (
+            <Card
+              key={card[language].id}
+              title={card[language].title}
+              img={card[language].img}
+              card={card[language].id}
+            />
+          ))}
+        </SectionCards>
+        <Section
+          title={access[language].title}
+          content={access[language].subTitle}
+          background= {access[language].background}
+        />
+        <SectionBoxes
+          data={boxes}
+          language={language}
+        />
+        <Section
+          title={control[language].title}
+          content={control[language].subTitle}
+          padding={'20vh 0 0'}
+        />
+        <Subscribe
+          title={form[language].title}
+          button={form[language].button}
+        />
+      </>
+    )}
+  />
 )
 
 Home.propTypes = {

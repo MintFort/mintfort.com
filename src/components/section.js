@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import { Container, Header, Paragraph, Img } from 'library/index'
-import { rem } from 'library/utils'
+import { rem, theme, phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
@@ -11,13 +12,13 @@ const Background = styled.section`
   `}
 
   ${({ src }) => src && css`
-    background: url(${require('../' + src)});
+    background: ${src.includes('blue') && theme.blue} url(${require('../' + src)});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   `}
 
-  padding: 14vh 0;
+  padding: ${({ padding }) => padding || '14vh 0'};
   display: flex;
   flex-direction: column;
 `
@@ -25,31 +26,55 @@ const Background = styled.section`
 const Wrapper = Container.extend`
   width: 60%;
   text-align: center;
+
+  ${phone(css`
+    width: 85%;
+  `)}
 `
 
-const Text = ({ title, subTitle, color }) => (
+const Text = ({ title, content, color }) => (
   <Container centrate>
     <Wrapper col>
-      <Header color={color.header}>{title}</Header>
-      <Paragraph color={color.paragraph}>{subTitle}</Paragraph>
+      <Fade>
+        <Header
+          style={{ fontWeight: 'bold' }}
+        >
+          {title}
+        </Header>
+        <Fade delay={100}>
+          {
+            typeof content === 'string' ?
+              <Paragraph
+                color={color && color.paragraph}>
+                {content}
+              </Paragraph> :
+              content
+          }
+        </Fade>
+      </Fade>
     </Wrapper>
   </Container>
 )
 
 Text.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  color: PropTypes.object.isRequired
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired,
+  color: PropTypes.object
 }
 
 const Image = ({ src }) => (
   <Container centrate style={{ marginTop: rem(40) }}>
     <Wrapper col>
-      <Img
-        src={require('../' + src)}
-        alt="Hero image"
-        draggable='false'
-      />
+      <Fade delay={200}>
+        <Img
+          src={require('../' + src)}
+          alt="Hero image"
+          draggable='false'
+        />
+      </Fade>
     </Wrapper>
   </Container>
 )
@@ -58,11 +83,15 @@ Image.propTypes = {
   src: PropTypes.string.isRequired
 }
 
-const Section = ({ title, subTitle, background, img, color }) => (
-  <Background src={background} color={color && color.background}>
+const Section = ({ title, content, background, img, color, padding }) => (
+  <Background
+    padding={padding}
+    src={background}
+    color={color && color.background}
+  >
     <Text
       title={title}
-      subTitle={subTitle}
+      content={content}
       color={color}
     />
     {img && <Image src={img} />}
@@ -71,10 +100,14 @@ const Section = ({ title, subTitle, background, img, color }) => (
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired,
   background: PropTypes.string,
   img: PropTypes.string,
-  color: PropTypes.object
+  color: PropTypes.object,
+  padding: PropTypes.string
 }
 
 

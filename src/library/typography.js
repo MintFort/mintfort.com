@@ -1,5 +1,7 @@
 import Typography from "typography"
 
+import { theme } from 'library/utils'
+
 const typography = new Typography({
   googleFonts: [
     {
@@ -8,7 +10,7 @@ const typography = new Typography({
     },
     {
       name: 'Lato',
-      styles: ['400', '500', '700']
+      styles: ['200', '400', '500', '700']
     }
   ],
   baseFontSize: "18px",
@@ -16,8 +18,8 @@ const typography = new Typography({
   scaleRatio: 2,
   headerFontFamily: ['Montserrat', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
   bodyFontFamily: ['Lato', 'BlinkMacSystemFont', '-apple-system', 'Roboto', 'Lucida Sans'],
-  headerColor: '#1f1f1f',
-  bodyColor: '#7b828a',
+  headerColor: theme.blue,
+  bodyColor: theme.lightFont,
   bodyWeight: '400'
 })
 
