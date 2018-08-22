@@ -21,7 +21,7 @@ module.exports = {
         start_url: "/",
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: "minimal-ui",
+        display: "standalone",
         icon: `src/assets/mintfort_icon-512x512.png`
       }
     },

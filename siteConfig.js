@@ -5,8 +5,8 @@ module.exports = {
   favicon: '/icons/mintfort_icon-32x32.png',
   image: '/images/website_preview.jpg',
   userTwitter: 'mintfort',
-  themeColor: '#19DBB6',
-  backgroundColor: '#fff',
+  themeColor: '#1b243f',
+  backgroundColor: '#19DBB6',
   languages: ['en', 'zh'],
   whitepaper: '/files/Whitepaper_1.2.0.pdf',
   social: [
