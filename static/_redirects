@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-http://mintfort.netlify.com/* http://mintfort.com/:splat 301!
+https://mintfort.netlify.com/* https://mintfort.com/:splat 301!
