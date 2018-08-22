@@ -18,8 +18,9 @@ const Divider = ({ style }) => (
         margin: 0,
         display: "block",
         width:'100%',
+        heighy: 'auto',
         objectPosition: 'bottom',
-        objectFit: 'cover'
+        objectFit: 'fill'
       }}
       alt='Divider'
       src={dividerStart}

@@ -6,7 +6,7 @@ import dividerEnd from 'assets/svg/divider_end.svg'
 const Divider = ({ style }) => (
   <div style={{
     position: 'absolute',
-    bottom: 0,
+    bottom: -1,
     left: 0,
     width: '100%',
     height: 'auto',

@@ -10,7 +10,6 @@ import DividerStart from 'components/backgrounds/start'
 const Wrapper = styled.div`
   position: relative;
   height: 240px;
-  overflow: hidden;
   width: 100%;
 
   ${mobile(css`
