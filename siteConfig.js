@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Mintfort',
-  description: "Driven by that strong believe in freedom, we are building a bank of the future, combining modern requirements of customers on banking services with most advanced technologies.",
+  description: "The first crypto-friendly bank account. Store and manage assets on the blockchain.",
   siteUrl: 'https://mintfort.netlify.com',
   favicon: '/icons/mintfort_icon-32x32.png',
   image: '/images/website_preview.jpg',
