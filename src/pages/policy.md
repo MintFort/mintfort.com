@@ -109,7 +109,7 @@ CalOPPA is the first state law in the nation to require commercial websites and 
 
 #### According to CalOPPA, we agree to the following:
 
-Users can visit our site anonymously.
+Users can visit our site anonymously. (See "Disable Tracking" Section)
 
 Once this privacy policy is created, we will add a link to it on our home page or as a minimum, on the first significant page after entering our website.
 
@@ -122,10 +122,6 @@ Can change your personal information: By emailing us
 ### How does our site handle Do Not Track signals?
 
 We honor Do Not Track signals and Do Not Track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place.
-
-Does our site allow third-party behavioral tracking?
-
-It’s also important to note that we allow third-party behavioral tracking
 
 ### COPPA (Children Online Privacy Protection Act)
 
