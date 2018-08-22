@@ -112,3 +112,7 @@ Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten z
 Wenn Sie den auf der Webseite angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind und mit dem Empfang des Newsletters einverstanden sind. Weitere Daten werden nicht erhoben. Diese Daten verwenden wir ausschließlich für den Versand der angeforderten Informationen und geben sie nicht an Dritte weiter.
 
 Die erteilte Einwilligung zur Speicherung der Daten, der E-Mail-Adresse sowie deren Nutzung zum Versand des Newsletters können Sie jederzeit widerrufen , etwa über den „Austragen“-Link im Newsletter.
+
+### Datenleck
+
+Im Falle eines Datenlecks in dem Kundendaten unbeabsichtigt dritten zur Verfügung Standen verpflichten wir uns betroffene Benutzer innerhalb von 7 Kalender tagen, nach dem wir von der Sicherheitslücke erfahren haben zu informieren. Als Ausnahme gilt wenn die Mitteilung der Benutzer, über ein Datenlack, unsere Benutzer ein noch größeres Risiko aussetzt. In dem Falle verpflichten wir uns betroffene Benutzer zu informieren, sobald weitere Risiken beseitigt sind.
