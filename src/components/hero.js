@@ -202,7 +202,7 @@ Text.propTypes = {
   ]).isRequired
 }
 
-const Image = ({ img, id }) => console.log(img)||(
+const Image = ({ img, id }) => (
   <ImageWrapper>
     {id === 'home' ?
       <HomeImage img={img}/> :
@@ -212,6 +212,7 @@ const Image = ({ img, id }) => console.log(img)||(
 )
 
 Image.propTypes = {
+  id: PropTypes.string.isRequired,
   img: PropTypes.object.isRequired
 }
 
