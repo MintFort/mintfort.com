@@ -19,14 +19,15 @@ const Divider = ({ style }) => (
     render={({ image }) => (
       <GatsbyImg
         imgStyle={{
-          objectPosition: 'bottom'
+          objectPosition: 'bottom',
+          objectFit: 'fill'
         }}
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
           width: '100%',
-          height: 'auto',
+          height: '100%',
           ...style
         }}
         alt='Background'
