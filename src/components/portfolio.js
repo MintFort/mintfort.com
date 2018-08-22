@@ -21,7 +21,7 @@ const Portfolio = ({ language }) => (
         img: file(relativePath: { regex: "/hero_download/"}) {
           childImageSharp {
             fluid(maxWidth: 1350) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid
             }
           }
         }
