@@ -21,7 +21,7 @@ const Portfolio = ({ language }) => (
         img: file(relativePath: { regex: "/hero_download/"}) {
           childImageSharp {
             fluid(maxWidth: 1350) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
@@ -30,6 +30,7 @@ const Portfolio = ({ language }) => (
     render={({ img }) => (
       <>
         <Hero
+          id='portfolio'
           title={hero[language].title}
           subTitle={hero[language].subTitle}
           body={hero[language].body}
