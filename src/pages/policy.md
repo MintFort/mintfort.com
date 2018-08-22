@@ -73,7 +73,7 @@ We do not include or offer third-party products or services on our website.
 
 Google Analytics is a service of:
 
-> Google LLC, </br>
+> Google LLC, <br>
 > 1600 Amphitheatre Parkway, <br>
 > Mountain View, CA 94043 <br>
 
