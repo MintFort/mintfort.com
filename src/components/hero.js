@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components'
 import StartPageBackground from 'components/backgrounds/pageStart'
 
 import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
-import { Container, Title, Header, SubHeader, Img, Button } from 'library/index'
+import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -96,7 +96,7 @@ const ImageWrapper = styled.div`
   ${phone(css`
     order: 2;
     padding-right: ${rem(40)};
-    transform: translate(32px, -20px);
+    transform: translate(38px, -20px);
 
     ${flex({ x: "center", y: 'flex-start' })};
   `)}
@@ -132,6 +132,31 @@ const Sub = SubHeader.extend`
     white-space: normal;
   `)}
 `
+
+const PortfolioImage = ({ img }) => (
+  <StaticImage>
+    <GatsbyImg
+      fluid={img.childImageSharp.fluid}
+      alt="Portfolio tracker"
+    />
+  </StaticImage>
+)
+
+PortfolioImage.propTypes = {
+  img: PropTypes.object.isRequired
+}
+
+const HomeImage = ({ img }) => (
+  <GatsbyImg
+    imgStyle={{ width: 340 }}
+    fixed={img.childImageSharp.fixed}
+    alt="Mintfort application"
+  />
+)
+
+HomeImage.propTypes = {
+  img: PropTypes.object.isRequired
+}
 
 const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
@@ -177,44 +202,28 @@ Text.propTypes = {
   ]).isRequired
 }
 
-const Image = ({ img, imgSize }) => (
+const Image = ({ img, id }) => (
   <ImageWrapper>
-    {typeof img === 'object' ?
-      <StaticImage>
-        <GatsbyImg
-          fluid={img.childImageSharp.fluid}
-          alt="Portfolio tracker image"
-        />
-      </StaticImage> :
-      <Img
-        width={imgSize}
-        src={require('../' + img)}
-        alt="Hero image"
-        draggable='false'
-      />
+    {id === 'home' ?
+      <HomeImage img={img}/> :
+      <PortfolioImage img={img}/>
     }
   </ImageWrapper>
 )
 
 Image.propTypes = {
-  img: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,
-  imgSize: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ])
+  id: PropTypes.string.isRequired,
+  img: PropTypes.object.isRequired
 }
 
 
-const Hero = ({ title, subTitle, body, img, imgSize, scrollId, button }) => (
+const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
   <Wrapper col>
-    <StartPageBackground style={{ zIndex: "-1" }}/>
+    <StartPageBackground />
     <Content>
       <Image
+        id={id}
         img={img}
-        imgSize={imgSize}
       />
       <Text
         button={button}
@@ -236,14 +245,8 @@ Hero.propTypes = {
     PropTypes.object,
     PropTypes.string
   ]).isRequired,
-  imgSize: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]),
-  img: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,
+  img: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
   scrollId: PropTypes.string,
   button: PropTypes.string
 }

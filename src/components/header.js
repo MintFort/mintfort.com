@@ -120,7 +120,7 @@ class Header extends Component {
       <Wrapper
         transparent={transparent}
       >
-        <Link to={"/"}>
+        <Link to={`${language || ''}/`}>
           <Logo
             transparent={transparent}
             desktop={{ black: logo, white: logoWhite }}
@@ -128,7 +128,7 @@ class Header extends Component {
           />
         </Link>
         <Nav>
-          <Link to={`/portfolio/`}>Portfolio</Link>
+          <Link to={`${language || ''}/portfolio/`}>Portfolio</Link>
           <a href={whitepaper}>Whitepaper</a>
           {
             !location.pathname.match(/(impressum|policy)/) &&

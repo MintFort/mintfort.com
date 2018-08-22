@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react'
 import PropTypes from 'prop-types'
-import { push } from 'gatsby'
+import { navigate } from 'gatsby'
 
 const { Provider, Consumer } = createContext()
 
@@ -34,7 +34,7 @@ export class Context extends Component {
     }), () => {
       localStorage.setItem('lang', this.state.language)
       // TODO: this should be dynamic (It's ok atm.)
-      push(`/${this.state.language}${this.props.location.pathname.match(/portfolio/) ? '/portfolio' : ''}`)
+      navigate(`/${this.state.language}${this.props.location.pathname.match(/portfolio/) ? '/portfolio' : ''}`)
     })
   }
 

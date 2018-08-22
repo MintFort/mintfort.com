@@ -30,6 +30,7 @@ const Portfolio = ({ language }) => (
     render={({ img }) => (
       <>
         <Hero
+          id='portfolio'
           title={hero[language].title}
           subTitle={hero[language].subTitle}
           body={hero[language].body}
