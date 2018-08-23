@@ -1,2 +1,4 @@
 # Redirect default Netlify subdomain to primary domain
 https://mintfort.netlify.com/* https://mintfort.com/:splat 301!
+
+/download /portfolio
