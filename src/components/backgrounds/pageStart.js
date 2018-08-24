@@ -6,7 +6,7 @@ import startPageBackground from 'assets/svg/page_background_start.svg'
 const Background = ({ style }) => (
   <div style={{
     position: 'absolute',
-    top: 0,
+    top: -1,
     left: -2,
     width: '102%',
     height: '115%',
