@@ -65,7 +65,6 @@ const Input = styled.input`
 
 const Message = styled.p`
   margin: ${rem(6)} 0 0;
-  padding: ${rem(10)};
   font-size: ${rem(14)};
   color: #c6c6c6;
 
@@ -85,6 +84,11 @@ const SpinWrapper = styled.div`
   ${flex}
 `
 
+const validateEmail = email => {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
+}
+
 const Spin = () => (
   <SpinWrapper>
     <Spinner name="ball-triangle-path" color={theme.mint} />
@@ -92,7 +96,12 @@ const Spin = () => (
 )
 
 const DisplayMessage = ({ data }) => {
-  const message = data.msg ? data.msg.replace(/([0-9]|-)/g, '').trim() : ''
+  let message = data.msg ? data.msg.replace(/([0-9]|-)/g, '').trim() : ''
+
+  if (message.includes('already subscribed')) {
+    [ message ] = message.split('<')
+  }
+
   return (
     <Message
       error={data.result && data.result === 'error' && true}>
@@ -112,7 +121,7 @@ class Register extends Component {
   state = {
     name: '',
     email: '',
-    result: null,
+    response: null,
     loading: false
   }
   handleChange = e => {
@@ -122,20 +131,35 @@ class Register extends Component {
   }
   handleSubmit = async e => {
     e.preventDefault()
-    this.setState({ loading: true })
     const { email, name } = this.state
-    const result = await addToMailchimp(email, { FNAME: name })
+
+    if (!email.length) return
+
+    this.setState({ loading: true })
+
+    if (!validateEmail(email)) {
+      this.setState({
+        response: {
+          result: "error",
+          msg: 'That doesn\'t look like a valid email address.'
+        },
+        loading: false
+      })
+      return
+    }
+
+    const response = await addToMailchimp(email, { FNAME: name })
 
     this.setState({
       loading: false,
       name: '',
       email: '',
-      result
+      response
     })
   }
 
   render() {
-    const { result, loading, name, email } = this.state
+    const { response, loading, name, email } = this.state
     const { title, button } = this.props
 
     return (
@@ -162,7 +186,7 @@ class Register extends Component {
                 value={email}
                 onChange={this.handleChange}
               />
-              {result && <DisplayMessage data={result} /> }
+              {response && <DisplayMessage data={response} /> }
               <Button
                 primary
                 disabled={loading}
