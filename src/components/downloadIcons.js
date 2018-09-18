@@ -60,8 +60,8 @@ const Icons = () => (
     `}
     render={({ site: { meta: { portfolio } } }) => (
       <Wrapper>
-        <Download url={portfolio.mac} icon={FaApple} name='MacOS'/>
-        <Download url={portfolio.win} icon={FaWindows} name='Window'/>
+        <Download url={portfolio.mac} icon={FaApple} name='macOS'/>
+        <Download url={portfolio.win} icon={FaWindows} name='Windows'/>
       </Wrapper>
     )}
   />
