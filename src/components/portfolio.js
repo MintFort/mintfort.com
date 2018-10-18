@@ -16,17 +16,7 @@ import { theme } from 'library/utils'
 
 const Portfolio = ({ language }) => (
   <StaticQuery
-    query={graphql`
-      query {
-        img: file(relativePath: { regex: "/hero_download/"}) {
-          childImageSharp {
-            fluid(maxWidth: 1350) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ img }) => (
       <>
         <Hero
@@ -65,3 +55,15 @@ Portfolio.propTypes = {
 }
 
 export default () => addLang(Portfolio)
+
+const query = graphql`
+  {
+    img: file(relativePath: { regex: "/hero_download/"}) {
+      childImageSharp {
+        fluid(maxWidth: 1350) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+  }
+`

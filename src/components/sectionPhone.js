@@ -66,17 +66,7 @@ Phone.propTypes = {
 
 const SectionPhone = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        phone: file(relativePath: { regex: "/crypto_phone/"}) {
-          childImageSharp {
-            fluid(maxWidth: 657) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ phone }) => (
       <Wrapper>
         <DividerEnd />
@@ -91,3 +81,15 @@ const SectionPhone = () => (
 )
 
 export default SectionPhone
+
+const query = graphql`
+  {
+    phone: file(relativePath: { regex: "/crypto_phone/"}) {
+      childImageSharp {
+        fluid(maxWidth: 657) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`

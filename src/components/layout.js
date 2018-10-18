@@ -43,15 +43,7 @@ injectGlobal`
 
 const Layout = ({ children, location }) => (
   <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
+    query={query}
     render={data => (
       <Context location={location}>
         {addLang(SEO, { path: location.pathname })}
@@ -70,3 +62,13 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const query = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

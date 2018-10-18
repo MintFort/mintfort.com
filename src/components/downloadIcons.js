@@ -47,17 +47,7 @@ Download.propTypes = {
 
 const Icons = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        site {
-          meta: siteMetadata {
-            portfolio {
-              mac, win
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ site: { meta: { portfolio } } }) => (
       <Wrapper>
         <Download url={portfolio.mac} icon={FaApple} name='macOS'/>
@@ -68,3 +58,16 @@ const Icons = () => (
 )
 
 export default Icons
+
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        portfolio {
+          mac
+          win
+        }
+      }
+    }
+  }
+`

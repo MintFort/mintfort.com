@@ -18,17 +18,7 @@ import { theme } from 'library/utils'
 
 const Home = ({ language }) => (
   <StaticQuery
-    query={graphql`
-      query {
-        img: file(relativePath: { regex: "/hero_home/"}) {
-          childImageSharp {
-            fixed(width: 340) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ img }) => (
       <>
         <Hero
@@ -97,3 +87,15 @@ Home.propTypes = {
 }
 
 export default () => addLang(Home)
+
+const query = graphql`
+  {
+    img: file(relativePath: { regex: "/hero_home/"}) {
+      childImageSharp {
+        fixed(width: 340) {
+          ...GatsbyImageSharpFixed_noBase64
+        }
+      }
+    }
+  }
+`
