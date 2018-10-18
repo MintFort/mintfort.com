@@ -6,7 +6,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
-import Section from 'components/section'
+import SectionText from 'components/sectionText'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
 import Subscribe from 'components/formRegister'
@@ -42,7 +42,7 @@ const Home = ({ language }) => (
         />
         <ScrollableAnchor id='imagine'>
           <div>
-            <Section
+            <SectionText
               title={imagine[language].title}
               content={imagine[language].subTitle}
               padding={'14vh 0 8vh'}
@@ -50,7 +50,7 @@ const Home = ({ language }) => (
           </div>
         </ScrollableAnchor>
         <SectionWatch />
-        <Section
+        <SectionText
           title={buy[language].title}
           content={buy[language].subTitle}
           padding={'4vh 0'}
@@ -69,7 +69,7 @@ const Home = ({ language }) => (
             />
           ))}
         </SectionCards>
-        <Section
+        <SectionText
           title={access[language].title}
           content={access[language].subTitle}
           background= {access[language].background}
@@ -78,7 +78,7 @@ const Home = ({ language }) => (
           data={boxes}
           language={language}
         />
-        <Section
+        <SectionText
           title={control[language].title}
           content={control[language].subTitle}
           padding={'20vh 0 0'}

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { Container, Header, Paragraph, Img } from 'library/index'
-import { rem, theme, phone } from 'library/utils'
+import { Container, Header, Paragraph } from 'library/index'
+import { theme, phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
@@ -65,25 +65,7 @@ Text.propTypes = {
   color: PropTypes.object
 }
 
-const Image = ({ src }) => (
-  <Container centrate style={{ marginTop: rem(40) }}>
-    <Wrapper col>
-      <Fade delay={200}>
-        <Img
-          src={require('../' + src)}
-          alt="Hero image"
-          draggable='false'
-        />
-      </Fade>
-    </Wrapper>
-  </Container>
-)
-
-Image.propTypes = {
-  src: PropTypes.string.isRequired
-}
-
-const Section = ({ title, content, background, img, color, padding }) => (
+const SectionText = ({ title, content, background, color, padding }) => (
   <Background
     padding={padding}
     src={background}
@@ -94,21 +76,19 @@ const Section = ({ title, content, background, img, color, padding }) => (
       content={content}
       color={color}
     />
-    {img && <Image src={img} />}
   </Background>
 )
 
-Section.propTypes = {
+SectionText.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
   background: PropTypes.string,
-  img: PropTypes.string,
   color: PropTypes.object,
   padding: PropTypes.string
 }
 
 
-export default Section
+export default SectionText

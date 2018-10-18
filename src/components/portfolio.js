@@ -6,7 +6,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
-import Section from 'components/section'
+import SectionText from 'components/sectionText'
 import Logos from 'components/exchangeLogos'
 import DividerPortfolioGif from 'components/sectionPortfolio'
 import SectionDownload from 'components/sectionDownload'
@@ -42,7 +42,7 @@ const Portfolio = ({ language }) => (
             <SectionDownload title={download[language].title}/>
           </div>
         </ScrollableAnchor>
-        <Section
+        <SectionText
           title={shop[language].title}
           content={shop[language].subTitle}
           padding='6vh 0'
@@ -51,7 +51,7 @@ const Portfolio = ({ language }) => (
           }}
         />
         <DividerPortfolioGif img={shop[language].img}/>
-        <Section
+        <SectionText
           title={exchanges[language].title}
           content={<Logos logos={exchanges[language].logos}/>}
         />
