@@ -7,9 +7,10 @@ import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
 import SectionText from 'components/sectionText'
-import Logos from 'components/exchangeLogos'
-import DividerPortfolioGif from 'components/sectionPortfolio'
-import SectionDownload from 'components/sectionDownload'
+
+import Logos from './exchangeLogos'
+import DividerPortfolioGif from './sectionPortfolio'
+import SectionDownload from './sectionDownload'
 
 import { hero, download, shop, exchanges } from 'data/download.yml'
 import { theme } from 'library/utils'

@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icons from 'components/downloadIcons'
 import styled, { css } from 'styled-components'
 
 import SectionText from 'components/sectionText'
 import Divider from 'components/backgrounds/start'
+
+import Icons from './downloadIcons'
 
 import { phone, mobile } from 'library/utils'
 

@@ -9,9 +9,10 @@ import Hero from 'components/hero'
 import SectionText from 'components/sectionText'
 import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
-import Subscribe from 'components/formRegister'
-import SectionWatch from 'components/sectionWatch'
-import SectionPhone from 'components/sectionPhone'
+
+import Subscribe from './formRegister'
+import SectionWatch from './sectionWatch'
+import SectionPhone from './sectionPhone'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
 import { theme } from 'library/utils'
