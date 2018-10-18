@@ -8,7 +8,10 @@ module.exports = {
   themeColor: '#1b243f',
   backgroundColor: '#19DBB6',
   languages: ['en', 'zh'],
-  whitepaper: '/files/Whitepaper_1.2.0.pdf',
+  nav: [
+    { name: "Portfolio", path: '/portfolio/' },
+    { name: "Whitepaper", path: '/files/Whitepaper_1.2.0.pdf' }
+  ],
   social: [
     { name: "Facebook", url: 'https://www.facebook.com/mintfortbank' },
     { name: "Twitter", url: 'https://twitter.com/mintfort' },
@@ -16,6 +19,10 @@ module.exports = {
     { name: "Medium", url: 'https://medium.com/mintfort' },
     { name: "Github", url: 'https://github.com/MintFort' }
   ],
+  mail: {
+    berlin: 'berlin@mintfort.com',
+    hongkong: 'hongkong@mintfort.com'
+  },
   portfolio: {
     mac: 'https://download.mintfort.com/Mintfort-0.5.2.dmg',
     win: 'https://download.mintfort.com/Mintfort-0.5.2.exe'
