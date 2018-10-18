@@ -64,7 +64,8 @@
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint ./src/. --fix",
     "lint": "run-s lint:js lint:css",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "clear": "rm -rf ./.cache ./public"
   },
   "lint-staged": {
     "*.js": [
