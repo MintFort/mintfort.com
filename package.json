@@ -33,7 +33,7 @@
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.2.1",
-    "react-mt-svg-lines": "^0.9.0",
+    "react-mt-svg-lines": "^0.8.5",
     "react-reveal": "^1.2.2",
     "react-scrollable-anchor": "^0.6.1",
     "react-spinkit": "^3.0.0",
