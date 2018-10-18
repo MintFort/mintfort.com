@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import React, { Component, Fragment } from 'react'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { flex, rem, navHeight, theme, hover, phone } from 'library/utils'
 
-import { whitepaper } from 'siteConfig'
 import logo from 'assets/svg/logo_name.svg'
 import logoWhite from 'assets/svg/logo_name_white.svg'
 import logoMobile from 'assets/svg/logo.svg'
@@ -57,7 +56,7 @@ const Nav = styled.nav`
       box-shadow: none;
     `)}
 
-    :not(:last-child) {
+    &:not(:last-child) {
       margin: 0.5rem 1rem;
     }
 
@@ -117,33 +116,45 @@ class Header extends Component {
     const { language, onChangeLanguage, location } = this.props
 
     return (
-      <Wrapper
-        transparent={transparent}
-      >
-        <Link to={`${language || ''}/`}>
-          <Logo
+      <StaticQuery
+        query={query}
+        render={({ site: { meta: { nav } } }) => (
+          <Wrapper
             transparent={transparent}
-            desktop={{ black: logo, white: logoWhite }}
-            mobile={logoMobile}
-          />
-        </Link>
-        <Nav>
-          <Link to={`${language || ''}/portfolio/`}>Portfolio</Link>
-          <a href={whitepaper}>Whitepaper</a>
-          {
-            !location.pathname.match(/(impressum|policy)/) &&
-            <LanguageSwitcher
-              transparent={transparent}
-              onClick={() => onChangeLanguage()}
-            >
-              {language === "en" ? "中文" : "English"}
-            </LanguageSwitcher>
-          }
-        </Nav>
-      </Wrapper>
+          >
+            <Link to={`${language || ''}/`}>
+              <Logo
+                transparent={transparent}
+                desktop={{ black: logo, white: logoWhite }}
+                mobile={logoMobile}
+              />
+            </Link>
+            <Nav>
+              {nav.map(({ name, path }) => (
+                <Fragment key={name}>
+                  {name !== 'Whitepaper' ?
+                    <Link to={(language || '') + path}>{name}</Link> :
+                    <a href={path}>{name}</a>
+                  }
+                </Fragment>
+              ))}
+              {
+                !location.pathname.match(/(impressum|policy)/) &&
+                <LanguageSwitcher
+                  transparent={transparent}
+                  onClick={() => onChangeLanguage()}
+                >
+                  {language === "en" ? "中文" : "English"}
+                </LanguageSwitcher>
+              }
+            </Nav>
+          </Wrapper>
+        )}
+      />
     )
   }
 }
+
 
 Header.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,
@@ -152,3 +163,16 @@ Header.propTypes = {
 }
 
 export default Header
+
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        nav {
+          name
+          path
+        }
+      }
+    }
+  }
+`

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link as GatsbLink } from 'gatsby'
+import { Link as GatsbLink, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
-import { social } from 'siteConfig'
 
 import { Container } from 'library/index'
 import { flex, rem, navHeight, theme, phone } from 'library/utils'
@@ -76,34 +75,39 @@ const icon = name => {
 }
 
 const Footer = ({ path }) => (
-  <Wrapper path={path}>
-    <Section
-      size={{ w: '100%', h: '100%' }}
-      position={{ x: 'space-between', y: 'center' }}
-    >
-      <LegalBlock>
-        <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
-        Impressum
-        </Link>
-        <Link to="/policy/" activeStyle={{ color: theme.blue }}>
-        Privacy Policy
-        </Link>
-      </LegalBlock>
-      <SocialBlock>
-        {social.map(s => (
-          <ExternalLink
-            key={s.name}
-            title={s.name}
-            to={s.url}>
-            {icon(s.name)}
-          </ExternalLink>
-        ))}
-      </SocialBlock>
-    </Section>
-    <Copyright>
-      © 2018 Mintfort. All rights reserved. Be Your Bank.
-    </Copyright>
-  </Wrapper>
+  <StaticQuery
+    query={query}
+    render={({ site: { meta: { social } } }) => (
+      <Wrapper path={path}>
+        <Section
+          size={{ w: '100%', h: '100%' }}
+          position={{ x: 'space-between', y: 'center' }}
+        >
+          <LegalBlock>
+            <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
+              Impressum
+            </Link>
+            <Link to="/policy/" activeStyle={{ color: theme.blue }}>
+            Privacy Policy
+            </Link>
+          </LegalBlock>
+          <SocialBlock>
+            {social.map(s => (
+              <ExternalLink
+                key={s.name}
+                title={s.name}
+                to={s.url}>
+                {icon(s.name)}
+              </ExternalLink>
+            ))}
+          </SocialBlock>
+        </Section>
+        <Copyright>
+        © 2018 Mintfort. All rights reserved. Be Your Bank.
+        </Copyright>
+      </Wrapper>
+    )}
+  />
 )
 
 Footer.propTypes = {
@@ -111,3 +115,16 @@ Footer.propTypes = {
 }
 
 export default Footer
+
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        social {
+          name
+          url
+        }
+      }
+    }
+  }
+`
