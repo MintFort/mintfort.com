@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { injectGlobal } from "styled-components"
 import { css } from 'styled-components'
-import { configureAnchors } from 'react-scrollable-anchor'
 
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -12,11 +11,6 @@ import SEO from 'utils/seo'
 import { Context, addLang } from 'utils/context'
 
 import { theme, hover, transitions } from 'library/utils'
-
-configureAnchors({
-  offset: -60,
-  scrollDuration: 800
-})
 
 injectGlobal`
   a {

@@ -35,7 +35,7 @@
     "react-icons": "^3.2.1",
     "react-mt-svg-lines": "^0.8.5",
     "react-reveal": "^1.2.2",
-    "react-scrollable-anchor": "^0.6.1",
+    "react-scroll": "^1.7.10",
     "react-spinkit": "^3.0.0",
     "react-typography": "^0.16.13",
     "react-waypoint": "^8.0.3",

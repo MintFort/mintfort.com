@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { FaChevronDown } from 'react-icons/fa'
-import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
+import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
@@ -184,7 +184,9 @@ const Text = ({ title, subTitle, body, button }) => (
       button && button.length &&
       <Register
         primary
-        onClick={() => goToAnchor("subscribe")}
+        onClick={() => scroller.scrollTo("subscribe", {
+          duration: 600
+        })}
       >
         {button}
       </Register>
@@ -233,7 +235,12 @@ const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
       />
     </Content>
     <IconWrapper>
-      <Icon onClick={() => goToAnchor(scrollId)}/>
+      <Icon
+        onClick={() => scroller.scrollTo(scrollId, {
+          duration: 1000,
+          smooth: "easeOutQuint",
+          offset: -40 })}
+      />
     </IconWrapper>
   </Wrapper>
 )

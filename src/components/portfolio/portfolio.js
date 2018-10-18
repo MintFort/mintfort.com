@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScrollableAnchor from 'react-scrollable-anchor'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { addLang } from 'utils/context'
@@ -28,11 +27,10 @@ const Portfolio = ({ language }) => (
           img={img}
           scrollId='download'
         />
-        <ScrollableAnchor id='download'>
-          <div> {/* <- https://github.com/gabergg/react-scrollable-anchor/issues/45 */}
-            <SectionDownload title={download[language].title}/>
-          </div>
-        </ScrollableAnchor>
+        <div id={"download"}/>
+        <SectionDownload
+          title={download[language].title}
+        />
         <SectionText
           title={shop[language].title}
           content={shop[language].subTitle}
@@ -41,7 +39,9 @@ const Portfolio = ({ language }) => (
             background: theme.gray
           }}
         />
-        <DividerPortfolioGif img={shop[language].img}/>
+        <DividerPortfolioGif
+          img={shop[language].img}
+        />
         <SectionText
           title={exchanges[language].title}
           content={<Logos logos={exchanges[language].logos}/>}

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScrollableAnchor from 'react-scrollable-anchor'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { addLang } from 'utils/context'
@@ -31,15 +30,12 @@ const Home = ({ language }) => (
           button={form[language].button}
           scrollId='imagine'
         />
-        <ScrollableAnchor id='imagine'>
-          <div>
-            <SectionText
-              title={imagine[language].title}
-              content={imagine[language].subTitle}
-              padding={'14vh 0 8vh'}
-            />
-          </div>
-        </ScrollableAnchor>
+        <div id={"imagine"}/>
+        <SectionText
+          title={imagine[language].title}
+          content={imagine[language].subTitle}
+          padding={'14vh 0 8vh'}
+        />
         <SectionWatch />
         <SectionText
           title={buy[language].title}

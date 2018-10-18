@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
 
@@ -168,36 +167,33 @@ class Register extends Component {
         <Header color={theme.whiteFont}>
           {title}
         </Header>
-        <ScrollableAnchor id='subscribe'>
-          <div style={{ position: 'relative' }}>
-            <Form onSubmit={this.handleSubmit} loading={loading}>
-              <Input
-                placeholder='Your name (optional)'
-                type="text"
-                name="name"
-                value={name}
-                onChange={this.handleChange}
-              />
-              <Input
-                required
-                placeholder='Your E-mail address'
-                type="email"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-              {response && <DisplayMessage data={response} /> }
-              <Button
-                primary
-                disabled={loading}
-              >
-                {button}
-              </Button>
-            </Form>
-            { loading && <Spin /> }
-          </div>
-
-        </ScrollableAnchor>
+        <div style={{ position: 'relative' }} id='subscribe'>
+          <Form onSubmit={this.handleSubmit} loading={loading}>
+            <Input
+              placeholder='Your name (optional)'
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <Input
+              required
+              placeholder='Your E-mail address'
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            {response && <DisplayMessage data={response} /> }
+            <Button
+              primary
+              disabled={loading}
+            >
+              {button}
+            </Button>
+          </Form>
+          { loading && <Spin /> }
+        </div>
       </Wrapper>
     )
   }
