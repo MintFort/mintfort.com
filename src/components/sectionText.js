@@ -4,7 +4,8 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { Container, Header, Paragraph } from 'library/index'
-import { theme, phone } from 'library/utils'
+import { theme } from 'library/global'
+import { phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
@@ -23,7 +24,7 @@ const Background = styled.section`
   flex-direction: column;
 `
 
-const Wrapper = Container.extend`
+const Wrapper = styled(Container)`
   width: 60%;
   text-align: center;
 

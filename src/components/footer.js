@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { Container } from 'library/index'
-import { flex, rem, navHeight, theme, phone } from 'library/utils'
+import { theme } from 'library/global'
+import { flex, rem, navHeight, phone } from 'library/utils'
 
 const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}
@@ -39,7 +40,7 @@ const ExternalLink = styled.a.attrs({
   font-size: ${rem(16)};
 `
 
-const Section = Container.extend`
+const Section = styled(Container)`
   ${phone(css`
     flex-direction: column;
     justify-content: center;

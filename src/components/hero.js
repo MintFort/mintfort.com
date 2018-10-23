@@ -7,7 +7,8 @@ import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
-import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
+import { theme } from 'library/global'
+import { hover, rem, transitions, navHeight, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
 const Wrapper = styled.section`
@@ -24,7 +25,7 @@ const Wrapper = styled.section`
   `)}
 `
 
-const Content = Container.extend`
+const Content = styled(Container)`
   padding: ${rem(40)};
   display: flex;
   flex: 1;
@@ -118,13 +119,13 @@ const StaticImage = styled.div`
   transition: all .2s;
 `
 
-const Register = Button.extend`
+const Register = styled(Button)`
   ${phone(css`
     margin-bottom: ${rem(40)};
   `)}
 `
 
-const Sub = SubHeader.extend`
+const Sub = styled(SubHeader)`
   white-space: pre-line;
   color: ${theme.lightFont};
 
