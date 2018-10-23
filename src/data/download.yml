@@ -27,7 +27,6 @@ shop:
 exchanges:
   en:
     title: Implemented Exchanges
-    background: assets/svg/dotted_white_background-01.svg
     logos:
       - name: binance
         img: binance.png
@@ -50,23 +49,22 @@ exchanges:
 
   zh:
     title: 已有的交易所。
-    background: assets/svg/dotted_white_background-01.svg
     logos:
       - name: binance
-        imf: binance.png
+        img: binance.png
         site: https://www.binance.com/
       - name: kraken
-        imf: kraken.png
+        img: kraken.png
         site: https://www.kraken.com/
       - name: bitfinex
-        imf: bitfinex.png
+        img: bitfinex.png
         site: https://www.bitfinex.com/
       - name: bittrex
-        imf: bittrex.png
+        img: bittrex.png
         site: https://bittrex.com/
       - name: huobi
-        imf: huobi.png
+        img: huobi.png
         site: https://www.huobi.com/
       - name: kucoin
-        imf: kucoin.png
+        img: kucoin.png
         site: https://www.kucoin.com/
