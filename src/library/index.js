@@ -96,7 +96,9 @@ export const Paragraph = styled.p`
   `}
 `
 
-export const Img = styled.img`
+export const Img = styled.img.attrs({
+  src: ({ file }) => file && require(`../assets/images/${file}`)
+})`
   display: block;
   margin: 0;
 

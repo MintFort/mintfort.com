@@ -56,7 +56,7 @@ export const Card = ({ img, title, card }) => (
     <Fade delay={200}>
       <Img
         alt={title}
-        src={require('../' + img)}
+        file={img}
       />
     </Fade>
   </Wrapper>
