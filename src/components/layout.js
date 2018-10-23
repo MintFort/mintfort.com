@@ -6,6 +6,7 @@ import { css } from 'styled-components'
 
 import Header from 'components/header'
 import Footer from 'components/footer'
+import SectionContact from 'components/sectionContact'
 
 import SEO from 'utils/seo'
 import { Context, addLang } from 'utils/context'
@@ -45,6 +46,7 @@ const Layout = ({ children, location }) => (
         <main>
           {children}
         </main>
+        <SectionContact />
         <Footer path={location.pathname}/>
       </Context>
     )}

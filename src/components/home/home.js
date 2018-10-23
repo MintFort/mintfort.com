@@ -12,7 +12,6 @@ import Subscribe from './formRegister'
 import SectionWatch from './sectionWatch'
 import SectionCards from './sectionCards'
 import SectionPhone from './sectionPhone'
-import SectionContact from './sectionContact'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
 import { theme } from 'library/utils'
@@ -69,7 +68,6 @@ const Home = ({ language }) => (
           title={form[language].title}
           button={form[language].button}
         />
-        <SectionContact />
       </>
     )}
   />
