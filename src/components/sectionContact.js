@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, hover, mobile } from 'library/utils'
+import { flex, rem, hover, mobile, phone } from 'library/utils'
 import { Img, SubHeader, Paragraph } from 'library/index'
 
 const SectionWrapper = styled.section`
@@ -35,6 +35,11 @@ const CardWrapper = styled.div`
       box-shadow: none;
     `)}
   }
+
+  ${phone(css`
+    flex-direction: column;
+    text-align: center
+  `)}
 `
 
 const ContactCard = ({ data: { city, mail, address, icon } }) => (
