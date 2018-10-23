@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, theme, hover, mobile } from 'library/utils'
+import { flex, rem, hover, mobile } from 'library/utils'
 import { Img, SubHeader, Paragraph } from 'library/index'
 
 const SectionWrapper = styled.section`
@@ -29,9 +29,9 @@ const CardWrapper = styled.div`
     background: #fff;
 
     ${hover(css`
-      background: ${theme.mint};
+      background: ${({ theme }) => theme.mint};
       color: #fff;
-      border: 2px solid ${theme.mint};
+      border: 2px solid ${({ theme }) => theme.mint};
       box-shadow: none;
     `)}
   }

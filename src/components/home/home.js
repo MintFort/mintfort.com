@@ -14,7 +14,6 @@ import SectionCards from './sectionCards'
 import SectionPhone from './sectionPhone'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
-import { theme } from 'library/utils'
 
 const Home = ({ language }) => (
   <StaticQuery
@@ -42,7 +41,7 @@ const Home = ({ language }) => (
           content={buy[language].subTitle}
           padding={'4vh 0'}
           color={{
-            background: theme.gray
+            background: 'gray'
           }}
         />
         <SectionPhone />

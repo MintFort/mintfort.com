@@ -3,7 +3,7 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, navHeight, theme, hover, phone } from 'library/utils'
+import { flex, rem, navHeight, hover, phone } from 'library/utils'
 
 import logo from 'assets/svg/logo_name.svg'
 import logoWhite from 'assets/svg/logo_name_white.svg'
@@ -35,7 +35,7 @@ const LanguageSwitcher = styled.button`
   padding: ${rem(4)} ${rem(12)};
   font-size: ${rem(13)};
   cursor: pointer;
-  color: ${({ transparent }) => transparent ? theme.lightFont : theme.black};
+  color: ${({ transparent, theme }) => transparent ? theme.lightFont : theme.black};
 `
 
 const Nav = styled.nav`
@@ -50,9 +50,9 @@ const Nav = styled.nav`
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 
     ${hover(css`
-      background: ${theme.mint};
+      background: ${({ theme }) => theme.mint};
       color: #fff;
-      border: 2px solid ${theme.mint};
+      border: 2px solid ${({ theme }) => theme.mint};
       box-shadow: none;
     `)}
 

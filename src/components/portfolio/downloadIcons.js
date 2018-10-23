@@ -4,7 +4,7 @@ import { FaApple, FaWindows } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { flex, rem, theme, hover } from 'library/utils'
+import { flex, rem, hover } from 'library/utils'
 import { Paragraph } from 'library/index'
 
 const Wrapper = styled.div`
@@ -21,10 +21,10 @@ const IconWrapper = styled.div`
 `
 
 const Anchor = styled.a`
-  color: ${theme.blue};
+  color: ${({ theme }) => theme.blue};
 
   ${hover(css`
-    color: ${theme.mint};
+    color: ${({ theme }) => theme.mint};
   `)}
 
   transition: all .3s ease;
@@ -35,7 +35,7 @@ const Download = ({ icon: Icon, name, url }) => (
     <IconWrapper>
       <Icon style={{ fontSize: 60 }}/>
     </IconWrapper>
-    <Paragraph color={theme.blue}>{name}</Paragraph>
+    <Paragraph color='blue'>{name}</Paragraph>
   </Anchor>
 )
 

@@ -6,11 +6,11 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, mobile, rem, theme } from 'library/utils'
+import { flex, phone, mobile, rem } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
-  background: ${theme.gray};
+  background: ${({ theme }) => theme.gray};
   overflow: hidden;
   width: 100%;
   overflow-x: hidden;:

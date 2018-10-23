@@ -7,7 +7,6 @@ import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
-import { theme } from 'library/global'
 import { hover, rem, transitions, navHeight, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
@@ -40,7 +39,7 @@ const Icon = styled(FaChevronDown)`
   width: ${rem(50)};
   height: ${rem(50)};
   padding: ${rem(8)};
-  color: ${theme.blue};
+  color: ${({ theme }) => theme.blue};
   cursor: pointer;
 
   ${hover(css`
@@ -127,7 +126,7 @@ const Register = styled(Button)`
 
 const Sub = styled(SubHeader)`
   white-space: pre-line;
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
 
   ${mobile(css`
     white-space: normal;
@@ -163,7 +162,7 @@ const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
-      color={theme.lightFont}
+      color='lightFont'
       size={18}
     >
       {title}

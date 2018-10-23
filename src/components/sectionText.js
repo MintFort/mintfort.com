@@ -4,15 +4,14 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { Container, Header, Paragraph } from 'library/index'
-import { theme } from 'library/global'
 import { phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
-    background: ${color};
+    background: ${({ theme }) => theme[color]};
   `}
 
-  ${({ src }) => src && css`
+  ${({ src, theme }) => src && css`
     background: ${src.includes('blue') && theme.blue} url(${require('../' + src)});
     background-position: center;
     background-repeat: no-repeat;

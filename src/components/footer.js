@@ -16,7 +16,7 @@ const Wrapper = styled.footer`
   height: calc(${navHeight} * 2);
 
   width: 100%;
-  background: ${({ path }) => path && path.includes('portfolio') && theme.blue || '#fff'};
+  background: ${({ path, theme }) => path && path.includes('portfolio') && theme.blue || '#fff'};
 
   ${phone(css`
     flex-direction: column;
@@ -24,7 +24,7 @@ const Wrapper = styled.footer`
 `
 
 const linkStyles = css`
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
   padding: ${rem(4)};
 `
 
@@ -49,7 +49,7 @@ const Section = styled(Container)`
 
 const Copyright = styled.span`
   text-align: center;
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
   font-size: ${rem(10)};
   margin-bottom: ${rem(4)};
 `

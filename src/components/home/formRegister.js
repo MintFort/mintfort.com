@@ -6,8 +6,9 @@ import Spinner from 'react-spinkit'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
 
+import { theme } from 'library/global'
 import { Header, Button } from 'library/index'
-import { flex, rem, theme, phone } from 'library/utils'
+import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`
   height: 900px;
@@ -37,7 +38,7 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  background: ${theme.blue};
+  background: ${({ theme }) => theme.blue};
 
   font-size: ${rem(14)};
   color: #fff;
@@ -50,11 +51,11 @@ const Input = styled.input`
   margin: ${rem(10)} 0;
 
   &:focus {
-    border-bottom: 1px solid ${theme.mint};
+    border-bottom: 1px solid ${({ theme }) => theme.mint};
     box-shadow: inset 0 2px 20px rgba(0,0,0,0.17);
 
     &::-webkit-input-placeholder {
-      color: ${theme.mint};
+      color: ${({ theme }) => theme.mint};
       transition: all .3s ease;
     }
   }
@@ -68,7 +69,7 @@ const Message = styled.p`
   color: #c6c6c6;
 
   ${({ error }) => error && css`
-    color: ${theme.red}
+    color: ${({ theme }) => theme.red}
   `}
 `
 
@@ -164,7 +165,7 @@ class Register extends Component {
     return (
       <Wrapper>
         <EndPageBackground/>
-        <Header color={theme.whiteFont}>
+        <Header color='whiteFont'>
           {title}
         </Header>
         <div style={{ position: 'relative' }} id='subscribe'>

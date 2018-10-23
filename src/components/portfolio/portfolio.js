@@ -12,7 +12,6 @@ import DividerPortfolioGif from './sectionPortfolio'
 import SectionDownload from './sectionDownload'
 
 import { hero, download, shop, exchanges } from 'data/download.yml'
-import { theme } from 'library/utils'
 
 const Portfolio = ({ language }) => (
   <StaticQuery
@@ -36,7 +35,7 @@ const Portfolio = ({ language }) => (
           content={shop[language].subTitle}
           padding='6vh 0'
           color={{
-            background: theme.gray
+            background: 'gray'
           }}
         />
         <DividerPortfolioGif

@@ -4,16 +4,16 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { SubHeader, Img } from 'library/index'
-import { rem, flex, phone, mobile, theme } from 'library/utils'
+import { rem, flex, phone, mobile } from 'library/utils'
 
 const back = {
-  1: theme.blue,
-  2: "#f1f1f1",
-  3: theme.blue
+  1: 'blue',
+  2: 'gray',
+  3: 'blue'
 }
 
 const Wrapper = styled.div`
-  background: ${({ card }) => card && back[card]};
+  background: ${({ card, theme }) => card && theme[back[card]]};
   margin: ${rem(30)};
   max-width: 600px;
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
@@ -47,7 +47,7 @@ export const Card = ({ img, title, card }) => (
       <Fade>
         <SubHeader
           style={{ margin: 0, padding: '0 30px' }}
-          color={card === 2 ? theme.blue : '#fff'}
+          color={card === 2 ? 'blue' : '#fff'}
         >
           {title}
         </SubHeader>
