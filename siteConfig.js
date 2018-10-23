@@ -19,10 +19,10 @@ module.exports = {
     { name: "Medium", url: 'https://medium.com/mintfort' },
     { name: "Github", url: 'https://github.com/MintFort' }
   ],
-  mail: {
-    berlin: 'berlin@mintfort.com',
-    hongkong: 'hongkong@mintfort.com'
-  },
+  contact: [
+    { city: 'Berlin', mail: 'berlin@mintfort.com', address: 'Wühlischstrasse 56 </br> 10245', icon: 'icon-berlin.png' },
+    { city: 'Hong Kong', mail: 'hongkong@mintfort.com', address: 'Wühlischstrasse 56 </br> 10245', icon: 'icon-hongkong.png' }
+  ],
   portfolio: {
     mac: 'https://download.mintfort.com/Mintfort-0.5.2.dmg',
     win: 'https://download.mintfort.com/Mintfort-0.5.2.exe'
