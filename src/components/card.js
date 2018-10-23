@@ -47,7 +47,7 @@ export const Card = ({ img, title, card }) => (
       <Fade>
         <SubHeader
           style={{ margin: 0, padding: '0 30px' }}
-          color={card === 2 ? 'blue' : '#fff'}
+          color={card === 2 ? 'blue' : 'whiteFont'}
         >
           {title}
         </SubHeader>
