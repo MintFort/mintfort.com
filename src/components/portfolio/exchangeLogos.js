@@ -33,7 +33,7 @@ const ExchangesLogos = ({ logos }) => (
       >
         <Img
           alt={logo.name}
-          src={require('../../' + logo.path)}
+          file={'exchanges/' + logo.img}
         />
       </Logo>
     ))}

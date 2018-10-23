@@ -40,7 +40,8 @@ const CardWrapper = styled.div`
 const ContactCard = ({ data: { city, mail, address, icon } }) => (
   <CardWrapper city={city}>
     <Img
-      style={{ width: 90, height: 90, margin: 10 }}
+      width={90}
+      style={{ margin: 10 }}
       alt={city}
       file={icon}
     />
