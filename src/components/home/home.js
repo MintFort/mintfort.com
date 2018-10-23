@@ -6,11 +6,11 @@ import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
 import SectionText from 'components/sectionText'
-import { SectionCards, Card } from 'components/card'
 import SectionBoxes from 'components/box'
 
 import Subscribe from './formRegister'
 import SectionWatch from './sectionWatch'
+import SectionCards from './SectionCards'
 import SectionPhone from './sectionPhone'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
@@ -46,16 +46,10 @@ const Home = ({ language }) => (
           }}
         />
         <SectionPhone />
-        <SectionCards>
-          {cards.map(card => (
-            <Card
-              key={card[language].id}
-              title={card[language].title}
-              img={card[language].img}
-              card={card[language].id}
-            />
-          ))}
-        </SectionCards>
+        <SectionCards
+          cards={cards}
+          language={language}
+        />
         <SectionText
           title={access[language].title}
           content={access[language].subTitle}

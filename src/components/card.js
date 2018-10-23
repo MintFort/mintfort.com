@@ -7,9 +7,9 @@ import { SubHeader, Img } from 'library/index'
 import { rem, flex, phone, mobile, theme } from 'library/utils'
 
 const back = {
-  1: "#1b243f",
+  1: theme.blue,
   2: "#f1f1f1",
-  3: "#96c1e3"
+  3: theme.blue
 }
 
 const Wrapper = styled.div`
@@ -67,11 +67,3 @@ Card.propTypes = {
   img: PropTypes.string.isRequired,
   card: PropTypes.number.isRequired
 }
-
-export const SectionCards = styled.section`
-  ${flex};
-
-  ${phone(css`
-    flex-direction: column;
-  `)}
-`
