@@ -7,7 +7,7 @@ import Spinner from 'react-spinkit'
 import EndPageBackground from 'components/backgrounds/pageEnd'
 
 import { theme } from 'library/global'
-import { Header, Button } from 'library/index'
+import { Header, Submit } from 'library/index'
 import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`
@@ -186,12 +186,12 @@ class Register extends Component {
               onChange={this.handleChange}
             />
             {response && <DisplayMessage data={response} /> }
-            <Button
+            <Submit
               primary
               disabled={loading}
             >
               {button}
-            </Button>
+            </Submit>
           </Form>
           { loading && <Spin /> }
         </div>

@@ -106,22 +106,38 @@ export const Img = styled.img.attrs({
   width: ${({ width }) => width || "100%"};
 `
 
-export const Button = styled.button`
-  background: ${({ primary, theme }) => primary ? theme.mint : '#fff'};
+export const Submit = styled.button`
+  background: ${({ theme }) => theme.mint };
   color: ${({ theme }) => theme.blue};
   font-weight: 700;
   cursor: pointer;
 
   border-radius: ${rem(20)};
-  border: ${({ primary, theme }) => primary ? `1px solid ${theme.mint}` : "none"};
+  border: ${({ theme }) => `1px solid ${theme.mint}`};
 
   padding: ${rem(6)} ${rem(30)};
   margin: ${rem(30)} 0 ${rem(10)};
 
   ${hover(css`
-    background: ${({ primary, theme }) => primary ? theme.blue : theme.mint};
-    color: ${({ primary, theme }) => primary ? theme.mint : '#fff'};
+    background: ${({ theme }) => theme.blue};
+    color: ${({ theme }) => theme.mint};
   `)}
 
   transition: all .1s ease;
+`
+
+export const Button = styled.button`
+  font-weight: 700;
+  font-size: ${rem(13)};
+  border-radius: 500px;
+  border: 2px solid white;
+  padding: 0.5rem 2rem;
+  background: #fff;
+
+  ${hover(css`
+    background: ${({ theme }) => theme.mint};
+    color: #fff;
+    border: 2px solid ${({ theme }) => theme.mint};
+    box-shadow: none;
+  `)}
 `

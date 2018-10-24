@@ -65,11 +65,12 @@ Text.propTypes = {
   color: PropTypes.object
 }
 
-const SectionText = ({ title, content, background, color, padding }) => (
+const SectionText = ({ title, content, background, color, padding, style }) => (
   <Background
     padding={padding}
     src={background}
     color={color && color.background}
+    style={{ ...style }}
   >
     <Text
       title={title}
@@ -87,6 +88,7 @@ SectionText.propTypes = {
   ]).isRequired,
   background: PropTypes.string,
   color: PropTypes.object,
+  style: PropTypes.object,
   padding: PropTypes.string
 }
 

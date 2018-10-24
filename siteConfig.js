@@ -9,7 +9,6 @@ module.exports = {
   backgroundColor: '#19DBB6',
   languages: ['en', 'zh'],
   nav: [
-    { name: "Portfolio", path: '/portfolio/' },
     { name: "Whitepaper", path: '/files/Whitepaper_1.2.0.pdf' }
   ],
   social: [

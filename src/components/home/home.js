@@ -12,8 +12,10 @@ import Subscribe from './formRegister'
 import SectionGirl from './sectionGirl'
 import SectionCards from './sectionCards'
 import SectionPhone from './sectionPhone'
+import SectionBeta from './sectionBeta'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
+import { hero as portfolio, shop } from 'data/download.yml'
 
 const Home = ({ language }) => (
   <StaticQuery
@@ -58,10 +60,15 @@ const Home = ({ language }) => (
           data={boxes}
           language={language}
         />
+        <SectionBeta
+          title={portfolio[language].subTitle}
+          content={portfolio[language].body}
+          img={shop[language].img}
+        />
         <SectionText
           title={control[language].title}
           content={control[language].subTitle}
-          padding={'20vh 0 0'}
+          padding={'14vh 0 0'}
         />
         <Subscribe
           title={form[language].title}
