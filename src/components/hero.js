@@ -185,7 +185,8 @@ const Text = ({ title, subTitle, body, button }) => (
       <Register
         primary
         onClick={() => scroller.scrollTo("subscribe", {
-          duration: 600
+          duration: 600,
+          offset: -120
         })}
       >
         {button}

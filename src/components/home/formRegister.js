@@ -165,10 +165,10 @@ class Register extends Component {
     return (
       <Wrapper>
         <EndPageBackground/>
-        <Header color='whiteFont'>
+        <Header color='whiteFont' id='subscribe'>
           {title}
         </Header>
-        <div style={{ position: 'relative' }} id='subscribe'>
+        <div style={{ position: 'relative' }} >
           <Form onSubmit={this.handleSubmit} loading={loading}>
             <Input
               placeholder='Your name (optional)'
