@@ -9,7 +9,7 @@ import SectionText from 'components/sectionText'
 import SectionBoxes from 'components/box'
 
 import Subscribe from './formRegister'
-import SectionWatch from './sectionWatch'
+import SectionGirl from './sectionGirl'
 import SectionCards from './sectionCards'
 import SectionPhone from './sectionPhone'
 
@@ -33,13 +33,13 @@ const Home = ({ language }) => (
         <SectionText
           title={imagine[language].title}
           content={imagine[language].subTitle}
-          padding={'14vh 0 8vh'}
+          padding={'14vh 0 4vh'}
         />
-        <SectionWatch />
+        <SectionGirl />
         <SectionText
           title={buy[language].title}
           content={buy[language].subTitle}
-          padding={'4vh 0'}
+          padding={'8vh 0'}
           color={{
             background: 'gray'
           }}

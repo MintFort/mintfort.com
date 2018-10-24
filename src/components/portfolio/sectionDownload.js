@@ -36,7 +36,7 @@ const SectionDownload = ({ title }) => (
       }}
     />
     <DividerWrapper>
-      <Divider />
+      <Divider diagonal='hard'/>
     </DividerWrapper>
   </>
 )
