@@ -1,32 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScrollableAnchor from 'react-scrollable-anchor'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
-import Section from 'components/section'
-import Logos from 'components/exchangeLogos'
-import DividerPortfolioGif from 'components/sectionPortfolio'
-import SectionDownload from 'components/sectionDownload'
+import SectionText from 'components/sectionText'
+
+import Logos from './exchangeLogos'
+import DividerPortfolioGif from './sectionPortfolio'
+import SectionDownload from './sectionDownload'
 
 import { hero, download, shop, exchanges } from 'data/download.yml'
-import { theme } from 'library/utils'
 
 const Portfolio = ({ language }) => (
   <StaticQuery
-    query={graphql`
-      query {
-        img: file(relativePath: { regex: "/hero_download/"}) {
-          childImageSharp {
-            fluid(maxWidth: 1350) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ img }) => (
       <>
         <Hero
@@ -37,21 +26,22 @@ const Portfolio = ({ language }) => (
           img={img}
           scrollId='download'
         />
-        <ScrollableAnchor id='download'>
-          <div> {/* <- https://github.com/gabergg/react-scrollable-anchor/issues/45 */}
-            <SectionDownload title={download[language].title}/>
-          </div>
-        </ScrollableAnchor>
-        <Section
+        <div id={"download"}/>
+        <SectionDownload
+          title={download[language].title}
+        />
+        <SectionText
           title={shop[language].title}
           content={shop[language].subTitle}
           padding='6vh 0'
           color={{
-            background: theme.gray
+            background: 'gray'
           }}
         />
-        <DividerPortfolioGif img={shop[language].img}/>
-        <Section
+        <DividerPortfolioGif
+          img={shop[language].img}
+        />
+        <SectionText
           title={exchanges[language].title}
           content={<Logos logos={exchanges[language].logos}/>}
         />
@@ -65,3 +55,15 @@ Portfolio.propTypes = {
 }
 
 export default () => addLang(Portfolio)
+
+const query = graphql`
+  {
+    img: file(relativePath: { regex: "/hero_download/"}) {
+      childImageSharp {
+        fluid(maxWidth: 1350) {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+  }
+`

@@ -6,11 +6,11 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, mobile, rem, theme } from 'library/utils'
+import { flex, phone, mobile, rem } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
-  background: ${theme.gray};
+  background: ${({ theme }) => theme.gray};
   overflow: hidden;
   width: 100%;
   overflow-x: hidden;:
@@ -66,17 +66,7 @@ Phone.propTypes = {
 
 const SectionPhone = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        phone: file(relativePath: { regex: "/crypto_phone/"}) {
-          childImageSharp {
-            fluid(maxWidth: 657) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ phone }) => (
       <Wrapper>
         <DividerEnd />
@@ -91,3 +81,15 @@ const SectionPhone = () => (
 )
 
 export default SectionPhone
+
+const query = graphql`
+  {
+    phone: file(relativePath: { regex: "/crypto_phone/"}) {
+      childImageSharp {
+        fluid(maxWidth: 657) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`

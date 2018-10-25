@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { FaChevronDown } from 'react-icons/fa'
-import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
+import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
-import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
+import { hover, rem, transitions, navHeight, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
 const Wrapper = styled.section`
@@ -24,7 +24,7 @@ const Wrapper = styled.section`
   `)}
 `
 
-const Content = Container.extend`
+const Content = styled(Container)`
   padding: ${rem(40)};
   display: flex;
   flex: 1;
@@ -39,7 +39,7 @@ const Icon = styled(FaChevronDown)`
   width: ${rem(50)};
   height: ${rem(50)};
   padding: ${rem(8)};
-  color: ${theme.blue};
+  color: ${({ theme }) => theme.blue};
   cursor: pointer;
 
   ${hover(css`
@@ -118,15 +118,17 @@ const StaticImage = styled.div`
   transition: all .2s;
 `
 
-const Register = Button.extend`
+export const EarlyAccess = styled(Button)`
+  margin-top: ${rem(30)};
+
   ${phone(css`
     margin-bottom: ${rem(40)};
   `)}
 `
 
-const Sub = SubHeader.extend`
+const Sub = styled(SubHeader)`
   white-space: pre-line;
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
 
   ${mobile(css`
     white-space: normal;
@@ -162,7 +164,7 @@ const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
-      color={theme.lightFont}
+      color='lightFont'
       size={18}
     >
       {title}
@@ -182,12 +184,16 @@ const Text = ({ title, subTitle, body, button }) => (
     </Sub>
     {
       button && button.length &&
-      <Register
-        primary
-        onClick={() => goToAnchor("subscribe")}
+      <EarlyAccess
+        mint
+        onClick={() => scroller.scrollTo("subscribe", {
+          smooth: true,
+          duration: 600,
+          offset: -120
+        })}
       >
         {button}
-      </Register>
+      </EarlyAccess>
     }
   </TextWrapper>
 )
@@ -233,7 +239,12 @@ const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
       />
     </Content>
     <IconWrapper>
-      <Icon onClick={() => goToAnchor(scrollId)}/>
+      <Icon
+        onClick={() => scroller.scrollTo(scrollId, {
+          duration: 1000,
+          smooth: "easeOutQuint",
+          offset: -40 })}
+      />
     </IconWrapper>
   </Wrapper>
 )

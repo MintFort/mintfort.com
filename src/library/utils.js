@@ -39,14 +39,3 @@ export const hover = inner => css`
     ${inner}
   }
 `
-
-
-export const theme = {
-  mint: '#19DBB6',
-  blue: '#1b243f',
-  red: '#F44336',
-  gray: "#F2F2F2",
-  paragraph: '#788cc7',
-  lightFont: "#A2A3AB",
-  whiteFont: "#f0f0f0"
-}

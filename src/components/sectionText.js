@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { Container, Header, Paragraph, Img } from 'library/index'
-import { rem, theme, phone } from 'library/utils'
+import { Container, Header, Paragraph } from 'library/index'
+import { phone } from 'library/utils'
 
 const Background = styled.section`
   ${({ color }) => css`
-    background: ${color};
+    background: ${({ theme }) => theme[color]};
   `}
 
-  ${({ src }) => src && css`
+  ${({ src, theme }) => src && css`
     background: ${src.includes('blue') && theme.blue} url(${require('../' + src)});
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ const Background = styled.section`
   flex-direction: column;
 `
 
-const Wrapper = Container.extend`
+const Wrapper = styled(Container)`
   width: 60%;
   text-align: center;
 
@@ -65,50 +65,32 @@ Text.propTypes = {
   color: PropTypes.object
 }
 
-const Image = ({ src }) => (
-  <Container centrate style={{ marginTop: rem(40) }}>
-    <Wrapper col>
-      <Fade delay={200}>
-        <Img
-          src={require('../' + src)}
-          alt="Hero image"
-          draggable='false'
-        />
-      </Fade>
-    </Wrapper>
-  </Container>
-)
-
-Image.propTypes = {
-  src: PropTypes.string.isRequired
-}
-
-const Section = ({ title, content, background, img, color, padding }) => (
+const SectionText = ({ title, content, background, color, padding, style }) => (
   <Background
     padding={padding}
     src={background}
     color={color && color.background}
+    style={{ ...style }}
   >
     <Text
       title={title}
       content={content}
       color={color}
     />
-    {img && <Image src={img} />}
   </Background>
 )
 
-Section.propTypes = {
+SectionText.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
   background: PropTypes.string,
-  img: PropTypes.string,
   color: PropTypes.object,
+  style: PropTypes.object,
   padding: PropTypes.string
 }
 
 
-export default Section
+export default SectionText

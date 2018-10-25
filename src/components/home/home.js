@@ -1,34 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScrollableAnchor from 'react-scrollable-anchor'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { addLang } from 'utils/context'
 
 import Hero from 'components/hero'
-import Section from 'components/section'
-import { SectionCards, Card } from 'components/card'
+import SectionText from 'components/sectionText'
 import SectionBoxes from 'components/box'
-import Subscribe from 'components/formRegister'
-import SectionWatch from 'components/sectionWatch'
-import SectionPhone from 'components/sectionPhone'
+
+import Subscribe from './formRegister'
+import SectionGirl from './sectionGirl'
+import SectionCards from './sectionCards'
+import SectionPhone from './sectionPhone'
+import SectionBeta from './sectionBeta'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
-import { theme } from 'library/utils'
+import { hero as portfolio, shop } from 'data/download.yml'
 
 const Home = ({ language }) => (
   <StaticQuery
-    query={graphql`
-      query {
-        img: file(relativePath: { regex: "/hero_home/"}) {
-          childImageSharp {
-            fixed(width: 340) {
-              ...GatsbyImageSharpFixed_noBase64
-            }
-          }
-        }
-      }
-    `}
+    query={query}
     render={({ img }) => (
       <>
         <Hero
@@ -40,36 +31,27 @@ const Home = ({ language }) => (
           button={form[language].button}
           scrollId='imagine'
         />
-        <ScrollableAnchor id='imagine'>
-          <div>
-            <Section
-              title={imagine[language].title}
-              content={imagine[language].subTitle}
-              padding={'14vh 0 8vh'}
-            />
-          </div>
-        </ScrollableAnchor>
-        <SectionWatch />
-        <Section
+        <div id={"imagine"}/>
+        <SectionText
+          title={imagine[language].title}
+          content={imagine[language].subTitle}
+          padding={'14vh 0 4vh'}
+        />
+        <SectionGirl />
+        <SectionText
           title={buy[language].title}
           content={buy[language].subTitle}
-          padding={'4vh 0'}
+          padding={'8vh 0'}
           color={{
-            background: theme.gray
+            background: 'gray'
           }}
         />
         <SectionPhone />
-        <SectionCards>
-          {cards.map(card => (
-            <Card
-              key={card[language].id}
-              title={card[language].title}
-              img={card[language].img}
-              card={card[language].id}
-            />
-          ))}
-        </SectionCards>
-        <Section
+        <SectionCards
+          cards={cards}
+          language={language}
+        />
+        <SectionText
           title={access[language].title}
           content={access[language].subTitle}
           background= {access[language].background}
@@ -78,10 +60,15 @@ const Home = ({ language }) => (
           data={boxes}
           language={language}
         />
-        <Section
+        <SectionBeta
+          title={portfolio[language].subTitle}
+          content={portfolio[language].body}
+          img={shop[language].img}
+        />
+        <SectionText
           title={control[language].title}
           content={control[language].subTitle}
-          padding={'20vh 0 0'}
+          padding={'10vh 0 0'}
         />
         <Subscribe
           title={form[language].title}
@@ -97,3 +84,15 @@ Home.propTypes = {
 }
 
 export default () => addLang(Home)
+
+const query = graphql`
+  {
+    img: file(relativePath: { regex: "/hero_home/"}) {
+      childImageSharp {
+        fixed(width: 340) {
+          ...GatsbyImageSharpFixed_noBase64
+        }
+      }
+    }
+  }
+`

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Layout from 'components/layout'
-import Home from 'components/home'
+import Home from 'components/home/home'
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>

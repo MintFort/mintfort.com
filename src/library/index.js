@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { rem, theme, hover, phone } from './utils'
+import { rem, hover, phone } from './utils'
 
 export const Container = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const Header = styled.h2`
   font-size: ${({ size }) => size && rem(size) || rem(32)};
 
   ${({ color }) => color && css`
-    color: ${color};
+    color: ${({ theme }) => theme[color]};
   `}
 
   ${phone(css`
@@ -76,7 +76,7 @@ export const SubHeader = styled.h3`
   font-size: ${({ size }) => size && rem(size) || rem(24)};
 
   ${({ color }) => color && css`
-    color: ${color};
+    color: ${({ theme }) => theme[color]};
   `}
 
   ${phone(css`
@@ -92,11 +92,13 @@ export const Paragraph = styled.p`
   `}
 
   ${({ color }) => color && css`
-    color: ${color};
+    color: ${({ theme }) => theme[color]};
   `}
 `
 
-export const Img = styled.img`
+export const Img = styled.img.attrs({
+  src: ({ file }) => file && require(`../assets/images/${file}`)
+})`
   display: block;
   margin: 0;
 
@@ -105,21 +107,38 @@ export const Img = styled.img`
 `
 
 export const Button = styled.button`
-  background: ${({ primary }) => primary ? theme.mint : '#fff'};
-  color: ${theme.blue};
-  font-weight: 700;
-  cursor: pointer;
+  font-weight: 500;
+  font-size: ${rem(13)};
 
   border-radius: ${rem(20)};
-  border: ${({ primary }) => primary ? `1px solid ${theme.mint}` : "none"};
+  border: 1px solid #fff;
 
-  padding: ${rem(6)} ${rem(30)};
-  margin: ${rem(30)} 0 ${rem(10)};
+  background: #fff;
+
+  padding: ${rem(8)} ${rem(30)};
+  cursor: pointer;
+  box-shadow: ${({ theme }) => theme.shadow};
 
   ${hover(css`
-    background: ${({ primary }) => primary ? theme.blue : theme.mint};
-    color: ${({ primary }) => primary ? theme.mint : '#fff'};
+    color: ${({ theme }) => theme.whiteFont};
+    background: ${({ theme }) => theme.mint};
+    border: 1px solid ${({ theme }) => theme.mint};
+    box-shadow: none;
   `)}
 
-  transition: all .1s ease;
+  ${({ theme, mint }) => mint && css`
+    font-weight: 700;
+    font-size: ${rem(15)};
+    background: ${theme.mint};
+    color: ${theme.blue};
+    border: 1px solid ${theme.mint};
+
+    ${hover(css`
+      background: ${theme.blue};
+      color: ${theme.mint};
+    `)}
+
+  `}
+
+  transition: all .2s ease;
 `

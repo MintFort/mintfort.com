@@ -6,7 +6,7 @@ import Waypoint from 'react-waypoint'
 import MtSvgLines from 'react-mt-svg-lines'
 
 import { Paragraph, Container } from 'library/index'
-import { rem, phone, theme, flex, mobile } from 'library/utils'
+import { rem, phone, flex, mobile } from 'library/utils'
 
 const Section = styled.section`
   padding: ${rem(30)};
@@ -71,7 +71,7 @@ const Box = ({ component, title, id, animate }) => (
     </Container>
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
-        <Paragraph color={theme.blue}>
+        <Paragraph color='blue'>
           {title}
         </Paragraph>
       </Fade>

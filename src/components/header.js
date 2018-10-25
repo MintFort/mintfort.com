@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import React, { Component, Fragment } from 'react'
+import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, navHeight, theme, hover, phone } from 'library/utils'
+import { flex, rem, navHeight, phone } from 'library/utils'
+import { Button } from 'library/index'
 
-import { whitepaper } from 'siteConfig'
 import logo from 'assets/svg/logo_name.svg'
 import logoWhite from 'assets/svg/logo_name_white.svg'
 import logoMobile from 'assets/svg/logo.svg'
@@ -36,28 +36,14 @@ const LanguageSwitcher = styled.button`
   padding: ${rem(4)} ${rem(12)};
   font-size: ${rem(13)};
   cursor: pointer;
-  color: ${({ transparent }) => transparent ? theme.lightFont : theme.black};
+  color: ${({ transparent, theme }) => transparent ? theme.lightFont : theme.black};
 `
 
 const Nav = styled.nav`
   ${flex}
-  a {
-    font-weight: 200;
-    font-size: ${rem(13)};
-    border-radius: 500px;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-    background: #fff;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 
-    ${hover(css`
-      background: ${theme.mint};
-      color: #fff;
-      border: 2px solid ${theme.mint};
-      box-shadow: none;
-    `)}
-
-    :not(:last-child) {
+  button, a {
+    &:not(:last-child) {
       margin: 0.5rem 1rem;
     }
 
@@ -65,7 +51,6 @@ const Nav = styled.nav`
       font-size: ${rem(12)};
       padding: 0.25rem 0.5rem;
     `)}
-
   }
 `
 
@@ -77,6 +62,7 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
 
+  cursor: pointer;
   width: 210px;
   height: 40px;
 
@@ -117,33 +103,44 @@ class Header extends Component {
     const { language, onChangeLanguage, location } = this.props
 
     return (
-      <Wrapper
-        transparent={transparent}
-      >
-        <Link to={`${language || ''}/`}>
-          <Logo
+      <StaticQuery
+        query={query}
+        render={({ site: { meta: { nav } } }) => (
+          <Wrapper
             transparent={transparent}
-            desktop={{ black: logo, white: logoWhite }}
-            mobile={logoMobile}
-          />
-        </Link>
-        <Nav>
-          <Link to={`${language || ''}/portfolio/`}>Portfolio</Link>
-          <a href={whitepaper}>Whitepaper</a>
-          {
-            !location.pathname.match(/(impressum|policy)/) &&
-            <LanguageSwitcher
+          >
+            <Logo
+              onClick={() => navigate(`${language || ''}/`)}
               transparent={transparent}
-              onClick={() => onChangeLanguage()}
-            >
-              {language === "en" ? "中文" : "English"}
-            </LanguageSwitcher>
-          }
-        </Nav>
-      </Wrapper>
+              desktop={{ black: logo, white: logoWhite }}
+              mobile={logoMobile}
+            />
+            <Nav>
+              {nav.map(({ name, path }) => (
+                <Fragment key={name}>
+                  {name !== 'Whitepaper' ?
+                    <Button onClick={() => navigate((language || '') + path)}>{name}</Button> :
+                    <Button as='a' href={path}>{name}</Button>
+                  }
+                </Fragment>
+              ))}
+              {
+                !location.pathname.match(/(impressum|policy)/) &&
+                <LanguageSwitcher
+                  transparent={transparent}
+                  onClick={() => onChangeLanguage()}
+                >
+                  {language === "en" ? "中文" : "English"}
+                </LanguageSwitcher>
+              }
+            </Nav>
+          </Wrapper>
+        )}
+      />
     )
   }
 }
+
 
 Header.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,
@@ -152,3 +149,16 @@ Header.propTypes = {
 }
 
 export default Header
+
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        nav {
+          name
+          path
+        }
+      }
+    }
+  }
+`

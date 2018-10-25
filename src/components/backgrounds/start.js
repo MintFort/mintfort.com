@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import dividerStart from 'assets/svg/divider_start.svg'
+import dividerStartHome from 'assets/svg/divider_start-home.svg'
 
-const Divider = ({ style }) => (
+const Divider = ({ style, diagonal }) => (
   <div style={{
     position: 'absolute',
     bottom: -1,
@@ -18,18 +19,23 @@ const Divider = ({ style }) => (
         margin: 0,
         display: "block",
         width:'100%',
-        heighy: 'auto',
+        height: 'auto',
         objectPosition: 'bottom',
         objectFit: 'fill'
       }}
       alt='Divider'
-      src={dividerStart}
+      src={diagonal === 'light' ? dividerStartHome : dividerStart}
     />
   </div>
 )
 
 Divider.propTypes = {
-  style: PropTypes.object
+  style: PropTypes.object,
+  diagonal: PropTypes.string
+}
+
+Divider.defaultProps = {
+  diagonal: "light"
 }
 
 export default Divider
