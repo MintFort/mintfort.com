@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, hover, mobile, phone } from 'library/utils'
-import { Img, SubHeader, Paragraph } from 'library/index'
+import { flex, mobile, phone } from 'library/utils'
+import { Img, SubHeader, Paragraph, Button } from 'library/index'
 
 const SectionWrapper = styled.section`
   ${flex}
@@ -20,26 +20,15 @@ const CardWrapper = styled.div`
   background: ${({ city }) => /berlin/i.test(city) ? '#f2f2f4' : '#edecf1'};
   ${flex}
 
-  a {
-    font-weight: 700;
-    font-size: ${rem(13)};
-    border-radius: 500px;
-    border: 2px solid white;
-    padding: 0.5rem 2rem;
-    background: #fff;
-
-    ${hover(css`
-      background: ${({ theme }) => theme.mint};
-      color: #fff;
-      border: 2px solid ${({ theme }) => theme.mint};
-      box-shadow: none;
-    `)}
-  }
-
   ${phone(css`
     flex-direction: column;
     text-align: center
   `)}
+
+  .inner {
+    padding: 10px 30px;
+    white-space: nowrap;
+  }
 `
 
 const ContactCard = ({ data: { city, mail, address, icon } }) => (
@@ -50,13 +39,20 @@ const ContactCard = ({ data: { city, mail, address, icon } }) => (
       alt={city}
       file={icon}
     />
-    <div style={{ padding: "10px 30px", whiteSpace: 'nowrap' }}>
+    <div className="inner">
       <SubHeader style={{ margin: '4px 0' }}>{city}</SubHeader>
       <Paragraph dangerouslySetInnerHTML={{ __html: address }} />
     </div>
-    <div style={{ padding: 20 }}>
-      <a href={`mailto:${mail}`}>Contact</a>
-    </div>
+    <Button
+      as='a'
+      href={`mailto:${mail}`}
+      style={{
+        marginLeft: 20,
+        boxShadow: 'none'
+      }}
+    >
+      Contact
+    </Button>
   </CardWrapper>
 )
 

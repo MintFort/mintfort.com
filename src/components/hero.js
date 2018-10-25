@@ -118,7 +118,9 @@ const StaticImage = styled.div`
   transition: all .2s;
 `
 
-const Register = styled(Button)`
+export const EarlyAccess = styled(Button)`
+  margin-top: ${rem(30)};
+
   ${phone(css`
     margin-bottom: ${rem(40)};
   `)}
@@ -182,15 +184,16 @@ const Text = ({ title, subTitle, body, button }) => (
     </Sub>
     {
       button && button.length &&
-      <Register
-        primary
+      <EarlyAccess
+        mint
         onClick={() => scroller.scrollTo("subscribe", {
+          smooth: true,
           duration: 600,
           offset: -120
         })}
       >
         {button}
-      </Register>
+      </EarlyAccess>
     }
   </TextWrapper>
 )

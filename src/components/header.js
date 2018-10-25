@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, navHeight, hover, phone } from 'library/utils'
+import { flex, rem, navHeight, phone } from 'library/utils'
+import { Button } from 'library/index'
 
 import logo from 'assets/svg/logo_name.svg'
 import logoWhite from 'assets/svg/logo_name_white.svg'
@@ -40,22 +41,8 @@ const LanguageSwitcher = styled.button`
 
 const Nav = styled.nav`
   ${flex}
-  a {
-    font-weight: 200;
-    font-size: ${rem(13)};
-    border-radius: 500px;
-    border: 2px solid white;
-    padding: 0.5rem 1rem;
-    background: #fff;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 
-    ${hover(css`
-      background: ${({ theme }) => theme.mint};
-      color: #fff;
-      border: 2px solid ${({ theme }) => theme.mint};
-      box-shadow: none;
-    `)}
-
+  button, a {
     &:not(:last-child) {
       margin: 0.5rem 1rem;
     }
@@ -64,7 +51,6 @@ const Nav = styled.nav`
       font-size: ${rem(12)};
       padding: 0.25rem 0.5rem;
     `)}
-
   }
 `
 
@@ -76,6 +62,7 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
 
+  cursor: pointer;
   width: 210px;
   height: 40px;
 
@@ -122,19 +109,18 @@ class Header extends Component {
           <Wrapper
             transparent={transparent}
           >
-            <Link to={`${language || ''}/`}>
-              <Logo
-                transparent={transparent}
-                desktop={{ black: logo, white: logoWhite }}
-                mobile={logoMobile}
-              />
-            </Link>
+            <Logo
+              onClick={() => navigate(`${language || ''}/`)}
+              transparent={transparent}
+              desktop={{ black: logo, white: logoWhite }}
+              mobile={logoMobile}
+            />
             <Nav>
               {nav.map(({ name, path }) => (
                 <Fragment key={name}>
                   {name !== 'Whitepaper' ?
-                    <Link to={(language || '') + path}>{name}</Link> :
-                    <a href={path}>{name}</a>
+                    <Button onClick={() => navigate((language || '') + path)}>{name}</Button> :
+                    <Button as='a' href={path}>{name}</Button>
                   }
                 </Fragment>
               ))}

@@ -5,9 +5,10 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
+import { EarlyAccess } from 'components/hero'
 
 import { theme } from 'library/global'
-import { Header, Submit } from 'library/index'
+import { Header } from 'library/index'
 import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`
@@ -186,12 +187,12 @@ class Register extends Component {
               onChange={this.handleChange}
             />
             {response && <DisplayMessage data={response} /> }
-            <Submit
-              primary
+            <EarlyAccess
+              mint
               disabled={loading}
             >
               {button}
-            </Submit>
+            </EarlyAccess>
           </Form>
           { loading && <Spin /> }
         </div>
