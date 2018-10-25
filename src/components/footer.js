@@ -6,14 +6,14 @@ import styled, { css } from 'styled-components'
 
 import { Container } from 'library/index'
 import { theme } from 'library/global'
-import { flex, rem, navHeight, phone } from 'library/utils'
+import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}
   flex-direction: column;
 
   padding: 0 ${rem(20)} ${rem(10)};
-  height: calc(${navHeight} * 2);
+  height: ${({ theme }) => `calc(${theme.navHeight} * 2)`};
 
   width: 100%;
   background: ${({ path, theme }) => path && path.includes('portfolio') && theme.blue || '#fff'};

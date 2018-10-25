@@ -3,7 +3,7 @@ import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, navHeight, phone } from 'library/utils'
+import { flex, rem, phone } from 'library/utils'
 import { Button } from 'library/index'
 
 import logo from 'assets/svg/logo_name.svg'
@@ -14,7 +14,7 @@ const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
 
   padding: 0 ${rem(20)};
-  height: ${navHeight};
+  height: ${({ theme }) => theme.navHeight};
 
   position: fixed;
   width: 100%;
