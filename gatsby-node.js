@@ -1,5 +1,5 @@
 const path = require('path')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const { languages } = require('./siteConfig')
 
@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 
-exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNodeField, createNode } }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode, basePath: "pages" })
     createNodeField({
@@ -23,6 +23,22 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
       value,
       name: "slug"
     })
+  }
+
+  if (node.internal.type === "MediumPost" && node.virtuals.previewImage.imageId.length) {
+    const url = `https://cdn-images-1.medium.com/max/1000/${node.virtuals.previewImage.imageId}`
+
+    const fileNode = await createRemoteFileNode({
+      url,
+      store,
+      cache,
+      createNode,
+      createNodeId: id => id
+    })
+
+    if (fileNode) {
+      node.image___NODE = fileNode.id
+    }
   }
 }
 
