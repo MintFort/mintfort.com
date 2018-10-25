@@ -42,6 +42,7 @@ const CardWrapper = styled.div`
 
 
     ${phone(css`
+      padding: 0;
       margin-right: 0;
       margin-bottom: 20px;
     `)}
