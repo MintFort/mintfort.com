@@ -5,8 +5,8 @@ title: "Impressum"
 ## Angaben gemäß § 5 TMG:
 
 Petzka, Weber, Schuster GbR  
-Wühlischstrasse 56  
-10245 Berlin
+Hildegard-Marcusson-Str. 23
+10317 Berlin
 
 ## Vertreten durch:
 
