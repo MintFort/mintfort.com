@@ -68,7 +68,7 @@ const Home = ({ language }) => (
         <SectionText
           title={control[language].title}
           content={control[language].subTitle}
-          padding={'14vh 0 0'}
+          padding={'10vh 0 0'}
         />
         <Subscribe
           title={form[language].title}

@@ -26,8 +26,14 @@ const CardWrapper = styled.div`
   `)}
 
   .inner {
+    margin-right: 20px;
     padding: 10px 30px;
     white-space: nowrap;
+
+    ${phone(css`
+      margin-right: 0;
+      margin-bottom: 20px;
+    `)}
   }
 `
 
@@ -47,7 +53,6 @@ const ContactCard = ({ data: { city, mail, address, icon } }) => (
       as='a'
       href={`mailto:${mail}`}
       style={{
-        marginLeft: 20,
         boxShadow: 'none'
       }}
     >

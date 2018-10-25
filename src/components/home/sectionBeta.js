@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { navigate } from 'gatsby'
 import styled, { css } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import SectionText from 'components/sectionText'
 
 import { addLang } from 'utils/context'
 
 import { Button, Img } from 'library/index'
-import { flex, phone } from 'library/utils'
+import { flex, phone, rem } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,10 +24,11 @@ const Wrapper = styled.div`
   transition: all .2s;
 
   .image {
-    width: 400px;
+    width: 500px;
 
     ${phone(css`
-      padding: 0 20px;
+      padding: 0 ${rem(20)};
+      width: 400px;
     `)}
   }
 `
@@ -51,11 +53,12 @@ const Inner = styled.div`
   ${flex}
   flex-direction: column;
 
-  margin: 160px 0;
-  transform: translateY(20px);
+  margin: ${rem(120)} 0;
+  transform: translateY(60px);
 
   ${phone(css`
-    margin: 80px 0;
+    transform: translateY(0);
+    margin: ${rem(80)} 0 ${rem(40)};
   `)}
 `
 
@@ -68,17 +71,17 @@ const SectionBeta = ({ title, content, language, img }) => (
         content={content}
         padding='0 0 4vh'
       />
-      <Button>
-        <Link to={`${language}/portfolio`}>
-          Download beta
-        </Link>
+      <Button onClick={() => navigate(`${language}/portfolio`)}>
+        Download beta
       </Button>
     </Inner>
     <div className='image'>
-      <Img
-        file={img}
-        alt='portfolio'
-      />
+      <Fade>
+        <Img
+          file={img}
+          alt='portfolio'
+        />
+      </Fade>
     </div>
   </Wrapper>
 )
