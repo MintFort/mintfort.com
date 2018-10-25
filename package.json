@@ -25,6 +25,7 @@
     "gatsby-plugin-styled-components": "^3.0.0",
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.5",
+    "gatsby-source-medium": "^2.0.0",
     "gatsby-transformer-remark": "^2.1.8",
     "gatsby-transformer-sharp": "^2.1.4",
     "gatsby-transformer-yaml": "^2.1.3",
