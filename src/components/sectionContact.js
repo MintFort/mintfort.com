@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import { flex, mobile, phone } from 'library/utils'
 import { Img, SubHeader, Paragraph, Button } from 'library/index'
 
-const SectionWrapper = styled.section`
+const SectionWrapper = styled.footer`
   ${flex}
 
   ${mobile(css`
@@ -18,7 +18,9 @@ const CardWrapper = styled.div`
   padding: 60px;
   width: 100%;
   background: ${({ city }) => /berlin/i.test(city) ? '#f2f2f4' : '#edecf1'};
+
   ${flex}
+  justify-content: space-around;
 
   ${phone(css`
     flex-direction: column;
@@ -26,9 +28,18 @@ const CardWrapper = styled.div`
   `)}
 
   .inner {
-    margin-right: 20px;
-    padding: 10px 30px;
     white-space: nowrap;
+    flex: 0.5;
+
+    @media (max-width: ${1200 / 16}em) {
+      padding-right: 20px;
+    }
+
+    ${mobile(css`
+      padding-right: 20px;
+      justify-content: space-around;
+    `)}
+
 
     ${phone(css`
       margin-right: 0;
@@ -47,7 +58,10 @@ const ContactCard = ({ data: { city, mail, address, icon } }) => (
     />
     <div className="inner">
       <SubHeader style={{ margin: '4px 0' }}>{city}</SubHeader>
-      <Paragraph dangerouslySetInnerHTML={{ __html: address }} />
+      <Paragraph
+        size={13}
+        dangerouslySetInnerHTML={{ __html: address }}
+      />
     </div>
     <Button
       as='a'
