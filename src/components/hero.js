@@ -7,12 +7,12 @@ import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
-import { hover, rem, transitions, navHeight, flex, phone, mobile } from 'library/utils'
+import { hover, rem, transitions, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
 const Wrapper = styled.section`
   height: 100vh;
-  padding-top: ${navHeight};
+  padding-top: ${({ theme }) => theme.navHeight};
   position: relative;
 
   display: flex;

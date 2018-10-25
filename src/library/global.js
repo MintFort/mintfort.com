@@ -1,6 +1,6 @@
 import { css, createGlobalStyle } from 'styled-components'
 
-import { hover, transitions } from './utils'
+import { hover, transitions, navHeight } from './utils'
 
 export const theme = {
   mint: '#19DBB6',
@@ -10,7 +10,8 @@ export const theme = {
   paragraph: '#788cc7',
   lightFont: "#A2A3AB",
   whiteFont: "#f0f0f0",
-  shadow: '0 5px 20px rgba(0,0,0,0.08)'
+  shadow: '0 5px 20px rgba(0,0,0,0.08)',
+  navHeight
 }
 
 const GlobalStyle = createGlobalStyle`
