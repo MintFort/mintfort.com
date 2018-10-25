@@ -106,38 +106,39 @@ export const Img = styled.img.attrs({
   width: ${({ width }) => width || "100%"};
 `
 
-export const Submit = styled.button`
-  background: ${({ theme }) => theme.mint };
-  color: ${({ theme }) => theme.blue};
-  font-weight: 700;
-  cursor: pointer;
+export const Button = styled.button`
+  font-weight: 500;
+  font-size: ${rem(13)};
 
   border-radius: ${rem(20)};
-  border: ${({ theme }) => `1px solid ${theme.mint}`};
+  border: 1px solid #fff;
 
-  padding: ${rem(6)} ${rem(30)};
-  margin: ${rem(30)} 0 ${rem(10)};
-
-  ${hover(css`
-    background: ${({ theme }) => theme.blue};
-    color: ${({ theme }) => theme.mint};
-  `)}
-
-  transition: all .1s ease;
-`
-
-export const Button = styled.button`
-  font-weight: 700;
-  font-size: ${rem(13)};
-  border-radius: 500px;
-  border: 2px solid white;
-  padding: 0.5rem 2rem;
   background: #fff;
 
+  padding: ${rem(8)} ${rem(30)};
+  cursor: pointer;
+  box-shadow: ${({ theme }) => theme.shadow};
+
   ${hover(css`
+    color: ${({ theme }) => theme.whiteFont};
     background: ${({ theme }) => theme.mint};
-    color: #fff;
-    border: 2px solid ${({ theme }) => theme.mint};
+    border: 1px solid ${({ theme }) => theme.mint};
     box-shadow: none;
   `)}
+
+  ${({ theme, mint }) => mint && css`
+    font-weight: 700;
+    font-size: ${rem(15)};
+    background: ${theme.mint};
+    color: ${theme.blue};
+    border: 1px solid ${theme.mint};
+
+    ${hover(css`
+      background: ${theme.blue};
+      color: ${theme.mint};
+    `)}
+
+  `}
+
+  transition: all .2s ease;
 `

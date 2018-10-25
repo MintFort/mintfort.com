@@ -9,7 +9,8 @@ export const theme = {
   gray: "#F2F2F2",
   paragraph: '#788cc7',
   lightFont: "#A2A3AB",
-  whiteFont: "#f0f0f0"
+  whiteFont: "#f0f0f0",
+  shadow: '0 5px 20px rgba(0,0,0,0.08)'
 }
 
 const GlobalStyle = createGlobalStyle`
