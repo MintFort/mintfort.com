@@ -65,7 +65,7 @@ const TextWrapper = styled.div`
 
   ${mobile(css`
     h1 {
-      font-size: ${rem(60)};
+      font-size: ${rem(52)};
     }
 
     h3 {
@@ -95,24 +95,33 @@ const ImageWrapper = styled.div`
 
   ${phone(css`
     order: 2;
-    padding-right: ${rem(40)};
-    transform: translate(38px, -20px);
+    padding-right: 0;
 
     ${flex({ x: "center", y: 'flex-start' })};
+
   `)}
+
 `
 
 const StaticImage = styled.div`
-  min-width: 600px;
-  transform: translateX(-60px) translateY(50px) scale(1.5);
+  min-width: 340px;
 
-  ${mobile(css`
-    transform: translateX(-100px) translateY(50px) scale(1.5);
-  `)}
+  ${({ id }) => id === 'portfolio' && css`
+    min-width: 600px;
+    transform: translateX(-60px) translateY(50px) scale(1.5);
+
+    ${mobile(css`
+      transform: translateX(-100px) translateY(50px) scale(1.5);
+    `)}
+  `}
 
   ${phone(css`
     transform: none;
     min-width: 320px;
+
+    ${({ id }) => id === 'home' && css`
+      transform: translateX(14px);
+    `}
   `)}
 
   transition: all .2s;
@@ -134,31 +143,6 @@ const Sub = styled(SubHeader)`
     white-space: normal;
   `)}
 `
-
-const PortfolioImage = ({ img }) => (
-  <StaticImage>
-    <GatsbyImg
-      fluid={img.childImageSharp.fluid}
-      alt="Portfolio tracker"
-    />
-  </StaticImage>
-)
-
-PortfolioImage.propTypes = {
-  img: PropTypes.object.isRequired
-}
-
-const HomeImage = ({ img }) => (
-  <GatsbyImg
-    imgStyle={{ width: 340 }}
-    fixed={img.childImageSharp.fixed}
-    alt="Mintfort application"
-  />
-)
-
-HomeImage.propTypes = {
-  img: PropTypes.object.isRequired
-}
 
 const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
@@ -209,11 +193,13 @@ Text.propTypes = {
 }
 
 const Image = ({ img, id }) => (
-  <ImageWrapper>
-    {id === 'home' ?
-      <HomeImage img={img}/> :
-      <PortfolioImage img={img}/>
-    }
+  <ImageWrapper id={id}>
+    <StaticImage id={id}>
+      <GatsbyImg
+        fluid={img.childImageSharp.fluid}
+        alt={`${id} application`}
+      />
+    </StaticImage>
   </ImageWrapper>
 )
 

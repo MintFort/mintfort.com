@@ -18,6 +18,11 @@ const Wrapper = styled.section`
 
   ${flex({ x: 'flex-end' })}
   flex-direction: column;
+
+  ${phone(css`
+    height: ${rem(700)};
+    text-align: center;
+  `)}
 `
 
 const Form = styled.form`
@@ -28,7 +33,7 @@ const Form = styled.form`
   flex-direction: column;
 
   ${phone(css`
-    padding: ${rem(30)};
+    padding: 0 ${rem(56)};
   `)}
 
   ${({ loading }) => loading && css`

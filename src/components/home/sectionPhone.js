@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   padding-bottom: ${rem(20)};
 
   ${phone(css`
-    padding: ${rem(60)}
+    padding: ${rem(20)} ${rem(60)} ${rem(60)}
   `)}
 `
 
@@ -43,7 +43,7 @@ const PhoneWrapper = styled.div`
   `)}
 
   ${phone(css`
-    max-width: ${rem(300)};
+    max-width: ${rem(240)};
   `)}
 `
 

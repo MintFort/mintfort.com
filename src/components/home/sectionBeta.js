@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 
     ${phone(css`
       padding: 0 ${rem(20)};
-      width: 400px;
+      width: ${rem(300)};
     `)}
   }
 `
