@@ -89,8 +89,8 @@ const query = graphql`
   {
     img: file(relativePath: { regex: "/hero_home/"}) {
       childImageSharp {
-        fixed(width: 340) {
-          ...GatsbyImageSharpFixed_noBase64
+        fluid(maxWidth: 340) {
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
