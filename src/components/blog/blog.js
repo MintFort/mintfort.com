@@ -53,8 +53,8 @@ const query = graphql`
           createdAt(formatString: "ll")
           image {
             childImageSharp{
-              fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid_tracedSVG
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

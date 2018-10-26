@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-import { flex, rem } from 'library/utils'
+import { flex, rem, phone, mobile } from 'library/utils'
 import { SubHeader, Paragraph } from 'library/index'
 
 import Author from './author'
@@ -16,6 +16,19 @@ const CardWrapper = styled.article`
   .content {
     flex: 1;
   }
+
+  ${mobile(css`
+    padding: ${rem(24)} ${rem(18)};
+  `)}
+
+  ${phone(css`
+    flex-direction: column;
+
+    .content {
+      order: 2;
+    }
+
+  `)}
 `
 
 const Header = styled.div`

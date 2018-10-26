@@ -1,15 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
-import { rem } from 'library/utils'
+import { rem, phone } from 'library/utils'
+
 
 const ImageWrapper = styled.div`
   margin: 0 ${rem(20)};
   width: ${rem(220)};
   height: ${rem(140)};
-  box-shadow: ${({ theme }) => theme.shadow}
+  box-shadow: ${({ theme }) => theme.shadow};
+
+  ${phone(css`
+    width: 100%;
+    margin-bottom: ${rem(30)};
+  `)}
 `
 
 const PostImage = ({ image, url, title }) => (

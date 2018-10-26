@@ -26,7 +26,7 @@ exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNo
   }
 
   if (node.internal.type === "MediumPost" && node.virtuals.previewImage.imageId.length) {
-    const url = `https://cdn-images-1.medium.com/max/1000/${node.virtuals.previewImage.imageId}`
+    const url = `https://cdn-images-1.medium.com/max/600/${node.virtuals.previewImage.imageId}`
 
     const fileNode = await createRemoteFileNode({
       url,
