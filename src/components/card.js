@@ -19,7 +19,11 @@ const Wrapper = styled.div`
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
 
   ${mobile(css`
-    margin: ${rem(10)};
+    margin: ${rem(10)} ${rem(4)};
+  `)}
+
+  ${phone(css`
+    margin: ${rem(10)} ${rem(20)};
   `)}
 `
 
@@ -28,17 +32,11 @@ const Text = styled.div`
   min-height: ${rem(130)};
   ${flex}
 
-  ${mobile(css`
-    h3 {
-      font-size: ${rem(20)};
-    }
-  `)}
-
-  ${phone(css`
-    h3 {
-      font-size: ${rem(24)};
-    }
-  `)}
+  h3 {
+    ${mobile(css`
+      font-size: ${rem(18)};
+    `)}
+  }
 `
 
 export const Card = ({ img, title, card }) => (
