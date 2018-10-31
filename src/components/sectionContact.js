@@ -15,6 +15,7 @@ const SectionWrapper = styled.footer`
 `
 
 const CardWrapper = styled.div`
+  align-self: stretch;
   padding: 60px;
   width: 100%;
   background: ${({ city }) => /berlin/i.test(city) ? '#f2f2f4' : '#edecf1'};

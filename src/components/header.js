@@ -116,7 +116,7 @@ class Header extends Component {
               mobile={logoMobile}
             />
             <Nav>
-              {nav.map(({ name, path }) => (
+              {nav.map(({ name, path, section }) => section === 'header' && (
                 <Fragment key={name}>
                   {name !== 'Whitepaper' ?
                     <Button onClick={() => navigate((language || '') + path)}>{name}</Button> :
@@ -125,6 +125,7 @@ class Header extends Component {
                 </Fragment>
               ))}
               {
+                // TODO: Make this dynamic!!
                 !location.pathname.match(/(impressum|policy)/) &&
                 <LanguageSwitcher
                   transparent={transparent}
@@ -157,6 +158,7 @@ const query = graphql`
         nav {
           name
           path
+          section
         }
       }
     }

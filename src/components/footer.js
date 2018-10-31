@@ -78,19 +78,16 @@ const icon = name => {
 const Footer = ({ path }) => (
   <StaticQuery
     query={query}
-    render={({ site: { meta: { social } } }) => (
+    render={({ site: { meta: { copyright, social, nav } } }) => (
       <Wrapper path={path}>
         <Section
           size={{ w: '100%', h: '100%' }}
           position={{ x: 'space-between', y: 'center' }}
         >
           <LegalBlock>
-            <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
-              Impressum
-            </Link>
-            <Link to="/policy/" activeStyle={{ color: theme.blue }}>
-            Privacy Policy
-            </Link>
+            {nav.map(({ name, path, section }) => section === 'footer' && (
+              <Link to={path} activeStyle={{ color: theme.blue }}>{name}</Link>
+            ))}
           </LegalBlock>
           <SocialBlock>
             {social.map(s => (
@@ -104,7 +101,7 @@ const Footer = ({ path }) => (
           </SocialBlock>
         </Section>
         <Copyright>
-        © 2018 Mintfort. All rights reserved. Be Your Bank.
+          {copyright}
         </Copyright>
       </Wrapper>
     )}
@@ -121,9 +118,15 @@ const query = graphql`
   {
     site {
       meta: siteMetadata {
+        copyright
         social {
           name
           url
+        }
+        nav {
+          name
+          path
+          section
         }
       }
     }
