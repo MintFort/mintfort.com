@@ -10,6 +10,12 @@ import StartPageBackground from 'components/backgrounds/pageStart'
 import { hover, rem, transitions, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
 
+const scrollToForm = () => scroller.scrollTo("subscribe", {
+  smooth: true,
+  duration: 600,
+  offset: -120
+})
+
 const Wrapper = styled.section`
   height: 100vh;
   padding-top: ${({ theme }) => theme.navHeight};
@@ -170,11 +176,7 @@ const Text = ({ title, subTitle, body, button }) => (
       button && button.length &&
       <EarlyAccess
         mint
-        onClick={() => scroller.scrollTo("subscribe", {
-          smooth: true,
-          duration: 600,
-          offset: -120
-        })}
+        onClick={() => scrollToForm()}
       >
         {button}
       </EarlyAccess>
@@ -195,10 +197,14 @@ Text.propTypes = {
 const Image = ({ img, id }) => (
   <ImageWrapper id={id}>
     <StaticImage id={id}>
-      <GatsbyImg
-        fluid={img.childImageSharp.fluid}
-        alt={`${id} application`}
-      />
+      <div
+        onClick={() => id === 'home' && scrollToForm()}
+      >
+        <GatsbyImg
+          fluid={img.childImageSharp.fluid}
+          alt={`${id} application`}
+        />
+      </div>
     </StaticImage>
   </ImageWrapper>
 )
@@ -210,7 +216,7 @@ Image.propTypes = {
 
 
 const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
-  <Wrapper col>
+  <Wrapper>
     <StartPageBackground />
     <Content>
       <Image
