@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade'
 
 import SectionText from 'components/sectionText'
 
-import { addLang } from 'utils/context'
+import { addLang } from 'utils/context/language'
 
 import { Button, Img } from 'library/index'
 import { flex, phone, rem } from 'library/utils'

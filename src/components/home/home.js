@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { addLang } from 'utils/context'
-
+import { addLang } from 'utils/context/language'
 import { WindowWidthProvider } from 'utils/context/windowWidth'
 
 import Hero from 'components/hero'

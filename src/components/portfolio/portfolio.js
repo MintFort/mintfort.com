@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { addLang } from 'utils/context'
+import { addLang } from 'utils/context/language'
 
 import Hero from 'components/hero'
 import SectionText from 'components/sectionText'

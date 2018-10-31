@@ -8,7 +8,7 @@ import Footer from 'components/footer'
 import SectionContact from 'components/sectionContact'
 
 import SEO from 'utils/seo'
-import { Context, addLang } from 'utils/context'
+import { LanguageProvider, addLang } from 'utils/context/language'
 
 import GlobalStyle, { theme } from 'library/global'
 
@@ -19,7 +19,7 @@ const Layout = ({ children, location }) => (
       <>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
-          <Context location={location}>
+          <LanguageProvider location={location}>
             {addLang(SEO, { path: location.pathname })}
             {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
             <main>
@@ -27,7 +27,7 @@ const Layout = ({ children, location }) => (
             </main>
             <SectionContact />
             <Footer path={location.pathname}/>
-          </Context>
+          </LanguageProvider>
         </ThemeProvider>
       </>
     )}

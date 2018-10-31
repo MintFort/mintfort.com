@@ -4,7 +4,7 @@ import { navigate } from 'gatsby'
 
 const { Provider, Consumer } = createContext()
 
-export class Context extends Component {
+export class LanguageProvider extends Component {
   state = {
     language: 'en'
   }
@@ -46,18 +46,20 @@ export class Context extends Component {
       <Provider value ={{
         language: this.state.language,
         onChangeLanguage: () => this.handleStateLang()
-      }}>{this.props.children}</Provider>
+      }}>
+        {this.props.children}
+      </Provider>
     )
   }
 }
 
-Context.propTypes = {
+LanguageProvider.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
   })
 }
 
-Context.defaultProps = {
+LanguageProvider.defaultProps = {
   location: {
     pathname: '/'
   }
