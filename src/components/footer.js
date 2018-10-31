@@ -86,7 +86,13 @@ const Footer = ({ path }) => (
         >
           <LegalBlock>
             {nav.map(({ name, path, section }) => section === 'footer' && (
-              <Link to={path} activeStyle={{ color: theme.blue }}>{name}</Link>
+              <Link
+                key={name}
+                to={path}
+                activeStyle={{ color: theme.blue }}
+              >
+                {name}
+              </Link>
             ))}
           </LegalBlock>
           <SocialBlock>
