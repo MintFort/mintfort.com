@@ -102,6 +102,8 @@ class Header extends Component {
     const { transparent } = this.state
     const { language, onChangeLanguage, location } = this.props
 
+    const noTranslate = new RegExp(/(impressum|policy|blog)/)
+
     return (
       <StaticQuery
         query={query}
@@ -125,8 +127,7 @@ class Header extends Component {
                 </Fragment>
               ))}
               {
-                // TODO: Make this dynamic!!
-                !location.pathname.match(/(impressum|policy)/) &&
+                !location.pathname.match(noTranslate) &&
                 <LanguageSwitcher
                   transparent={transparent}
                   onClick={() => onChangeLanguage()}
