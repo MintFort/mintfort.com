@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
 
   ${phone(css`
     width: 100%;
-    margin-bottom: ${rem(30)};
+    margin: 0 0 ${rem(30)};
   `)}
 `
 

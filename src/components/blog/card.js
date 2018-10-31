@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, phone, mobile } from 'library/utils'
+import { addWindowWidth } from 'utils/context/windowWidth'
+import { screenBreak } from 'library/utils'
+
+import { flex, rem, phone, mobile, hover } from 'library/utils'
 import { SubHeader, Paragraph } from 'library/index'
 
 import Author from './author'
@@ -11,7 +14,15 @@ import PostImage from './postImage'
 const CardWrapper = styled.article`
   ${flex}
   border-bottom: 1px solid lightgray;
-  padding: ${rem(24)} 0;
+  padding: ${rem(32)};
+  margin-bottom: ${rem(32)};
+  box-shadow: rgba(27, 37, 64, 0.2) 0px 4px 4px 0px;
+
+  ${hover(css`
+    box-shadow: rgba(27, 37, 64, 0.5) 0px 4px 4px 0px;
+  `)}
+
+  transition: box-shadow .3s ease;
 
   .content {
     flex: 1;
@@ -27,7 +38,6 @@ const CardWrapper = styled.article`
     .content {
       order: 2;
     }
-
   `)}
 `
 
@@ -35,16 +45,34 @@ const Header = styled.div`
   cursor: pointer;
 `
 
-const Card = ({ data }) => (
+const Image = ({ data }) => data.image && data.image.childImageSharp && (
+  <PostImage
+    title={data.title}
+    image={data.image}
+    url={data.url}
+  />
+)
+
+Image.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+    image: PropTypes.object
+  }).isRequired
+}
+
+const Card = ({ data, windowWidth: winW }) => (
   <CardWrapper>
     <div className='content'>
       <Header onClick={() => location.href=data.url}>
         <SubHeader
-          size={20}
-          style={{ margin: '0 0 4px' }}
+          size={32}
+          weight='bold'
+          style={{ margin: '0px 0px 20px' }}
         >
           {data.title}
         </SubHeader>
+        {winW <= screenBreak.phone && <Image data={data} />}
         <Paragraph
           size={15}
           color='lightFont'
@@ -57,18 +85,13 @@ const Card = ({ data }) => (
         createdAt={data.createdAt}
       />
     </div>
-    {
-      data.image && data.image.childImageSharp &&
-      <PostImage
-        title={data.title}
-        image={data.image}
-        url={data.url}
-      />
-    }
+    {winW > screenBreak.phone && <Image data={data} />}
   </CardWrapper>
 )
 
 Card.propTypes = {
+  windowWidth: PropTypes.number.isRequired,
+  mobile: PropTypes.bool,
   data: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -79,4 +102,4 @@ Card.propTypes = {
   }).isRequired
 }
 
-export default Card
+export default props => addWindowWidth(Card, ...props)
