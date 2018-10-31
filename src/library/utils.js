@@ -4,19 +4,24 @@ import {
   transitions as _transitions
 } from 'polished'
 
+export const screenBreak = {
+  mobile: 1000,
+  phone: 650
+}
+
 export const rem = (...arg) => _rem(...arg)
 export const transitions = (...arg) => _transitions(...arg)
 
 export const navHeight = _rem(70)
 
 export const mobile = inner => css`
-  @media (max-width: ${1000 / 16}em) {
+  @media (max-width: ${screenBreak.mobile / 16}em) {
     ${inner}
   }
 `
 
 export const phone = inner => css`
-  @media (max-width: ${650 / 16}em) {
+  @media (max-width: ${screenBreak.phone / 16}em) {
     ${inner}
   }
 `

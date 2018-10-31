@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, mobile, rem } from 'library/utils'
+import { flex, phone, mobile, rem, screenBreak } from 'library/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -36,43 +36,76 @@ const ImageWrapper = styled.div`
 `
 
 const PhoneWrapper = styled.div`
-  width: ${rem(657)};
+  width: ${rem(650)};
 
   ${mobile(css`
     max-width: ${rem(500)};
   `)}
 
   ${phone(css`
-    max-width: ${rem(240)};
+    max-width: ${rem(400)};
   `)}
+
+  @media (max-width: ${460 / 16}em) {
+    max-width: ${rem(280)};
+  }
 `
 
-const Phone = ({ image }) => (
-  <PhoneWrapper>
-    <GatsbyImg
-      style={{
-        width: "100%"
-      }}
-      alt='Mintfort Crypto Phone'
-      title='Mintfort Crypto Phone'
-      fluid={image.childImageSharp.fluid}
-    />
-  </PhoneWrapper>
-)
+class Phone extends Component {
+  state = {
+    width: window.innerWidth
+  }
+  componentDidMount(){
+    window.addEventListener("resize", this.handleResize)
+  }
+  handleResize = () => {
+    this.setState({ width: window.innerWidth })
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  render(){
+    const { images: { big, small } } = this.props
+    const { width } = this.state
+
+    return (
+      <PhoneWrapper>
+        <GatsbyImg
+          style={{
+            width: "100%"
+          }}
+          alt='Mintfort Crypto Phone'
+          title='Mintfort Crypto Phone'
+          fluid={
+            width > screenBreak.phone ?
+              big.childImageSharp.fluid :
+              small.childImageSharp.fluid
+          }
+        />
+      </PhoneWrapper>
+    )
+  }
+}
 
 Phone.propTypes = {
-  image: PropTypes.object.isRequired
+  images: PropTypes.shape({
+    big: PropTypes.object,
+    small: PropTypes.object
+  }).isRequired
 }
 
 const SectionPhone = () => (
   <StaticQuery
     query={query}
-    render={({ phone }) => (
+    render={({ big, small }) => (
       <Wrapper>
         <DividerEnd />
         <ImageWrapper>
           <Fade>
-            <Phone image={phone}/>
+            <Phone
+              images={{ big, small }}
+            />
           </Fade>
         </ImageWrapper>
       </Wrapper>
@@ -84,9 +117,16 @@ export default SectionPhone
 
 const query = graphql`
   {
-    phone: file(relativePath: { regex: "/crypto_phone/"}) {
+    big: file(relativePath: { regex: "/crypto_phone/"}) {
       childImageSharp {
-        fluid(maxWidth: 657) {
+        fluid(maxWidth: 650) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    small: file(relativePath: { regex: "/crypto_phone-mobile/"}) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
