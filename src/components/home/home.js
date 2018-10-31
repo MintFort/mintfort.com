@@ -4,14 +4,16 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import { addLang } from 'utils/context'
 
+import { WindowWidthProvider } from 'utils/context/windowWidth'
+
 import Hero from 'components/hero'
 import SectionText from 'components/sectionText'
-import SectionBoxes from 'components/box'
 
 import Subscribe from './formRegister'
 import SectionGirl from './sectionGirl'
-import SectionCards from './sectionCards'
 import SectionPhone from './sectionPhone'
+import SectionCards from './sectionCards'
+import SectionBoxes from './sectionBoxes'
 import SectionBeta from './sectionBeta'
 
 import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
@@ -21,7 +23,7 @@ const Home = ({ language }) => (
   <StaticQuery
     query={query}
     render={({ img }) => (
-      <>
+      <WindowWidthProvider>
         <Hero
           id='home'
           title={hero[language].title}
@@ -74,7 +76,7 @@ const Home = ({ language }) => (
           title={form[language].title}
           button={form[language].button}
         />
-      </>
+      </WindowWidthProvider>
     )}
   />
 )

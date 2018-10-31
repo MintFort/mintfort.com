@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
+
+import { addWindowWidth } from 'utils/context/windowWidth'
 
 import DividerEnd from 'components/backgrounds/end'
 import { flex, phone, mobile, rem, screenBreak } from 'library/utils'
@@ -50,52 +52,33 @@ const PhoneWrapper = styled.div`
     max-width: ${rem(280)};
   }
 `
+const Phone = ({ windowWidth, images: { big, small } } ) => (
+  <PhoneWrapper>
+    <GatsbyImg
+      style={{
+        width: "100%"
+      }}
+      alt='Mintfort Crypto Phone'
+      title='Mintfort Crypto Phone'
+      fluid={
+        windowWidth > screenBreak.phone ?
+          big.childImageSharp.fluid :
+          small.childImageSharp.fluid
+      }
+    />
+  </PhoneWrapper>
+)
 
-class Phone extends Component {
-  state = {
-    width: window.innerWidth
-  }
-  componentDidMount(){
-    window.addEventListener("resize", this.handleResize)
-  }
-  handleResize = () => {
-    this.setState({ width: window.innerWidth })
-  }
-  componentWillUnmount(){
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  render(){
-    const { images: { big, small } } = this.props
-    const { width } = this.state
-
-    return (
-      <PhoneWrapper>
-        <GatsbyImg
-          style={{
-            width: "100%"
-          }}
-          alt='Mintfort Crypto Phone'
-          title='Mintfort Crypto Phone'
-          fluid={
-            width > screenBreak.phone ?
-              big.childImageSharp.fluid :
-              small.childImageSharp.fluid
-          }
-        />
-      </PhoneWrapper>
-    )
-  }
-}
 
 Phone.propTypes = {
+  windowWidth: PropTypes.number.isRequired,
   images: PropTypes.shape({
     big: PropTypes.object,
     small: PropTypes.object
   }).isRequired
 }
 
-const SectionPhone = () => (
+const SectionPhone = ({ windowWidth }) => (
   <StaticQuery
     query={query}
     render={({ big, small }) => (
@@ -104,6 +87,7 @@ const SectionPhone = () => (
         <ImageWrapper>
           <Fade>
             <Phone
+              windowWidth={windowWidth}
               images={{ big, small }}
             />
           </Fade>
@@ -113,7 +97,11 @@ const SectionPhone = () => (
   />
 )
 
-export default SectionPhone
+SectionPhone.propTypes = {
+  windowWidth: PropTypes.number.isRequired
+}
+
+export default () => addWindowWidth(SectionPhone)
 
 const query = graphql`
   {
