@@ -60,7 +60,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
     data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
       createPage({
         path: fields.slug,
-        component: path.resolve(`./src/utils/markdown-template.js`),
+        component: path.resolve(`./src/templates/page.js`),
         context: {
           slug: fields.slug
         }
