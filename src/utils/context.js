@@ -24,6 +24,8 @@ export class Context extends Component {
 
   }
   handleStateLang(language){
+    const { location: { pathname } } = this.props
+
     if (language) {
       this.setState({ language })
       return
@@ -33,8 +35,9 @@ export class Context extends Component {
       language: state.language === 'en' ? 'zh' : 'en'
     }), () => {
       localStorage.setItem('lang', this.state.language)
-      // TODO: this should be dynamic (It's ok atm.)
-      navigate(`/${this.state.language}${this.props.location.pathname.match(/portfolio/) ? '/portfolio' : ''}`)
+
+      const page = pathname.replace(/(en|zh|\/)/g, '')
+      navigate(`/${this.state.language}/${page}`)
     })
   }
 
