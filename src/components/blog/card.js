@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-
 import { addWindowWidth } from 'utils/context/windowWidth'
 import { screenBreak } from 'library/utils'
 
@@ -41,7 +40,7 @@ const CardWrapper = styled.article`
   `)}
 `
 
-const Header = styled.div`
+const Anchor = styled.div`
   cursor: pointer;
 `
 
@@ -64,7 +63,7 @@ Image.propTypes = {
 const Card = ({ data, windowWidth: winW }) => (
   <CardWrapper>
     <div className='content'>
-      <Header onClick={() => location.href=data.url}>
+      <Anchor onClick={() => location.href=data.url}>
         <SubHeader
           size={32}
           weight='bold'
@@ -79,7 +78,7 @@ const Card = ({ data, windowWidth: winW }) => (
         >
           {data.subtitle}
         </Paragraph>
-      </Header>
+      </Anchor>
       <Author
         author={data.author}
         createdAt={data.createdAt}
@@ -91,7 +90,6 @@ const Card = ({ data, windowWidth: winW }) => (
 
 Card.propTypes = {
   windowWidth: PropTypes.number.isRequired,
-  mobile: PropTypes.bool,
   data: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
