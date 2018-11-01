@@ -20,17 +20,18 @@ const { Provider, Consumer } = createContext()
 
 export class WindowWidthProvider extends Component {
   state = {
-    width: typeof window !== 'undefined' && window.innerWidth
+    width: null
   }
 
   componentDidMount(){
-    window.addEventListener("resize", this.handleResize)
+    this.setState({ width:  window.innerWidth })
+    addEventListener("resize", this.handleResize)
   }
   handleResize = () => {
     this.setState({ width: window.innerWidth })
   }
   componentWillUnmount(){
-    window.removeEventListener('resize', this.handleResize)
+    removeEventListener('resize', this.handleResize)
   }
 
   render(){

@@ -52,30 +52,18 @@ const PhoneWrapper = styled.div`
     max-width: ${rem(280)};
   }
 `
-const Phone = ({ windowWidth, images: { big, small } } ) => (
+const Phone = ({ image } ) => (
   <PhoneWrapper>
     <GatsbyImg
-      style={{
-        width: "100%"
-      }}
       alt='Mintfort Crypto Phone'
       title='Mintfort Crypto Phone'
-      fluid={
-        windowWidth > screenBreak.phone ?
-          big.childImageSharp.fluid :
-          small.childImageSharp.fluid
-      }
+      fluid={image.childImageSharp.fluid}
     />
   </PhoneWrapper>
 )
 
-
 Phone.propTypes = {
-  windowWidth: PropTypes.number.isRequired,
-  images: PropTypes.shape({
-    big: PropTypes.object,
-    small: PropTypes.object
-  }).isRequired
+  image: PropTypes.object.isRequired
 }
 
 const SectionPhone = ({ windowWidth }) => (
@@ -86,10 +74,10 @@ const SectionPhone = ({ windowWidth }) => (
         <DividerEnd />
         <ImageWrapper>
           <Fade>
-            <Phone
-              windowWidth={windowWidth}
-              images={{ big, small }}
-            />
+            {windowWidth > screenBreak.phone ?
+              <Phone image={big} /> :
+              <Phone image={small} />
+            }
           </Fade>
         </ImageWrapper>
       </Wrapper>
