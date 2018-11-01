@@ -12,3 +12,30 @@ export const SEOMetadata = graphql`
     }
   }
 `
+
+export const MediumPost = graphql`
+  fragment MediumPost on MediumPost {
+    id
+    title
+    uniqueSlug
+    createdAt(formatString: "ll")
+    image {
+      childImageSharp{
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    virtuals {
+      subtitle
+      previewImage {
+        imageId
+      }
+    }
+    author {
+      name
+      username
+      imageId
+    }
+  }
+`

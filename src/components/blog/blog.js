@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Card from './card'
 import { WindowWidthProvider } from 'utils/context/windowWidth'
 
-const medium = ({ title, author, image, uniqueSlug, createdAt, virtuals: { subtitle } }) => {
+export const medium = ({ title, author, image, uniqueSlug, createdAt, virtuals: { subtitle } }) => {
   const mediumUrl = 'https://medium.com'
   const imgUrl = 'https://cdn-images-1.medium.com/fit/c/50/50'
 
@@ -55,28 +55,7 @@ const query = graphql`
     medium: allMediumPost(sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
-          id
-          title
-  				uniqueSlug
-          createdAt(formatString: "ll")
-          image {
-            childImageSharp{
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          virtuals {
-            subtitle
-            previewImage {
-              imageId
-            }
-          }
-          author {
-            name
-            username
-            imageId
-          }
+          ...MediumPost
         }
       }
     }
