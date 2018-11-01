@@ -14,8 +14,9 @@ import SectionPhone from './sectionPhone'
 import SectionCards from './sectionCards'
 import SectionBoxes from './sectionBoxes'
 import SectionBeta from './sectionBeta'
+import SectionNews from './sectionNews'
 
-import { hero, imagine, buy, access, cards, boxes, control, form } from 'data/home.yml'
+import { hero, imagine, buy, access, cards, boxes, control, form, news } from 'data/home.yml'
 import { hero as portfolio, shop } from 'data/download.yml'
 
 const Home = ({ language }) => (
@@ -65,6 +66,11 @@ const Home = ({ language }) => (
           title={portfolio[language].subTitle}
           content={portfolio[language].body}
           img={shop[language].img}
+        />
+        <SectionNews
+          title={news[language].title}
+          subtitle={news[language].subTitle}
+          language={language}
         />
         <SectionText
           title={control[language].title}
