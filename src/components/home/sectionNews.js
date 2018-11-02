@@ -13,7 +13,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${rem(40)} 0 ${rem(20)};
+  padding: ${rem(40)} 0 0;
 
   .content {
     display: flex;

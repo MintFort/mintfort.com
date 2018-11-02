@@ -72,13 +72,10 @@ const Home = ({ language }) => (
           subtitle={news[language].subTitle}
           language={language}
         />
-        <SectionText
-          title={control[language].title}
-          content={control[language].subTitle}
-          padding={'10vh 0 0'}
-        />
         <Subscribe
-          title={form[language].title}
+          title={control[language].title}
+          subTitle={control[language].subTitle}
+          formTitle={form[language].title}
           button={form[language].button}
         />
       </WindowWidthProvider>

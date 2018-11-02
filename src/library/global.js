@@ -10,10 +10,10 @@ export const theme = {
   paragraph: '#788cc7',
   lightFont: "#A2A3AB",
   whiteFont: "#f0f0f0",
+  white: "#fff",
   shadow: '0 5px 20px rgba(0,0,0,0.08)',
   navHeight
 }
-
 const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;

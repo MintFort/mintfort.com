@@ -7,8 +7,8 @@ import { Container, Header, Paragraph } from 'library/index'
 import { phone } from 'library/utils'
 
 const Background = styled.section`
-  ${({ color }) => css`
-    background: ${({ theme }) => theme[color]};
+  ${({ color }) => color && color.background && css`
+    background: ${({ theme }) => theme[color.background]};
   `}
 
   ${({ src, theme }) => src && css`
@@ -37,6 +37,7 @@ const Text = ({ title, content, color }) => (
     <Wrapper col>
       <Fade>
         <Header
+          color={color && color.title}
           style={{ fontWeight: 'bold' }}
         >
           {title}
@@ -44,8 +45,7 @@ const Text = ({ title, content, color }) => (
         <Fade delay={100}>
           {
             typeof content === 'string' ?
-              <Paragraph
-                color={color && color.paragraph}>
+              <Paragraph color={color && color.paragraph}>
                 {content}
               </Paragraph> :
               content
@@ -65,12 +65,11 @@ Text.propTypes = {
   color: PropTypes.object
 }
 
-const SectionText = ({ title, content, background, color, padding, style }) => (
+const SectionText = ({ title, content, background, color, padding }) => (
   <Background
     padding={padding}
     src={background}
-    color={color && color.background}
-    style={{ ...style }}
+    color={color}
   >
     <Text
       title={title}
@@ -86,9 +85,12 @@ SectionText.propTypes = {
     PropTypes.string,
     PropTypes.element
   ]).isRequired,
+  color: PropTypes.shape({
+    background: PropTypes.string,
+    paragraph: PropTypes.string,
+    title: PropTypes.string
+  }),
   background: PropTypes.string,
-  color: PropTypes.object,
-  style: PropTypes.object,
   padding: PropTypes.string
 }
 

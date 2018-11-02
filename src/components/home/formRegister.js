@@ -6,14 +6,16 @@ import Spinner from 'react-spinkit'
 import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
-import { EarlyAccess } from 'components/hero'
+import { EarlyAccess as Submit } from 'components/hero'
+
+import SectionText from 'components/sectionText'
 
 import { theme } from 'library/global'
 import { Header } from 'library/index'
 import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`
-  height: 900px;
+  height: 1100px;
   padding: 0 0 ${rem(120)};
   position: relative;
 
@@ -21,7 +23,7 @@ const Wrapper = styled.section`
   flex-direction: column;
 
   ${phone(css`
-    height: ${rem(700)};
+    height: 1200px;
     text-align: center;
   `)}
 `
@@ -34,10 +36,10 @@ const Form = styled.form`
   flex-direction: column;
 
   ${phone(css`
-    padding: 0 ${rem(56)};
+    padding: 0 ${rem(36)};
   `)}
 
-  ${({ loading }) => loading && css`
+  ${({ blur }) => blur && css`
     filter: blur(2px);
   `}
 
@@ -68,7 +70,6 @@ const Input = styled.input`
   }
   transition: all .3s ease;
 `
-
 
 const Message = styled.p`
   margin: ${rem(6)} 0 0;
@@ -119,6 +120,8 @@ DisplayMessage.propTypes = {
   }).isRequired
 }
 
+
+
 class Register extends Component {
   state = {
     name: '',
@@ -164,48 +167,64 @@ class Register extends Component {
 
   render() {
     const { response, loading, name, email } = this.state
-    const { title, button } = this.props
+    const { formTitle, title, subTitle, button } = this.props
 
     return (
+      <>
       <Wrapper>
+        <div style={{ width: '100%' }}>
+          <SectionText
+            title={title}
+            content={subTitle}
+            color={{ title: "whiteFont" }}
+          />
+        </div>
         <EndPageBackground/>
         <Header color='whiteFont' id='subscribe'>
-          {title}
+          {formTitle}
         </Header>
         <div style={{ position: 'relative' }} >
-          <Form onSubmit={this.handleSubmit} loading={loading}>
-            <Input
-              placeholder='Your name (optional)'
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-            />
-            <Input
-              required
-              placeholder='Your E-mail address'
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-            {response && <DisplayMessage data={response} /> }
-            <EarlyAccess
-              mint
-              disabled={loading}
+          <fieldset
+            disabled={loading}
+            style={{ border: 'none' }}
+          >
+            <Form
+              onSubmit={this.handleSubmit}
+              blur={loading}
             >
-              {button}
-            </EarlyAccess>
-          </Form>
+              <Input
+                placeholder='Your name (optional)'
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+              />
+              <Input
+                required
+                placeholder='Your E-mail address'
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+              {response && <DisplayMessage data={response} /> }
+              <Submit mint>
+                {button}
+              </Submit>
+            </Form>
+          </fieldset>
           { loading && <Spin /> }
         </div>
       </Wrapper>
+      </>
     )
   }
 }
 
 Register.propTypes = {
   title: PropTypes.string.isRequired,
+  formTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   button: PropTypes.string.isRequired
 }
 
