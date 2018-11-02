@@ -3,8 +3,8 @@ import browserLang from 'browser-lang'
 import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 
-import { addLang } from './context/language'
-import SEO from './seo'
+import { addLang } from '../utils/context/language'
+import SEO from '../utils/seo'
 
 export default class Redirect extends React.PureComponent {
   constructor(props) {

@@ -93,7 +93,7 @@ PostImage.propTypes = {
 
 const Card = ({ placeholder, data }) => (
   <CardWrapper
-    onClick={() => location.href=data.url}
+    onClick={() => window.location.href=data.url}
   >
     <PostImage
       title={data.title}

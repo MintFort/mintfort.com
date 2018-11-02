@@ -11,7 +11,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-
 exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNodeField, createNode } }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode, basePath: "pages" })
@@ -57,7 +56,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
     data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
       createPage({
         path: fields.slug,
-        component: path.resolve(`./src/templates/page.js`),
+        component: path.resolve(`src/templates/page.js`),
         context: {
           slug: fields.slug
         }
@@ -75,7 +74,7 @@ exports.onCreatePage = ({ page, actions }) => {
   }
 
   return new Promise(resolve => {
-    const component = path.resolve('src/utils/redirect.js')
+    const component = path.resolve('src/templates/redirect.js')
 
     deletePage(page)
     createPage({

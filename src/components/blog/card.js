@@ -63,7 +63,7 @@ Image.propTypes = {
 const Card = ({ data, windowWidth: winW }) => (
   <CardWrapper>
     <div className='content'>
-      <Anchor onClick={() => location.href=data.url}>
+      <Anchor onClick={() => window.location.href=data.url}>
         <SubHeader
           size={32}
           weight='bold'

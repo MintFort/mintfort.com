@@ -16,7 +16,7 @@ const AuthorWrapper = styled.div`
       width: ${rem(46)};
       height: ${rem(46)};
       border-radius: 50%;
-      
+
       margin: 0;
       margin-right: ${rem(8)};
     }
@@ -35,7 +35,7 @@ const AuthorWrapper = styled.div`
 const Author = ({ author, createdAt }) => (
   <AuthorWrapper>
     <div className='avatar-wrapper'>
-      <img src={author.avatar} />
+      <img src={author.avatar} alt={author.name}/>
     </div>
     <div>
       <a href={author.url}>{author.name}</a>

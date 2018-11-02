@@ -25,13 +25,13 @@ export class WindowWidthProvider extends Component {
 
   componentDidMount(){
     this.setState({ width:  window.innerWidth })
-    addEventListener("resize", this.handleResize)
+    window.addEventListener("resize", this.handleResize)
   }
   handleResize = () => {
     this.setState({ width: window.innerWidth })
   }
   componentWillUnmount(){
-    removeEventListener('resize', this.handleResize)
+    window.removeEventListener('resize', this.handleResize)
   }
 
   render(){

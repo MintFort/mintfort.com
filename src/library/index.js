@@ -41,8 +41,8 @@ export const Title = styled.h1`
   text-align: left;
   width: 100%;
 
-  font-size: ${({ size }) => size && rem(size) || rem(42)};
-  font-weight: ${({ weight }) => weight && weight || 700};
+  font-size: ${({ size }) => (size && rem(size)) || rem(42)};
+  font-weight: ${({ weight }) => ((weight && weight)) || 700};
 
   ${({ color }) => color && css`
     color: ${color};
@@ -57,8 +57,8 @@ export const Title = styled.h1`
 export const Header = styled.h2`
   word-wrap: normal;
 
-  font-size: ${({ size }) => size && rem(size) || rem(32)};
-  font-weight: ${({ weight }) => weight && weight || 500};
+  font-size: ${({ size }) => (size && rem(size)) || rem(32)};
+  font-weight: ${({ weight }) => (weight && weight) || 500};
 
   ${({ color }) => color && css`
     color: ${({ theme }) => theme[color]};
@@ -73,8 +73,8 @@ export const SubHeader = styled.h3`
   display: block;
   margin: ${rem(35)} 0 ${rem(22)} 0;
 
-  font-size: ${({ size }) => size && rem(size) || rem(24)};
-  font-weight: ${({ weight }) => weight && weight || 500};
+  font-size: ${({ size }) => (size && rem(size)) || rem(24)};
+  font-weight: ${({ weight }) => (weight && weight) || 500};
 
   ${({ color }) => color && css`
     color: ${({ theme }) => theme[color]};
