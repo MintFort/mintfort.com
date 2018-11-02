@@ -86,7 +86,7 @@ Box.propTypes = {
   component: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   animate: PropTypes.bool.isRequired,
-  windowWidth: PropTypes.number.isRequired
+  windowWidth: PropTypes.number
 }
 
 export default props => addWindowWidth(Box, ...props)

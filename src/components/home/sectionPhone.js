@@ -86,7 +86,7 @@ const SectionPhone = ({ windowWidth }) => (
 )
 
 SectionPhone.propTypes = {
-  windowWidth: PropTypes.number.isRequired
+  windowWidth: PropTypes.number
 }
 
 export default () => addWindowWidth(SectionPhone)
