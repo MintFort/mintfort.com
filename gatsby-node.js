@@ -72,9 +72,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
 
 
 exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions
+  const { createPage, deletePage, createRedirect } = actions
 
-  if (page.path.includes('404')) {
+  if (page.path.includes('404') || page.path.includes('blog')) {
     return Promise.resolve()
   }
 
@@ -93,17 +93,26 @@ exports.onCreatePage = ({ page, actions }) => {
       }
     })
 
-    languages.forEach(locale => createPage({
-      ...page,
-      originalPath: page.path,
-      path: `/${locale}${page.path}`,
-      context: {
-        languages,
-        locale,
-        routed: true,
-        originalPath: page.path
-      }
-    }))
+    languages.forEach(locale => {
+      createRedirect({
+        fromPath: `/${locale}/blog`,
+        toPath: '/blog',
+        isPermanent: true,
+        redirectInBrowser: true
+      })
+
+      createPage({
+        ...page,
+        originalPath: page.path,
+        path: `/${locale}${page.path}`,
+        context: {
+          languages,
+          locale,
+          routed: true,
+          originalPath: page.path
+        }
+      })
+    })
 
     resolve()
   })

@@ -70,7 +70,6 @@ const Home = ({ language }) => (
         <SectionNews
           title={news[language].title}
           subtitle={news[language].subTitle}
-          language={language}
         />
         <Subscribe
           title={control[language].title}

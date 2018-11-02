@@ -113,7 +113,7 @@ Card.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-const SectionNews = ({ title, subtitle, language }) => (
+const SectionNews = ({ title, subtitle }) => (
   <StaticQuery
     query={query}
     render={({ logo, medium: { edges } }) => (
@@ -126,7 +126,7 @@ const SectionNews = ({ title, subtitle, language }) => (
             {title}
           </Header>
           <Paragraph
-            onClick={() => navigate(`/${language}/blog/`)}
+            onClick={() => navigate(`/blog/`)}
           >
             {subtitle}
           </Paragraph>
@@ -149,8 +149,7 @@ const SectionNews = ({ title, subtitle, language }) => (
 
 SectionNews.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired
+  subtitle: PropTypes.string.isRequired
 }
 
 export default SectionNews
