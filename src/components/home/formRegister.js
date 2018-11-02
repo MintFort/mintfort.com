@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
+import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
 import { EarlyAccess } from 'components/hero'
@@ -90,11 +91,6 @@ const SpinWrapper = styled.div`
   ${flex}
 `
 
-const validateEmail = email => {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return re.test(String(email).toLowerCase())
-}
-
 const Spin = () => (
   <SpinWrapper>
     <Spinner name="ball-triangle-path" color={theme.mint} />
@@ -139,11 +135,11 @@ class Register extends Component {
     e.preventDefault()
     const { email, name } = this.state
 
-    if (!email.length) return
+    if (isEmpty(email)) return
 
     this.setState({ loading: true })
 
-    if (!validateEmail(email)) {
+    if (!isEmail(email)) {
       this.setState({
         response: {
           result: "error",
@@ -154,7 +150,9 @@ class Register extends Component {
       return
     }
 
-    const response = await addToMailchimp(email, { FNAME: name })
+    const response = await addToMailchimp(
+      normalizeEmail(email), { FNAME: !isEmpty(name) && name.trim() }
+    )
 
     this.setState({
       loading: false,
