@@ -11,13 +11,6 @@ const Background = styled.section`
     background: ${({ theme }) => theme[color.background]};
   `}
 
-  ${({ src, theme }) => src && css`
-    background: ${src.includes('blue') && theme.blue} url(${require('../' + src)});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  `}
-
   padding: ${({ padding }) => padding || '14vh 0'};
   display: flex;
   flex-direction: column;
@@ -65,10 +58,9 @@ Text.propTypes = {
   color: PropTypes.object
 }
 
-const SectionText = ({ title, content, background, color, padding }) => (
+const SectionText = ({ title, content, color, padding }) => (
   <Background
     padding={padding}
-    src={background}
     color={color}
   >
     <Text
@@ -90,7 +82,6 @@ SectionText.propTypes = {
     paragraph: PropTypes.string,
     title: PropTypes.string
   }),
-  background: PropTypes.string,
   padding: PropTypes.string
 }
 

@@ -56,7 +56,6 @@ const Home = ({ language }) => (
         <SectionText
           title={access[language].title}
           content={access[language].subTitle}
-          background= {access[language].background}
         />
         <SectionBoxes
           data={boxes}
