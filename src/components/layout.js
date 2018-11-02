@@ -20,7 +20,7 @@ const Layout = ({ children, location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <LanguageProvider location={location}>
-            {addLang(SEO, { path: location.pathname })}
+            {addLang(SEO, { pathname: location.pathname })}
             {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
             <main>
               {children}

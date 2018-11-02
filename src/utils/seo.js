@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-const SEO = ({ language, path }) => (
+const SEO = ({ language, pathname }) => (
   <StaticQuery
     query={query}
     render={({
@@ -32,7 +32,7 @@ const SEO = ({ language, path }) => (
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={title} />
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={siteUrl + path} />
+        <meta property="og:url" content={siteUrl + pathname} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={siteUrl + image} />
         <meta property="og:image:type" content="image/jpeg" />
@@ -43,7 +43,7 @@ const SEO = ({ language, path }) => (
         <meta name="twitter:creator" content={userTwitter} />
         <meta name="twitter:site" content={userTwitter} />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:url" content={siteUrl + path} />
+        <meta name="twitter:url" content={siteUrl + pathname} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={siteUrl + image} />
       </Helmet>
@@ -52,7 +52,7 @@ const SEO = ({ language, path }) => (
 )
 
 SEO.propTypes = {
-  path: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired
 }
 

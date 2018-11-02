@@ -89,7 +89,7 @@ const Card = ({ data, windowWidth: winW }) => (
 )
 
 Card.propTypes = {
-  windowWidth: PropTypes.number.isRequired,
+  windowWidth: PropTypes.number,
   data: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,

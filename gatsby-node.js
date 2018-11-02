@@ -6,9 +6,6 @@ const { languages } = require('./siteConfig')
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      alias: {
-        siteConfig: path.resolve(__dirname, "siteConfig")
-      },
       modules: [path.resolve(__dirname, "src"), "node_modules"]
     }
   })
@@ -70,7 +67,6 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
   })
 })
 
-
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage, createRedirect } = actions
 
@@ -87,9 +83,7 @@ exports.onCreatePage = ({ page, actions }) => {
       component,
       context: {
         languages,
-        locale: '',
-        routed: false,
-        redirectPage: page.path
+        pathname: page.path
       }
     })
 
@@ -107,9 +101,7 @@ exports.onCreatePage = ({ page, actions }) => {
         path: `/${locale}${page.path}`,
         context: {
           languages,
-          locale,
-          routed: true,
-          originalPath: page.path
+          pathname: page.path
         }
       })
     })
