@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icons from 'components/downloadIcons'
 import styled, { css } from 'styled-components'
 
-import Section from 'components/section'
+import SectionText from 'components/sectionText'
 import Divider from 'components/backgrounds/start'
+
+import Icons from './downloadIcons'
 
 import { phone, mobile } from 'library/utils'
 
@@ -26,7 +27,7 @@ const DividerWrapper = styled.div`
 
 const SectionDownload = ({ title }) => (
   <>
-    <Section
+    <SectionText
       title={title}
       content={<Icons />}
       padding='6vh 0'
@@ -35,7 +36,7 @@ const SectionDownload = ({ title }) => (
       }}
     />
     <DividerWrapper>
-      <Divider />
+      <Divider diagonal='hard'/>
     </DividerWrapper>
   </>
 )

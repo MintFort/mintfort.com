@@ -2,17 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
 import { FaChevronDown } from 'react-icons/fa'
-import { goToAnchor } from 'react-scrollable-anchor'
 import styled, { css } from 'styled-components'
+import { scroller } from 'react-scroll'
 
 import StartPageBackground from 'components/backgrounds/pageStart'
 
-import { hover, rem, transitions, navHeight, theme, flex, phone, mobile } from 'library/utils'
+import { hover, rem, transitions, flex, phone, mobile } from 'library/utils'
 import { Container, Title, Header, SubHeader, Button } from 'library/index'
+
+const scrollToForm = () => scroller.scrollTo("subscribe", {
+  smooth: true,
+  duration: 600,
+  offset: -120
+})
 
 const Wrapper = styled.section`
   height: 100vh;
-  padding-top: ${navHeight};
+  padding-top: ${({ theme }) => theme.navHeight};
   position: relative;
 
   display: flex;
@@ -24,7 +30,7 @@ const Wrapper = styled.section`
   `)}
 `
 
-const Content = Container.extend`
+const Content = styled(Container)`
   padding: ${rem(40)};
   display: flex;
   flex: 1;
@@ -39,7 +45,7 @@ const Icon = styled(FaChevronDown)`
   width: ${rem(50)};
   height: ${rem(50)};
   padding: ${rem(8)};
-  color: ${theme.blue};
+  color: ${({ theme }) => theme.blue};
   cursor: pointer;
 
   ${hover(css`
@@ -65,7 +71,7 @@ const TextWrapper = styled.div`
 
   ${mobile(css`
     h1 {
-      font-size: ${rem(60)};
+      font-size: ${rem(52)};
     }
 
     h3 {
@@ -95,74 +101,60 @@ const ImageWrapper = styled.div`
 
   ${phone(css`
     order: 2;
-    padding-right: ${rem(40)};
-    transform: translate(38px, -20px);
+    padding-right: 0;
 
     ${flex({ x: "center", y: 'flex-start' })};
+
   `)}
+
 `
 
 const StaticImage = styled.div`
-  min-width: 600px;
-  transform: translateX(-60px) translateY(50px) scale(1.5);
+  min-width: 340px;
 
-  ${mobile(css`
-    transform: translateX(-100px) translateY(50px) scale(1.5);
-  `)}
+  ${({ id }) => id === 'portfolio' && css`
+    min-width: 600px;
+    transform: translateX(-60px) translateY(50px) scale(1.5);
+
+    ${mobile(css`
+      transform: translateX(-100px) translateY(50px) scale(1.5);
+    `)}
+  `}
 
   ${phone(css`
     transform: none;
     min-width: 320px;
+
+    ${({ id }) => id === 'home' && css`
+      transform: translateX(14px);
+    `}
   `)}
 
   transition: all .2s;
 `
 
-const Register = Button.extend`
+export const EarlyAccess = styled(Button)`
+  margin-top: ${rem(30)};
+
   ${phone(css`
     margin-bottom: ${rem(40)};
   `)}
 `
 
-const Sub = SubHeader.extend`
+const Sub = styled(SubHeader)`
   white-space: pre-line;
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
 
   ${mobile(css`
     white-space: normal;
   `)}
 `
 
-const PortfolioImage = ({ img }) => (
-  <StaticImage>
-    <GatsbyImg
-      fluid={img.childImageSharp.fluid}
-      alt="Portfolio tracker"
-    />
-  </StaticImage>
-)
-
-PortfolioImage.propTypes = {
-  img: PropTypes.object.isRequired
-}
-
-const HomeImage = ({ img }) => (
-  <GatsbyImg
-    imgStyle={{ width: 340 }}
-    fixed={img.childImageSharp.fixed}
-    alt="Mintfort application"
-  />
-)
-
-HomeImage.propTypes = {
-  img: PropTypes.object.isRequired
-}
-
 const Text = ({ title, subTitle, body, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
-      color={theme.lightFont}
+      color='lightFont'
       size={18}
     >
       {title}
@@ -182,12 +174,12 @@ const Text = ({ title, subTitle, body, button }) => (
     </Sub>
     {
       button && button.length &&
-      <Register
-        primary
-        onClick={() => goToAnchor("subscribe")}
+      <EarlyAccess
+        mint
+        onClick={() => scrollToForm()}
       >
         {button}
-      </Register>
+      </EarlyAccess>
     }
   </TextWrapper>
 )
@@ -203,11 +195,17 @@ Text.propTypes = {
 }
 
 const Image = ({ img, id }) => (
-  <ImageWrapper>
-    {id === 'home' ?
-      <HomeImage img={img}/> :
-      <PortfolioImage img={img}/>
-    }
+  <ImageWrapper id={id}>
+    <StaticImage id={id}>
+      <div
+        onClick={() => id === 'home' && scrollToForm()}
+      >
+        <GatsbyImg
+          fluid={img.childImageSharp.fluid}
+          alt={`${id} application`}
+        />
+      </div>
+    </StaticImage>
   </ImageWrapper>
 )
 
@@ -218,7 +216,7 @@ Image.propTypes = {
 
 
 const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
-  <Wrapper col>
+  <Wrapper>
     <StartPageBackground />
     <Content>
       <Image
@@ -233,7 +231,12 @@ const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
       />
     </Content>
     <IconWrapper>
-      <Icon onClick={() => goToAnchor(scrollId)}/>
+      <Icon
+        onClick={() => scroller.scrollTo(scrollId, {
+          duration: 1000,
+          smooth: "easeOutQuint",
+          offset: -40 })}
+      />
     </IconWrapper>
   </Wrapper>
 )

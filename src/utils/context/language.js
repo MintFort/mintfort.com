@@ -4,7 +4,7 @@ import { navigate } from 'gatsby'
 
 const { Provider, Consumer } = createContext()
 
-export class Context extends Component {
+export class LanguageProvider extends Component {
   state = {
     language: 'en'
   }
@@ -24,6 +24,8 @@ export class Context extends Component {
 
   }
   handleStateLang(language){
+    const { location: { pathname } } = this.props
+
     if (language) {
       this.setState({ language })
       return
@@ -33,8 +35,9 @@ export class Context extends Component {
       language: state.language === 'en' ? 'zh' : 'en'
     }), () => {
       localStorage.setItem('lang', this.state.language)
-      // TODO: this should be dynamic (It's ok atm.)
-      navigate(`/${this.state.language}${this.props.location.pathname.match(/portfolio/) ? '/portfolio' : ''}`)
+
+      const page = pathname.replace(/(en|zh|\/)/g, '')
+      navigate(`/${this.state.language}/${page}`)
     })
   }
 
@@ -43,18 +46,20 @@ export class Context extends Component {
       <Provider value ={{
         language: this.state.language,
         onChangeLanguage: () => this.handleStateLang()
-      }}>{this.props.children}</Provider>
+      }}>
+        {this.props.children}
+      </Provider>
     )
   }
 }
 
-Context.propTypes = {
+LanguageProvider.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
   })
 }
 
-Context.defaultProps = {
+LanguageProvider.defaultProps = {
   location: {
     pathname: '/'
   }

@@ -43,9 +43,8 @@ const Divider = ({ img }) => (
     <ImageWrapper>
       <Fade>
         <Img
-          size={50}
           alt='portfolio'
-          src={require('../' + img)}
+          file={img}
         />
       </Fade>
     </ImageWrapper>

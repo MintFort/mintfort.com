@@ -3,20 +3,29 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
-import ScrollableAnchor from 'react-scrollable-anchor'
+import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
 import EndPageBackground from 'components/backgrounds/pageEnd'
+import { EarlyAccess as Submit } from 'components/hero'
 
-import { Header, Button } from 'library/index'
-import { flex, rem, theme, phone } from 'library/utils'
+import SectionText from 'components/sectionText'
+
+import { theme } from 'library/global'
+import { Header } from 'library/index'
+import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`
-  height: 900px;
+  height: 1100px;
   padding: 0 0 ${rem(120)};
   position: relative;
 
   ${flex({ x: 'flex-end' })}
   flex-direction: column;
+
+  ${phone(css`
+    height: 1200px;
+    text-align: center;
+  `)}
 `
 
 const Form = styled.form`
@@ -27,10 +36,10 @@ const Form = styled.form`
   flex-direction: column;
 
   ${phone(css`
-    padding: ${rem(30)};
+    padding: 0 ${rem(36)};
   `)}
 
-  ${({ loading }) => loading && css`
+  ${({ blur }) => blur && css`
     filter: blur(2px);
   `}
 
@@ -38,7 +47,7 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  background: ${theme.blue};
+  background: ${({ theme }) => theme.blue};
 
   font-size: ${rem(14)};
   color: #fff;
@@ -51,17 +60,16 @@ const Input = styled.input`
   margin: ${rem(10)} 0;
 
   &:focus {
-    border-bottom: 1px solid ${theme.mint};
+    border-bottom: 1px solid ${({ theme }) => theme.mint};
     box-shadow: inset 0 2px 20px rgba(0,0,0,0.17);
 
     &::-webkit-input-placeholder {
-      color: ${theme.mint};
+      color: ${({ theme }) => theme.mint};
       transition: all .3s ease;
     }
   }
   transition: all .3s ease;
 `
-
 
 const Message = styled.p`
   margin: ${rem(6)} 0 0;
@@ -69,7 +77,7 @@ const Message = styled.p`
   color: #c6c6c6;
 
   ${({ error }) => error && css`
-    color: ${theme.red}
+    color: ${({ theme }) => theme.red}
   `}
 `
 
@@ -83,11 +91,6 @@ const SpinWrapper = styled.div`
 
   ${flex}
 `
-
-const validateEmail = email => {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return re.test(String(email).toLowerCase())
-}
 
 const Spin = () => (
   <SpinWrapper>
@@ -117,6 +120,8 @@ DisplayMessage.propTypes = {
   }).isRequired
 }
 
+
+
 class Register extends Component {
   state = {
     name: '',
@@ -133,11 +138,11 @@ class Register extends Component {
     e.preventDefault()
     const { email, name } = this.state
 
-    if (!email.length) return
+    if (isEmpty(email)) return
 
     this.setState({ loading: true })
 
-    if (!validateEmail(email)) {
+    if (!isEmail(email)) {
       this.setState({
         response: {
           result: "error",
@@ -148,7 +153,9 @@ class Register extends Component {
       return
     }
 
-    const response = await addToMailchimp(email, { FNAME: name })
+    const response = await addToMailchimp(
+      normalizeEmail(email), { FNAME: !isEmpty(name) && name.trim() }
+    )
 
     this.setState({
       loading: false,
@@ -160,17 +167,31 @@ class Register extends Component {
 
   render() {
     const { response, loading, name, email } = this.state
-    const { title, button } = this.props
+    const { formTitle, title, subTitle, button } = this.props
 
     return (
+      <>
       <Wrapper>
+        <div style={{ width: '100%' }}>
+          <SectionText
+            title={title}
+            content={subTitle}
+            color={{ title: "whiteFont" }}
+          />
+        </div>
         <EndPageBackground/>
-        <Header color={theme.whiteFont}>
-          {title}
+        <Header color='whiteFont' id='subscribe'>
+          {formTitle}
         </Header>
-        <ScrollableAnchor id='subscribe'>
-          <div style={{ position: 'relative' }}>
-            <Form onSubmit={this.handleSubmit} loading={loading}>
+        <div style={{ position: 'relative' }} >
+          <fieldset
+            disabled={loading}
+            style={{ border: 'none' }}
+          >
+            <Form
+              onSubmit={this.handleSubmit}
+              blur={loading}
+            >
               <Input
                 placeholder='Your name (optional)'
                 type="text"
@@ -187,24 +208,23 @@ class Register extends Component {
                 onChange={this.handleChange}
               />
               {response && <DisplayMessage data={response} /> }
-              <Button
-                primary
-                disabled={loading}
-              >
+              <Submit mint>
                 {button}
-              </Button>
+              </Submit>
             </Form>
-            { loading && <Spin /> }
-          </div>
-
-        </ScrollableAnchor>
+          </fieldset>
+          { loading && <Spin /> }
+        </div>
       </Wrapper>
+      </>
     )
   }
 }
 
 Register.propTypes = {
   title: PropTypes.string.isRequired,
+  formTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   button: PropTypes.string.isRequired
 }
 

@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Layout from 'components/layout'
-import Home from 'components/home/home'
+import Blog from 'components/blog/blog'
 
-const IndexPage = ({ location }) => (
+const BlogPage = ({ location }) => (
   <Layout location={location}>
-    <Home />
+    <Blog />
   </Layout>
 )
 
-IndexPage.propTypes = {
+BlogPage.propTypes = {
   location: PropTypes.object.isRequired
 }
 
-export default IndexPage
+export default BlogPage

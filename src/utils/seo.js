@@ -1,43 +1,58 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import data from 'siteConfig'
+const SEO = ({ language, pathname }) => (
+  <StaticQuery
+    query={query}
+    render={({
+      site: {
+        meta: {
+          title,
+          description,
+          siteUrl,
+          favicon,
+          image,
+          userTwitter
+        }
+      }
+    }) => (
+      <Helmet
+        htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
+        title={title + ' | Be Your Bank'}
+      >
+        <link rel="shortcut icon" href={siteUrl + favicon}/>
+        <link rel="icon" href={siteUrl + favicon}/>
 
-const SEO = ({ language, path }) => (
-  <Helmet
-    htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
-    title={data.title + ' | Be Your Bank'}
-  >
-    <link rel="shortcut icon" href={data.siteUrl + data.favicon}/>
-    <link rel="icon" href={data.siteUrl + data.favicon}/>
+        <meta name="description" content={description} />
+        <meta name="image" content={siteUrl + image} />
 
-    <meta name="description" content={data.description} />
-    <meta name="image" content={data.siteUrl + data.image} />
+        <meta property="og:locale" content={language === 'en' ? "en-US" : 'zh' } />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={siteUrl + pathname} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={siteUrl + image} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="770" />
 
-    <meta property="og:locale" content={language === 'en' ? "en-US" : 'zh' } />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={data.title} />
-    <meta property="og:title" content={data.title} />
-    <meta property="og:url" content={data.siteUrl + path} />
-    <meta property="og:description" content={data.description} />
-    <meta property="og:image" content={data.siteUrl + data.image} />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="770" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content={data.userTwitter} />
-    <meta name="twitter:site" content={data.userTwitter} />
-    <meta name="twitter:title" content={data.title} />
-    <meta name="twitter:url" content={data.siteUrl + path} />
-    <meta name="twitter:description" content={data.description} />
-    <meta name="twitter:image" content={data.siteUrl + data.image} />
-  </Helmet>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content={userTwitter} />
+        <meta name="twitter:site" content={userTwitter} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:url" content={siteUrl + pathname} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={siteUrl + image} />
+      </Helmet>
+    )}
+  />
 )
 
 SEO.propTypes = {
-  path: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
   language: PropTypes.string.isRequired
 }
 
@@ -45,5 +60,12 @@ SEO.defaultProps = {
   language: 'en'
 }
 
-
 export default SEO
+
+const query = graphql`
+  {
+    site {
+      ...SEOMetadata
+    }
+  }
+`

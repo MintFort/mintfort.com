@@ -1,28 +1,33 @@
 import React from 'react'
 import browserLang from 'browser-lang'
 import PropTypes from 'prop-types'
+import { navigate } from 'gatsby'
 
-import { languages } from 'siteConfig'
-
-import { addLang } from './context'
-import SEO from './seo'
+import { addLang } from '../utils/context/language'
+import SEO from '../utils/seo'
 
 export default class Redirect extends React.PureComponent {
   constructor(props) {
     super(props)
-
-    const { pathname } = props.location
+    const { languages, pathname } = props.pageContext
 
     if (typeof window !== 'undefined') {
       const lang = localStorage.getItem('lang') || browserLang({ languages, fallback: languages[0] })
 
       localStorage.setItem('lang', lang)
-      location.replace(`/${lang}${pathname}`)
+      navigate(`/${lang}${pathname}`)
     }
   }
-  render = () => addLang(SEO, { path: this.props.location.pathname })
+  render(){
+    const { pathname } = this.props.pageContext
+
+    return addLang(SEO, { pathname })
+  }
 }
 
 Redirect.propTypes = {
-  location: PropTypes.object.isRequired
+  pageContext: PropTypes.shape({
+    languages: PropTypes.array,
+    pathname: PropTypes.string
+  }).isRequired
 }

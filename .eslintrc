@@ -58,6 +58,7 @@ rules:
   no-multi-spaces: error
   no-eval: error
   no-console: 'off'
+  no-mixed-operators: warn
   object-shorthand: error
   prefer-arrow-callback: warn
   prefer-destructuring:

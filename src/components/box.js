@@ -2,25 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
-import Waypoint from 'react-waypoint'
 import MtSvgLines from 'react-mt-svg-lines'
 
+import { addWindowWidth } from 'utils/context/windowWidth'
 import { Paragraph, Container } from 'library/index'
-import { rem, phone, theme, flex, mobile } from 'library/utils'
+import { rem, phone, mobile, screenBreak } from 'library/utils'
 
-const Section = styled.section`
-  padding: ${rem(30)};
-  width: 100%;
-
-  ${flex({ x: 'flex-start' })}
-  flex-wrap: wrap;
-
-  ${phone(css`
-    flex-direction: column;
-  `)}
-`
-
-const border = '1px solid #EDEDED'
+const border = color => `1px solid ${color}`
 
 const Wrapper = styled.div`
   width: 25%;
@@ -28,50 +16,64 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${({ id }) => id && css`
-    border-bottom: ${id.toString().match(/(1|2|3|4)/) && border};
-    border-right: ${id.toString().match(/(1|2|3|5|6|7)/) && border};
+  ${({ id, theme }) => id && css`
+    border-bottom: ${id.toString().match(/(1|2|3|4)/) && border(theme.gray)};
+    border-right: ${id.toString().match(/(1|2|3|5|6|7)/) && border(theme.gray)};
   `}
 
   ${mobile(css`
     width: 50%;
     border: none;
 
-    ${({ id }) => id && css`
-      border-bottom: ${id.toString().match(/(1|2|5|6)/) && border};
-      border-right: ${id.toString().match(/(1|3|5|7)/) && border};
+    ${({ id, theme }) => id && css`
+      border-bottom: ${id.toString().match(/(1|2|3|4|5|6)/) && border(theme.gray)};
+      border-right: ${id.toString().match(/(1|3|5|7)/) && border(theme.gray)};
     `}
   `)}
 
   ${phone(css`
     border: none;
     width: 100%;
+    min-height: auto;
+    height: ${rem(140)};
+    padding: 10px 0;
 
-    ${({ id }) => id && css`
-      border-bottom: ${id.toString().match(/(1|2|3|4|5|6|7)/) && border};
+    ${({ id, theme }) => id && css`
+      border-bottom: ${id.toString().match(/(1|2|3|4|5|6|7)/) && border(theme.gray)};
     `}
   `)}
 `
 
-const Icon = ({ component }) => {
+const Icon = ({ component, width }) => {
   const Component = require('components/SVG/icons')[component]
-  return <Component />
+  return <Component width={width}/>
 }
 
 Icon.propTypes = {
-  component: PropTypes.string.isRequired
+  component: PropTypes.string.isRequired,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 }
 
-const Box = ({ component, title, id, animate }) => (
+Icon.defaultProps = {
+  width: 80
+}
+
+const Box = ({ component, title, id, animate, windowWidth }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
       <MtSvgLines animate={ animate } duration={ 2000 }>
-        <Icon component={component}/>
+        <Icon
+          component={component}
+          width={windowWidth < screenBreak.phone ? 60 : 80}
+        />
       </MtSvgLines>
     </Container>
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
-        <Paragraph color={theme.blue}>
+        <Paragraph color='blue'>
           {title}
         </Paragraph>
       </Fade>
@@ -83,44 +85,8 @@ Box.propTypes = {
   title: PropTypes.string.isRequired,
   component: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  animate: PropTypes.bool.isRequired
+  animate: PropTypes.bool.isRequired,
+  windowWidth: PropTypes.number
 }
 
-class SectionBoxes extends React.Component {
-  state = {
-    animate: false
-  }
-  toogleShow = animate => {
-    this.setState({ animate })
-  }
-
-  render(){
-    const { data, language } = this.props
-    const { animate } = this.state
-    return (
-      <>
-        <Waypoint
-          onEnter={() => this.toogleShow(true)}
-        />
-        <Section>
-          {data.map(box => (
-            <Box
-              animate={animate}
-              key={box[language].id}
-              title={box[language].title}
-              component={box[language].component}
-              id={box[language].id}
-            />
-          ))}
-        </Section>
-      </>
-    )
-  }
-}
-
-SectionBoxes.propTypes = {
-  data: PropTypes.array.isRequired,
-  language: PropTypes.string.isRequired
-}
-
-export default SectionBoxes
+export default props => addWindowWidth(Box, ...props)

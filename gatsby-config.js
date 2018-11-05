@@ -26,17 +26,16 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-medium`,
       options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages`
+        username: config.userMedium
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'data',
-        path: `${__dirname}/src/data`
+        name: 'pages',
+        path: `${__dirname}/src/pages`
       }
     },
     {

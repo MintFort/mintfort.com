@@ -1,22 +1,22 @@
 import React from 'react'
-import { Link as GatsbLink } from 'gatsby'
+import { Link as GatsbLink, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
-import { social } from 'siteConfig'
 
 import { Container } from 'library/index'
-import { flex, rem, navHeight, theme, phone } from 'library/utils'
+import { theme } from 'library/global'
+import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}
   flex-direction: column;
 
   padding: 0 ${rem(20)} ${rem(10)};
-  height: calc(${navHeight} * 2);
+  height: ${({ theme }) => `calc(${theme.navHeight} * 2)`};
 
   width: 100%;
-  background: ${({ path }) => path && path.includes('portfolio') && theme.blue || '#fff'};
+  background: ${({ path, theme }) => (path && path.includes('portfolio') && theme.blue) || '#fff'};
 
   ${phone(css`
     flex-direction: column;
@@ -24,7 +24,7 @@ const Wrapper = styled.footer`
 `
 
 const linkStyles = css`
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
   padding: ${rem(4)};
 `
 
@@ -40,7 +40,7 @@ const ExternalLink = styled.a.attrs({
   font-size: ${rem(16)};
 `
 
-const Section = Container.extend`
+const Section = styled(Container)`
   ${phone(css`
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@ const Section = Container.extend`
 
 const Copyright = styled.span`
   text-align: center;
-  color: ${theme.lightFont};
+  color: ${({ theme }) => theme.lightFont};
   font-size: ${rem(10)};
   margin-bottom: ${rem(4)};
 `
@@ -76,34 +76,42 @@ const icon = name => {
 }
 
 const Footer = ({ path }) => (
-  <Wrapper path={path}>
-    <Section
-      size={{ w: '100%', h: '100%' }}
-      position={{ x: 'space-between', y: 'center' }}
-    >
-      <LegalBlock>
-        <Link to="/impressum/" activeStyle={{ color: theme.blue }}>
-        Impressum
-        </Link>
-        <Link to="/policy/" activeStyle={{ color: theme.blue }}>
-        Privacy Policy
-        </Link>
-      </LegalBlock>
-      <SocialBlock>
-        {social.map(s => (
-          <ExternalLink
-            key={s.name}
-            title={s.name}
-            to={s.url}>
-            {icon(s.name)}
-          </ExternalLink>
-        ))}
-      </SocialBlock>
-    </Section>
-    <Copyright>
-      © 2018 Mintfort. All rights reserved. Be Your Bank.
-    </Copyright>
-  </Wrapper>
+  <StaticQuery
+    query={query}
+    render={({ site: { meta: { copyright, social, nav } } }) => (
+      <Wrapper path={path}>
+        <Section
+          size={{ w: '100%', h: '100%' }}
+          position={{ x: 'space-between', y: 'center' }}
+        >
+          <LegalBlock>
+            {nav.map(({ name, path, section }) => section === 'footer' && (
+              <Link
+                key={name}
+                to={path}
+                activeStyle={{ color: theme.blue }}
+              >
+                {name}
+              </Link>
+            ))}
+          </LegalBlock>
+          <SocialBlock>
+            {social.map(s => (
+              <ExternalLink
+                key={s.name}
+                title={s.name}
+                to={s.url}>
+                {icon(s.name)}
+              </ExternalLink>
+            ))}
+          </SocialBlock>
+        </Section>
+        <Copyright>
+          {copyright}
+        </Copyright>
+      </Wrapper>
+    )}
+  />
 )
 
 Footer.propTypes = {
@@ -111,3 +119,22 @@ Footer.propTypes = {
 }
 
 export default Footer
+
+const query = graphql`
+  {
+    site {
+      meta: siteMetadata {
+        copyright
+        social {
+          name
+          url
+        }
+        nav {
+          name
+          path
+          section
+        }
+      }
+    }
+  }
+`
