@@ -6,14 +6,13 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { medium } from 'components/blog/blog'
-import { rem, phone, mobile, hover } from 'library/utils'
-import { Header, SubHeader, Paragraph } from 'library/index'
+import { rem, phone, mobile, hover, flex } from 'library/utils'
+import { Header, SubHeader, Paragraph } from 'library'
 
 const Wrapper = styled.section`
-  display: flex;
+  ${flex}
   flex-direction: column;
-  align-items: center;
-  padding: ${rem(40)} 0 0;
+  padding: ${rem(60)} 0 0;
 
   .content {
     display: flex;
@@ -31,6 +30,12 @@ const Wrapper = styled.section`
       color: ${({ theme }) => theme.mint}
     `)}
   }
+`
+
+const Inner = styled.div`
+  ${flex}
+  flex-direction: column;
+  max-width: 1300px;
 `
 
 const ImageWrapper = styled.div`
@@ -118,30 +123,32 @@ const SectionNews = ({ title, subtitle }) => (
     query={query}
     render={({ logo, medium: { edges } }) => (
       <Wrapper>
-        <Fade>
-          <Header
-            style={{ marginBottom: 8 }}
-            weight={'bold'}
-          >
-            {title}
-          </Header>
-          <Paragraph
-            onClick={() => navigate(`/blog/`)}
-          >
-            {subtitle}
-          </Paragraph>
-        </Fade>
-        <Fade delay={200}>
-          <div className='content'>
-            {edges.map(({ node }) => (
-              <Card
-                key={node.id}
-                placeholder={logo}
-                data={medium(node)}
-              />
-            ))}
-          </div>
-        </Fade>
+        <Inner>
+          <Fade>
+            <Header
+              style={{ marginBottom: 8 }}
+              weight={'bold'}
+            >
+              {title}
+            </Header>
+            <Paragraph
+              onClick={() => navigate(`/blog/`)}
+            >
+              {subtitle}
+            </Paragraph>
+          </Fade>
+          <Fade delay={200}>
+            <div className='content'>
+              {edges.map(({ node }) => (
+                <Card
+                  key={node.id}
+                  placeholder={logo}
+                  data={medium(node)}
+                />
+              ))}
+            </div>
+          </Fade>
+        </Inner>
       </Wrapper>
     )}
   />
