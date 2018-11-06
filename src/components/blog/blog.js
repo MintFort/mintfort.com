@@ -52,7 +52,7 @@ export default Blog
 
 const query = graphql`
   {
-    medium: allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+    medium: allMediumPost(limit: 10, sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {
           ...MediumPost
