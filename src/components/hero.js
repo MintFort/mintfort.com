@@ -148,6 +148,10 @@ const Sub = styled(SubHeader)`
   ${mobile(css`
     white-space: normal;
   `)}
+
+  p {
+    margin: 0
+  }
 `
 
 const Text = ({ title, subTitle, body, button }) => (
@@ -169,9 +173,8 @@ const Text = ({ title, subTitle, body, button }) => (
     <Sub
       style={{ margin: `0 0 ${rem(8)}` }}
       size={18}
-    >
-      {body}
-    </Sub>
+      dangerouslySetInnerHTML={{ __html: body.md.html }}
+    />
     {
       button && button.length &&
       <EarlyAccess
@@ -201,7 +204,7 @@ const Image = ({ img, id }) => (
         onClick={() => id === 'home' && scrollToForm()}
       >
         <GatsbyImg
-          fluid={img.childImageSharp.fluid}
+          fluid={img.fluid}
           alt={`${id} application`}
         />
       </div>
