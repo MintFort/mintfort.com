@@ -103,7 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
         originalPath: page.path,
         path: `/${local}${page.path}`,
         context: {
-          local: `/${local}/`,
+          local: `/${local}/`, // this is a regex variable, not to be confused with a path
           languages,
           pathname: page.path
         }
