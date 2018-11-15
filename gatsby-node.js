@@ -12,7 +12,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNodeField, createNode } }) => {
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` && node.fileAbsolutePath) {
     const value = createFilePath({ node, getNode, basePath: "pages" })
     createNodeField({
       node,
@@ -54,13 +54,17 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
     `
   ).then(({ data }) => {
     data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
-      createPage({
-        path: fields.slug,
-        component: path.resolve(`src/templates/page.js`),
-        context: {
-          slug: fields.slug
-        }
-      })
+      if (fields && fields.slug) {
+        
+        createPage({
+          path: fields.slug,
+          component: path.resolve(`src/templates/page.js`),
+          context: {
+            slug: fields.slug
+          }
+        })
+      }
+
     })
     resolve()
   })

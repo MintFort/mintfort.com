@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 const config = require('./siteConfig')
 
 module.exports = {
@@ -12,6 +16,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.TOKEN
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -61,7 +72,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint: "https://mintfort.us12.list-manage.com/subscribe/post?u=52c52522e40057472766a9ee3&amp;id=304a96c331"
+        endpoint: process.env.MAIL
       }
     },
     {
