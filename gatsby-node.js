@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
   ).then(({ data }) => {
     data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
       if (fields && fields.slug) {
-        
+
         createPage({
           path: fields.slug,
           component: path.resolve(`src/templates/page.js`),
@@ -90,9 +90,9 @@ exports.onCreatePage = ({ page, actions }) => {
       }
     })
 
-    languages.forEach(locale => {
+    languages.forEach(local => {
       createRedirect({
-        fromPath: `/${locale}/blog`,
+        fromPath: `/${local}/blog`,
         toPath: '/blog',
         isPermanent: true,
         redirectInBrowser: true
@@ -101,8 +101,9 @@ exports.onCreatePage = ({ page, actions }) => {
       createPage({
         ...page,
         originalPath: page.path,
-        path: `/${locale}${page.path}`,
+        path: `/${local}${page.path}`,
         context: {
+          local: `/${local}/`,
           languages,
           pathname: page.path
         }
