@@ -1,5 +1,5 @@
 const path = require('path')
-const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const { languages } = require('./siteConfig')
 
@@ -11,15 +11,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNodeField, createNode } }) => {
-  if (node.internal.type === `MarkdownRemark` && node.fileAbsolutePath) {
-    const value = createFilePath({ node, getNode, basePath: "pages" })
-    createNodeField({
-      node,
-      value,
-      name: "slug"
-    })
-  }
+exports.onCreateNode = async ({ node, store, cache, actions: { createNode } }) => {
 
   if (node.internal.type === "MediumPost" && node.virtuals.previewImage.imageId.length) {
     const url = `https://cdn-images-1.medium.com/max/600/${node.virtuals.previewImage.imageId}`
@@ -41,30 +33,29 @@ exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNo
 exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(resolve => {
   graphql(`
       {
-        allMarkdownRemark {
+        allContentfulMarkdownPage {
           edges {
             node {
-              fields {
-                slug
-              }
+              node_locale
+              slug
             }
           }
         }
       }
     `
   ).then(({ data }) => {
-    data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
-      if (fields && fields.slug) {
+    data.allContentfulMarkdownPage.edges.forEach(({ node }) => {
 
+      if (node.node_locale.includes('en')) {
         createPage({
-          path: fields.slug,
+          path: node.slug,
           component: path.resolve(`src/templates/page.js`),
           context: {
-            slug: fields.slug
+            slug: node.slug
           }
         })
       }
-
+      
     })
     resolve()
   })

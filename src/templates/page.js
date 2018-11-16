@@ -16,11 +16,11 @@ const Wrapper = styled.div`
   `)}
 `
 
-const Markdown = ({ location, data: { markdownRemark: md } }) => (
+const Markdown = ({ location, data: { page } }) => (
   <Layout location={location}>
     <Wrapper>
-      <Header>{md.frontmatter.title}</Header>
-      <div dangerouslySetInnerHTML={{ __html: md.html }} />
+      <Header>{page.name}</Header>
+      <div dangerouslySetInnerHTML={{ __html: page.content.md.html }} />
     </Wrapper>
   </Layout>
 )
@@ -36,13 +36,12 @@ export default Markdown
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-      }
-      fields {
-        slug
+    page: contentfulMarkdownPage(slug: { eq: $slug }) {
+      name
+      content {
+        md: childMarkdownRemark {
+          html
+        }
       }
     }
   }
