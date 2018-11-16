@@ -197,14 +197,14 @@ Text.propTypes = {
   ]).isRequired
 }
 
-const Image = ({ img, id }) => (
+const Image = ({ image, id }) => (
   <ImageWrapper id={id}>
     <StaticImage id={id}>
       <div
         onClick={() => id === 'home' && scrollToForm()}
       >
         <GatsbyImg
-          fluid={img.fluid}
+          fluid={image.fluid}
           alt={`${id} application`}
         />
       </div>
@@ -214,23 +214,23 @@ const Image = ({ img, id }) => (
 
 Image.propTypes = {
   id: PropTypes.string.isRequired,
-  img: PropTypes.object.isRequired
+  image: PropTypes.object.isRequired
 }
 
 
-const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
+const Hero = ({ header, subheader, description, image, scrollId, buttonText, id }) => (
   <Wrapper>
     <StartPageBackground />
     <Content>
       <Image
         id={id}
-        img={img}
+        image={image}
       />
       <Text
-        button={button}
-        title={title}
-        subTitle={subTitle}
-        body={body}
+        button={buttonText}
+        title={header}
+        subTitle={subheader}
+        body={description}
       />
     </Content>
     <IconWrapper>
@@ -238,23 +238,24 @@ const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
         onClick={() => scroller.scrollTo(scrollId, {
           duration: 1000,
           smooth: "easeOutQuint",
-          offset: -40 })}
+          offset: -40
+        })}
       />
     </IconWrapper>
   </Wrapper>
 )
 
 Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  body: PropTypes.oneOfType([
+  header: PropTypes.string.isRequired,
+  subheader: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
   ]).isRequired,
-  img: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   scrollId: PropTypes.string,
-  button: PropTypes.string
+  buttonText: PropTypes.string
 }
 
 export default Hero

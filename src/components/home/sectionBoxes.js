@@ -29,7 +29,7 @@ class SectionBoxes extends React.Component {
   }
 
   render(){
-    const { data } = this.props
+    const { boxes } = this.props
     const { animate } = this.state
 
     return (
@@ -38,7 +38,7 @@ class SectionBoxes extends React.Component {
           onEnter={() => this.toogleShow(true)}
         />
         <Section>
-          {data.map((box, id) => (
+          {boxes.map((box, id) => (
             <Box
               key={box.header}
               animate={animate}
@@ -53,7 +53,7 @@ class SectionBoxes extends React.Component {
 }
 
 SectionBoxes.propTypes = {
-  data: PropTypes.array.isRequired
+  boxes: PropTypes.array.isRequired
 }
 
 export default SectionBoxes

@@ -167,21 +167,21 @@ class Register extends Component {
 
   render() {
     const { response, loading, name, email } = this.state
-    const { formTitle, title, subTitle, button } = this.props
+    const { header: formHeader, buttonText, sectionText: { header, description } } = this.props
 
     return (
       <>
       <Wrapper>
         <div style={{ width: '100%' }}>
           <SectionText
-            title={title}
-            content={subTitle}
+            header={header}
+            description={description}
             color={{ title: "whiteFont" }}
           />
         </div>
         <EndPageBackground/>
         <Header color='whiteFont' id='subscribe'>
-          {formTitle}
+          {formHeader}
         </Header>
         <div style={{ position: 'relative' }} >
           <fieldset
@@ -209,7 +209,7 @@ class Register extends Component {
               />
               {response && <DisplayMessage data={response} /> }
               <Submit mint>
-                {button}
+                {buttonText}
               </Submit>
             </Form>
           </fieldset>
@@ -222,12 +222,14 @@ class Register extends Component {
 }
 
 Register.propTypes = {
-  title: PropTypes.string.isRequired,
-  formTitle: PropTypes.string.isRequired,
-  subTitle: PropTypes.shape({
-    md: PropTypes.object
+  sectionText: PropTypes.shape({
+    header: PropTypes.string.isRequired,
+    description: PropTypes.shape({
+      md: PropTypes.object
+    }).isRequired
   }).isRequired,
-  button: PropTypes.string.isRequired
+  header: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
 }
 
 export default Register

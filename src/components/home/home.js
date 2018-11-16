@@ -26,30 +26,22 @@ const Home = ({
 }) => {
   // console.log(data)
   const [imagine, buy, access, news] = data.sections
-
   return (
     <WindowWidthProvider>
-      <Hero
+      <Hero {...data.hero}
         id='home'
-        title={data.hero.header}
-        subTitle={data.hero.subheader}
-        body={data.hero.description}
-        img={data.hero.image}
-        button={data.form.buttonText}
         scrollId='imagine'
       />
       <div id={"imagine"}/>
       <SectionText
-        title={imagine.header}
-        content={imagine.description}
+        {...imagine}
         padding={'14vh 0 4vh'}
       />
       <SectionGirl
         images={imagine.images}
       />
       <SectionText
-        title={buy.header}
-        content={buy.description}
+        {...buy}
         padding={'8vh 0'}
         color={{
           background: 'gray'
@@ -59,14 +51,13 @@ const Home = ({
         images={buy.images}
       />
       <SectionCards
-        cards={data.cardsSection.cards}
+        {...data.cardsSection}
       />
       <SectionText
-        title={access.header}
-        content={access.description}
+        {...access}
       />
       <SectionBoxes
-        data={data.boxSection.boxes}
+        {...data.boxSection}
       />
       {/* <SectionBeta
         title={portfolio[language].subTitle}
@@ -74,14 +65,10 @@ const Home = ({
         img={shop[language].img}
       /> */}
       <SectionNews
-        title={news.header}
-        subtitle={news.description}
+        {...news}
       />
       <Subscribe
-        title={data.form.sectionText.header}
-        subTitle={data.form.sectionText.description}
-        formTitle={data.form.header}
-        button={data.form.buttonText}
+        {...data.form}
       />
     </WindowWidthProvider>
   )
@@ -90,7 +77,7 @@ const Home = ({
 Home.propTypes = {
   language: PropTypes.string.isRequired,
   data: PropTypes.shape({
-    hero: PropTypes.object
+    hero: PropTypes.object // TODO: Populate this
   }).isRequired
 }
 

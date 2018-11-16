@@ -118,7 +118,7 @@ Card.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-const SectionNews = ({ title, subtitle }) => (
+const SectionNews = ({ header, description }) => (
   <StaticQuery
     query={query}
     render={({ logo, medium: { edges } }) => (
@@ -129,11 +129,11 @@ const SectionNews = ({ title, subtitle }) => (
               style={{ marginBottom: 8 }}
               weight={'bold'}
             >
-              {title}
+              {header}
             </Header>
             <Paragraph
               onClick={() => navigate(`/blog/`)}
-              dangerouslySetInnerHTML={{ __html: subtitle.md.html }}
+              dangerouslySetInnerHTML={{ __html: description.md.html }}
             />
           </Fade>
           <Fade delay={200}>
@@ -154,8 +154,8 @@ const SectionNews = ({ title, subtitle }) => (
 )
 
 SectionNews.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.shape({
+  header: PropTypes.string.isRequired,
+  description: PropTypes.shape({
     md: PropTypes.object
   }).isRequired
 }

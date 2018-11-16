@@ -25,7 +25,7 @@ const Wrapper = styled(Container)`
   `)}
 `
 
-const Text = ({ title, content, color }) => (
+const Text = ({ header, description, color }) => (
   <Container centrate>
     <Wrapper col>
       <Fade>
@@ -33,16 +33,16 @@ const Text = ({ title, content, color }) => (
           color={color && color.title}
           style={{ fontWeight: 'bold' }}
         >
-          {title}
+          {header}
         </Header>
         <Fade delay={100}>
           {
-            content.md ?
+            description.md ?
               <Paragraph
                 color={color && color.paragraph}
-                dangerouslySetInnerHTML={{ __html: content.md.html }}
+                dangerouslySetInnerHTML={{ __html: description.md.html }}
               /> :
-              content
+              description
           }
         </Fade>
       </Fade>
@@ -51,30 +51,30 @@ const Text = ({ title, content, color }) => (
 )
 
 Text.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([
+  header: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.element
   ]).isRequired,
   color: PropTypes.object
 }
 
-const SectionText = ({ title, content, color, padding }) => (
+const SectionText = ({ header, description, color, padding }) => (
   <Background
     padding={padding}
     color={color}
   >
     <Text
-      title={title}
-      content={content}
+      header={header}
+      description={description}
       color={color}
     />
   </Background>
 )
 
 SectionText.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([
+  header: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.element
   ]).isRequired,
