@@ -11,7 +11,7 @@ import { EarlyAccess as Submit } from 'components/hero'
 import SectionText from 'components/sectionText'
 
 import { theme } from 'library/global'
-import { Header } from 'library/index'
+import { Header } from 'library'
 import { flex, rem, phone } from 'library/utils'
 
 const Wrapper = styled.section`

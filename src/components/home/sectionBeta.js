@@ -8,7 +8,7 @@ import SectionText from 'components/sectionText'
 
 import { addLang } from 'utils/context/language'
 
-import { Button, Img } from 'library/index'
+import { Button, Img } from 'library'
 import { flex, phone, rem } from 'library/utils'
 
 const Wrapper = styled.div`

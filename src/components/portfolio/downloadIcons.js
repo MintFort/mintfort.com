@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { flex, rem, hover } from 'library/utils'
-import { Paragraph } from 'library/index'
+import { Paragraph } from 'library'
 
 const Wrapper = styled.div`
   ${flex}

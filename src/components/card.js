@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
-import { SubHeader } from 'library/index'
+import { SubHeader } from 'library'
 import { rem, flex, phone, mobile } from 'library/utils'
 
 const back = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { flex, rem, mobile, phone } from 'library/utils'
-import { Img } from 'library/index'
+import { Img } from 'library'
 
 const Wrapper = styled.div`
   ${flex}

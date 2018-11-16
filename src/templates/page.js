@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 import Layout from "components/layout"
 import { rem, phone } from 'library/utils'
-import { Header } from 'library/index'
+import { Header } from 'library'
 
 const Wrapper = styled.div`
   padding: ${({ theme }) => `calc(${theme.navHeight} * 1.2) ${rem(60)} ${rem(60)}`};

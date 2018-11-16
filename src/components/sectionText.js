@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { Container, Header, Paragraph } from 'library/index'
+import { Container, Header, Paragraph } from 'library'
 import { phone } from 'library/utils'
 
 const Background = styled.section`

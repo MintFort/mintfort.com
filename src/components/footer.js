@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import styled, { css } from 'styled-components'
 
-import { Container } from 'library/index'
+import { Container } from 'library'
 import { theme } from 'library/global'
 import { flex, rem, phone } from 'library/utils'
 

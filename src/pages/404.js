@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Layout from 'components/layout'
 
 import { navHeight } from 'library/utils'
-import { Container } from 'library/index'
+import { Container } from 'library'
 
 const NotFoundPage = ({ location }) => (
   <Layout location={location}>

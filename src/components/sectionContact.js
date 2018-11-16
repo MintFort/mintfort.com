@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 import { flex, mobile, phone } from 'library/utils'
-import { Img, SubHeader, Paragraph, Button } from 'library/index'
+import { Img, SubHeader, Paragraph, Button } from 'library'
 
 const SectionWrapper = styled.footer`
   ${flex}

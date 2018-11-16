@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 import MtSvgLines from 'react-mt-svg-lines'
 
 import { addWindowWidth } from 'utils/context/windowWidth'
-import { Paragraph, Container } from 'library/index'
+import { Paragraph, Container } from 'library'
 import { rem, phone, mobile, screenBreak } from 'library/utils'
 
 const border = color => `1px solid ${color}`

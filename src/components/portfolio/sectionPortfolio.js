@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 
 import DividerEnd from 'components/backgrounds/end'
 import { flex, phone, mobile, rem } from 'library/utils'
-import { Img } from 'library/index'
+import { Img } from 'library'
 
 const Wrapper = styled.div`
   position: relative;
