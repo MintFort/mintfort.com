@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Card from './card'
@@ -30,34 +30,21 @@ const Wrapper = styled.section`
   padding-top: ${({ theme }) => theme.navHeight};
 `
 
-const Blog = () => (
-  <StaticQuery
-    query={query}
-    render={({ medium: { edges } }) => (
-      <WindowWidthProvider>
-        <Wrapper>
-          {edges.map(({ node }) => (
-            <Card
-              data={medium(node)}
-              key={node.id}
-            />
-          ))}
-        </Wrapper>
-      </WindowWidthProvider>
-    )}
-  />
+const Blog = ({ posts }) => (
+  <WindowWidthProvider>
+    <Wrapper>
+      {posts.map(({ node }) => (
+        <Card
+          data={medium(node)}
+          key={node.id}
+        />
+      ))}
+    </Wrapper>
+  </WindowWidthProvider>
 )
 
-export default Blog
+Blog.propTypes = {
+  posts: PropTypes.object.isRequired
+}
 
-const query = graphql`
-  {
-    medium: allMediumPost(limit: 10, sort: { fields: [createdAt], order: DESC }) {
-      edges {
-        node {
-          ...MediumPost
-        }
-      }
-    }
-  }
-`
+export default Blog
