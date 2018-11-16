@@ -16,5 +16,41 @@ export const HomePage = graphql`
         }
       }
     }
+    sections {
+      name
+      header
+      description {
+        md: childMarkdownRemark {
+          html
+        }
+      }
+      images {
+        fluid(maxWidth: 650) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+    }
+    form: formSection {
+      header
+      buttonText
+      sectionText {
+        header
+        description {
+          md: childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+    cardsSection {
+      cards {
+        header
+        image {
+          fluid(maxWidth: 650) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
+        }
+      }
+    }
   }
 `
