@@ -1,15 +1,30 @@
 import { graphql } from "gatsby"
 
+export const Commons = graphql`
+  fragment Hero on ContentfulHero {
+    header
+    subheader
+    description {
+      md: childMarkdownRemark {
+        html
+      }
+    }
+  }
+
+  fragment Section on ContentfulSection {
+    header
+    description {
+      md: childMarkdownRemark {
+        html
+      }
+    }
+  }
+`
+
 export const HomePage = graphql`
   fragment HomePage on ContentfulPage {
     hero {
-      header
-      subheader
-      description {
-        md: childMarkdownRemark {
-          html
-        }
-      }
+      ...Hero
       image {
         fluid(maxWidth: 340) {
           ...GatsbyContentfulFluid_noBase64
@@ -18,12 +33,7 @@ export const HomePage = graphql`
     }
     sections {
       name
-      header
-      description {
-        md: childMarkdownRemark {
-          html
-        }
-      }
+      ...Section
       images {
         fluid(maxWidth: 650) {
           ...GatsbyContentfulFluid_tracedSVG
@@ -34,19 +44,14 @@ export const HomePage = graphql`
       header
       buttonText
       sectionText {
-        header
-        description {
-          md: childMarkdownRemark {
-            html
-          }
-        }
+        ...Section
       }
     }
     cardsSection {
       cards {
         header
         image {
-          fluid(maxWidth: 650) {
+          fluid(maxWidth: 600) {
             ...GatsbyContentfulFluid_tracedSVG
           }
         }
