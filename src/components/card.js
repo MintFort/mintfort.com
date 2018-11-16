@@ -18,12 +18,14 @@ const Wrapper = styled.div`
   margin: ${rem(30)};
   max-width: 600px;
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
+  flex: 1;
 
   ${mobile(css`
     margin: ${rem(10)} ${rem(4)};
   `)}
 
   ${phone(css`
+    width: 90%;
     margin: ${rem(10)} ${rem(20)};
   `)}
 `
