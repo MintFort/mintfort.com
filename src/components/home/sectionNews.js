@@ -133,9 +133,8 @@ const SectionNews = ({ title, subtitle }) => (
             </Header>
             <Paragraph
               onClick={() => navigate(`/blog/`)}
-            >
-              {subtitle}
-            </Paragraph>
+              dangerouslySetInnerHTML={{ __html: subtitle.md.html }}
+            />
           </Fade>
           <Fade delay={200}>
             <div className='content'>
@@ -156,7 +155,9 @@ const SectionNews = ({ title, subtitle }) => (
 
 SectionNews.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
+  subtitle: PropTypes.shape({
+    md: PropTypes.object
+  }).isRequired
 }
 
 export default SectionNews

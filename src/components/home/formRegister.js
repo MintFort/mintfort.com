@@ -224,7 +224,9 @@ class Register extends Component {
 Register.propTypes = {
   title: PropTypes.string.isRequired,
   formTitle: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.shape({
+    md: PropTypes.object
+  }).isRequired,
   button: PropTypes.string.isRequired
 }
 

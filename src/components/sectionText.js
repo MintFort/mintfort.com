@@ -37,10 +37,11 @@ const Text = ({ title, content, color }) => (
         </Header>
         <Fade delay={100}>
           {
-            typeof content === 'string' ?
-              <Paragraph color={color && color.paragraph}>
-                {content}
-              </Paragraph> :
+            content.md ?
+              <Paragraph
+                color={color && color.paragraph}
+                dangerouslySetInnerHTML={{ __html: content.md.html }}
+              /> :
               content
           }
         </Fade>
@@ -52,7 +53,7 @@ const Text = ({ title, content, color }) => (
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([
-    PropTypes.string,
+    PropTypes.object,
     PropTypes.element
   ]).isRequired,
   color: PropTypes.object
@@ -74,7 +75,7 @@ const SectionText = ({ title, content, color, padding }) => (
 SectionText.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.oneOfType([
-    PropTypes.string,
+    PropTypes.object,
     PropTypes.element
   ]).isRequired,
   color: PropTypes.shape({

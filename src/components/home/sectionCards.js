@@ -14,22 +14,21 @@ const Wrapper = styled.section`
   `)}
 `
 
-const SectionCards = ({ cards, language }) => (
+const SectionCards = ({ cards }) => (
   <Wrapper>
-    {cards.map(card => (
+    {cards.map((card, id) => (
       <Card
-        key={card[language].id}
-        title={card[language].title}
-        img={card[language].img}
-        card={card[language].id}
+        key={card.header}
+        title={card.header}
+        img={card.image}
+        cardId={id}
       />
     ))}
   </Wrapper>
 )
 
 SectionCards.propTypes = {
-  cards: PropTypes.array.isRequired,
-  language: PropTypes.string.isRequired
+  cards: PropTypes.array.isRequired
 }
 
 export default SectionCards

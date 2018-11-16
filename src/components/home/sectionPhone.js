@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GatsbyImg from 'gatsby-image'
-import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
@@ -57,7 +56,7 @@ const Phone = ({ image } ) => (
     <GatsbyImg
       alt='Mintfort Crypto Phone'
       title='Mintfort Crypto Phone'
-      fluid={image.childImageSharp.fluid}
+      fluid={image.fluid}
     />
   </PhoneWrapper>
 )
@@ -66,46 +65,23 @@ Phone.propTypes = {
   image: PropTypes.object.isRequired
 }
 
-const SectionPhone = ({ windowWidth }) => (
-  <StaticQuery
-    query={query}
-    render={({ big, small }) => (
-      <Wrapper>
-        <DividerEnd />
-        <ImageWrapper>
-          <Fade>
-            {windowWidth > screenBreak.phone ?
-              <Phone image={big} /> :
-              <Phone image={small} />
-            }
-          </Fade>
-        </ImageWrapper>
-      </Wrapper>
-    )}
-  />
+const SectionPhone = ({ windowWidth, images }) => (
+  <Wrapper>
+    <DividerEnd />
+    <ImageWrapper>
+      <Fade>
+        {windowWidth > screenBreak.phone ?
+          <Phone image={images[0]} /> :
+          <Phone image={images[1]} />
+        }
+      </Fade>
+    </ImageWrapper>
+  </Wrapper>
 )
 
 SectionPhone.propTypes = {
-  windowWidth: PropTypes.number
+  windowWidth: PropTypes.number,
+  images: PropTypes.array.isRequired
 }
 
-export default () => addWindowWidth(SectionPhone)
-
-const query = graphql`
-  {
-    big: file(relativePath: { regex: "/crypto_phone/"}) {
-      childImageSharp {
-        fluid(maxWidth: 650) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-    small: file(relativePath: { regex: "/crypto_phone-mobile/"}) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`
+export default ({ images }) => addWindowWidth(SectionPhone, { images })

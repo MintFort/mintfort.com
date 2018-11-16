@@ -12,79 +12,89 @@ import SectionGirl from './sectionGirl'
 import SectionPhone from './sectionPhone'
 import SectionCards from './sectionCards'
 import SectionBoxes from './sectionBoxes'
-import SectionBeta from './sectionBeta'
+// import SectionBeta from './sectionBeta'
 import SectionNews from './sectionNews'
 
 import {
   // hero,
-  imagine,
-  buy,
-  access,
-  cards,
-  boxes,
-  control,
-  form,
-  news
+  // imagine,
+  // buy,
+  // access,
+  // cards,
+  boxes
+  // control,
+  // form
+  // news
 } from 'data/home.yml'
 
-import { hero as portfolio, shop } from 'data/download.yml'
+// import { 
+//   hero as portfolio,
+//   shop
+// } from 'data/download.yml'
 
-const Home = ({ data, language }) => (
-  <WindowWidthProvider>
-    <Hero
-      id='home'
-      title={data.hero.header}
-      subTitle={data.hero.subheader}
-      body={data.hero.description}
-      img={data.hero.image}
-      button={form[language].button}
-      scrollId='imagine'
-    />
-    <div id={"imagine"}/>
-    <SectionText
-      title={imagine[language].title}
-      content={imagine[language].subTitle}
-      padding={'14vh 0 4vh'}
-    />
-    <SectionGirl />
-    <SectionText
-      title={buy[language].title}
-      content={buy[language].subTitle}
-      padding={'8vh 0'}
-      color={{
-        background: 'gray'
-      }}
-    />
-    <SectionPhone />
-    <SectionCards
-      cards={cards}
-      language={language}
-    />
-    <SectionText
-      title={access[language].title}
-      content={access[language].subTitle}
-    />
-    <SectionBoxes
-      data={boxes}
-      language={language}
-    />
-    <SectionBeta
-      title={portfolio[language].subTitle}
-      content={portfolio[language].body}
-      img={shop[language].img}
-    />
-    <SectionNews
-      title={news[language].title}
-      subtitle={news[language].subTitle}
-    />
-    <Subscribe
-      title={control[language].title}
-      subTitle={control[language].subTitle}
-      formTitle={form[language].title}
-      button={form[language].button}
-    />
-  </WindowWidthProvider>
-)
+const Home = ({ data, language }) => {
+  console.log(data)
+  const [imagine, buy, access, news] = data.sections
+  return (
+    <WindowWidthProvider>
+      <Hero
+        id='home'
+        title={data.hero.header}
+        subTitle={data.hero.subheader}
+        body={data.hero.description}
+        img={data.hero.image}
+        button={data.form.buttonText}
+        scrollId='imagine'
+      />
+      <div id={"imagine"}/>
+      <SectionText
+        title={imagine.header}
+        content={imagine.description}
+        padding={'14vh 0 4vh'}
+      />
+      <SectionGirl
+        images={imagine.images}
+      />
+      <SectionText
+        title={buy.header}
+        content={buy.description}
+        padding={'8vh 0'}
+        color={{
+          background: 'gray'
+        }}
+      />
+      <SectionPhone
+        images={buy.images}
+      />
+      <SectionCards
+        cards={data.cardsSection.cards}
+      />
+      <SectionText
+        title={access.header}
+        content={access.description}
+      />
+      <SectionBoxes
+        data={boxes}
+        language={language}
+      />
+      {/* <SectionBeta
+        title={portfolio[language].subTitle}
+        content={portfolio[language].body}
+        img={shop[language].img}
+      /> */}
+      <SectionNews
+        title={news.header}
+        subtitle={news.description}
+      />
+      <Subscribe
+        title={data.form.sectionText.header}
+        subTitle={data.form.sectionText.description}
+        formTitle={data.form.header}
+        button={data.form.buttonText}
+      />
+    </WindowWidthProvider>
+  )
+}
 
 Home.propTypes = {
   language: PropTypes.string.isRequired,
