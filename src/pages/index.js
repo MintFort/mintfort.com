@@ -5,9 +5,9 @@ import { graphql } from "gatsby"
 import Layout from 'components/layout'
 import Home from 'components/home/home'
 
-const IndexPage = ({ data: { page }, location }) => (
+const IndexPage = ({ data: { contentfulPage }, location }) => (
   <Layout location={location}>
-    <Home data={page}/>
+    <Home data={contentfulPage}/>
   </Layout>
 )
 
@@ -20,24 +20,8 @@ export default IndexPage
 
 export const indexQuery = graphql`
   query($local: String) {
-    page: contentfulPage(
-      title: { regex:"/home/i" },
-      node_locale: { regex: $local }
-    ) {
-      hero {
-        header
-        subheader
-        description {
-          md: childMarkdownRemark {
-            html
-          }
-        }
-        image {
-          fluid(maxWidth: 340) {
-            ...GatsbyContentfulFluid_noBase64
-          }
-        }
-      }
+    contentfulPage( title: { regex:"/home/i" }, node_locale: { regex: $local } ) {
+      ...HomePage
     }
   }
 `
