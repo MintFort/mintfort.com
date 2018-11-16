@@ -66,6 +66,6 @@ export const Card = ({ img, title, cardId }) => (
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  img: PropTypes.object.isRequired,
   cardId: PropTypes.number.isRequired
 }

@@ -29,21 +29,21 @@ class SectionBoxes extends React.Component {
   }
 
   render(){
-    const { data, language } = this.props
+    const { data } = this.props
     const { animate } = this.state
+
     return (
       <>
         <Waypoint
           onEnter={() => this.toogleShow(true)}
         />
         <Section>
-          {data.map(box => (
+          {data.map((box, id) => (
             <Box
-              key={box[language].id}
+              key={box.header}
               animate={animate}
-              title={box[language].title}
-              component={box[language].component}
-              id={box[language].id}
+              title={box.header}
+              id={id + 1}
             />
           ))}
         </Section>
@@ -53,8 +53,7 @@ class SectionBoxes extends React.Component {
 }
 
 SectionBoxes.propTypes = {
-  data: PropTypes.array.isRequired,
-  language: PropTypes.string.isRequired
+  data: PropTypes.array.isRequired
 }
 
 export default SectionBoxes

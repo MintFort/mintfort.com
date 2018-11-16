@@ -1,7 +1,18 @@
+/* eslint react/prop-types: 0 */
 import React from 'react'
 
-/* eslint react/prop-types: 0 */
-export const AI = ({ width }) => (
+// This is actually SmartLending
+export const Placeholder = ({ width }) => (
+  <svg width={width} height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="76.0909" height="76.0643" fill="black" fillOpacity="0" transform="translate(1 1.77502)"/>
+    <rect width="76.0909" height="76.0643" fill="black" fillOpacity="0" transform="translate(1 1.77502)"/>
+    <path d="M39.0455 1.77502C18.0333 1.77502 1 18.8024 1 39.8072C1 60.8119 18.0333 77.8393 39.0455 77.8393" stroke="#05A8F3" strokeWidth="3" strokeMiterlimit="10"/>
+    <path d="M39.0455 1.77502C60.0564 1.77502 77.0909 18.8024 77.0909 39.8072C77.0909 48.043 74.4719 55.6653 70.023 61.8903L63.1258 68.7864" stroke="#05A8F3" strokeWidth="3" strokeMiterlimit="10"/>
+    <path d="M62.3636 55.7561V69.2514H75.8636" stroke="#05A8F3" strokeWidth="3" strokeMiterlimit="10" strokeLinejoin="bevel"/>
+  </svg>
+)
+
+export const AITradingBot = ({ width }) => (
   <svg width={width} height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="76.0909" height="76.0643" fill="black" fillOpacity="0" transform="translate(1.90909 1)"/>
     <rect width="76.0909" height="76.0643" fill="black" fillOpacity="0" transform="translate(1.90909 1)"/>
@@ -13,7 +24,7 @@ export const AI = ({ width }) => (
   </svg>
 )
 
-export const P2P = ({ width }) => (
+export const P2PTransfer = ({ width }) => (
   <svg width={width} height="24" viewBox="0 0 79 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="77.3182" height="22.0832" fill="black" fillOpacity="0" transform="translate(0.454544 1.01324)"/>
     <rect width="77.3182" height="22.0832" fill="black" fillOpacity="0" transform="translate(0.454544 1.01324)"/>
@@ -32,7 +43,7 @@ export const PaymentSolution = ({ width }) => (
   </svg>
 )
 
-export const Portfolio = ({ width }) => (
+export const PortfolioManagement = ({ width }) => (
   <svg width={width} height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="76.0897" height="76.063" fill="black" fillOpacity="0" transform="translate(1.90909 1.29492)"/>
     <rect width="76.0897" height="76.063" fill="black" fillOpacity="0" transform="translate(1.90909 1.29492)"/>
@@ -63,7 +74,7 @@ export const SmartLending = ({ width }) => (
   </svg>
 )
 
-export const Tokenized = ({ width }) => (
+export const TokenizedFund = ({ width }) => (
   <svg width={width} height="79" viewBox="0 0 66 79" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="63.8182" height="76.0643" fill="black" fillOpacity="0" transform="translate(1.13636 1.37619)"/>
     <rect width="63.8182" height="76.0643" fill="black" fillOpacity="0" transform="translate(1.13636 1.37619)"/>

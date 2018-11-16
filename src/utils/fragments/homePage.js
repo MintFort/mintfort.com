@@ -52,5 +52,10 @@ export const HomePage = graphql`
         }
       }
     }
+    boxSection {
+      boxes {
+        header
+      }
+    }
   }
 `
