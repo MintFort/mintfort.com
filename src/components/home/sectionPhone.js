@@ -37,7 +37,7 @@ const ImageWrapper = styled.div`
 `
 
 const PhoneWrapper = styled.div`
-  width: ${rem(650)};
+  width: ${rem(675)};
 
   ${mobile(css`
     max-width: ${rem(500)};
@@ -54,6 +54,7 @@ const PhoneWrapper = styled.div`
 const Phone = ({ image } ) => (
   <PhoneWrapper>
     <GatsbyImg
+      style={{ maxWidth: 675 }}
       alt='Mintfort Crypto Phone'
       title='Mintfort Crypto Phone'
       fluid={image.fluid}

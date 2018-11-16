@@ -35,7 +35,7 @@ export const HomePage = graphql`
       name
       ...Section
       images {
-        fluid(maxWidth: 650) {
+        fluid(maxWidth: 675) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
