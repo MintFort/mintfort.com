@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { addLang } from 'utils/context/language'
-import { WindowWidthProvider } from 'utils/context/windowWidth'
+import { addLang } from '../../utils/context/language'
+import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
-import Hero from 'components/hero'
-import SectionText from 'components/sectionText'
+import Hero from '../../components/hero'
+import SectionText from '../../components/sectionText'
 
-import Subscribe from './formRegister'
+import SectionForm from './sectionForm'
 import SectionGirl from './sectionGirl'
 import SectionPhone from './sectionPhone'
 import SectionCards from './sectionCards'
@@ -28,7 +28,8 @@ const Home = ({
   const [imagine, buy, access, news] = data.sections
   return (
     <WindowWidthProvider>
-      <Hero {...data.hero}
+      <Hero
+        {...data.hero}
         id='home'
         scrollId='imagine'
       />
@@ -67,7 +68,7 @@ const Home = ({
       <SectionNews
         {...news}
       />
-      <Subscribe
+      <SectionForm
         {...data.form}
       />
     </WindowWidthProvider>

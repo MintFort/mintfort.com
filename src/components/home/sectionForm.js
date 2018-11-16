@@ -122,7 +122,7 @@ DisplayMessage.propTypes = {
 
 
 
-class Register extends Component {
+class ContactForm extends Component {
   state = {
     name: '',
     email: '',
@@ -221,7 +221,7 @@ class Register extends Component {
   }
 }
 
-Register.propTypes = {
+ContactForm.propTypes = {
   sectionText: PropTypes.shape({
     header: PropTypes.string.isRequired,
     description: PropTypes.shape({
@@ -232,4 +232,4 @@ Register.propTypes = {
   buttonText: PropTypes.string.isRequired
 }
 
-export default Register
+export default ContactForm
