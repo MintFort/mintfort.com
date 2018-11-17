@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
+import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
@@ -8,7 +9,7 @@ import SectionText from 'components/sectionText'
 
 import { addLang } from 'utils/context/language'
 
-import { Button, Img } from 'library'
+import { Button } from 'library'
 import { flex, phone, rem } from 'library/utils'
 
 const Wrapper = styled.div`
@@ -62,13 +63,13 @@ const Inner = styled.div`
   `)}
 `
 
-const SectionBeta = ({ title, content, language, img }) => (
+const SectionBeta = ({ header, description, language, images }) => (
   <Wrapper>
     <Circle />
     <Inner>
       <SectionText
-        title={title}
-        content={content}
+        header={header}
+        description={description}
         padding='0 0 4vh'
       />
       <Button onClick={() => navigate(`${language}/portfolio`)}>
@@ -77,9 +78,10 @@ const SectionBeta = ({ title, content, language, img }) => (
     </Inner>
     <div className='image'>
       <Fade>
-        <Img
-          file={img}
-          alt='portfolio'
+        <GatsbyImg
+          alt={header}
+          title={header}
+          fluid={images[0].fluid}
         />
       </Fade>
     </div>
@@ -87,10 +89,10 @@ const SectionBeta = ({ title, content, language, img }) => (
 )
 
 SectionBeta.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.object.isRequired,
   language: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
+  images: PropTypes.array.isRequired
 }
 
 export default props => addLang(SectionBeta, props)

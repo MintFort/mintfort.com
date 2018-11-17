@@ -12,20 +12,12 @@ import SectionGirl from './sectionGirl'
 import SectionPhone from './sectionPhone'
 import SectionCards from './sectionCards'
 import SectionBoxes from './sectionBoxes'
-// import SectionBeta from './sectionBeta'
+import SectionBeta from './sectionBeta'
 import SectionNews from './sectionNews'
 
-// import {
-//   hero as portfolio,
-//   shop
-// } from 'data/download.yml'
+const Home = ({ data }) => {
+  const [imagine, buy, access, portfolio, news] = data.sections
 
-const Home = ({
-  data
-  // language
-}) => {
-  // console.log(data)
-  const [imagine, buy, access, news] = data.sections
   return (
     <WindowWidthProvider>
       <Hero
@@ -60,11 +52,9 @@ const Home = ({
       <SectionBoxes
         {...data.boxSection}
       />
-      {/* <SectionBeta
-        title={portfolio[language].subTitle}
-        content={portfolio[language].body}
-        img={shop[language].img}
-      /> */}
+      <SectionBeta
+        {...portfolio}
+      />
       <SectionNews
         {...news}
       />
