@@ -2,11 +2,13 @@ import { graphql } from "gatsby"
 
 export const Commons = graphql`
   fragment Hero on ContentfulHero {
-    header
-    subheader
-    description {
-      md: childMarkdownRemark {
-        html
+    subHeader
+    content {
+      header
+      description {
+        md: childMarkdownRemark {
+          html
+        }
       }
     }
   }

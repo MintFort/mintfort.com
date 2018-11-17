@@ -154,26 +154,26 @@ const Sub = styled(SubHeader)`
   }
 `
 
-const Text = ({ title, subTitle, body, button }) => (
+const Text = ({ subHeader, header, description, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
       color='lightFont'
       size={18}
     >
-      {title}
+      {subHeader}
     </Header>
     <Title
       style={{ margin: `0 0 ${rem(20)}` }}
       size={72}
       color="#fff"
     >
-      {subTitle}
+      {header}
     </Title>
     <Sub
       style={{ margin: `0 0 ${rem(8)}` }}
       size={18}
-      dangerouslySetInnerHTML={{ __html: body.md.html }}
+      dangerouslySetInnerHTML={{ __html: description.md.html }}
     />
     {
       button && button.length &&
@@ -188,13 +188,10 @@ const Text = ({ title, subTitle, body, button }) => (
 )
 
 Text.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  subHeader: PropTypes.string.isRequired,
   button: PropTypes.string,
-  body: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]).isRequired
+  description: PropTypes.object.isRequired
 }
 
 const Image = ({ image, id }) => (
@@ -218,7 +215,7 @@ Image.propTypes = {
 }
 
 
-const Hero = ({ header, subheader, description, image, scrollId, buttonText, id }) => (
+const Hero = ({ subHeader, content, image, scrollId, buttonText, id }) => (
   <Wrapper>
     <StartPageBackground />
     <Content>
@@ -227,10 +224,10 @@ const Hero = ({ header, subheader, description, image, scrollId, buttonText, id 
         image={image}
       />
       <Text
+        header={content.header}
+        subHeader={subHeader}
+        description={content.description}
         button={buttonText}
-        title={header}
-        subTitle={subheader}
-        body={description}
       />
     </Content>
     <IconWrapper>
@@ -246,12 +243,11 @@ const Hero = ({ header, subheader, description, image, scrollId, buttonText, id 
 )
 
 Hero.propTypes = {
-  header: PropTypes.string.isRequired,
-  subheader: PropTypes.string.isRequired,
-  description: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]).isRequired,
+  subHeader: PropTypes.string.isRequired,
+  content: PropTypes.shape({
+    header: PropTypes.string,
+    description: PropTypes.object
+  }).isRequired,
   image: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   scrollId: PropTypes.string,
