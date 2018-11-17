@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from "gatsby"
 
-import Layout from 'components/layout'
-import Home from 'components/home/home'
+import Layout from '../components/layout'
+import Home from '../components/home'
 
 const IndexPage = ({ data: { contentfulPage }, location }) => (
   <Layout location={location}>

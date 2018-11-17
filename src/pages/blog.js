@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Layout from 'components/layout'
-import Blog from 'components/blog/blog'
+import Layout from '../components/layout'
+import Blog from '../components/blog'
 
 const BlogPage = ({ location, data: { medium: { posts } } }) => (
   <Layout location={location}>
