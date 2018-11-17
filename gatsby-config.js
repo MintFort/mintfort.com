@@ -9,7 +9,6 @@ module.exports = {
     ...config
   },
   plugins: [
-    'gatsby-transformer-yaml',
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
