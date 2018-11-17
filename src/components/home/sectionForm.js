@@ -173,6 +173,7 @@ class ContactForm extends Component {
       <Wrapper>
         <div style={{ width: '100%' }}>
           <SectionText
+            pre
             header={header}
             description={description}
             color={{ title: "whiteFont" }}

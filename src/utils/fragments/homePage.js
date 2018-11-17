@@ -7,7 +7,7 @@ export const Commons = graphql`
       header
       description {
         md: childMarkdownRemark {
-          html
+          rawMarkdownBody
         }
       }
     }
@@ -17,7 +17,7 @@ export const Commons = graphql`
     header
     description {
       md: childMarkdownRemark {
-        html
+        rawMarkdownBody
       }
     }
   }

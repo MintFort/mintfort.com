@@ -133,8 +133,9 @@ const SectionNews = ({ header, description }) => (
             </Header>
             <Paragraph
               onClick={() => navigate(`/blog/`)}
-              dangerouslySetInnerHTML={{ __html: description.md.html }}
-            />
+            >
+              {description.md.rawMarkdownBody}
+            </Paragraph>
           </Fade>
           <Fade delay={200}>
             <div className='content'>

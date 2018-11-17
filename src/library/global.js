@@ -15,6 +15,11 @@ export const theme = {
   navHeight
 }
 const GlobalStyle = createGlobalStyle`
+  *::selection {
+    color: ${theme.blue};
+    background: ${theme.mint};
+  }
+
   a {
     text-decoration: none;
     color: #1f1f1f;

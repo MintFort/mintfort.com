@@ -60,7 +60,7 @@ const ContactCard = ({ data: { city, mail, address, icon } }) => (
     <div className="inner">
       <SubHeader style={{ margin: '4px 0' }}>{city}</SubHeader>
       <Paragraph
-        style={{ whiteSpace: 'pre' }}
+        pre
         size={13}
       >
         {address.md.rawMarkdownBody}

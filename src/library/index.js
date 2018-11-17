@@ -95,6 +95,10 @@ export const Paragraph = styled.p`
   ${({ color }) => color && css`
     color: ${({ theme }) => theme[color]};
   `}
+
+  ${({ pre }) => pre && css`
+    white-space: pre;
+  `}
 `
 
 export const Img = styled.img.attrs({

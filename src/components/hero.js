@@ -106,7 +106,6 @@ const ImageWrapper = styled.div`
     ${flex({ x: "center", y: 'flex-start' })};
 
   `)}
-
 `
 
 const StaticImage = styled.div`
@@ -121,6 +120,10 @@ const StaticImage = styled.div`
     `)}
   `}
 
+  ${({ id }) => id === 'home' && css`
+    cursor: pointer;
+  `}
+
   ${phone(css`
     transform: none;
     min-width: 320px;
@@ -130,7 +133,7 @@ const StaticImage = styled.div`
     `}
   `)}
 
-  transition: all .2s;
+  transition: transform .2s ease-in;
 `
 
 export const EarlyAccess = styled(Button)`
@@ -173,8 +176,9 @@ const Text = ({ subHeader, header, description, button }) => (
     <Sub
       style={{ margin: `0 0 ${rem(8)}` }}
       size={18}
-      dangerouslySetInnerHTML={{ __html: description.md.html }}
-    />
+    >
+      {description.md.rawMarkdownBody}
+    </Sub>
     {
       button && button.length &&
       <EarlyAccess

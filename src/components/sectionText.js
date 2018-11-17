@@ -25,7 +25,7 @@ const Wrapper = styled(Container)`
   `)}
 `
 
-const Text = ({ header, description, color }) => (
+const Text = ({ header, description, color, pre }) => (
   <Container centrate>
     <Wrapper col>
       <Fade>
@@ -39,9 +39,11 @@ const Text = ({ header, description, color }) => (
           {
             description.md ?
               <Paragraph
+                pre={pre}
                 color={color && color.paragraph}
-                dangerouslySetInnerHTML={{ __html: description.md.html }}
-              /> :
+              >
+                {description.md.rawMarkdownBody}
+              </Paragraph> :
               description
           }
         </Fade>
@@ -56,15 +58,17 @@ Text.propTypes = {
     PropTypes.object,
     PropTypes.element
   ]).isRequired,
-  color: PropTypes.object
+  color: PropTypes.object,
+  pre: PropTypes.bool
 }
 
-const SectionText = ({ header, description, color, padding }) => (
+const SectionText = ({ header, description, color, padding, pre }) => (
   <Background
     padding={padding}
     color={color}
   >
     <Text
+      pre={pre}
       header={header}
       description={description}
       color={color}
@@ -83,7 +87,12 @@ SectionText.propTypes = {
     paragraph: PropTypes.string,
     title: PropTypes.string
   }),
-  padding: PropTypes.string
+  padding: PropTypes.string,
+  pre: PropTypes.bool
+}
+
+SectionText.defaultProps = {
+  pre: false
 }
 
 

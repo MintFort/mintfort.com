@@ -22,6 +22,7 @@ const Home = ({ data }) => {
     <WindowWidthProvider>
       <Hero
         {...data.hero}
+        buttonText={data.form.buttonText}
         id='home'
         scrollId='imagine'
       />
