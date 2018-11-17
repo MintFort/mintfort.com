@@ -3,14 +3,6 @@ const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const { languages } = require('./siteConfig')
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"]
-    }
-  })
-}
-
 exports.onCreateNode = async ({ node, store, cache, actions: { createNode } }) => {
 
   if (node.internal.type === "MediumPost" && node.virtuals.previewImage.imageId.length) {
@@ -55,7 +47,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(reso
           }
         })
       }
-      
+
     })
     resolve()
   })

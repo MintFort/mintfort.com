@@ -12,7 +12,8 @@ export default class Redirect extends React.PureComponent {
     const { languages, pathname } = props.pageContext
 
     if (typeof window !== 'undefined') {
-      const lang = localStorage.getItem('lang') || browserLang({ languages, fallback: languages[0] })
+      const lang = localStorage.getItem('lang') ||
+        browserLang({ languages, fallback: languages[0] })
 
       localStorage.setItem('lang', lang)
       navigate(`/${lang}${pathname}`)

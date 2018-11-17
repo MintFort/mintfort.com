@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
-import { flex, phone, rem } from 'library/utils'
+import { flex, phone, rem } from '../../library/utils'
 
-import DividerStart from 'components/backgrounds/start'
-import LinesDivider from 'components/backgrounds/linesDivider'
+import DividerStart from '../../components/backgrounds/start'
+import LinesDivider from '../../components/backgrounds/linesDivider'
 
 const Wrapper = styled.div`
   position: relative;

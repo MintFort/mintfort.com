@@ -3,12 +3,12 @@ import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, phone } from 'library/utils'
-import { Button } from 'library'
+import { flex, rem, phone } from '../library/utils'
+import { Button } from '../library'
 
-import logo from 'assets/svg/logo_name.svg'
-import logoWhite from 'assets/svg/logo_name_white.svg'
-import logoMobile from 'assets/svg/logo.svg'
+import logo from '../assets/svg/logo_name.svg'
+import logoWhite from '../assets/svg/logo_name_white.svg'
+import logoMobile from '../assets/svg/logo.svg'
 
 const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}

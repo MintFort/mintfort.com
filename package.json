@@ -67,7 +67,7 @@
     "serve": "gatsby serve --open",
     "deploy": "npm run build && node deploy",
     "lint:css": "stylelint './src/**/*.js'",
-    "lint:js": "eslint ./src/. --fix",
+    "lint:js": "eslint ./src/.",
     "lint": "run-s lint:js lint:css",
     "clear": "rm -rf ./.cache ./public"
   },

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Card from './card'
-import { WindowWidthProvider } from 'utils/context/windowWidth'
+import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
 export const medium = ({ title, author, image, uniqueSlug, createdAt, virtuals: { subtitle } }) => {
   const mediumUrl = 'https://medium.com'

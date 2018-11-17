@@ -1,4 +1,4 @@
-/* eslint react/prop-types: 0 */
+/* eslint react/prop-types: 0 max-len: 0 */
 import React from 'react'
 
 // This is actually SmartLending

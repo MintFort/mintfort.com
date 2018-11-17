@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import dividerStart from 'assets/svg/divider_start.svg'
-import dividerStartHome from 'assets/svg/divider_start-home.svg'
+import dividerStart from '../../assets/svg/divider_start.svg'
+import dividerStartHome from '../../assets/svg/divider_start-home.svg'
 
 const Divider = ({ style, diagonal }) => (
   <div style={{

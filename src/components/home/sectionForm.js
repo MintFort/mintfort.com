@@ -5,14 +5,13 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
 import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
-import EndPageBackground from 'components/backgrounds/pageEnd'
-import { EarlyAccess as Submit } from 'components/hero'
+import EndPageBackground from '../../components/backgrounds/pageEnd'
+import { EarlyAccess as Submit } from '../../components/hero'
+import SectionText from '../../components/sectionText'
 
-import SectionText from 'components/sectionText'
-
-import { theme } from 'library/global'
-import { Header } from 'library'
-import { flex, rem, phone } from 'library/utils'
+import { theme } from '../../library/global'
+import { Header } from '../../library'
+import { flex, rem, phone } from '../../library/utils'
 
 const Wrapper = styled.section`
   height: 1100px;

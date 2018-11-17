@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import MtSvgLines from 'react-mt-svg-lines'
 
-import { addWindowWidth } from 'utils/context/windowWidth'
-import { Paragraph, Container } from 'library'
-import { rem, phone, mobile, screenBreak } from 'library/utils'
+import { addWindowWidth } from '../utils/context/windowWidth'
+import { Paragraph, Container } from '../library'
+import { rem, phone, mobile, screenBreak } from '../library/utils'
 
 const border = color => `1px solid ${color}`
 
@@ -46,10 +46,10 @@ const Wrapper = styled.div`
 
 const Icon = ({ component, width }) => {
   const name = component.replace(/ /g, "")
-  const Component = require('components/SVG/icons')[name]
+  const Component = require('./SVG/icons')[name]
 
   if (!Component) {
-    const { Placeholder } = require('components/SVG/icons')
+    const { Placeholder } = require('./SVG/icons')
     return <Placeholder width={width}/>
   }
 
