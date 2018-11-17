@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import GatsbyImage from 'gatsby-image'
 
-import { flex, mobile, phone } from 'library/utils'
-import { SubHeader, Paragraph, Button } from 'library'
+import { flex, mobile, phone } from '../../library/utils'
+import { SubHeader, Paragraph, Button } from '../../library'
 
 const SectionWrapper = styled.footer`
   ${flex}
@@ -82,13 +82,13 @@ ContactCard.propTypes = {
   data: PropTypes.shape({
     city: PropTypes.string,
     mail: PropTypes.string,
-    address: PropTypes.string,
-    icon: PropTypes.string
+    address: PropTypes.object,
+    icon: PropTypes.object
   }).isRequired
 }
 
 
-const SectionContact = ({ contact }) => console.log(contact)||(
+const SectionContact = ({ contact }) => (
   <SectionWrapper>
     {contact.map(({ city, mail, address, icon }) => (
       <ContactCard
@@ -100,7 +100,7 @@ const SectionContact = ({ contact }) => console.log(contact)||(
 )
 
 SectionContact.propTypes = {
-  contact: PropTypes.object
+  contact: PropTypes.array.isRequired
 }
 
 export default SectionContact
