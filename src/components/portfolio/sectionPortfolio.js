@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Fade from 'react-reveal/Fade'
+import GatsbyImg from 'gatsby-image'
 
-import DividerEnd from 'components/backgrounds/end'
-import { flex, phone, mobile, rem } from 'library/utils'
-import { Img } from 'library'
+import DividerEnd from '../../components/backgrounds/end'
+import { flex, phone, mobile, rem } from '../../library/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -37,22 +36,22 @@ const ImageWrapper = styled.div`
   transition: all .2s;
 `
 
-const Divider = ({ img }) => (
+const SectionPortfolio = ({ images }) => (
   <Wrapper>
     <DividerEnd />
     <ImageWrapper>
-      <Fade>
-        <Img
-          alt='portfolio'
-          file={img}
-        />
-      </Fade>
+      <GatsbyImg
+        style={{ width: "100%", maxWidth: 825 }}
+        alt='Portfolio tracker'
+        title='Portfolio tracker'
+        fluid={images[0].fluid}
+      />
     </ImageWrapper>
   </Wrapper>
 )
 
-Divider.propTypes = {
-  img: PropTypes.string.isRequired
+SectionPortfolio.propTypes = {
+  images: PropTypes.array.isRequired
 }
 
-export default Divider
+export default SectionPortfolio

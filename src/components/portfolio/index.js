@@ -1,56 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { addLang } from 'utils/context/language'
+import { addLang } from '../../utils/context/language'
 
-import Hero from 'components/hero'
-import SectionText from 'components/sectionText'
+import Hero from '../hero'
+import SectionText from '../sectionText'
 
-import Logos from './exchangeLogos'
-import DividerPortfolioGif from './sectionPortfolio'
+import SectionPortfolio from './sectionPortfolio'
 import SectionDownload from './sectionDownload'
+import SectionExchanges from './sectionExchanges'
 
-import {
-  // hero,
-  download,
-  shop,
-  exchanges
-} from 'data/download.yml'
-
-const Portfolio = ({ data, language }) => (
+const Portfolio = ({ data }) => {
+  const [download, shop] = data.sections
+  return (
   <>
     <Hero
+      {...data.hero}
       id='portfolio'
-      title={data.hero.header}
-      subTitle={data.hero.subheader}
-      body={data.hero.description}
-      img={data.hero.image}
       scrollId='download'
     />
     <div id={"download"}/>
     <SectionDownload
-      title={download[language].title}
+      {...download}
     />
     <SectionText
-      title={shop[language].title}
-      content={shop[language].subTitle}
+      {...shop}
       padding='6vh 0'
       color={{
         background: 'gray'
       }}
     />
-    <DividerPortfolioGif
-      img={shop[language].img}
+    <SectionPortfolio
+      images={shop.images}
     />
-    <SectionText
-      title={exchanges[language].title}
-      content={<Logos logos={exchanges[language].logos}/>}
+    <SectionExchanges
+      {...data.boxSection}
     />
   </>
-)
-
+  )
+}
 Portfolio.propTypes = {
-  language: PropTypes.string.isRequired,
   data: PropTypes.shape({
     hero: PropTypes.object
   })

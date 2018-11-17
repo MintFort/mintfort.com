@@ -5,12 +5,12 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import SectionText from 'components/sectionText'
+import SectionText from '../../components/sectionText'
 
-import { addLang } from 'utils/context/language'
+import { addLang } from '../../utils/context/language'
 
-import { Button } from 'library'
-import { flex, phone, rem } from 'library/utils'
+import { Button } from '../../library'
+import { flex, phone, rem } from '../../library/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -79,8 +79,8 @@ const SectionBeta = ({ header, description, language, images }) => (
     <div className='image'>
       <Fade>
         <GatsbyImg
-          alt={header}
-          title={header}
+          alt='Portfolio tracker'
+          title='Portfolio tracker'
           fluid={images[0].fluid}
         />
       </Fade>
