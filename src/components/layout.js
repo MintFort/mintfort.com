@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 
-import Header from 'components/header'
-import Footer from 'components/footer'
-import SectionContact from 'components/sectionContact'
+import Header from './header'
+import Footer from './footer'
 
-import SEO from 'utils/seo'
-import { LanguageProvider, addLang } from 'utils/context/language'
+import SEO from '../utils/seo'
+import { LanguageProvider, addLang } from '../utils/context/language'
 
-import GlobalStyle, { theme } from 'library/global'
+import GlobalStyle, { theme } from '../library/global'
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -25,7 +24,6 @@ const Layout = ({ children, location }) => (
             <main>
               {children}
             </main>
-            <SectionContact />
             <Footer path={location.pathname}/>
           </LanguageProvider>
         </ThemeProvider>

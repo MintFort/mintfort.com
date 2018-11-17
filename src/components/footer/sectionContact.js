@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
+import GatsbyImage from 'gatsby-image'
 
 import { flex, mobile, phone } from 'library/utils'
-import { Img, SubHeader, Paragraph, Button } from 'library'
+import { SubHeader, Paragraph, Button } from 'library'
 
 const SectionWrapper = styled.footer`
   ${flex}
@@ -52,18 +52,19 @@ const CardWrapper = styled.div`
 
 const ContactCard = ({ data: { city, mail, address, icon } }) => (
   <CardWrapper city={city}>
-    <Img
-      width={90}
-      style={{ margin: 10 }}
+    <GatsbyImage
+      style={{ width: 90 }}
       alt={city}
-      file={icon}
+      fixed={icon.fixed}
     />
     <div className="inner">
       <SubHeader style={{ margin: '4px 0' }}>{city}</SubHeader>
       <Paragraph
+        style={{ whiteSpace: 'pre' }}
         size={13}
-        dangerouslySetInnerHTML={{ __html: address }}
-      />
+      >
+        {address.md.rawMarkdownBody}
+      </Paragraph>
     </div>
     <Button
       as='a'
@@ -87,20 +88,15 @@ ContactCard.propTypes = {
 }
 
 
-const SectionContact = () => (
-  <StaticQuery
-    query={query}
-    render={({ site: { meta: { contact } } }) => (
-      <SectionWrapper>
-        {contact.map(({ city, mail, address, icon }) => (
-          <ContactCard
-            key={city}
-            data={{ city, mail, address, icon }}
-          />
-        ))}
-      </SectionWrapper>
-    )}
-  />
+const SectionContact = ({ contact }) => console.log(contact)||(
+  <SectionWrapper>
+    {contact.map(({ city, mail, address, icon }) => (
+      <ContactCard
+        key={city}
+        data={{ city, mail, address, icon }}
+      />
+    ))}
+  </SectionWrapper>
 )
 
 SectionContact.propTypes = {
@@ -108,18 +104,3 @@ SectionContact.propTypes = {
 }
 
 export default SectionContact
-
-const query = graphql`
-  {
-    site {
-      meta: siteMetadata {
-        contact {
-          city
-          mail
-          address
-          icon
-        }
-      }
-    }
-  }
-`
