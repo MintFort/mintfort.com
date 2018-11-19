@@ -34,7 +34,7 @@ Markdown.propTypes = {
 
 export default Markdown
 
-export const pageQuery = graphql`
+export const markdownQuery = graphql`
   query($slug: String!) {
     page: contentfulMarkdownPage(slug: { eq: $slug }) {
       name

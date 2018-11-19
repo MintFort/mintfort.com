@@ -106,7 +106,7 @@ class Header extends Component {
 
     return (
       <StaticQuery
-        query={query}
+        query={HEADER_DATA}
         render={({ site: { meta: { nav } } }) => (
           <Wrapper
             transparent={transparent}
@@ -152,7 +152,7 @@ Header.propTypes = {
 
 export default Header
 
-const query = graphql`
+const HEADER_DATA = graphql`
   {
     site {
       meta: siteMetadata {

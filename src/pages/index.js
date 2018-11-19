@@ -18,7 +18,7 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-export const indexQuery = graphql`
+export const homeQuery = graphql`
   query($local: String) {
     contentfulPage( title: { regex:"/home/i" }, node_locale: { regex: $local } ) {
       ...HomePage

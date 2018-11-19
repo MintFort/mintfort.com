@@ -13,7 +13,7 @@ import GlobalStyle, { theme } from '../styles/global'
 
 const Layout = ({ children, location }) => (
   <StaticQuery
-    query={query}
+    query={LAYOUT_DATA}
     render={data => (
       <>
         <GlobalStyle />
@@ -39,7 +39,7 @@ Layout.propTypes = {
 
 export default Layout
 
-const query = graphql`
+const LAYOUT_DATA = graphql`
   {
     site {
       siteMetadata {

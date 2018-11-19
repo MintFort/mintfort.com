@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const SEO = ({ language, pathname }) => (
   <StaticQuery
-    query={query}
+    query={SITE_DATA}
     render={({
       site: {
         meta: {
@@ -62,7 +62,7 @@ SEO.defaultProps = {
 
 export default SEO
 
-const query = graphql`
+const SITE_DATA = graphql`
   {
     site {
       ...SEOMetadata

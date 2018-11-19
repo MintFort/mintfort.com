@@ -114,7 +114,7 @@ LinksSocial.propTypes = {
 
 const Footer = ({ path }) => (
   <StaticQuery
-    query={query}
+    query={FOOTER_DATA}
     render={({ footer, site: { meta } }) => (
       <>
         <SectionContact contact={footer.contactInfo}/>
@@ -142,7 +142,7 @@ Footer.propTypes = {
 
 export default Footer
 
-const query = graphql`
+const FOOTER_DATA = graphql`
   {
     site {
       meta: siteMetadata {

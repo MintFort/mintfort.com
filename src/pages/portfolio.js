@@ -18,7 +18,7 @@ PortfolioPage.propTypes = {
 
 export default PortfolioPage
 
-export const indexQuery = graphql`
+export const portfolioQuery = graphql`
   query($local: String) {
     contentfulPage( title: { regex:"/portfolio/i" }, node_locale: { regex: $local } ) {
       ...PortfolioPage
