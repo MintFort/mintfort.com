@@ -35,9 +35,9 @@ const Link = styled(GatsbLink)`
   font-size: ${rem(12)};
 `
 
-const ExternalLink = styled.a.attrs({
-  href: ({ to }) => to
-})`
+const ExternalLink = styled.a.attrs(({ to }) => ({
+  href: to
+}))`
   ${linkStyles}
   font-size: ${rem(16)};
 `

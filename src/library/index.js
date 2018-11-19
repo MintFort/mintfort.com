@@ -101,16 +101,6 @@ export const Paragraph = styled.p`
   `}
 `
 
-export const Img = styled.img.attrs({
-  src: ({ file }) => file && require(`../assets/images/${file}`)
-})`
-  display: block;
-  margin: 0;
-
-  height: ${({ height }) => height || "auto"};
-  width: ${({ width }) => width || "100%"};
-`
-
 export const Button = styled.button`
   font-weight: 500;
   font-size: ${rem(13)};
