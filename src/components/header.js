@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 
 import { flex, rem, phone } from '../styles/utils'
 import { Button } from '../styles'
+import { withLanguage } from '../utils/context/language'
 
 import logo from '../assets/svg/logo_name.svg'
 import logoWhite from '../assets/svg/logo_name_white.svg'
@@ -150,7 +151,7 @@ Header.propTypes = {
   location: PropTypes.object.isRequired
 }
 
-export default Header
+export default withLanguage(Header)
 
 const HEADER_DATA = graphql`
   {

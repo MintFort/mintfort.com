@@ -44,7 +44,7 @@ const Blog = ({ posts }) => (
 )
 
 Blog.propTypes = {
-  posts: PropTypes.object.isRequired
+  posts: PropTypes.array.isRequired
 }
 
 export default Blog

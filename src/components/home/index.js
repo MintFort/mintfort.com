@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { addLang } from '../../utils/context/language'
 import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
 import Hero from '../../components/hero'
@@ -67,10 +66,9 @@ const Home = ({ data }) => {
 }
 
 Home.propTypes = {
-  language: PropTypes.string.isRequired,
   data: PropTypes.shape({
     hero: PropTypes.object // TODO: Populate this
   }).isRequired
 }
 
-export default ({ data }) => addLang(Home, { data })
+export default Home

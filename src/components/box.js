@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import MtSvgLines from 'react-mt-svg-lines'
 
-import { addWindowWidth } from '../utils/context/windowWidth'
+import { withWindowWidth } from '../utils/context/windowWidth'
 import { Paragraph, Container } from '../styles'
 import { rem, phone, mobile, screenBreak } from '../styles/utils'
 
@@ -96,4 +96,4 @@ Box.propTypes = {
   windowWidth: PropTypes.number
 }
 
-export default props => addWindowWidth(Box, ...props)
+export default withWindowWidth(Box)

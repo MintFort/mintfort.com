@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { addLang } from '../../utils/context/language'
-
 import Hero from '../hero'
 import SectionText from '../sectionText'
 
@@ -45,4 +43,4 @@ Portfolio.propTypes = {
   })
 }
 
-export default ({ data }) => addLang(Portfolio, { data })
+export default Portfolio

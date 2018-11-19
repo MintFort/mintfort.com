@@ -7,7 +7,7 @@ import Header from './header'
 import Footer from './footer'
 
 import SEO from '../utils/seo'
-import { LanguageProvider, addLang } from '../utils/context/language'
+import { LanguageProvider } from '../utils/context/language'
 
 import GlobalStyle, { theme } from '../styles/global'
 
@@ -19,8 +19,8 @@ const Layout = ({ children, location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <LanguageProvider location={location}>
-            {addLang(SEO, { pathname: location.pathname })}
-            {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
+            {<SEO pathname={location.pathname} />}
+            {<Header siteTitle={data.site.siteMetadata.title} location={location} /> }
             <main>
               {children}
             </main>

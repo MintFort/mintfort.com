@@ -4,7 +4,7 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { addWindowWidth } from '../../utils/context/windowWidth'
+import { withWindowWidth } from '../../utils/context/windowWidth'
 import DividerEnd from '../../components/backgrounds/end'
 import { flex, phone, mobile, rem, screenBreak } from '../../styles/utils'
 
@@ -84,4 +84,4 @@ SectionPhone.propTypes = {
   images: PropTypes.array.isRequired
 }
 
-export default ({ images }) => addWindowWidth(SectionPhone, { images })
+export default withWindowWidth(SectionPhone)

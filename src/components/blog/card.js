@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { addWindowWidth } from '../../utils/context/windowWidth'
+import { withWindowWidth } from '../../utils/context/windowWidth'
 import { flex, rem, phone, mobile, hover, screenBreak } from '../../styles/utils'
 import { SubHeader, Paragraph } from '../../styles'
 
@@ -99,4 +99,4 @@ Card.propTypes = {
   }).isRequired
 }
 
-export default props => addWindowWidth(Card, ...props)
+export default withWindowWidth(Card)

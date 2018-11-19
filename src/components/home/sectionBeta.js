@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade'
 
 import SectionText from '../../components/sectionText'
 
-import { addLang } from '../../utils/context/language'
+import { withLanguage } from '../../utils/context/language'
 
 import { Button } from '../../styles'
 import { flex, phone, rem } from '../../styles/utils'
@@ -95,4 +95,4 @@ SectionBeta.propTypes = {
   images: PropTypes.array.isRequired
 }
 
-export default props => addLang(SectionBeta, props)
+export default withLanguage(SectionBeta)
