@@ -9,8 +9,8 @@ import SectionText from '../../components/sectionText'
 
 import { addLang } from '../../utils/context/language'
 
-import { Button } from '../../library'
-import { flex, phone, rem } from '../../library/utils'
+import { Button } from '../../styles'
+import { flex, phone, rem } from '../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;

@@ -6,9 +6,9 @@ import styled, { css } from 'styled-components'
 
 import SectionContact from './sectionContact'
 
-import { Container } from '../../library'
-import { theme } from '../../library/global'
-import { flex, rem, phone } from '../../library/utils'
+import { Container } from '../../styles'
+import { theme } from '../../styles/global'
+import { flex, rem, phone } from '../../styles/utils'
 
 const Wrapper = styled.footer`
   ${flex({ x: 'space-between', y: 'center' })}

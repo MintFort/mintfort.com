@@ -9,9 +9,9 @@ import EndPageBackground from '../../components/backgrounds/pageEnd'
 import { EarlyAccess as Submit } from '../../components/hero'
 import SectionText from '../../components/sectionText'
 
-import { theme } from '../../library/global'
-import { Header } from '../../library'
-import { flex, rem, phone } from '../../library/utils'
+import { theme } from '../../styles/global'
+import { Header } from '../../styles'
+import { flex, rem, phone } from '../../styles/utils'
 
 const Wrapper = styled.section`
   height: 1100px;

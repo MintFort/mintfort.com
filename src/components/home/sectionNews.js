@@ -6,8 +6,8 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
 import { medium } from '../../components/blog'
-import { rem, phone, mobile, hover, flex } from '../../library/utils'
-import { Header, SubHeader, Paragraph } from '../../library'
+import { rem, phone, mobile, hover, flex } from '../../styles/utils'
+import { Header, SubHeader, Paragraph } from '../../styles'
 
 const Wrapper = styled.section`
   ${flex}

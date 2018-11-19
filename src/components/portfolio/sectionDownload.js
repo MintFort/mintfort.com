@@ -7,7 +7,7 @@ import Divider from '../../components/backgrounds/start'
 
 import Icons from './downloadIcons'
 
-import { phone, mobile } from '../../library/utils'
+import { phone, mobile } from '../../styles/utils'
 
 
 const DividerWrapper = styled.div`

@@ -9,7 +9,7 @@ import Footer from './footer'
 import SEO from '../utils/seo'
 import { LanguageProvider, addLang } from '../utils/context/language'
 
-import GlobalStyle, { theme } from '../library/global'
+import GlobalStyle, { theme } from '../styles/global'
 
 const Layout = ({ children, location }) => (
   <StaticQuery

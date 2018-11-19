@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { Card } from '../../components/card'
-import { flex, phone } from '../../library/utils'
+import { flex, phone } from '../../styles/utils'
 
 const Wrapper = styled.section`
   ${flex};

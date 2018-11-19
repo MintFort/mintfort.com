@@ -4,8 +4,8 @@ import { FaApple, FaWindows } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { flex, rem, hover } from '../../library/utils'
-import { Paragraph } from '../../library'
+import { flex, rem, hover } from '../../styles/utils'
+import { Paragraph } from '../../styles'
 
 const Wrapper = styled.div`
   ${flex}

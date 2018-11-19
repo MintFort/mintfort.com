@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Waypoint from 'react-waypoint'
 
-import { rem, phone, flex } from '../../library/utils'
+import { rem, phone, flex } from '../../styles/utils'
 import Box from '../../components/box'
 
 const Section = styled.section`

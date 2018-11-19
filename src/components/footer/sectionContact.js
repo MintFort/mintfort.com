@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import GatsbyImage from 'gatsby-image'
 
-import { flex, mobile, phone } from '../../library/utils'
-import { SubHeader, Paragraph, Button } from '../../library'
+import { flex, mobile, phone } from '../../styles/utils'
+import { SubHeader, Paragraph, Button } from '../../styles'
 
 const SectionWrapper = styled.footer`
   ${flex}

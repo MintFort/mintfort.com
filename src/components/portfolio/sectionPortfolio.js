@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
 import DividerEnd from '../../components/backgrounds/end'
-import { flex, phone, mobile, rem } from '../../library/utils'
+import { flex, phone, mobile, rem } from '../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;

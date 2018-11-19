@@ -84,6 +84,7 @@ export const SubHeader = styled.h3`
     font-size: ${rem(18)};
   `)}
 `
+
 export const Paragraph = styled.p`
   display: block;
   margin: 0;

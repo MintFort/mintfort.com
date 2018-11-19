@@ -3,8 +3,8 @@ import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, phone } from '../library/utils'
-import { Button } from '../library'
+import { flex, rem, phone } from '../styles/utils'
+import { Button } from '../styles'
 
 import logo from '../assets/svg/logo_name.svg'
 import logoWhite from '../assets/svg/logo_name_white.svg'

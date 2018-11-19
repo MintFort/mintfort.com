@@ -7,8 +7,8 @@ import { scroller } from 'react-scroll'
 
 import StartPageBackground from '../components/backgrounds/pageStart'
 
-import { hover, rem, transitions, flex, phone, mobile } from '../library/utils'
-import { Container, Title, Header, SubHeader, Button } from '../library'
+import { hover, rem, transitions, flex, phone, mobile } from '../styles/utils'
+import { Container, Title, Header, SubHeader, Button } from '../styles'
 
 const scrollToForm = () => scroller.scrollTo("subscribe", {
   smooth: true,

@@ -14,6 +14,7 @@ export const theme = {
   shadow: '0 5px 20px rgba(0,0,0,0.08)',
   navHeight
 }
+
 const GlobalStyle = createGlobalStyle`
   *::selection {
     color: ${theme.blue};
