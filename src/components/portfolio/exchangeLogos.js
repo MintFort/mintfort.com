@@ -23,12 +23,12 @@ const ExchangesLogos = ({ logos }) => (
   <Wrapper>
     {logos.map(logo => (
       <Logo
-        key={logo.header}
+        key={logo.name}
         href={logo.link}
-        title={logo.header}
+        title={logo.name}
       >
         <GatsbyImg
-          alt={logo.header}
+          alt={logo.name}
           title={logo.link}
           fluid={logo.image.fluid}
         />

@@ -39,10 +39,10 @@ class SectionBoxes extends React.Component {
         <Section>
           {boxes.map((box, id) => (
             <Box
-              key={box.header}
+              key={box.name}
               animate={animate}
-              title={box.header}
               id={id + 1}
+              {...box}
             />
           ))}
         </Section>

@@ -68,12 +68,12 @@ Icon.defaultProps = {
   width: 80
 }
 
-const Box = ({ title, id, animate, windowWidth }) => (
+const Box = ({ name, header, id, animate, windowWidth }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
       <MtSvgLines animate={ animate } duration={ 2000 }>
         <Icon
-          component={title}
+          component={name}
           width={windowWidth < screenBreak.phone ? 60 : 80}
         />
       </MtSvgLines>
@@ -81,7 +81,7 @@ const Box = ({ title, id, animate, windowWidth }) => (
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
         <Paragraph color='blue'>
-          {title}
+          {header}
         </Paragraph>
       </Fade>
     </Container>
@@ -89,7 +89,8 @@ const Box = ({ title, id, animate, windowWidth }) => (
 )
 
 Box.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   animate: PropTypes.bool.isRequired,
   windowWidth: PropTypes.number

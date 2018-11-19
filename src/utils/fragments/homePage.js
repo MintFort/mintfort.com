@@ -61,6 +61,7 @@ export const HomePage = graphql`
     }
     boxSection {
       boxes {
+        name
         header
       }
     }

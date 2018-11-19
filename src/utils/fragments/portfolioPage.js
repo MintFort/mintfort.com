@@ -21,7 +21,7 @@ export const PortfolioPage = graphql`
     boxSection {
       header
       boxes {
-        header
+        name
         link
         image {
           fluid(maxWidth: 540) {
