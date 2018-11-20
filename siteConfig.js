@@ -13,9 +13,5 @@ module.exports = {
     { name: "Whitepaper", path: '/files/Whitepaper_1.2.0.pdf', section: 'header' },
     { name: "Impressum", path: '/impressum/', section: 'footer' },
     { name: "Privacy Policy", path: '/policy/', section: 'footer' }
-  ],
-  portfolio: {
-    mac: 'https://download.mintfort.com/Mintfort-0.5.2.dmg',
-    win: 'https://download.mintfort.com/Mintfort-0.5.2.exe'
-  }
+  ]
 }
