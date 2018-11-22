@@ -5,9 +5,9 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { medium } from 'components/blog/blog'
-import { rem, phone, mobile, hover, flex } from 'library/utils'
-import { Header, SubHeader, Paragraph } from 'library'
+import { medium } from '../../components/blog'
+import { rem, phone, mobile, hover, flex } from '../../styles/utils'
+import { Header, SubHeader, Paragraph } from '../../styles'
 
 const Wrapper = styled.section`
   ${flex}
@@ -118,9 +118,9 @@ Card.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-const SectionNews = ({ title, subtitle }) => (
+const SectionNews = ({ header, description }) => (
   <StaticQuery
-    query={query}
+    query={NEWS_DATA}
     render={({ logo, medium: { edges } }) => (
       <Wrapper>
         <Inner>
@@ -129,12 +129,12 @@ const SectionNews = ({ title, subtitle }) => (
               style={{ marginBottom: 8 }}
               weight={'bold'}
             >
-              {title}
+              {header}
             </Header>
             <Paragraph
               onClick={() => navigate(`/blog/`)}
             >
-              {subtitle}
+              {description.md.rawMarkdownBody}
             </Paragraph>
           </Fade>
           <Fade delay={200}>
@@ -155,13 +155,15 @@ const SectionNews = ({ title, subtitle }) => (
 )
 
 SectionNews.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
+  header: PropTypes.string.isRequired,
+  description: PropTypes.shape({
+    md: PropTypes.object
+  }).isRequired
 }
 
 export default SectionNews
 
-const query = graphql`
+const NEWS_DATA = graphql`
   {
     medium: allMediumPost(limit: 3, sort: { fields: [createdAt], order: DESC }) {
       edges {

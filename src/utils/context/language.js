@@ -65,6 +65,6 @@ LanguageProvider.defaultProps = {
   }
 }
 
-export const addLang = (Component, props) => (
+export const withLanguage = Component => props => (
   <Consumer>{value => <Component {...props} {...value}/>}</Consumer>
 )

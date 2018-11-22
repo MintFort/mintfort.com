@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import MtSvgLines from 'react-mt-svg-lines'
 
-import { addWindowWidth } from 'utils/context/windowWidth'
-import { Paragraph, Container } from 'library/index'
-import { rem, phone, mobile, screenBreak } from 'library/utils'
+import { withWindowWidth } from '../utils/context/windowWidth'
+import { Paragraph, Container } from '../styles'
+import { rem, phone, mobile, screenBreak } from '../styles/utils'
 
 const border = color => `1px solid ${color}`
 
@@ -45,7 +45,14 @@ const Wrapper = styled.div`
 `
 
 const Icon = ({ component, width }) => {
-  const Component = require('components/SVG/icons')[component]
+  const name = component.replace(/ /g, "")
+  const Component = require('./SVG/icons')[name]
+
+  if (!Component) {
+    const { Placeholder } = require('./SVG/icons')
+    return <Placeholder width={width}/>
+  }
+
   return <Component width={width}/>
 }
 
@@ -61,12 +68,12 @@ Icon.defaultProps = {
   width: 80
 }
 
-const Box = ({ component, title, id, animate, windowWidth }) => (
+const Box = ({ name, header, id, animate, windowWidth }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
       <MtSvgLines animate={ animate } duration={ 2000 }>
         <Icon
-          component={component}
+          component={name}
           width={windowWidth < screenBreak.phone ? 60 : 80}
         />
       </MtSvgLines>
@@ -74,7 +81,7 @@ const Box = ({ component, title, id, animate, windowWidth }) => (
     <Container style={{ flex: 1 }} centrate>
       <Fade delay={300}>
         <Paragraph color='blue'>
-          {title}
+          {header}
         </Paragraph>
       </Fade>
     </Container>
@@ -82,11 +89,11 @@ const Box = ({ component, title, id, animate, windowWidth }) => (
 )
 
 Box.propTypes = {
-  title: PropTypes.string.isRequired,
-  component: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   animate: PropTypes.bool.isRequired,
   windowWidth: PropTypes.number
 }
 
-export default props => addWindowWidth(Box, ...props)
+export default withWindowWidth(Box)

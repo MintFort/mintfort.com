@@ -1,25 +1,9 @@
 const path = require('path')
-const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const { languages } = require('./siteConfig')
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"]
-    }
-  })
-}
-
-exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNodeField, createNode } }) => {
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode, basePath: "pages" })
-    createNodeField({
-      node,
-      value,
-      name: "slug"
-    })
-  }
+exports.onCreateNode = async ({ node, store, cache, actions: { createNode } }) => {
 
   if (node.internal.type === "MediumPost" && node.virtuals.previewImage.imageId.length) {
     const url = `https://cdn-images-1.medium.com/max/600/${node.virtuals.previewImage.imageId}`
@@ -41,26 +25,29 @@ exports.onCreateNode = async ({ node, getNode, store, cache, actions: { createNo
 exports.createPages = ({ graphql, actions: { createPage } }) => new Promise(resolve => {
   graphql(`
       {
-        allMarkdownRemark {
+        allContentfulMarkdownPage {
           edges {
             node {
-              fields {
-                slug
-              }
+              node_locale
+              slug
             }
           }
         }
       }
     `
   ).then(({ data }) => {
-    data.allMarkdownRemark.edges.forEach(({ node: { fields } }) => {
-      createPage({
-        path: fields.slug,
-        component: path.resolve(`src/templates/page.js`),
-        context: {
-          slug: fields.slug
-        }
-      })
+    data.allContentfulMarkdownPage.edges.forEach(({ node }) => {
+
+      if (node.node_locale.includes('en')) {
+        createPage({
+          path: node.slug,
+          component: path.resolve(`src/templates/page.js`),
+          context: {
+            slug: node.slug
+          }
+        })
+      }
+
     })
     resolve()
   })
@@ -86,9 +73,9 @@ exports.onCreatePage = ({ page, actions }) => {
       }
     })
 
-    languages.forEach(locale => {
+    languages.forEach(local => {
       createRedirect({
-        fromPath: `/${locale}/blog`,
+        fromPath: `/${local}/blog`,
         toPath: '/blog',
         isPermanent: true,
         redirectInBrowser: true
@@ -97,8 +84,9 @@ exports.onCreatePage = ({ page, actions }) => {
       createPage({
         ...page,
         originalPath: page.path,
-        path: `/${locale}${page.path}`,
+        path: `/${local}${page.path}`,
         context: {
+          local: `/${local}/`, // this is a regex variable, not to be confused with a path
           languages,
           pathname: page.path
         }

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
+import GatsbyImage from 'gatsby-image'
 
-import { flex, mobile, phone } from 'library/utils'
-import { Img, SubHeader, Paragraph, Button } from 'library/index'
+import { flex, mobile, phone } from '../../styles/utils'
+import { SubHeader, Paragraph, Button } from '../../styles'
 
 const SectionWrapper = styled.footer`
   ${flex}
@@ -52,18 +52,19 @@ const CardWrapper = styled.div`
 
 const ContactCard = ({ data: { city, mail, address, icon } }) => (
   <CardWrapper city={city}>
-    <Img
-      width={90}
-      style={{ margin: 10 }}
+    <GatsbyImage
+      style={{ width: 90 }}
       alt={city}
-      file={icon}
+      fixed={icon.fixed}
     />
     <div className="inner">
       <SubHeader style={{ margin: '4px 0' }}>{city}</SubHeader>
       <Paragraph
+        pre
         size={13}
-        dangerouslySetInnerHTML={{ __html: address }}
-      />
+      >
+        {address.md.rawMarkdownBody}
+      </Paragraph>
     </div>
     <Button
       as='a'
@@ -81,45 +82,25 @@ ContactCard.propTypes = {
   data: PropTypes.shape({
     city: PropTypes.string,
     mail: PropTypes.string,
-    address: PropTypes.string,
-    icon: PropTypes.string
+    address: PropTypes.object,
+    icon: PropTypes.object
   }).isRequired
 }
 
 
-const SectionContact = () => (
-  <StaticQuery
-    query={query}
-    render={({ site: { meta: { contact } } }) => (
-      <SectionWrapper>
-        {contact.map(({ city, mail, address, icon }) => (
-          <ContactCard
-            key={city}
-            data={{ city, mail, address, icon }}
-          />
-        ))}
-      </SectionWrapper>
-    )}
-  />
+const SectionContact = ({ contact }) => (
+  <SectionWrapper>
+    {contact.map(({ city, mail, address, icon }) => (
+      <ContactCard
+        key={city}
+        data={{ city, mail, address, icon }}
+      />
+    ))}
+  </SectionWrapper>
 )
 
 SectionContact.propTypes = {
-  contact: PropTypes.object
+  contact: PropTypes.array.isRequired
 }
 
 export default SectionContact
-
-const query = graphql`
-  {
-    site {
-      meta: siteMetadata {
-        contact {
-          city
-          mail
-          address
-          icon
-        }
-      }
-    }
-  }
-`

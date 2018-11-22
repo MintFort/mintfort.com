@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
-import { rem, phone } from 'library/utils'
+import { rem, phone } from '../../styles/utils'
 
 
 const ImageWrapper = styled.div`

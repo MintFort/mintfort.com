@@ -45,6 +45,6 @@ export class WindowWidthProvider extends Component {
   }
 }
 
-export const addWindowWidth = (Component, props) => (
+export const withWindowWidth = Component => props => (
   <Consumer>{value => <Component {...props} {...value}/>}</Consumer>
 )

@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Waypoint from 'react-waypoint'
 
-import { rem, phone, flex } from 'library/utils'
-
-import Box from 'components/box'
+import { rem, phone, flex } from '../../styles/utils'
+import Box from '../../components/box'
 
 const Section = styled.section`
   padding: ${rem(30)};
@@ -29,21 +28,21 @@ class SectionBoxes extends React.Component {
   }
 
   render(){
-    const { data, language } = this.props
+    const { boxes } = this.props
     const { animate } = this.state
+
     return (
       <>
         <Waypoint
           onEnter={() => this.toogleShow(true)}
         />
         <Section>
-          {data.map(box => (
+          {boxes.map((box, id) => (
             <Box
-              key={box[language].id}
+              key={box.name}
               animate={animate}
-              title={box[language].title}
-              component={box[language].component}
-              id={box[language].id}
+              id={id + 1}
+              {...box}
             />
           ))}
         </Section>
@@ -53,8 +52,7 @@ class SectionBoxes extends React.Component {
 }
 
 SectionBoxes.propTypes = {
-  data: PropTypes.array.isRequired,
-  language: PropTypes.string.isRequired
+  boxes: PropTypes.array.isRequired
 }
 
 export default SectionBoxes

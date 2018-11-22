@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, mobile, phone } from 'library/utils'
-import { Img } from 'library/index'
+import { flex, rem, mobile } from '../../styles/utils'
+import GatsbyImg from 'gatsby-image'
 
 const Wrapper = styled.div`
   ${flex}
@@ -17,10 +17,6 @@ const Logo = styled.a`
   ${mobile(css`
     flex-basis: 45%;
   `)}
-
-  ${phone(css`
-    flex-basis: 100%;
-  `)}
 `
 
 const ExchangesLogos = ({ logos }) => (
@@ -28,12 +24,13 @@ const ExchangesLogos = ({ logos }) => (
     {logos.map(logo => (
       <Logo
         key={logo.name}
-        href={logo.site}
+        href={logo.link}
         title={logo.name}
       >
-        <Img
+        <GatsbyImg
           alt={logo.name}
-          file={'exchanges/' + logo.img}
+          title={logo.link}
+          fluid={logo.image.fluid}
         />
       </Logo>
     ))}

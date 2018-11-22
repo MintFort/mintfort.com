@@ -3,9 +3,11 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
+import { withLanguage } from '../utils/context/language'
+
 const SEO = ({ language, pathname }) => (
   <StaticQuery
-    query={query}
+    query={SITE_DATA}
     render={({
       site: {
         meta: {
@@ -60,9 +62,9 @@ SEO.defaultProps = {
   language: 'en'
 }
 
-export default SEO
+export default withLanguage(SEO)
 
-const query = graphql`
+const SITE_DATA = graphql`
   {
     site {
       ...SEOMetadata

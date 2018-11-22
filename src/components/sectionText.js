@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { Container, Header, Paragraph } from 'library/index'
-import { phone } from 'library/utils'
+import { Container, Header, Paragraph } from '../styles'
+import { phone } from '../styles/utils'
 
 const Background = styled.section`
   ${({ color }) => color && color.background && css`
@@ -25,7 +25,7 @@ const Wrapper = styled(Container)`
   `)}
 `
 
-const Text = ({ title, content, color }) => (
+const Text = ({ header, description, color, pre }) => (
   <Container centrate>
     <Wrapper col>
       <Fade>
@@ -33,15 +33,18 @@ const Text = ({ title, content, color }) => (
           color={color && color.title}
           style={{ fontWeight: 'bold' }}
         >
-          {title}
+          {header}
         </Header>
         <Fade delay={100}>
           {
-            typeof content === 'string' ?
-              <Paragraph color={color && color.paragraph}>
-                {content}
+            description.md ?
+              <Paragraph
+                pre={pre}
+                color={color && color.paragraph}
+              >
+                {description.md.rawMarkdownBody}
               </Paragraph> :
-              content
+              description
           }
         </Fade>
       </Fade>
@@ -50,31 +53,33 @@ const Text = ({ title, content, color }) => (
 )
 
 Text.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([
-    PropTypes.string,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
+    PropTypes.object,
     PropTypes.element
   ]).isRequired,
-  color: PropTypes.object
+  color: PropTypes.object,
+  pre: PropTypes.bool
 }
 
-const SectionText = ({ title, content, color, padding }) => (
+const SectionText = ({ header, description, color, padding, pre }) => (
   <Background
     padding={padding}
     color={color}
   >
     <Text
-      title={title}
-      content={content}
+      pre={pre}
+      header={header}
+      description={description}
       color={color}
     />
   </Background>
 )
 
 SectionText.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.oneOfType([
-    PropTypes.string,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
+    PropTypes.object,
     PropTypes.element
   ]).isRequired,
   color: PropTypes.shape({
@@ -82,7 +87,12 @@ SectionText.propTypes = {
     paragraph: PropTypes.string,
     title: PropTypes.string
   }),
-  padding: PropTypes.string
+  padding: PropTypes.string,
+  pre: PropTypes.bool
+}
+
+SectionText.defaultProps = {
+  pre: false
 }
 
 

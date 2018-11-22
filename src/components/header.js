@@ -3,12 +3,13 @@ import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, phone } from 'library/utils'
-import { Button } from 'library/index'
+import { flex, rem, phone } from '../styles/utils'
+import { Button } from '../styles'
+import { withLanguage } from '../utils/context/language'
 
-import logo from 'assets/svg/logo_name.svg'
-import logoWhite from 'assets/svg/logo_name_white.svg'
-import logoMobile from 'assets/svg/logo.svg'
+import logo from '../assets/svg/logo_name.svg'
+import logoWhite from '../assets/svg/logo_name_white.svg'
+import logoMobile from '../assets/svg/logo.svg'
 
 const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
@@ -106,7 +107,7 @@ class Header extends Component {
 
     return (
       <StaticQuery
-        query={query}
+        query={HEADER_DATA}
         render={({ site: { meta: { nav } } }) => (
           <Wrapper
             transparent={transparent}
@@ -150,9 +151,9 @@ Header.propTypes = {
   location: PropTypes.object.isRequired
 }
 
-export default Header
+export default withLanguage(Header)
 
-const query = graphql`
+const HEADER_DATA = graphql`
   {
     site {
       meta: siteMetadata {

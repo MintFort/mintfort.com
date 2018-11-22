@@ -1,13 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { graphql, StaticQuery } from 'gatsby'
 import GatsbyImg from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
-import { flex, phone, rem } from 'library/utils'
+import { flex, phone, rem } from '../../styles/utils'
 
-import DividerStart from 'components/backgrounds/start'
-import LinesDivider from 'components/backgrounds/linesDivider'
+import DividerStart from '../../components/backgrounds/start'
+import LinesDivider from '../../components/backgrounds/linesDivider'
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,39 +26,26 @@ const ImageWrapper = styled.div`
   `)}
 `
 
-const SectionGirl = () => (
-  <StaticQuery
-    query={query}
-    render={({ img }) => (
-      <Wrapper>
-        <LinesDivider style={{
-          marginBottom: 100
-        }}/>
-        <ImageWrapper>
-          <Fade>
-            <GatsbyImg
-              alt='Mintfort app'
-              title='Mintfort app'
-              fluid={img.childImageSharp.fluid}
-            />
-          </Fade>
-          <DividerStart style={{ zIndex: 1 }}/>
-        </ImageWrapper>
-      </Wrapper>
-    )}
-  />
+const SectionGirl = ({ images }) => (
+  <Wrapper>
+    <LinesDivider style={{
+      marginBottom: 100
+    }}/>
+    <ImageWrapper>
+      <Fade>
+        <GatsbyImg
+          alt='Mintfort app'
+          title='Mintfort app'
+          fluid={images[0].fluid}
+        />
+      </Fade>
+      <DividerStart style={{ zIndex: 1 }}/>
+    </ImageWrapper>
+  </Wrapper>
 )
 
 export default SectionGirl
 
-const query = graphql`
-  {
-    img: file(relativePath: { regex: "/girl-with-phone/"}) {
-      childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`
+SectionGirl.propTypes = {
+  images: PropTypes.array.isRequired
+}

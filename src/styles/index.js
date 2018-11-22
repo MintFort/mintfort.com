@@ -84,6 +84,7 @@ export const SubHeader = styled.h3`
     font-size: ${rem(18)};
   `)}
 `
+
 export const Paragraph = styled.p`
   display: block;
   margin: 0;
@@ -95,16 +96,10 @@ export const Paragraph = styled.p`
   ${({ color }) => color && css`
     color: ${({ theme }) => theme[color]};
   `}
-`
 
-export const Img = styled.img.attrs({
-  src: ({ file }) => file && require(`../assets/images/${file}`)
-})`
-  display: block;
-  margin: 0;
-
-  height: ${({ height }) => height || "auto"};
-  width: ${({ width }) => width || "100%"};
+  ${({ pre }) => pre && css`
+    white-space: pre;
+  `}
 `
 
 export const Button = styled.button`

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import dividerEnd from 'assets/svg/divider_end.svg'
+import dividerEnd from '../../assets/svg/divider_end.svg'
 
 const Divider = ({ style }) => (
   <div style={{

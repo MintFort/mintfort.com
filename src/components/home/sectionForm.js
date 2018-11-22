@@ -5,14 +5,13 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
 import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
-import EndPageBackground from 'components/backgrounds/pageEnd'
-import { EarlyAccess as Submit } from 'components/hero'
+import EndPageBackground from '../../components/backgrounds/pageEnd'
+import { EarlyAccess as Submit } from '../../components/hero'
+import SectionText from '../../components/sectionText'
 
-import SectionText from 'components/sectionText'
-
-import { theme } from 'library/global'
-import { Header } from 'library/index'
-import { flex, rem, phone } from 'library/utils'
+import { theme } from '../../styles/global'
+import { Header } from '../../styles'
+import { flex, rem, phone } from '../../styles/utils'
 
 const Wrapper = styled.section`
   height: 1100px;
@@ -122,7 +121,7 @@ DisplayMessage.propTypes = {
 
 
 
-class Register extends Component {
+class ContactForm extends Component {
   state = {
     name: '',
     email: '',
@@ -167,21 +166,22 @@ class Register extends Component {
 
   render() {
     const { response, loading, name, email } = this.state
-    const { formTitle, title, subTitle, button } = this.props
+    const { header: formHeader, buttonText, sectionText: { header, description } } = this.props
 
     return (
       <>
       <Wrapper>
         <div style={{ width: '100%' }}>
           <SectionText
-            title={title}
-            content={subTitle}
+            pre
+            header={header}
+            description={description}
             color={{ title: "whiteFont" }}
           />
         </div>
         <EndPageBackground/>
         <Header color='whiteFont' id='subscribe'>
-          {formTitle}
+          {formHeader}
         </Header>
         <div style={{ position: 'relative' }} >
           <fieldset
@@ -209,7 +209,7 @@ class Register extends Component {
               />
               {response && <DisplayMessage data={response} /> }
               <Submit mint>
-                {button}
+                {buttonText}
               </Submit>
             </Form>
           </fieldset>
@@ -221,11 +221,15 @@ class Register extends Component {
   }
 }
 
-Register.propTypes = {
-  title: PropTypes.string.isRequired,
-  formTitle: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  button: PropTypes.string.isRequired
+ContactForm.propTypes = {
+  sectionText: PropTypes.shape({
+    header: PropTypes.string.isRequired,
+    description: PropTypes.shape({
+      md: PropTypes.object
+    }).isRequired
+  }).isRequired,
+  header: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
 }
 
-export default Register
+export default ContactForm

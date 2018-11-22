@@ -4,8 +4,8 @@ import { FaApple, FaWindows } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { flex, rem, hover } from 'library/utils'
-import { Paragraph } from 'library/index'
+import { flex, rem, hover } from '../../styles/utils'
+import { Paragraph } from '../../styles'
 
 const Wrapper = styled.div`
   ${flex}
@@ -47,11 +47,11 @@ Download.propTypes = {
 
 const Icons = () => (
   <StaticQuery
-    query={query}
-    render={({ site: { meta: { portfolio } } }) => (
+    query={PORTFOLIO_LINKS}
+    render={({ mac, win }) => (
       <Wrapper>
-        <Download url={portfolio.mac} icon={FaApple} name='macOS'/>
-        <Download url={portfolio.win} icon={FaWindows} name='Windows'/>
+        <Download url={mac.link} icon={FaApple} name='macOS'/>
+        <Download url={win.link} icon={FaWindows} name='Windows'/>
       </Wrapper>
     )}
   />
@@ -59,15 +59,19 @@ const Icons = () => (
 
 export default Icons
 
-const query = graphql`
+const PORTFOLIO_LINKS = graphql`
   {
-    site {
-      meta: siteMetadata {
-        portfolio {
-          mac
-          win
-        }
-      }
+    mac: contentfulExternalLinks(
+      name: { regex: "/mac/i" },
+      node_locale: { regex: "/en/" }
+    ) {
+      link
+    }
+    win: contentfulExternalLinks(
+      name: { regex: "/win/i" },
+      node_locale: { regex: "/en/" }
+    ) {
+      link
     }
   }
 `

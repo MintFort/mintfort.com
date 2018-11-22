@@ -5,10 +5,10 @@ import { FaChevronDown } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { scroller } from 'react-scroll'
 
-import StartPageBackground from 'components/backgrounds/pageStart'
+import StartPageBackground from '../components/backgrounds/pageStart'
 
-import { hover, rem, transitions, flex, phone, mobile } from 'library/utils'
-import { Container, Title, Header, SubHeader, Button } from 'library/index'
+import { hover, rem, transitions, flex, phone, mobile } from '../styles/utils'
+import { Container, Title, Header, SubHeader, Button } from '../styles'
 
 const scrollToForm = () => scroller.scrollTo("subscribe", {
   smooth: true,
@@ -106,7 +106,6 @@ const ImageWrapper = styled.div`
     ${flex({ x: "center", y: 'flex-start' })};
 
   `)}
-
 `
 
 const StaticImage = styled.div`
@@ -121,6 +120,10 @@ const StaticImage = styled.div`
     `)}
   `}
 
+  ${({ id }) => id === 'home' && css`
+    cursor: pointer;
+  `}
+
   ${phone(css`
     transform: none;
     min-width: 320px;
@@ -130,7 +133,7 @@ const StaticImage = styled.div`
     `}
   `)}
 
-  transition: all .2s;
+  transition: transform .2s ease-in;
 `
 
 export const EarlyAccess = styled(Button)`
@@ -148,29 +151,33 @@ const Sub = styled(SubHeader)`
   ${mobile(css`
     white-space: normal;
   `)}
+
+  p {
+    margin: 0
+  }
 `
 
-const Text = ({ title, subTitle, body, button }) => (
+const Text = ({ subHeader, header, description, button }) => (
   <TextWrapper>
     <Header
       style={{ margin: `0 0 ${rem(20)}` }}
       color='lightFont'
       size={18}
     >
-      {title}
+      {subHeader}
     </Header>
     <Title
       style={{ margin: `0 0 ${rem(20)}` }}
       size={72}
       color="#fff"
     >
-      {subTitle}
+      {header}
     </Title>
     <Sub
       style={{ margin: `0 0 ${rem(8)}` }}
       size={18}
     >
-      {body}
+      {description.md.rawMarkdownBody}
     </Sub>
     {
       button && button.length &&
@@ -185,23 +192,20 @@ const Text = ({ title, subTitle, body, button }) => (
 )
 
 Text.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  subHeader: PropTypes.string.isRequired,
   button: PropTypes.string,
-  body: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]).isRequired
+  description: PropTypes.object.isRequired
 }
 
-const Image = ({ img, id }) => (
+const Image = ({ image, id }) => (
   <ImageWrapper id={id}>
     <StaticImage id={id}>
       <div
         onClick={() => id === 'home' && scrollToForm()}
       >
         <GatsbyImg
-          fluid={img.childImageSharp.fluid}
+          fluid={image.fluid}
           alt={`${id} application`}
         />
       </div>
@@ -211,23 +215,23 @@ const Image = ({ img, id }) => (
 
 Image.propTypes = {
   id: PropTypes.string.isRequired,
-  img: PropTypes.object.isRequired
+  image: PropTypes.object.isRequired
 }
 
 
-const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
+const Hero = ({ subHeader, content, image, scrollId, buttonText, id }) => (
   <Wrapper>
     <StartPageBackground />
     <Content>
       <Image
         id={id}
-        img={img}
+        image={image}
       />
       <Text
-        button={button}
-        title={title}
-        subTitle={subTitle}
-        body={body}
+        header={content.header}
+        subHeader={subHeader}
+        description={content.description}
+        button={buttonText}
       />
     </Content>
     <IconWrapper>
@@ -235,23 +239,23 @@ const Hero = ({ title, subTitle, body, img, scrollId, button, id }) => (
         onClick={() => scroller.scrollTo(scrollId, {
           duration: 1000,
           smooth: "easeOutQuint",
-          offset: -40 })}
+          offset: -40
+        })}
       />
     </IconWrapper>
   </Wrapper>
 )
 
 Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  body: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]).isRequired,
-  img: PropTypes.object.isRequired,
+  subHeader: PropTypes.string.isRequired,
+  content: PropTypes.shape({
+    header: PropTypes.string,
+    description: PropTypes.object
+  }).isRequired,
+  image: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   scrollId: PropTypes.string,
-  button: PropTypes.string
+  buttonText: PropTypes.string
 }
 
 export default Hero

@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import SectionText from 'components/sectionText'
-import Divider from 'components/backgrounds/start'
+import SectionText from '../../components/sectionText'
+import Divider from '../../components/backgrounds/start'
 
 import Icons from './downloadIcons'
 
-import { phone, mobile } from 'library/utils'
+import { phone, mobile } from '../../styles/utils'
 
 
 const DividerWrapper = styled.div`
@@ -25,11 +25,11 @@ const DividerWrapper = styled.div`
   transition: all .2s;
 `
 
-const SectionDownload = ({ title }) => (
+const SectionDownload = ({ header }) => (
   <>
     <SectionText
-      title={title}
-      content={<Icons />}
+      header={header}
+      description={<Icons />}
       padding='6vh 0'
       color={{
         background: 'transparent'
@@ -42,7 +42,7 @@ const SectionDownload = ({ title }) => (
 )
 
 SectionDownload.propTypes = {
-  title: PropTypes.string.isRequired
+  header: PropTypes.string.isRequired
 }
 
 export default SectionDownload

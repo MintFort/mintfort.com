@@ -14,7 +14,13 @@ export const theme = {
   shadow: '0 5px 20px rgba(0,0,0,0.08)',
   navHeight
 }
+
 const GlobalStyle = createGlobalStyle`
+  *::selection {
+    color: ${theme.blue};
+    background: ${theme.mint};
+  }
+
   a {
     text-decoration: none;
     color: #1f1f1f;
