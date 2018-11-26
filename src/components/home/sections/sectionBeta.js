@@ -5,12 +5,12 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import SectionText from '../../components/sectionText'
+import SectionText from '../../../components/sectionText'
 
-import { withLanguage } from '../../utils/context/language'
+import { withLanguage } from '../../../utils/context/language'
 
-import { Button } from '../../styles'
-import { flex, phone, rem } from '../../styles/utils'
+import { Button } from '../../../styles'
+import { flex, phone, rem } from '../../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;

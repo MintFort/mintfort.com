@@ -4,10 +4,11 @@ import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
-import { flex, phone, rem } from '../../styles/utils'
+import { flex, phone, rem } from '../../../styles/utils'
 
-import DividerStart from '../../components/backgrounds/start'
-import LinesDivider from '../../components/backgrounds/linesDivider'
+import SectionText from '../../../components/sectionText'
+import DividerStart from '../../../components/backgrounds/start'
+import LinesDivider from '../../../components/backgrounds/linesDivider'
 
 const Wrapper = styled.div`
   position: relative;
@@ -44,8 +45,20 @@ const SectionGirl = ({ images }) => (
   </Wrapper>
 )
 
-export default SectionGirl
-
 SectionGirl.propTypes = {
   images: PropTypes.array.isRequired
 }
+
+const SectionImagine = props => (
+  <div id={"imagine"}>
+    <SectionText
+      {...props}
+      padding={'14vh 0 4vh'}
+    />
+    <SectionGirl
+      images={props.images}
+    />
+  </div>
+)
+
+export default SectionImagine

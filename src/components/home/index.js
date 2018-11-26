@@ -4,15 +4,7 @@ import PropTypes from 'prop-types'
 import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
 import Hero from '../../components/hero'
-import SectionText from '../../components/sectionText'
-
-import SectionForm from './sectionForm'
-import SectionGirl from './sectionGirl'
-import SectionPhone from './sectionPhone'
-import SectionCards from './sectionCards'
-import SectionBoxes from './sectionBoxes'
-import SectionBeta from './sectionBeta'
-import SectionNews from './sectionNews'
+import { Imagine, Buy, Phone, Cards, Access, Boxes, Beta, News, Form } from './sections'
 
 const Home = ({ data }) => {
   const [imagine, buy, access, portfolio, news] = data.sections
@@ -25,49 +17,26 @@ const Home = ({ data }) => {
         id='home'
         scrollId='imagine'
       />
-      <div id={"imagine"}/>
-      <SectionText
-        {...imagine}
-        padding={'14vh 0 4vh'}
-      />
-      <SectionGirl
-        images={imagine.images}
-      />
-      <SectionText
-        {...buy}
-        padding={'8vh 0'}
-        color={{
-          background: 'gray'
-        }}
-      />
-      <SectionPhone
-        images={buy.images}
-      />
-      <SectionCards
-        {...data.cardsSection}
-      />
-      <SectionText
-        {...access}
-      />
-      <SectionBoxes
-        {...data.boxSection}
-      />
-      <SectionBeta
-        {...portfolio}
-      />
-      <SectionNews
-        {...news}
-      />
-      <SectionForm
-        {...data.form}
-      />
+      <Imagine {...imagine} />
+      <Buy {...buy} />
+      <Phone images={buy.images} />
+      <Cards {...data.cardsSection} />
+      <Access {...access} />
+      <Boxes {...data.boxSection} />
+      <Beta {...portfolio} />
+      <News {...news} />
+      <Form {...data.form} />
     </WindowWidthProvider>
   )
 }
 
 Home.propTypes = {
   data: PropTypes.shape({
-    hero: PropTypes.object // TODO: Populate this
+    hero: PropTypes.object,
+    boxSection: PropTypes.object,
+    cardsSection: PropTypes.object,
+    form: PropTypes.object,
+    sections: PropTypes.array
   }).isRequired
 }
 
