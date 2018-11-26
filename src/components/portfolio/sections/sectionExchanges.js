@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-
-import { flex, rem, mobile } from '../../styles/utils'
 import GatsbyImg from 'gatsby-image'
+
+import { flex, rem, mobile } from '../../../styles/utils'
+import SectionText from '../../../components/sectionText'
 
 const Wrapper = styled.div`
   ${flex}
@@ -19,7 +20,7 @@ const Logo = styled.a`
   `)}
 `
 
-const ExchangesLogos = ({ logos }) => (
+const Logos = ({ logos }) => (
   <Wrapper>
     {logos.map(logo => (
       <Logo
@@ -37,8 +38,21 @@ const ExchangesLogos = ({ logos }) => (
   </Wrapper>
 )
 
-ExchangesLogos.propTypes = {
+Logos.propTypes = {
   logos: PropTypes.array.isRequired
 }
 
-export default ExchangesLogos
+
+const SectionExchanges = ({ header, boxes: logos }) => (
+  <SectionText
+    header={header}
+    description={ <Logos logos={logos}/> }
+  />
+)
+
+SectionExchanges.propTypes = {
+  header: PropTypes.string.isRequired,
+  boxes: PropTypes.array.isRequired
+}
+
+export default SectionExchanges

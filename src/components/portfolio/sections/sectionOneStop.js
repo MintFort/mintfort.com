@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
-import DividerEnd from '../../components/backgrounds/end'
-import { flex, phone, mobile, rem } from '../../styles/utils'
+import SectionText from '../../../components/sectionText'
+import DividerEnd from '../../../components/backgrounds/end'
+import { flex, phone, mobile, rem } from '../../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -36,7 +37,16 @@ const ImageWrapper = styled.div`
   transition: all .2s;
 `
 
-const SectionPortfolio = ({ images }) => (
+const SectionPortfolio = ({ header, description, images }) => (
+  <>
+  <SectionText
+    header={header}
+    description={description}
+    padding='6vh 0'
+    color={{
+      background: 'gray'
+    }}
+  />
   <Wrapper>
     <DividerEnd />
     <ImageWrapper>
@@ -48,9 +58,12 @@ const SectionPortfolio = ({ images }) => (
       />
     </ImageWrapper>
   </Wrapper>
+  </>
 )
 
 SectionPortfolio.propTypes = {
+  header: PropTypes.string.isRequired,
+  description: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired
 }
 

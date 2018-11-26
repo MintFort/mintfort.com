@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Waypoint from 'react-waypoint'
 
-import { rem, phone, flex } from '../../styles/utils'
-import Box from '../../components/box'
+import { rem, phone, flex } from '../../../styles/utils'
+import Box from '../../../components/box'
 
 const Section = styled.section`
   padding: ${rem(30)};

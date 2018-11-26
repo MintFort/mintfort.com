@@ -4,9 +4,9 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { withWindowWidth } from '../../utils/context/windowWidth'
-import DividerEnd from '../../components/backgrounds/end'
-import { flex, phone, mobile, rem, screenBreak } from '../../styles/utils'
+import { withWindowWidth } from '../../../utils/context/windowWidth'
+import DividerEnd from '../../../components/backgrounds/end'
+import { flex, phone, mobile, rem, screenBreak } from '../../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;
