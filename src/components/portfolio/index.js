@@ -6,22 +6,26 @@ import { Download, OneStop, Exchanges } from './sections'
 
 const Portfolio = ({ data }) => {
   const [download, shop] = data.sections
+
   return (
-  <>
-    <Hero
-      {...data.hero}
-      id='portfolio'
-      scrollId='download'
-    />
-    <Download {...download} />
-    <OneStop {...shop} />
-    <Exchanges {...data.boxSection} />
-  </>
+    <>
+      <Hero
+        {...data.hero}
+        id='portfolio'
+        scrollId='download'
+      />
+      <Download {...download} />
+      <OneStop {...shop} />
+      <Exchanges {...data.boxSection} />
+    </>
   )
 }
+
 Portfolio.propTypes = {
   data: PropTypes.shape({
-    hero: PropTypes.object
+    hero: PropTypes.object,
+    boxSection: PropTypes.object,
+    sections: PropTypes.array
   })
 }
 
