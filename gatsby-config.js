@@ -83,16 +83,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          "/sw.js": [
-            "Cache-Control: no-cache"
-          ]
-        }
-      }
-    },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cache'
   ]
 }
