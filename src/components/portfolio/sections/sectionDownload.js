@@ -1,11 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaApple, FaWindows } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
+import { FaApple, FaWindows } from 'react-icons/fa'
 
-import { flex, rem, hover } from '../../styles/utils'
-import { Paragraph } from '../../styles'
+import SectionText from '../../../components/sectionText'
+import Divider from '../../../components/backgrounds/start'
+import { phone, mobile, flex, rem, hover } from '../../../styles/utils'
+import { Paragraph } from '../../../styles'
+
+const DividerWrapper = styled.div`
+  position: relative;
+  height: 230px;
+
+  ${mobile(css`
+    height: 180px;
+  `)}
+
+  ${phone(css`
+    height: 120px;
+  `)}
+
+  transition: all .2s;
+`
 
 const Wrapper = styled.div`
   ${flex}
@@ -57,7 +74,27 @@ const Icons = () => (
   />
 )
 
-export default Icons
+const SectionDownload = ({ header }) => (
+  <div id={"download"}>
+    <SectionText
+      header={header}
+      description={<Icons />}
+      padding='6vh 0'
+      color={{
+        background: 'transparent'
+      }}
+    />
+    <DividerWrapper>
+      <Divider diagonal='hard'/>
+    </DividerWrapper>
+  </div>
+)
+
+SectionDownload.propTypes = {
+  header: PropTypes.string.isRequired
+}
+
+export default SectionDownload
 
 const PORTFOLIO_LINKS = graphql`
   {

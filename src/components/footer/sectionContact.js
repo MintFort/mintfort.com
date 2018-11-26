@@ -87,7 +87,6 @@ ContactCard.propTypes = {
   }).isRequired
 }
 
-
 const SectionContact = ({ contact }) => (
   <SectionWrapper>
     {contact.map(({ city, mail, address, icon }) => (

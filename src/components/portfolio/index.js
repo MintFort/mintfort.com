@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Hero from '../hero'
-import SectionText from '../sectionText'
-
-import SectionPortfolio from './sectionPortfolio'
-import SectionDownload from './sectionDownload'
-import SectionExchanges from './sectionExchanges'
+import { Download, OneStop, Exchanges } from './sections'
 
 const Portfolio = ({ data }) => {
   const [download, shop] = data.sections
@@ -17,23 +13,9 @@ const Portfolio = ({ data }) => {
       id='portfolio'
       scrollId='download'
     />
-    <div id={"download"}/>
-    <SectionDownload
-      {...download}
-    />
-    <SectionText
-      {...shop}
-      padding='6vh 0'
-      color={{
-        background: 'gray'
-      }}
-    />
-    <SectionPortfolio
-      images={shop.images}
-    />
-    <SectionExchanges
-      {...data.boxSection}
-    />
+    <Download {...download} />
+    <OneStop {...shop} />
+    <Exchanges {...data.boxSection} />
   </>
   )
 }
