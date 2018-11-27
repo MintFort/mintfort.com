@@ -61,14 +61,13 @@
     "gatsby"
   ],
   "scripts": {
-    "build": "gatsby build",
+    "build": "rm -rf ./.cache && gatsby build",
     "dev": "gatsby develop",
     "serve": "gatsby serve --open",
-    "deploy": "npm run build && node deploy",
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "eslint ./src/.",
     "lint": "run-s lint:js lint:css",
-    "clear": "rm -rf ./.cache ./public"
+    "test": "npm run lint"
   },
   "husky": {
     "hooks": {
