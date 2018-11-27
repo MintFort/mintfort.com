@@ -18,8 +18,8 @@ BlogPage.propTypes = {
 
 export default BlogPage
 
-export const blogQuery = graphql`
-  {
+export const query = graphql`
+  query BLOG_PAGE_QUERY {
     medium: allMediumPost(limit: 10, sort: { fields: [createdAt], order: DESC }) {
       posts: edges {
         node {

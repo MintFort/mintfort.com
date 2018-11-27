@@ -64,7 +64,7 @@ Download.propTypes = {
 
 const Icons = () => (
   <StaticQuery
-    query={PORTFOLIO_LINKS}
+    query={query}
     render={({ mac, win }) => (
       <Wrapper>
         <Download url={mac.link} icon={FaApple} name='macOS'/>
@@ -96,8 +96,8 @@ SectionDownload.propTypes = {
 
 export default SectionDownload
 
-const PORTFOLIO_LINKS = graphql`
-  {
+const query = graphql`
+  query PORTFOLIO_QUERY {
     mac: contentfulExternalLinks(
       name: { regex: "/mac/i" },
       node_locale: { regex: "/en/" }

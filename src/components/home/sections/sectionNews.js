@@ -120,7 +120,7 @@ Card.propTypes = {
 
 const SectionNews = ({ header, description }) => (
   <StaticQuery
-    query={NEWS_DATA}
+    query={query}
     render={({ logo, medium: { edges } }) => (
       <Wrapper>
         <Inner>
@@ -163,8 +163,8 @@ SectionNews.propTypes = {
 
 export default SectionNews
 
-const NEWS_DATA = graphql`
-  {
+const query = graphql`
+  query NEWS_QUERY {
     medium: allMediumPost(limit: 3, sort: { fields: [createdAt], order: DESC }) {
       edges {
         node {

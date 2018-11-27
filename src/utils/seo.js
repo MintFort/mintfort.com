@@ -7,7 +7,7 @@ import { withLanguage } from '../utils/context/language'
 
 const SEO = ({ language, pathname }) => (
   <StaticQuery
-    query={SITE_DATA}
+    query={query}
     render={({
       site: {
         meta: {
@@ -64,8 +64,8 @@ SEO.defaultProps = {
 
 export default withLanguage(SEO)
 
-const SITE_DATA = graphql`
-  {
+const query = graphql`
+  query SEO_QUERY {
     site {
       ...SEOMetadata
     }
