@@ -218,7 +218,6 @@ Image.propTypes = {
   image: PropTypes.object.isRequired
 }
 
-
 const Hero = ({ subHeader, content, image, scrollId, buttonText, id }) => (
   <Wrapper>
     <StartPageBackground />
