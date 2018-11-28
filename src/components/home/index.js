@@ -3,29 +3,29 @@ import PropTypes from 'prop-types'
 
 import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
-import Hero from '../../components/hero'
-import { Imagine, Buy, Phone, Cards, Access, Boxes, Beta, News, Form } from './sections'
+import Hero from '../shared/hero'
+import { Imagine, Buy, Cards, Access, Boxes, Beta, News, Form } from './sections'
 
 const Home = ({ data }) => {
   const [imagine, buy, access, portfolio, news] = data.sections
+  const { hero, form, cardsSection, boxSection } = data
 
   return (
     <WindowWidthProvider>
       <Hero
-        {...data.hero}
-        buttonText={data.form.buttonText}
+        {...hero}
+        buttonText={form.buttonText}
         id='home'
         scrollId='imagine'
       />
       <Imagine {...imagine} />
       <Buy {...buy} />
-      <Phone images={buy.images} />
-      <Cards {...data.cardsSection} />
+      <Cards {...cardsSection} />
       <Access {...access} />
-      <Boxes {...data.boxSection} />
+      <Boxes {...boxSection} />
       <Beta {...portfolio} />
       <News {...news} />
-      <Form {...data.form} />
+      <Form {...form} />
     </WindowWidthProvider>
   )
 }

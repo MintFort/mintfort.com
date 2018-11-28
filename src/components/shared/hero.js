@@ -5,10 +5,10 @@ import { FaChevronDown } from 'react-icons/fa'
 import styled, { css } from 'styled-components'
 import { scroller } from 'react-scroll'
 
-import StartPageBackground from '../components/backgrounds/pageStart'
+import StartPageBackground from '../../components/backgrounds/pageStart'
 
-import { hover, rem, transitions, flex, phone, mobile } from '../styles/utils'
-import { Container, Title, Header, SubHeader, Button } from '../styles'
+import { hover, rem, transitions, flex, phone, mobile } from '../../styles/utils'
+import { Container, Title, Header, SubHeader, Button } from '../../styles'
 
 const scrollToForm = () => scroller.scrollTo("subscribe", {
   smooth: true,

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Hero from '../hero'
+import Hero from '../shared/hero'
 import { Download, OneStop, Exchanges } from './sections'
 
 const Portfolio = ({ data }) => {
