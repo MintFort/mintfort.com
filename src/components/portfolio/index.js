@@ -6,17 +6,18 @@ import { Download, OneStop, Exchanges } from './sections'
 
 const Portfolio = ({ data }) => {
   const [download, shop] = data.sections
+  const { hero, boxSection } = data
 
   return (
     <>
       <Hero
-        {...data.hero}
+        {...hero}
         id='portfolio'
         scrollId='download'
       />
       <Download {...download} />
       <OneStop {...shop} />
-      <Exchanges {...data.boxSection} />
+      <Exchanges {...boxSection} />
     </>
   )
 }

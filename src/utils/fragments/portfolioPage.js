@@ -5,7 +5,7 @@ export const PortfolioPage = graphql`
     hero {
       ...Hero
       image {
-        fluid(maxWidth: 600) {
+        fluid(maxWidth: 1350) {
           ...GatsbyContentfulFluid_noBase64
         }
       }
