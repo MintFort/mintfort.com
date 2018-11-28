@@ -5,9 +5,9 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import Spinner from 'react-spinkit'
 import { isEmail, isEmpty, normalizeEmail } from 'validator'
 
-import EndPageBackground from '../../../components/backgrounds/pageEnd'
-import { EarlyAccess as Submit } from '../../../components/hero'
-import SectionText from '../../../components/sectionText'
+import EndPageBackground from '../../backgrounds/pageEnd'
+import { EarlyAccess as Submit } from '../../shared/hero'
+import SectionText from '../../shared/sectionText'
 
 import { theme } from '../../../styles/global'
 import { Header } from '../../../styles'

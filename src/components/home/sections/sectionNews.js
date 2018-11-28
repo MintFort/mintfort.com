@@ -5,7 +5,7 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import { medium } from '../../../components/blog'
+import { medium } from '../../blog'
 import { rem, phone, mobile, hover, flex } from '../../../styles/utils'
 import { Header, SubHeader, Paragraph } from '../../../styles'
 

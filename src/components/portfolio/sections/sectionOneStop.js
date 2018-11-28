@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
-import SectionText from '../../../components/sectionText'
-import DividerEnd from '../../../components/backgrounds/end'
+import SectionText from '../../shared/sectionText'
+import DividerEnd from '../../backgrounds/end'
 import { flex, phone, mobile, rem } from '../../../styles/utils'
 
 const Wrapper = styled.div`

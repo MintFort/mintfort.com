@@ -5,7 +5,7 @@ import GatsbyImg from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 
-import SectionText from '../../../components/sectionText'
+import SectionText from '../../shared/sectionText'
 
 import { withLanguage } from '../../../utils/context/language'
 

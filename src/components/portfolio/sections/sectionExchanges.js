@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import GatsbyImg from 'gatsby-image'
 
 import { flex, rem, mobile } from '../../../styles/utils'
-import SectionText from '../../../components/sectionText'
+import SectionText from '../../shared/sectionText'
 
 const Wrapper = styled.div`
   ${flex}

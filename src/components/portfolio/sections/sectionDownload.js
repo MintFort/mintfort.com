@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import { FaApple, FaWindows } from 'react-icons/fa'
 
-import SectionText from '../../../components/sectionText'
-import Divider from '../../../components/backgrounds/start'
+import SectionText from '../../shared/sectionText'
+import Divider from '../../backgrounds/start'
 import { phone, mobile, flex, rem, hover } from '../../../styles/utils'
 import { Paragraph } from '../../../styles'
 

@@ -6,9 +6,9 @@ import Fade from 'react-reveal/Fade'
 
 import { flex, phone, rem } from '../../../styles/utils'
 
-import SectionText from '../../../components/sectionText'
-import DividerStart from '../../../components/backgrounds/start'
-import LinesDivider from '../../../components/backgrounds/linesDivider'
+import SectionText from '../../shared/sectionText'
+import DividerStart from '../../backgrounds/start'
+import LinesDivider from '../../backgrounds/linesDivider'
 
 const Wrapper = styled.div`
   position: relative;
