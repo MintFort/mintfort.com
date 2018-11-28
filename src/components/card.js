@@ -1,28 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import GatsbyImg from 'gatsby-image'
 import Fade from 'react-reveal/Fade'
 
-import { SubHeader, Img } from 'library/index'
-import { rem, flex, phone, mobile } from 'library/utils'
+import { SubHeader } from '../styles'
+import { rem, flex, phone, mobile } from '../styles/utils'
 
 const back = {
-  1: 'blue',
-  2: 'gray',
-  3: 'blue'
+  0: 'blue',
+  1: 'gray',
+  2: 'blue'
 }
 
 const Wrapper = styled.div`
-  background: ${({ card, theme }) => card && theme[back[card]]};
+  background: ${({ cardId, theme }) => theme[back[cardId]]};
   margin: ${rem(30)};
   max-width: 600px;
   box-shadow: 0px 6px 10px 0px rgba(27,36,63,0.4);
+  flex: 1;
 
   ${mobile(css`
     margin: ${rem(10)} ${rem(4)};
   `)}
 
   ${phone(css`
+    width: 90%;
     margin: ${rem(10)} ${rem(20)};
   `)}
 `
@@ -39,22 +42,23 @@ const Text = styled.div`
   }
 `
 
-export const Card = ({ img, title, card }) => (
-  <Wrapper card={card}>
+export const Card = ({ img, title, cardId }) => (
+  <Wrapper cardId={cardId}>
     <Text>
       <Fade>
         <SubHeader
           style={{ margin: 0, padding: '0 30px' }}
-          color={card === 2 ? 'blue' : 'whiteFont'}
+          color={cardId === 1 ? 'blue' : 'whiteFont'}
         >
           {title}
         </SubHeader>
       </Fade>
     </Text>
     <Fade delay={200}>
-      <Img
+      <GatsbyImg
         alt={title}
-        file={img}
+        title={title}
+        fluid={img.fluid}
       />
     </Fade>
   </Wrapper>
@@ -62,6 +66,6 @@ export const Card = ({ img, title, card }) => (
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  card: PropTypes.number.isRequired
+  img: PropTypes.object.isRequired,
+  cardId: PropTypes.number.isRequired
 }

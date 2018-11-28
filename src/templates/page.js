@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql } from "gatsby"
 import styled, { css } from 'styled-components'
 
-import Layout from "components/layout"
-import { rem, phone } from 'library/utils'
-import { Header } from 'library/index'
+import Layout from "../components/layout"
+import { rem, phone } from '../styles/utils'
+import { Header } from '../styles'
 
 const Wrapper = styled.div`
   padding: ${({ theme }) => `calc(${theme.navHeight} * 1.2) ${rem(60)} ${rem(60)}`};
@@ -16,11 +16,11 @@ const Wrapper = styled.div`
   `)}
 `
 
-const Markdown = ({ location, data: { markdownRemark: md } }) => (
+const Markdown = ({ location, data: { page } }) => (
   <Layout location={location}>
     <Wrapper>
-      <Header>{md.frontmatter.title}</Header>
-      <div dangerouslySetInnerHTML={{ __html: md.html }} />
+      <Header>{page.name}</Header>
+      <div dangerouslySetInnerHTML={{ __html: page.content.md.html }} />
     </Wrapper>
   </Layout>
 )
@@ -34,15 +34,14 @@ Markdown.propTypes = {
 
 export default Markdown
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-      }
-      fields {
-        slug
+export const query = graphql`
+  query PAGE_TEMPLATE_QUERY ($slug: String!) {
+    page: contentfulMarkdownPage(slug: { eq: $slug }) {
+      name
+      content {
+        md: childMarkdownRemark {
+          html
+        }
       }
     }
   }

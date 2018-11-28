@@ -9,4 +9,4 @@ yarn-error.log
 
 # Enviroment
 .env.*
-deploy.js
+/scripts

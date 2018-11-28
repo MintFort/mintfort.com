@@ -3,7 +3,7 @@ import browserLang from 'browser-lang'
 import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 
-import { addLang } from '../utils/context/language'
+import { withLanguage } from '../utils/context/language'
 import SEO from '../utils/seo'
 
 export default class Redirect extends React.PureComponent {
@@ -12,7 +12,8 @@ export default class Redirect extends React.PureComponent {
     const { languages, pathname } = props.pageContext
 
     if (typeof window !== 'undefined') {
-      const lang = localStorage.getItem('lang') || browserLang({ languages, fallback: languages[0] })
+      const lang = localStorage.getItem('lang') ||
+        browserLang({ languages, fallback: languages[0] })
 
       localStorage.setItem('lang', lang)
       navigate(`/${lang}${pathname}`)
@@ -21,7 +22,7 @@ export default class Redirect extends React.PureComponent {
   render(){
     const { pathname } = this.props.pageContext
 
-    return addLang(SEO, { pathname })
+    return withLanguage(SEO)({ pathname })
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import endPageBackground from 'assets/svg/page_background_end.svg'
+import endPageBackground from '../../assets/svg/page_background_end.svg'
 
 const Background = ({ style }) => (
   <div style={{

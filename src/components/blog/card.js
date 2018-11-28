@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { addWindowWidth } from 'utils/context/windowWidth'
-import { screenBreak } from 'library/utils'
 
-import { flex, rem, phone, mobile, hover } from 'library/utils'
-import { SubHeader, Paragraph } from 'library/index'
+import { withWindowWidth } from '../../utils/context/windowWidth'
+import { flex, rem, phone, mobile, hover, screenBreak } from '../../styles/utils'
+import { SubHeader, Paragraph } from '../../styles'
 
 import Author from './author'
 import PostImage from './postImage'
@@ -100,4 +99,4 @@ Card.propTypes = {
   }).isRequired
 }
 
-export default props => addWindowWidth(Card, ...props)
+export default withWindowWidth(Card)

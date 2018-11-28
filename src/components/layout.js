@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 
-import Header from 'components/header'
-import Footer from 'components/footer'
-import SectionContact from 'components/sectionContact'
+import Header from './header'
+import Footer from './footer'
 
-import SEO from 'utils/seo'
-import { LanguageProvider, addLang } from 'utils/context/language'
+import SEO from '../utils/seo'
+import { LanguageProvider } from '../utils/context/language'
 
-import GlobalStyle, { theme } from 'library/global'
+import GlobalStyle, { theme } from '../styles/global'
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -20,12 +19,11 @@ const Layout = ({ children, location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <LanguageProvider location={location}>
-            {addLang(SEO, { pathname: location.pathname })}
-            {addLang(Header, { siteTitle: data.site.siteMetadata.title, location })}
+            {<SEO pathname={location.pathname} />}
+            {<Header siteTitle={data.site.siteMetadata.title} location={location} /> }
             <main>
               {children}
             </main>
-            <SectionContact />
             <Footer path={location.pathname}/>
           </LanguageProvider>
         </ThemeProvider>
@@ -42,7 +40,7 @@ Layout.propTypes = {
 export default Layout
 
 const query = graphql`
-  {
+  query LAYOUT_QUERY {
     site {
       siteMetadata {
         title
