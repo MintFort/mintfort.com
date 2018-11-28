@@ -3,13 +3,10 @@ import { StaticQuery, graphql, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { flex, rem, phone } from '../styles/utils'
-import { Button } from '../styles'
-import { withLanguage } from '../utils/context/language'
-
-import logo from '../assets/svg/logo_name.svg'
-import logoWhite from '../assets/svg/logo_name_white.svg'
-import logoMobile from '../assets/svg/logo.svg'
+import Logo from './logo'
+import { flex, rem, phone } from '../../styles/utils'
+import { Button } from '../../styles'
+import { withLanguage } from '../../utils/context/language'
 
 const Wrapper = styled.header`
   ${flex({ x: 'space-between', y: 'center' })}
@@ -55,32 +52,6 @@ const Nav = styled.nav`
   }
 `
 
-const Logo = styled.div`
-  background: url(${({ desktop, transparent }) => (
-    transparent ? desktop.white : desktop.black
-  )});
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  cursor: pointer;
-  width: 210px;
-  height: 40px;
-
-  ${phone(css`
-    background: url(${({ mobile }) => mobile});
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    width: 40px;
-    height: 40px;
-
-  `)}
-
-  transition: all .3s ease-in;
-`
-
 class Header extends Component {
   state = {
     transparent: true
@@ -115,8 +86,6 @@ class Header extends Component {
             <Logo
               onClick={() => navigate(`${language || ''}/`)}
               transparent={transparent}
-              desktop={{ black: logo, white: logoWhite }}
-              mobile={logoMobile}
             />
             <Nav>
               {nav.map(({ name, path, section }) => section === 'header' && (
@@ -143,7 +112,6 @@ class Header extends Component {
     )
   }
 }
-
 
 Header.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,
