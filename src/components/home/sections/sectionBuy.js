@@ -7,8 +7,7 @@ import Fade from 'react-reveal/Fade'
 import SectionText from '../../shared/sectionText'
 import DividerEnd from '../../backgrounds/end'
 
-import { withWindowWidth } from '../../../utils/context/windowWidth'
-import { flex, phone, mobile, rem, screenBreak } from '../../../styles/utils'
+import { flex, phone, mobile, rem } from '../../../styles/utils'
 
 const Wrapper = styled.div`
   position: relative;
@@ -52,22 +51,46 @@ const PhoneWrapper = styled.div`
     max-width: ${rem(280)};
   }
 `
-const Phone = ({ image } ) => (
+
+const Image = styled(GatsbyImg).attrs({
+  alt: 'Mintfort Crypto Phone',
+  title: 'Mintfort Crypto Phone'
+})`
+  max-width: 675px;
+
+  &.mobile {
+    display: none;
+  }
+
+  ${phone(css`
+    &.mobile {
+      display: block
+    }
+
+    &.desktop {
+      display: none;
+    }
+  `)}
+`
+
+const Phone = ({ images } ) => (
   <PhoneWrapper>
-    <GatsbyImg
-      style={{ maxWidth: 675 }}
-      alt='Mintfort Crypto Phone'
-      title='Mintfort Crypto Phone'
-      fluid={image.fluid}
+    <Image
+      className='desktop'
+      fluid={images[0].fluid}
+    />
+    <Image
+      className='mobile'
+      fluid={images[1].fluid}
     />
   </PhoneWrapper>
 )
 
 Phone.propTypes = {
-  image: PropTypes.object.isRequired
+  images: PropTypes.array.isRequired
 }
 
-const SectionBuy = ({ header, description, windowWidth, images }) => (
+const SectionBuy = ({ header, description, images }) => (
   <>
     <SectionText
       header={header}
@@ -81,10 +104,7 @@ const SectionBuy = ({ header, description, windowWidth, images }) => (
       <DividerEnd />
       <ImageWrapper>
         <Fade>
-          {windowWidth > screenBreak.phone ?
-            <Phone image={images[0]} /> :
-            <Phone image={images[1]} />
-          }
+          <Phone images={images} />
         </Fade>
       </ImageWrapper>
     </Wrapper>
@@ -94,8 +114,7 @@ const SectionBuy = ({ header, description, windowWidth, images }) => (
 SectionBuy.propTypes = {
   header: PropTypes.string.isRequired,
   description: PropTypes.object.isRequired,
-  windowWidth: PropTypes.number,
   images: PropTypes.array.isRequired
 }
 
-export default withWindowWidth(SectionBuy)
+export default SectionBuy
