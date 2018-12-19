@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Card from './card'
-import { WindowWidthProvider } from '../../utils/context/windowWidth'
 
 export const medium = ({ title, author, image, uniqueSlug, createdAt, virtuals: { subtitle } }) => {
   const mediumUrl = 'https://medium.com'
@@ -31,16 +30,14 @@ const Wrapper = styled.section`
 `
 
 const Blog = ({ posts }) => (
-  <WindowWidthProvider>
-    <Wrapper>
-      {posts.map(({ node }) => (
-        <Card
-          data={medium(node)}
-          key={node.id}
-        />
-      ))}
-    </Wrapper>
-  </WindowWidthProvider>
+  <Wrapper>
+    {posts.map(({ node }) => (
+      <Card
+        data={medium(node)}
+        key={node.id}
+      />
+    ))}
+  </Wrapper>
 )
 
 Blog.propTypes = {

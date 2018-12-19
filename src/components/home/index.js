@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { WindowWidthProvider } from '../../utils/context/windowWidth'
-
 import Hero from '../shared/hero'
 import { Imagine, Buy, Cards, Access, Boxes, Beta, News, Form } from './sections'
 
@@ -11,7 +9,7 @@ const Home = ({ data }) => {
   const { hero, form, cardsSection, boxSection } = data
 
   return (
-    <WindowWidthProvider>
+    <>
       <Hero
         {...hero}
         buttonText={form.buttonText}
@@ -26,7 +24,7 @@ const Home = ({ data }) => {
       <Beta {...portfolio} />
       <News {...news} />
       <Form {...form} />
-    </WindowWidthProvider>
+    </>
   )
 }
 

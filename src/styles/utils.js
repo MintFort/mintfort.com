@@ -4,7 +4,7 @@ import {
   transitions as _transitions
 } from 'polished'
 
-export const screenBreak = {
+const screenBreak = {
   mobile: 1000,
   phone: 650
 }

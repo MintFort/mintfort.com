@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { withWindowWidth } from '../../utils/context/windowWidth'
-import { flex, rem, phone, mobile, hover, screenBreak } from '../../styles/utils'
+import { flex, rem, phone, mobile, hover } from '../../styles/utils'
 import { SubHeader, Paragraph } from '../../styles'
 
 import Author from './author'
@@ -43,6 +42,22 @@ const Anchor = styled.div`
   cursor: pointer;
 `
 
+const ImagePosition = styled.div`
+  &.mobile {
+    display: none;
+  }
+
+  ${phone(css`
+    &.mobile {
+      display: block
+    }
+
+    &.desktop {
+      display: none;
+    }
+  `)}
+`
+
 const Image = ({ data }) => data.image && data.image.childImageSharp && (
   <PostImage
     title={data.title}
@@ -59,7 +74,7 @@ Image.propTypes = {
   }).isRequired
 }
 
-const Card = ({ data, windowWidth: winW }) => (
+const Card = ({ data }) => (
   <CardWrapper>
     <div className='content'>
       <Anchor onClick={() => window.location.href=data.url}>
@@ -70,7 +85,9 @@ const Card = ({ data, windowWidth: winW }) => (
         >
           {data.title}
         </SubHeader>
-        {winW <= screenBreak.phone && <Image data={data} />}
+        <ImagePosition className='mobile'>
+          <Image data={data} />
+        </ImagePosition>
         <Paragraph
           size={15}
           color='lightFont'
@@ -83,12 +100,13 @@ const Card = ({ data, windowWidth: winW }) => (
         createdAt={data.createdAt}
       />
     </div>
-    {winW > screenBreak.phone && <Image data={data} />}
+    <ImagePosition className='desktop'>
+      <Image data={data} />
+    </ImagePosition>
   </CardWrapper>
 )
 
 Card.propTypes = {
-  windowWidth: PropTypes.number,
   data: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -99,4 +117,4 @@ Card.propTypes = {
   }).isRequired
 }
 
-export default withWindowWidth(Card)
+export default Card
