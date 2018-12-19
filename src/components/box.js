@@ -4,9 +4,8 @@ import styled, { css } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import MtSvgLines from 'react-mt-svg-lines'
 
-import { withWindowWidth } from '../utils/context/windowWidth'
 import { Paragraph, Container } from '../styles'
-import { rem, phone, mobile, screenBreak } from '../styles/utils'
+import { rem, phone, mobile } from '../styles/utils'
 
 const border = color => `1px solid ${color}`
 
@@ -44,38 +43,27 @@ const Wrapper = styled.div`
   `)}
 `
 
-const Icon = ({ component, width }) => {
+const Icon = ({ component }) => {
   const name = component.replace(/ /g, "")
   const Component = require('./SVG/icons')[name]
 
   if (!Component) {
     const { Placeholder } = require('./SVG/icons')
-    return <Placeholder width={width}/>
+    return <Placeholder />
   }
 
-  return <Component width={width}/>
+  return <Component />
 }
 
 Icon.propTypes = {
-  component: PropTypes.string.isRequired,
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  component: PropTypes.string.isRequired
 }
 
-Icon.defaultProps = {
-  width: 80
-}
-
-const Box = ({ name, header, id, animate, windowWidth }) => (
+const Box = ({ name, header, id, animate }) => (
   <Wrapper id={id}>
     <Container style={{ flex: 3 }} centrate>
       <MtSvgLines animate={ animate } duration={ 2000 }>
-        <Icon
-          component={name}
-          width={windowWidth < screenBreak.phone ? 60 : 80}
-        />
+        <Icon component={name} />
       </MtSvgLines>
     </Container>
     <Container style={{ flex: 1 }} centrate>
@@ -92,8 +80,7 @@ Box.propTypes = {
   name: PropTypes.string.isRequired,
   header: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  animate: PropTypes.bool.isRequired,
-  windowWidth: PropTypes.number
+  animate: PropTypes.bool.isRequired
 }
 
-export default withWindowWidth(Box)
+export default Box
