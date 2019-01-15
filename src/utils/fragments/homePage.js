@@ -39,7 +39,7 @@ export const homePageFragment = graphql`
       ...Section
       images {
         fluid(maxWidth: 675) {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_noBase64
         }
       }
     }
@@ -55,7 +55,7 @@ export const homePageFragment = graphql`
         header
         image {
           fluid(maxWidth: 600) {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid_noBase64
           }
         }
       }

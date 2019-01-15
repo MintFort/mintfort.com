@@ -175,7 +175,7 @@ const query = graphql`
     logo: file(relativePath: { regex: "/mintfort_icon-512x512/"}) {
       childImageSharp {
         fluid(maxWidth: 512) {
-          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
