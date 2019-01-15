@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 
-export const PortfolioPage = graphql`
+export const portfolioPageFragment = graphql`
   fragment PortfolioPage on ContentfulPage {
     hero {
       ...Hero
