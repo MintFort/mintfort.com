@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 
-export const SEOMetadata = graphql`
+export const SEOMetadataFragment = graphql`
   fragment SEOMetadata on Site {
     meta: siteMetadata {
       title
@@ -13,7 +13,7 @@ export const SEOMetadata = graphql`
   }
 `
 
-export const MediumPost = graphql`
+export const mediumPostFragment = graphql`
   fragment MediumPost on MediumPost {
     id
     title

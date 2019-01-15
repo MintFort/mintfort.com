@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 
-export const Commons = graphql`
+export const heroFragment = graphql`
   fragment Hero on ContentfulHero {
     subHeader
     content {
@@ -12,7 +12,8 @@ export const Commons = graphql`
       }
     }
   }
-
+`
+export const sectionFragment = graphql`
   fragment Section on ContentfulSection {
     header
     description {
@@ -23,7 +24,7 @@ export const Commons = graphql`
   }
 `
 
-export const HomePage = graphql`
+export const homePageFragment = graphql`
   fragment HomePage on ContentfulPage {
     hero {
       ...Hero

@@ -13,7 +13,7 @@ exports.onCreateNode = async ({ node, store, cache, actions: { createNode } }) =
       store,
       cache,
       createNode,
-      createNodeId: id => id
+      createNodeId: id => `medium-img-${id}`
     })
 
     if (fileNode) {
