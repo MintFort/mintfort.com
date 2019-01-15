@@ -164,7 +164,7 @@ const query = graphql`
         }
         icon {
           fixed(width: 90) {
-            ...GatsbyContentfulFixed_tracedSVG
+            ...GatsbyContentfulFixed_noBase64
           }
         }
       }

@@ -14,7 +14,7 @@ export const portfolioPageFragment = graphql`
       ...Section
       images {
         fluid(maxWidth: 825) {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_noBase64
         }
       }
     }
@@ -25,7 +25,7 @@ export const portfolioPageFragment = graphql`
         link
         image {
           fluid(maxWidth: 540) {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid_noBase64
           }
         }
       }
