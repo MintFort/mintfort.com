@@ -5,6 +5,59 @@ import PropTypes from 'prop-types'
 
 import { withLanguage } from '../utils/context/language'
 
+const schemaOrgJSONLD = ({ logo, siteUrl }) => ({
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  name: "Mintfort",
+  legalName: "Petzka, Weber, Schuster GbR",
+  url: siteUrl,
+  logo: siteUrl + logo,
+  foundingDate: "2018",
+  founders: [
+    {
+      "@type": "Person",
+      name: "Moritz Schuster"
+    },
+    {
+      "@type": "Person",
+      name: "Philipp Petzka"
+    },
+    {
+      "@type": "Person",
+      name: "Oliver Weber"
+    }
+  ],
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Hildegard-Marcusson-Str. 23",
+      addressLocality: "Berlin",
+      addressRegion: "Berlin",
+      postalCode: "10317",
+      addressCountry: "Germany"
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Rm 1402, 14/F, Hip Kwan Commercial Bldg., 38 Pitt St.",
+      addressLocality: "Yau Ma Tei",
+      addressRegion: "Kowloon",
+      addressCountry: "HongKong"
+    }
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Contact",
+    email: "info@mintfort.com"
+  },
+  sameAs: [
+    "https://twitter.com/mintfort",
+    "https://github.com/MintFort",
+    "https://www.facebook.com/mintfortbank/",
+    "https://www.linkedin.com/company/mintfort/",
+    "https://angel.co/mintfort"
+  ]
+})
+
 const SEO = ({ language, pathname }) => (
   <StaticQuery
     query={query}
@@ -14,7 +67,7 @@ const SEO = ({ language, pathname }) => (
           title,
           description,
           siteUrl,
-          favicon,
+          logo,
           image,
           userTwitter
         }
@@ -24,11 +77,12 @@ const SEO = ({ language, pathname }) => (
         htmlAttributes={{ lang: language === 'en' ? "en-US" : 'zh' }}
         title={title + ' | Be Your Bank'}
       >
-        <link rel="shortcut icon" href={siteUrl + favicon}/>
-        <link rel="icon" href={siteUrl + favicon}/>
-
         <meta name="description" content={description} />
         <meta name="image" content={siteUrl + image} />
+
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgJSONLD({ logo, siteUrl }))}
+        </script>
 
         <meta property="og:locale" content={language === 'en' ? "en-US" : 'zh' } />
         <meta property="og:type" content="website" />

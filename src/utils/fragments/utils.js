@@ -6,7 +6,7 @@ export const SEOMetadataFragment = graphql`
       title
       description
       siteUrl
-      favicon
+      logo
       image
       userTwitter
     }
